@@ -24,6 +24,52 @@ namespace Study_Abroad_Management
             //this.WindowState = FormWindowState.Maximized;
         }
 
-       
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            //if (this.WindowState == FormWindowState.Normal)
+            //    this.CenterToScreen();
+        }
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void signup_button_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void textBox2_TextChanged(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+
+        //}
+
+        //private void username_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+
     }
 }
