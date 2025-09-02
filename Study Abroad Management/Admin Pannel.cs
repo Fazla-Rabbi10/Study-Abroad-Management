@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace Study_Abroad_Management
 {
-    public partial class Form1 : Form
+    public partial class Admin_Pannel : Form
     {
-        public Form1()
+        public Admin_Pannel()
         {
             InitializeComponent();
+        }
+
+        private void Admin_Pannel_Load(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+                this.CenterToScreen();
+            //this.WindowState = FormWindowState.Maximized;
         }
     }
 }
