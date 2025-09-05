@@ -93,6 +93,9 @@
     <EmbeddedResource Include="Admin Pannel.resx">
       <DependentUpon>Admin Pannel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin_REG_Form.resx">
+      <DependentUpon>Admin_REG_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Log_In_Form.resx">
       <DependentUpon>Log_In_Form.cs</DependentUpon>
     </EmbeddedResource>

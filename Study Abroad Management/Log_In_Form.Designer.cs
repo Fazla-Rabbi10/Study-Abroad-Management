@@ -81,6 +81,7 @@
             this.Lof_in_button.TabIndex = 4;
             this.Lof_in_button.Text = "Log in";
             this.Lof_in_button.UseVisualStyleBackColor = false;
+            this.Lof_in_button.Click += new System.EventHandler(this.Lof_in_button_Click);
             // 
             // Sign_Up_button
             // 
@@ -182,7 +183,6 @@
             this.Name = "Log_In_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log_In_Form";
-            this.Load += new System.EventHandler(this.Log_In_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
