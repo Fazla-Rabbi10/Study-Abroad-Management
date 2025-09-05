@@ -52,19 +52,49 @@
     <Compile Include="Admin Pannel.Designer.cs">
       <DependentUpon>Admin Pannel.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogIn.cs">
+    <Compile Include="Admin_REG_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogIn.Designer.cs">
-      <DependentUpon>LogIn.cs</DependentUpon>
+    <Compile Include="Admin_REG_Form.Designer.cs">
+      <DependentUpon>Admin_REG_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log_In_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log_In_Form.Designer.cs">
+      <DependentUpon>Log_In_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Studen_REG_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Studen_REG_Form.Designer.cs">
+      <DependentUpon>Studen_REG_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="University_Representative.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="University_Representative.Designer.cs">
+      <DependentUpon>University_Representative.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UR_REG_Formcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UR_REG_Formcs.Designer.cs">
+      <DependentUpon>UR_REG_Formcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_Student.Designer.cs">
+      <DependentUpon>User_Student.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin Pannel.resx">
       <DependentUpon>Admin Pannel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogIn.resx">
-      <DependentUpon>LogIn.cs</DependentUpon>
+    <EmbeddedResource Include="Log_In_Form.resx">
+      <DependentUpon>Log_In_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
