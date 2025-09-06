@@ -108,7 +108,6 @@ namespace Study_Abroad_Management
                 }
             }
 
-            con.Close();
         }
     }
 }

@@ -122,6 +122,7 @@ namespace Study_Abroad_Management
                 MessageBox.Show("Connection Failed");
             }
             con.Close();
+            }
 
         }
 
