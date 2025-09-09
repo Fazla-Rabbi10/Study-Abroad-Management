@@ -28,12 +28,207 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.student_menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.UserStudentbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.User_Std_backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.User_Std_exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.User_StudentclearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Studentlabel = new System.Windows.Forms.Label();
+            this.StudentIDlabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.UserSTD_label = new System.Windows.Forms.Label();
+            this.user_Studnet_search_textBox = new System.Windows.Forms.TextBox();
+            this.Student_Show_button = new System.Windows.Forms.Button();
+            this.student_apply_button = new System.Windows.Forms.Button();
+            this.applyINFO_button = new System.Windows.Forms.Button();
+            this.for_apply_dataGridView = new System.Windows.Forms.DataGridView();
+            this.student_menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.for_apply_dataGridView)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // student_menuStrip1
+            // 
+            this.student_menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.student_menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.UserStudentbackToolStripMenuItem});
+            this.student_menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.student_menuStrip1.Name = "student_menuStrip1";
+            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 28);
+            this.student_menuStrip1.TabIndex = 45;
+            this.student_menuStrip1.Text = "menuStrip1";
+            // 
+            // UserStudentbackToolStripMenuItem
+            // 
+            this.UserStudentbackToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.User_Std_backToolStripMenuItem,
+            this.User_Std_exitToolStripMenuItem,
+            this.User_StudentclearToolStripMenuItem});
+            this.UserStudentbackToolStripMenuItem.Name = "UserStudentbackToolStripMenuItem";
+            this.UserStudentbackToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.UserStudentbackToolStripMenuItem.Text = "View";
+            // 
+            // User_Std_backToolStripMenuItem
+            // 
+            this.User_Std_backToolStripMenuItem.Name = "User_Std_backToolStripMenuItem";
+            this.User_Std_backToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
+            this.User_Std_backToolStripMenuItem.Text = "Back";
+            this.User_Std_backToolStripMenuItem.Click += new System.EventHandler(this.User_Std_backToolStripMenuItem_Click);
+            // 
+            // User_Std_exitToolStripMenuItem
+            // 
+            this.User_Std_exitToolStripMenuItem.Name = "User_Std_exitToolStripMenuItem";
+            this.User_Std_exitToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
+            this.User_Std_exitToolStripMenuItem.Text = "Exit";
+            this.User_Std_exitToolStripMenuItem.Click += new System.EventHandler(this.User_Std_exitToolStripMenuItem_Click);
+            // 
+            // User_StudentclearToolStripMenuItem
+            // 
+            this.User_StudentclearToolStripMenuItem.Name = "User_StudentclearToolStripMenuItem";
+            this.User_StudentclearToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
+            this.User_StudentclearToolStripMenuItem.Text = "Clear";
+            this.User_StudentclearToolStripMenuItem.Click += new System.EventHandler(this.User_StudentclearToolStripMenuItem_Click);
+            // 
+            // Studentlabel
+            // 
+            this.Studentlabel.AutoSize = true;
+            this.Studentlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Studentlabel.Location = new System.Drawing.Point(123, 3);
+            this.Studentlabel.Name = "Studentlabel";
+            this.Studentlabel.Size = new System.Drawing.Size(70, 25);
+            this.Studentlabel.TabIndex = 48;
+            this.Studentlabel.Text = "label1";
+            // 
+            // StudentIDlabel
+            // 
+            this.StudentIDlabel.AutoSize = true;
+            this.StudentIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentIDlabel.Location = new System.Drawing.Point(952, 3);
+            this.StudentIDlabel.Name = "StudentIDlabel";
+            this.StudentIDlabel.Size = new System.Drawing.Size(70, 25);
+            this.StudentIDlabel.TabIndex = 49;
+            this.StudentIDlabel.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(340, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(478, 46);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Abroad Higher Study Solution";
+            // 
+            // UserSTD_label
+            // 
+            this.UserSTD_label.AutoSize = true;
+            this.UserSTD_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserSTD_label.Location = new System.Drawing.Point(856, 61);
+            this.UserSTD_label.Name = "UserSTD_label";
+            this.UserSTD_label.Size = new System.Drawing.Size(94, 25);
+            this.UserSTD_label.TabIndex = 51;
+            this.UserSTD_label.Text = "Search :";
+            // 
+            // user_Studnet_search_textBox
+            // 
+            this.user_Studnet_search_textBox.Location = new System.Drawing.Point(956, 56);
+            this.user_Studnet_search_textBox.Multiline = true;
+            this.user_Studnet_search_textBox.Name = "user_Studnet_search_textBox";
+            this.user_Studnet_search_textBox.Size = new System.Drawing.Size(146, 30);
+            this.user_Studnet_search_textBox.TabIndex = 52;
+            this.user_Studnet_search_textBox.TextChanged += new System.EventHandler(this.user_Studnet_search_textBox_TextChanged);
+            // 
+            // Student_Show_button
+            // 
+            this.Student_Show_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Student_Show_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Student_Show_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Student_Show_button.Location = new System.Drawing.Point(36, 244);
+            this.Student_Show_button.Name = "Student_Show_button";
+            this.Student_Show_button.Size = new System.Drawing.Size(229, 66);
+            this.Student_Show_button.TabIndex = 53;
+            this.Student_Show_button.Text = "Show Info";
+            this.Student_Show_button.UseVisualStyleBackColor = true;
+            this.Student_Show_button.Click += new System.EventHandler(this.Student_Show_button_Click);
+            // 
+            // student_apply_button
+            // 
+            this.student_apply_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.student_apply_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.student_apply_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.student_apply_button.Location = new System.Drawing.Point(36, 373);
+            this.student_apply_button.Name = "student_apply_button";
+            this.student_apply_button.Size = new System.Drawing.Size(229, 66);
+            this.student_apply_button.TabIndex = 54;
+            this.student_apply_button.Text = "Apply";
+            this.student_apply_button.UseVisualStyleBackColor = true;
+            this.student_apply_button.Click += new System.EventHandler(this.student_apply_button_Click);
+            // 
+            // applyINFO_button
+            // 
+            this.applyINFO_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.applyINFO_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.applyINFO_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.applyINFO_button.Location = new System.Drawing.Point(36, 505);
+            this.applyINFO_button.Name = "applyINFO_button";
+            this.applyINFO_button.Size = new System.Drawing.Size(229, 66);
+            this.applyINFO_button.TabIndex = 55;
+            this.applyINFO_button.Text = "Apply Info";
+            this.applyINFO_button.UseVisualStyleBackColor = true;
+            this.applyINFO_button.Click += new System.EventHandler(this.applyINFO_button_Click);
+            // 
+            // for_apply_dataGridView
+            // 
+            this.for_apply_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.for_apply_dataGridView.Location = new System.Drawing.Point(320, 123);
+            this.for_apply_dataGridView.Name = "for_apply_dataGridView";
+            this.for_apply_dataGridView.RowHeadersWidth = 51;
+            this.for_apply_dataGridView.RowTemplate.Height = 24;
+            this.for_apply_dataGridView.Size = new System.Drawing.Size(804, 579);
+            this.for_apply_dataGridView.TabIndex = 56;
+            this.for_apply_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.for_apply_dataGridView_CellClick);
+            // 
+            // User_Student
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1152, 726);
+            this.Controls.Add(this.for_apply_dataGridView);
+            this.Controls.Add(this.applyINFO_button);
+            this.Controls.Add(this.student_apply_button);
+            this.Controls.Add(this.Student_Show_button);
+            this.Controls.Add(this.user_Studnet_search_textBox);
+            this.Controls.Add(this.UserSTD_label);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.StudentIDlabel);
+            this.Controls.Add(this.Studentlabel);
+            this.Controls.Add(this.student_menuStrip1);
+            this.Name = "User_Student";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_Student";
+            this.Load += new System.EventHandler(this.User_Student_Load);
+            this.student_menuStrip1.ResumeLayout(false);
+            this.student_menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.for_apply_dataGridView)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.MenuStrip student_menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem UserStudentbackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem User_Std_backToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem User_Std_exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem User_StudentclearToolStripMenuItem;
+        private System.Windows.Forms.Label Studentlabel;
+        private System.Windows.Forms.Label StudentIDlabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label UserSTD_label;
+        private System.Windows.Forms.TextBox user_Studnet_search_textBox;
+        private System.Windows.Forms.Button Student_Show_button;
+        private System.Windows.Forms.Button student_apply_button;
+        private System.Windows.Forms.Button applyINFO_button;
+        private System.Windows.Forms.DataGridView for_apply_dataGridView;
     }
 }

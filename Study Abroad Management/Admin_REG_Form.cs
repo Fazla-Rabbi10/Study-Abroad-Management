@@ -33,7 +33,11 @@ namespace Study_Abroad_Management
                 !string.IsNullOrWhiteSpace(ad_role_comboBox.Text))
             {
                 // 2) Open connection
-                con.Open();
+                if (con.State != ConnectionState.Open) 
+                {
+                    con.Open();
+                }
+                    
                 if (con.State == ConnectionState.Open)
                 {
                     // 3) Begin transaction
@@ -109,20 +113,24 @@ namespace Study_Abroad_Management
 
         private void Admin_backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            con.Open();
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
             if (con.State == ConnectionState.Open)
             {
                 Log_In_Form log = new Log_In_Form();
                 log.Show();
                 this.Hide();
-
+                
             }
             else 
             {
                 MessageBox.Show("Connection Failed");
+                
+                con.Close();
             }
-            con.Close();
-            }
+          
 
         }
 
@@ -130,7 +138,10 @@ namespace Study_Abroad_Management
         {
             
             DialogResult drr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            con.Open();
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
             if (con.State == ConnectionState.Open)
             {
                 if (drr == DialogResult.Yes)
@@ -142,8 +153,39 @@ namespace Study_Abroad_Management
             else
             {
                 MessageBox.Show("Connection Failed");
+                con.Close();
             }
-            con.Close();
+            
+        }
+
+        private void AdminclearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open) 
+            {
+                this.ad_name_textBox.Clear();
+                this.Ad_Address_textBox.Clear();
+                this.ad_email_textBox.Clear();
+                this.ad_count_textBox.Clear();
+                this.ad_gender_comboBox.Items.Clear();
+                this.contact_textBox.Clear();
+                this.Ad_pass_textBox.Clear();
+                this.ad_role_comboBox.Items.Clear();
+                this.ad_name_textBox.Focus();
+                this.ad_role_comboBox.Items.Add("admin");
+                this.ad_gender_comboBox.Items.Add("Male");
+                this.ad_gender_comboBox.Items.Add("Female");
+
+
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
+            }
         }
 
 

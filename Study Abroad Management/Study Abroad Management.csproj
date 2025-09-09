@@ -58,6 +58,7 @@
     <Compile Include="Admin_REG_Form.Designer.cs">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalData.cs" />
     <Compile Include="Log_In_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +67,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student_Application_Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student_Application_Status.Designer.cs">
+      <DependentUpon>Student_Application_Status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Studen_REG_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +115,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Student_Application_Status.resx">
+      <DependentUpon>Student_Application_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Studen_REG_Form.resx">
+      <DependentUpon>Studen_REG_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UR_REG_Formcs.resx">
+      <DependentUpon>UR_REG_Formcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Student.resx">
+      <DependentUpon>User_Student.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

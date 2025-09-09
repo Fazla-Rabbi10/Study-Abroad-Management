@@ -47,9 +47,10 @@
             this.ad_role_comboBox = new System.Windows.Forms.ComboBox();
             this.ad_gender_comboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdminbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Admin_backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Admin_exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdminclearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,21 +215,22 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.backToolStripMenuItem});
+            this.AdminbackToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1152, 28);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // backToolStripMenuItem
+            // AdminbackToolStripMenuItem
             // 
-            this.backToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AdminbackToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Admin_backToolStripMenuItem,
-            this.Admin_exitToolStripMenuItem});
-            this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.backToolStripMenuItem.Text = "View";
+            this.Admin_exitToolStripMenuItem,
+            this.AdminclearToolStripMenuItem});
+            this.AdminbackToolStripMenuItem.Name = "AdminbackToolStripMenuItem";
+            this.AdminbackToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.AdminbackToolStripMenuItem.Text = "View";
             // 
             // Admin_backToolStripMenuItem
             // 
@@ -243,6 +245,13 @@
             this.Admin_exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.Admin_exitToolStripMenuItem.Text = "Exit";
             this.Admin_exitToolStripMenuItem.Click += new System.EventHandler(this.Admin_exitToolStripMenuItem_Click);
+            // 
+            // AdminclearToolStripMenuItem
+            // 
+            this.AdminclearToolStripMenuItem.Name = "AdminclearToolStripMenuItem";
+            this.AdminclearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AdminclearToolStripMenuItem.Text = "Clear";
+            this.AdminclearToolStripMenuItem.Click += new System.EventHandler(this.AdminclearToolStripMenuItem_Click);
             // 
             // Admin_REG_Form
             // 
@@ -270,6 +279,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin_REG_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_REG_Form";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -299,8 +309,9 @@
         private System.Windows.Forms.ComboBox ad_role_comboBox;
         private System.Windows.Forms.ComboBox ad_gender_comboBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AdminbackToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Admin_backToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Admin_exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AdminclearToolStripMenuItem;
     }
 }

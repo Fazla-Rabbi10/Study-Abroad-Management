@@ -38,18 +38,19 @@
             this.Student_button = new System.Windows.Forms.Button();
             this.LG_ID_textBox = new System.Windows.Forms.TextBox();
             this.Lg_Password_textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Login_Exit_button = new System.Windows.Forms.Button();
+            this.LogIN_Clear_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(280, 37);
+            this.label1.Location = new System.Drawing.Point(216, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(550, 46);
+            this.label1.Size = new System.Drawing.Size(662, 46);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome To Study Abroad Solution";
+            this.label1.Text = "Welcome To Abroad Higher Study Solution";
             // 
             // ID_label_login
             // 
@@ -75,7 +76,7 @@
             // 
             this.Lof_in_button.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Lof_in_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lof_in_button.Location = new System.Drawing.Point(500, 335);
+            this.Lof_in_button.Location = new System.Drawing.Point(522, 336);
             this.Lof_in_button.Name = "Lof_in_button";
             this.Lof_in_button.Size = new System.Drawing.Size(75, 41);
             this.Lof_in_button.TabIndex = 4;
@@ -87,7 +88,7 @@
             // 
             this.Sign_Up_button.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Sign_Up_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sign_Up_button.Location = new System.Drawing.Point(603, 335);
+            this.Sign_Up_button.Location = new System.Drawing.Point(636, 336);
             this.Sign_Up_button.Name = "Sign_Up_button";
             this.Sign_Up_button.Size = new System.Drawing.Size(89, 41);
             this.Sign_Up_button.TabIndex = 5;
@@ -100,7 +101,7 @@
             this.UR_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.UR_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UR_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UR_button.Location = new System.Drawing.Point(448, 565);
+            this.UR_button.Location = new System.Drawing.Point(454, 564);
             this.UR_button.Name = "UR_button";
             this.UR_button.Size = new System.Drawing.Size(277, 43);
             this.UR_button.TabIndex = 6;
@@ -151,25 +152,38 @@
             this.Lg_Password_textBox2.Size = new System.Drawing.Size(160, 22);
             this.Lg_Password_textBox2.TabIndex = 10;
             // 
-            // button1
+            // Login_Exit_button
             // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(976, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 31);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Login_Exit_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Login_Exit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Login_Exit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Login_Exit_button.Location = new System.Drawing.Point(976, 46);
+            this.Login_Exit_button.Name = "Login_Exit_button";
+            this.Login_Exit_button.Size = new System.Drawing.Size(82, 31);
+            this.Login_Exit_button.TabIndex = 11;
+            this.Login_Exit_button.Text = "Exit";
+            this.Login_Exit_button.UseVisualStyleBackColor = true;
+            this.Login_Exit_button.Click += new System.EventHandler(this.Login_Exit_button_Click);
+            // 
+            // LogIN_Clear_button
+            // 
+            this.LogIN_Clear_button.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.LogIN_Clear_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogIN_Clear_button.Location = new System.Drawing.Point(416, 337);
+            this.LogIN_Clear_button.Name = "LogIN_Clear_button";
+            this.LogIN_Clear_button.Size = new System.Drawing.Size(75, 40);
+            this.LogIN_Clear_button.TabIndex = 12;
+            this.LogIN_Clear_button.Text = "Clear";
+            this.LogIN_Clear_button.UseVisualStyleBackColor = false;
+            this.LogIN_Clear_button.Click += new System.EventHandler(this.LogIN_Clear_button_Click);
             // 
             // Log_In_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 726);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LogIN_Clear_button);
+            this.Controls.Add(this.Login_Exit_button);
             this.Controls.Add(this.Lg_Password_textBox2);
             this.Controls.Add(this.LG_ID_textBox);
             this.Controls.Add(this.Student_button);
@@ -200,6 +214,7 @@
         private System.Windows.Forms.Button Student_button;
         private System.Windows.Forms.TextBox LG_ID_textBox;
         private System.Windows.Forms.TextBox Lg_Password_textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Login_Exit_button;
+        private System.Windows.Forms.Button LogIN_Clear_button;
     }
 }
