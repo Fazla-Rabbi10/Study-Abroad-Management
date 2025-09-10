@@ -58,6 +58,12 @@
     <Compile Include="Admin_REG_Form.Designer.cs">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Application Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application Management.Designer.cs">
+      <DependentUpon>Application Management.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="Log_In_Form.cs">
       <SubType>Form</SubType>
@@ -91,6 +97,12 @@
     <Compile Include="UR_REG_Formcs.Designer.cs">
       <DependentUpon>UR_REG_Formcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management.Designer.cs">
+      <DependentUpon>User Management.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Student.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_REG_Form.resx">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application Management.resx">
+      <DependentUpon>Application Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log_In_Form.resx">
       <DependentUpon>Log_In_Form.cs</DependentUpon>
@@ -123,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UR_REG_Formcs.resx">
       <DependentUpon>UR_REG_Formcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management.resx">
+      <DependentUpon>User Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Student.resx">
       <DependentUpon>User_Student.cs</DependentUpon>
