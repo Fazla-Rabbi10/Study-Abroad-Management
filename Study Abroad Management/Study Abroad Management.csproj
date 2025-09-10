@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Management.Designer.cs">
+      <DependentUpon>Admin Management.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin Pannel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,12 +63,6 @@
     </Compile>
     <Compile Include="Admin_REG_Form.Designer.cs">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Application Management.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Application Management.Designer.cs">
-      <DependentUpon>Application Management.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="Log_In_Form.cs">
@@ -91,6 +91,12 @@
     <Compile Include="University_Representative.Designer.cs">
       <DependentUpon>University_Representative.cs</DependentUpon>
     </Compile>
+    <Compile Include="UR Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UR Management.Designer.cs">
+      <DependentUpon>UR Management.cs</DependentUpon>
+    </Compile>
     <Compile Include="UR_REG_Formcs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,14 +115,14 @@
     <Compile Include="User_Student.Designer.cs">
       <DependentUpon>User_Student.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin Management.resx">
+      <DependentUpon>Admin Management.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin Pannel.resx">
       <DependentUpon>Admin Pannel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_REG_Form.resx">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Application Management.resx">
-      <DependentUpon>Application Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log_In_Form.resx">
       <DependentUpon>Log_In_Form.cs</DependentUpon>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Studen_REG_Form.resx">
       <DependentUpon>Studen_REG_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UR Management.resx">
+      <DependentUpon>UR Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UR_REG_Formcs.resx">
       <DependentUpon>UR_REG_Formcs.cs</DependentUpon>

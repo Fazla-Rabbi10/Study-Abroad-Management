@@ -36,7 +36,6 @@
             this.admn_mng = new System.Windows.Forms.Button();
             this.ur_mng = new System.Windows.Forms.Button();
             this.usr_mng = new System.Windows.Forms.Button();
-            this.application_mng = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.admin_buttoncombo.SuspendLayout();
@@ -54,7 +53,6 @@
             // 
             // admin_buttoncombo
             // 
-            this.admin_buttoncombo.Controls.Add(this.application_mng);
             this.admin_buttoncombo.Controls.Add(this.usr_mng);
             this.admin_buttoncombo.Controls.Add(this.ur_mng);
             this.admin_buttoncombo.Controls.Add(this.admn_mng);
@@ -93,6 +91,7 @@
             this.admn_mng.TabIndex = 0;
             this.admn_mng.Text = "Admin Management";
             this.admn_mng.UseVisualStyleBackColor = true;
+            this.admn_mng.Click += new System.EventHandler(this.admn_mng_Click);
             // 
             // ur_mng
             // 
@@ -103,6 +102,7 @@
             this.ur_mng.TabIndex = 1;
             this.ur_mng.Text = "UR Management";
             this.ur_mng.UseVisualStyleBackColor = true;
+            this.ur_mng.Click += new System.EventHandler(this.ur_mng_Click);
             // 
             // usr_mng
             // 
@@ -114,17 +114,6 @@
             this.usr_mng.Text = "User Management";
             this.usr_mng.UseVisualStyleBackColor = true;
             this.usr_mng.Click += new System.EventHandler(this.usr_mng_Click);
-            // 
-            // application_mng
-            // 
-            this.application_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.application_mng.Location = new System.Drawing.Point(4, 354);
-            this.application_mng.Name = "application_mng";
-            this.application_mng.Size = new System.Drawing.Size(410, 70);
-            this.application_mng.TabIndex = 3;
-            this.application_mng.Text = "Application Management";
-            this.application_mng.UseVisualStyleBackColor = true;
-            this.application_mng.Click += new System.EventHandler(this.application_mng_Click);
             // 
             // pictureBox1
             // 
@@ -163,7 +152,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel admin_buttoncombo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button application_mng;
         private System.Windows.Forms.Button usr_mng;
         private System.Windows.Forms.Button ur_mng;
         private System.Windows.Forms.Button admn_mng;

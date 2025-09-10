@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace Study_Abroad_Management
 {
-    public partial class Application_Management : Form
+    public partial class Admin_Management : Form
     {
-        public Application_Management()
+        public Admin_Management()
         {
             InitializeComponent();
         }
 
-        private void Application_Management_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
 
         private void back_Click(object sender, EventArgs e)
         {
-            Admin_Pannel a=new Admin_Pannel();
-            a.Show();
+            Admin_Pannel ad=new Admin_Pannel();
+            ad.Show();
             this.Hide();
         }
     }

@@ -28,18 +28,24 @@ namespace Study_Abroad_Management
         {
 
         }
-
-        private void application_mng_Click(object sender, EventArgs e)
-        {
-            Application_Management ap=new Application_Management();
-            ap.Show();
-            this.Hide();
-        }
-
-        private void usr_mng_Click(object sender, EventArgs e)
+               private void usr_mng_Click(object sender, EventArgs e)
         {
             User_Management ur=new User_Management();
             ur.Show();
+            this.Hide();
+        }
+
+        private void ur_mng_Click(object sender, EventArgs e)
+        {
+            UR_Management ur=new UR_Management();
+            ur.Show();
+            this.Hide();
+        }
+
+        private void admn_mng_Click(object sender, EventArgs e)
+        {
+            Admin_Management a1=new Admin_Management();
+            a1.Show();
             this.Hide();
         }
     }
