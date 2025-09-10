@@ -28,5 +28,12 @@ namespace Study_Abroad_Management
             ad.Show();
             this.Hide();
         }
+
+        private void AddAdminbutton_Click(object sender, EventArgs e)
+        {
+            Admin_REG_Form arf = new Admin_REG_Form();
+            arf.Show();
+            this.Hide();
+        }
     }
 }

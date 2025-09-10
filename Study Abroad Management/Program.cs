@@ -17,7 +17,7 @@ namespace Study_Abroad_Management
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Log_In_Form());
-             Application.Run(new Admin_Pannel());
+             Application.Run(new Student_Application_Status());
         }
     }
 }

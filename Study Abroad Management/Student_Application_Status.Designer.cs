@@ -33,11 +33,9 @@
             this.aspp_StudentIDlabel = new System.Windows.Forms.Label();
             this.app_Student_namelabel = new System.Windows.Forms.Label();
             this.student_menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.apli_status_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.app_stat_Std_backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.app_stat_Std_exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Closebutton2 = new System.Windows.Forms.Button();
+            this.refreshbutton1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.apply_status_dataGridView)).BeginInit();
-            this.student_menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // apply_status_dataGridView
@@ -50,6 +48,7 @@
             this.apply_status_dataGridView.ReadOnly = true;
             this.apply_status_dataGridView.RowHeadersWidth = 51;
             this.apply_status_dataGridView.RowTemplate.Height = 24;
+            this.apply_status_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.apply_status_dataGridView.Size = new System.Drawing.Size(1152, 579);
             this.apply_status_dataGridView.TabIndex = 66;
             // 
@@ -86,40 +85,47 @@
             // student_menuStrip1
             // 
             this.student_menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.student_menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.apli_status_ToolStripMenuItem});
             this.student_menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.student_menuStrip1.Name = "student_menuStrip1";
-            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 28);
+            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 30);
             this.student_menuStrip1.TabIndex = 57;
             this.student_menuStrip1.Text = "menuStrip1";
             // 
-            // apli_status_ToolStripMenuItem
+            // Closebutton2
             // 
-            this.apli_status_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.app_stat_Std_backToolStripMenuItem,
-            this.app_stat_Std_exitToolStripMenuItem});
-            this.apli_status_ToolStripMenuItem.Name = "apli_status_ToolStripMenuItem";
-            this.apli_status_ToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.apli_status_ToolStripMenuItem.Text = "View";
+            this.Closebutton2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Closebutton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Closebutton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Closebutton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Closebutton2.Location = new System.Drawing.Point(0, 3);
+            this.Closebutton2.Name = "Closebutton2";
+            this.Closebutton2.Size = new System.Drawing.Size(79, 27);
+            this.Closebutton2.TabIndex = 68;
+            this.Closebutton2.Text = "Close";
+            this.Closebutton2.UseVisualStyleBackColor = false;
+            this.Closebutton2.Click += new System.EventHandler(this.Closebutton2_Click);
             // 
-            // app_stat_Std_backToolStripMenuItem
+            // refreshbutton1
             // 
-            this.app_stat_Std_backToolStripMenuItem.Name = "app_stat_Std_backToolStripMenuItem";
-            this.app_stat_Std_backToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.app_stat_Std_backToolStripMenuItem.Text = "Back";
-            // 
-            // app_stat_Std_exitToolStripMenuItem
-            // 
-            this.app_stat_Std_exitToolStripMenuItem.Name = "app_stat_Std_exitToolStripMenuItem";
-            this.app_stat_Std_exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.app_stat_Std_exitToolStripMenuItem.Text = "Exit";
+            this.refreshbutton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.refreshbutton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.refreshbutton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshbutton1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.refreshbutton1.Location = new System.Drawing.Point(979, 57);
+            this.refreshbutton1.Name = "refreshbutton1";
+            this.refreshbutton1.Size = new System.Drawing.Size(108, 29);
+            this.refreshbutton1.TabIndex = 69;
+            this.refreshbutton1.Text = "Refresh";
+            this.refreshbutton1.UseVisualStyleBackColor = false;
+            this.refreshbutton1.Click += new System.EventHandler(this.refreshbutton1_Click);
             // 
             // Student_Application_Status
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 726);
+            this.Controls.Add(this.refreshbutton1);
+            this.Controls.Add(this.Closebutton2);
             this.Controls.Add(this.apply_status_dataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.aspp_StudentIDlabel);
@@ -129,8 +135,6 @@
             this.Text = "Student_Application_Status";
             this.Load += new System.EventHandler(this.Student_Application_Status_Load);
             ((System.ComponentModel.ISupportInitialize)(this.apply_status_dataGridView)).EndInit();
-            this.student_menuStrip1.ResumeLayout(false);
-            this.student_menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,8 +147,7 @@
         private System.Windows.Forms.Label aspp_StudentIDlabel;
         private System.Windows.Forms.Label app_Student_namelabel;
         private System.Windows.Forms.MenuStrip student_menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem apli_status_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem app_stat_Std_backToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem app_stat_Std_exitToolStripMenuItem;
+        private System.Windows.Forms.Button Closebutton2;
+        private System.Windows.Forms.Button refreshbutton1;
     }
 }

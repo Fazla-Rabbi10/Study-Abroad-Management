@@ -30,7 +30,7 @@ namespace Study_Abroad_Management
                 !string.IsNullOrWhiteSpace(ad_gender_comboBox.Text) &&
                 !string.IsNullOrWhiteSpace(contact_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(Ad_pass_textBox.Text) &&
-                !string.IsNullOrWhiteSpace(ad_role_comboBox.Text))
+                )
             {
                 // 2) Open connection
                 if (con.State != ConnectionState.Open) 
@@ -63,7 +63,7 @@ namespace Study_Abroad_Management
                         // Columns: ID, Name, Role, Password, Status(=0)
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
-                            "VALUES (" + newId + ",'" + ad_name_textBox.Text + "','" + ad_role_comboBox.Text + "','" + Ad_pass_textBox.Text + "', 0);";
+                            "VALUES (" + newId + ",'" + ad_name_textBox.Text + "','admin','" + Ad_pass_textBox.Text + "', 0);";
 
                         SqlCommand cmdLogin = new SqlCommand(insertLogin, con, tx);
                         int resultLogin = cmdLogin.ExecuteNonQuery();
@@ -173,9 +173,9 @@ namespace Study_Abroad_Management
                 this.ad_gender_comboBox.Items.Clear();
                 this.contact_textBox.Clear();
                 this.Ad_pass_textBox.Clear();
-                this.ad_role_comboBox.Items.Clear();
+                
                 this.ad_name_textBox.Focus();
-                this.ad_role_comboBox.Items.Add("admin");
+               
                 this.ad_gender_comboBox.Items.Add("Male");
                 this.ad_gender_comboBox.Items.Add("Female");
 

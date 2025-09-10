@@ -27,6 +27,20 @@ namespace Study_Abroad_Management
         string Intake;
         string ApplicationDeadline;
         string StudyMode;
+        public string courseName { get { return CourseName; } }
+        public string courseCode { get { return CourseCode; } }
+        public string universityName { get { return UniversityName; } }
+        public string country { get { return Country; } }
+        public string courseDuration { get { return CourseDuration; } }
+        public string degreeType { get { return DegreeType; } }
+        public string ielts { get { return IELTS; } }
+        public string gre { get { return GRE; } }
+        public string sat { get { return SAT; } }
+        public string tutionFee { get { return TutionFee; } }
+        public string maxScholarship { get { return MaxScholarship; } }
+        public string intake { get { return Intake; } }
+        public string applicationDeadline { get { return ApplicationDeadline; } }
+        public string studyMode { get { return StudyMode; } }
 
 
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
@@ -151,7 +165,7 @@ namespace Study_Abroad_Management
                 string searchequery = "SELECT CourseName, CourseCode, UniversityName, Country," +
                 " CourseDuration, DegreeType, IELTS, GRE, SAT, TutionFee, MaxScholarship, " +
                 "Intake, ApplicationDeadline, StudyMode FROM URDashboard " +
-                "where CourseName like  '%"+ user_Studnet_search_textBox.Text+"%'";
+                "where Country like  '%"+ user_Studnet_search_textBox.Text+"%'";
                 if (con.State != ConnectionState.Open)
                 {
                     con.Open();

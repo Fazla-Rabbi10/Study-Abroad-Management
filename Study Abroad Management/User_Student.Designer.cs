@@ -42,6 +42,7 @@
             this.student_apply_button = new System.Windows.Forms.Button();
             this.applyINFO_button = new System.Windows.Forms.Button();
             this.for_apply_dataGridView = new System.Windows.Forms.DataGridView();
+            this.search_bylabel = new System.Windows.Forms.Label();
             this.student_menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.for_apply_dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -130,7 +131,7 @@
             // 
             // user_Studnet_search_textBox
             // 
-            this.user_Studnet_search_textBox.Location = new System.Drawing.Point(956, 56);
+            this.user_Studnet_search_textBox.Location = new System.Drawing.Point(957, 60);
             this.user_Studnet_search_textBox.Multiline = true;
             this.user_Studnet_search_textBox.Name = "user_Studnet_search_textBox";
             this.user_Studnet_search_textBox.Size = new System.Drawing.Size(146, 30);
@@ -187,11 +188,22 @@
             this.for_apply_dataGridView.TabIndex = 56;
             this.for_apply_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.for_apply_dataGridView_CellClick);
             // 
+            // search_bylabel
+            // 
+            this.search_bylabel.AutoSize = true;
+            this.search_bylabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_bylabel.Location = new System.Drawing.Point(954, 93);
+            this.search_bylabel.Name = "search_bylabel";
+            this.search_bylabel.Size = new System.Drawing.Size(134, 16);
+            this.search_bylabel.TabIndex = 57;
+            this.search_bylabel.Text = "Search By Country";
+            // 
             // User_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 726);
+            this.Controls.Add(this.search_bylabel);
             this.Controls.Add(this.for_apply_dataGridView);
             this.Controls.Add(this.applyINFO_button);
             this.Controls.Add(this.student_apply_button);
@@ -230,5 +242,6 @@
         private System.Windows.Forms.Button student_apply_button;
         private System.Windows.Forms.Button applyINFO_button;
         private System.Windows.Forms.DataGridView for_apply_dataGridView;
+        private System.Windows.Forms.Label search_bylabel;
     }
 }

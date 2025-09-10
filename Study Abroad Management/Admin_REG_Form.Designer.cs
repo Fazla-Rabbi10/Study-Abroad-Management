@@ -31,7 +31,6 @@
             this.Admin_reg_label = new System.Windows.Forms.Label();
             this.ad_reg_name_label = new System.Windows.Forms.Label();
             this.Admin_addre_reg_label = new System.Windows.Forms.Label();
-            this.Ad_role_label = new System.Windows.Forms.Label();
             this.ad_name_textBox = new System.Windows.Forms.TextBox();
             this.Ad_Address_textBox = new System.Windows.Forms.TextBox();
             this.ad_email_label = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@
             this.contact_textBox = new System.Windows.Forms.TextBox();
             this.Ad_pass_textBox = new System.Windows.Forms.TextBox();
             this.admin_submit_button = new System.Windows.Forms.Button();
-            this.ad_role_comboBox = new System.Windows.Forms.ComboBox();
             this.ad_gender_comboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.AdminbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,15 +80,6 @@
             this.Admin_addre_reg_label.TabIndex = 3;
             this.Admin_addre_reg_label.Text = "Address";
             // 
-            // Ad_role_label
-            // 
-            this.Ad_role_label.AutoSize = true;
-            this.Ad_role_label.Location = new System.Drawing.Point(293, 401);
-            this.Ad_role_label.Name = "Ad_role_label";
-            this.Ad_role_label.Size = new System.Drawing.Size(36, 16);
-            this.Ad_role_label.TabIndex = 4;
-            this.Ad_role_label.Text = "Role";
-            // 
             // ad_name_textBox
             // 
             this.ad_name_textBox.Location = new System.Drawing.Point(378, 174);
@@ -126,7 +115,7 @@
             // ad_gender_label
             // 
             this.ad_gender_label.AutoSize = true;
-            this.ad_gender_label.Location = new System.Drawing.Point(639, 423);
+            this.ad_gender_label.Location = new System.Drawing.Point(286, 415);
             this.ad_gender_label.Name = "ad_gender_label";
             this.ad_gender_label.Size = new System.Drawing.Size(52, 16);
             this.ad_gender_label.TabIndex = 11;
@@ -180,24 +169,13 @@
             // 
             // admin_submit_button
             // 
-            this.admin_submit_button.Location = new System.Drawing.Point(463, 568);
+            this.admin_submit_button.Location = new System.Drawing.Point(480, 524);
             this.admin_submit_button.Name = "admin_submit_button";
             this.admin_submit_button.Size = new System.Drawing.Size(211, 47);
             this.admin_submit_button.TabIndex = 22;
             this.admin_submit_button.Text = "Submit";
             this.admin_submit_button.UseVisualStyleBackColor = true;
             this.admin_submit_button.Click += new System.EventHandler(this.admin_submit_button_Click);
-            // 
-            // ad_role_comboBox
-            // 
-            this.ad_role_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ad_role_comboBox.FormattingEnabled = true;
-            this.ad_role_comboBox.Items.AddRange(new object[] {
-            "admin"});
-            this.ad_role_comboBox.Location = new System.Drawing.Point(369, 393);
-            this.ad_role_comboBox.Name = "ad_role_comboBox";
-            this.ad_role_comboBox.Size = new System.Drawing.Size(121, 24);
-            this.ad_role_comboBox.TabIndex = 23;
             // 
             // ad_gender_comboBox
             // 
@@ -206,7 +184,7 @@
             this.ad_gender_comboBox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.ad_gender_comboBox.Location = new System.Drawing.Point(733, 415);
+            this.ad_gender_comboBox.Location = new System.Drawing.Point(378, 407);
             this.ad_gender_comboBox.Name = "ad_gender_comboBox";
             this.ad_gender_comboBox.Size = new System.Drawing.Size(121, 24);
             this.ad_gender_comboBox.TabIndex = 24;
@@ -235,21 +213,21 @@
             // Admin_backToolStripMenuItem
             // 
             this.Admin_backToolStripMenuItem.Name = "Admin_backToolStripMenuItem";
-            this.Admin_backToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Admin_backToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
             this.Admin_backToolStripMenuItem.Text = "Back";
             this.Admin_backToolStripMenuItem.Click += new System.EventHandler(this.Admin_backToolStripMenuItem_Click);
             // 
             // Admin_exitToolStripMenuItem
             // 
             this.Admin_exitToolStripMenuItem.Name = "Admin_exitToolStripMenuItem";
-            this.Admin_exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Admin_exitToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
             this.Admin_exitToolStripMenuItem.Text = "Exit";
             this.Admin_exitToolStripMenuItem.Click += new System.EventHandler(this.Admin_exitToolStripMenuItem_Click);
             // 
             // AdminclearToolStripMenuItem
             // 
             this.AdminclearToolStripMenuItem.Name = "AdminclearToolStripMenuItem";
-            this.AdminclearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AdminclearToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
             this.AdminclearToolStripMenuItem.Text = "Clear";
             this.AdminclearToolStripMenuItem.Click += new System.EventHandler(this.AdminclearToolStripMenuItem_Click);
             // 
@@ -259,7 +237,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 726);
             this.Controls.Add(this.ad_gender_comboBox);
-            this.Controls.Add(this.ad_role_comboBox);
             this.Controls.Add(this.admin_submit_button);
             this.Controls.Add(this.Ad_pass_textBox);
             this.Controls.Add(this.contact_textBox);
@@ -272,7 +249,6 @@
             this.Controls.Add(this.ad_email_label);
             this.Controls.Add(this.Ad_Address_textBox);
             this.Controls.Add(this.ad_name_textBox);
-            this.Controls.Add(this.Ad_role_label);
             this.Controls.Add(this.Admin_addre_reg_label);
             this.Controls.Add(this.ad_reg_name_label);
             this.Controls.Add(this.Admin_reg_label);
@@ -293,7 +269,6 @@
         private System.Windows.Forms.Label Admin_reg_label;
         private System.Windows.Forms.Label ad_reg_name_label;
         private System.Windows.Forms.Label Admin_addre_reg_label;
-        private System.Windows.Forms.Label Ad_role_label;
         private System.Windows.Forms.TextBox ad_name_textBox;
         private System.Windows.Forms.TextBox Ad_Address_textBox;
         private System.Windows.Forms.Label ad_email_label;
@@ -306,7 +281,6 @@
         private System.Windows.Forms.TextBox contact_textBox;
         private System.Windows.Forms.TextBox Ad_pass_textBox;
         private System.Windows.Forms.Button admin_submit_button;
-        private System.Windows.Forms.ComboBox ad_role_comboBox;
         private System.Windows.Forms.ComboBox ad_gender_comboBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem AdminbackToolStripMenuItem;
