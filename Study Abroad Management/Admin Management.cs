@@ -35,5 +35,10 @@ namespace Study_Abroad_Management
             arf.Show();
             this.Hide();
         }
+
+        private void showButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

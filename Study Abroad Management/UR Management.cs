@@ -142,5 +142,10 @@ namespace Study_Abroad_Management
         {
 
         }
+
+        private void UR_Management_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

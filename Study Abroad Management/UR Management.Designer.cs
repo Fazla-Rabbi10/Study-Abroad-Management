@@ -115,14 +115,15 @@
             // 
             // dgvURmng
             // 
+            this.dgvURmng.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvURmng.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvURmng.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvURmng.Location = new System.Drawing.Point(24, 384);
+            this.dgvURmng.Location = new System.Drawing.Point(24, 457);
             this.dgvURmng.Name = "dgvURmng";
             this.dgvURmng.RowHeadersWidth = 82;
             this.dgvURmng.RowTemplate.Height = 33;
             this.dgvURmng.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvURmng.Size = new System.Drawing.Size(1371, 483);
+            this.dgvURmng.Size = new System.Drawing.Size(1371, 410);
             this.dgvURmng.TabIndex = 7;
             this.dgvURmng.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvURmng_CellContentClick);
             // 
@@ -227,6 +228,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1429, 914);
+            this.Controls.Add(this.dgvURmng);
             this.Controls.Add(this.name_txtbox);
             this.Controls.Add(this.status_txtbox);
             this.Controls.Add(this.email_txtbox);
@@ -236,13 +238,13 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.btnShow);
-            this.Controls.Add(this.dgvURmng);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.panel1);
             this.Name = "UR_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UR_Management";
+            this.Load += new System.EventHandler(this.UR_Management_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvURmng)).EndInit();
