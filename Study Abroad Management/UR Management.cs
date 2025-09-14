@@ -33,17 +33,17 @@ namespace Study_Abroad_Management
 
         public void clear()
         {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
+            id_txtbox.Text = "";
+            email_txtbox.Text = "";
+            status_txtbox.Text = "";
+            name_txtbox.Text = "";
         }
         public void show()
         {
-            string connectionString = @"Data Source=DESKTOP-2VG5BCS\SQLEXPRESS;Initial Catalog=pracAdmin;Integrated Security=True;";  //con string dibi
+            string connectionString = @"//database connection";  //con string 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = "SELECT * FROM AdminTable"; // aikhane table name dibi
+            string query = "SELECT * FROM //_table_name"; // aikhane table name cng 
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -57,10 +57,10 @@ namespace Study_Abroad_Management
 
         private void dgvURmng_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.Text = dgvURmng.Rows[e.RowIndex].Cells[0].Value.ToString();
-            textBox2.Text = dgvURmng.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBox3.Text = dgvURmng.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBox4.Text = dgvURmng.Rows[e.RowIndex].Cells[2].Value.ToString();
+            id_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[0].Value.ToString();
+            email_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[1].Value.ToString();
+            status_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[2].Value.ToString();
+            name_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -71,10 +71,10 @@ namespace Study_Abroad_Management
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=DESKTOP-2VG5BCS\SQLEXPRESS;Initial Catalog=pracAdmin;Integrated Security=True;";
+            string connectionString = @" //database ";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = "update AdminTable set Name='" + textBox2.Text + "', Email='" + textBox3.Text + "' where AdminID='" + textBox1.Text + "'"; //table name cng and column name cng 
+            string query = "update ____Table set Name='" + email_txtbox.Text + "', Email='" + status_txtbox.Text + "' where AdminID='" + id_txtbox.Text + "'"; //table name cng and column name cng 
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             show();
@@ -83,14 +83,14 @@ namespace Study_Abroad_Management
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (id_txtbox.Text == "")
                 MessageBox.Show("Please select a row first ");
             else
             {
-                string connectionString = @"Data Source=DESKTOP-2VG5BCS\SQLEXPRESS;Initial Catalog=pracAdmin;Integrated Security=True;";
+                string connectionString = @"//database";
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
-                string query = "delete from AdminTable where AdminID=" + textBox1.Text + ""; //cng tble name and column name 
+                string query = "delete from //_table_name// where AdminID=" + id_txtbox.Text + ""; //cng tble name and column name 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 show();
@@ -99,6 +99,46 @@ namespace Study_Abroad_Management
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void status_txtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void email_txtbox_TextChanged(object sender, EventArgs e)
         {
 
         }
