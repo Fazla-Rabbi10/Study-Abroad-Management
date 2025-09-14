@@ -116,21 +116,21 @@
             // dgvURmng
             // 
             this.dgvURmng.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvURmng.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvURmng.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvURmng.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvURmng.Location = new System.Drawing.Point(24, 457);
+            this.dgvURmng.Location = new System.Drawing.Point(24, 388);
             this.dgvURmng.Name = "dgvURmng";
             this.dgvURmng.RowHeadersWidth = 82;
             this.dgvURmng.RowTemplate.Height = 33;
             this.dgvURmng.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvURmng.Size = new System.Drawing.Size(1371, 410);
+            this.dgvURmng.Size = new System.Drawing.Size(1371, 479);
             this.dgvURmng.TabIndex = 7;
             this.dgvURmng.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvURmng_CellContentClick);
             // 
             // btnShow
             // 
             this.btnShow.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShow.Location = new System.Drawing.Point(938, 173);
+            this.btnShow.Location = new System.Drawing.Point(945, 173);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(132, 51);
             this.btnShow.TabIndex = 4;
@@ -164,7 +164,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(532, 312);
+            this.label6.Location = new System.Drawing.Point(762, 301);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 37);
             this.label6.TabIndex = 11;
@@ -175,7 +175,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(532, 241);
+            this.label4.Location = new System.Drawing.Point(756, 249);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 37);
             this.label4.TabIndex = 12;
@@ -188,27 +188,27 @@
             this.id_txtbox.Location = new System.Drawing.Point(159, 241);
             this.id_txtbox.Multiline = true;
             this.id_txtbox.Name = "id_txtbox";
-            this.id_txtbox.Size = new System.Drawing.Size(285, 45);
+            this.id_txtbox.Size = new System.Drawing.Size(502, 45);
             this.id_txtbox.TabIndex = 13;
             this.id_txtbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // email_txtbox
             // 
             this.email_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_txtbox.Location = new System.Drawing.Point(639, 312);
+            this.email_txtbox.Location = new System.Drawing.Point(863, 298);
             this.email_txtbox.Multiline = true;
             this.email_txtbox.Name = "email_txtbox";
-            this.email_txtbox.Size = new System.Drawing.Size(285, 45);
+            this.email_txtbox.Size = new System.Drawing.Size(480, 45);
             this.email_txtbox.TabIndex = 14;
             this.email_txtbox.TextChanged += new System.EventHandler(this.email_txtbox_TextChanged);
             // 
             // status_txtbox
             // 
             this.status_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_txtbox.Location = new System.Drawing.Point(639, 241);
+            this.status_txtbox.Location = new System.Drawing.Point(863, 238);
             this.status_txtbox.Multiline = true;
             this.status_txtbox.Name = "status_txtbox";
-            this.status_txtbox.Size = new System.Drawing.Size(285, 45);
+            this.status_txtbox.Size = new System.Drawing.Size(480, 45);
             this.status_txtbox.TabIndex = 15;
             this.status_txtbox.TextChanged += new System.EventHandler(this.status_txtbox_TextChanged);
             // 
@@ -218,7 +218,7 @@
             this.name_txtbox.Location = new System.Drawing.Point(159, 312);
             this.name_txtbox.Multiline = true;
             this.name_txtbox.Name = "name_txtbox";
-            this.name_txtbox.Size = new System.Drawing.Size(285, 45);
+            this.name_txtbox.Size = new System.Drawing.Size(502, 45);
             this.name_txtbox.TabIndex = 16;
             this.name_txtbox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 

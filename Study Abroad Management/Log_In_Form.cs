@@ -236,5 +236,10 @@ namespace Study_Abroad_Management
                 con.Close();
             }
         }
+
+        private void Log_In_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
