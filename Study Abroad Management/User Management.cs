@@ -28,5 +28,10 @@ namespace Study_Abroad_Management
             a.Show();
             this.Hide();
         }
+
+        private void id_txtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

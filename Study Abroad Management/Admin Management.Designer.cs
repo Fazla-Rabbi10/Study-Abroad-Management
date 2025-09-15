@@ -42,10 +42,14 @@
             this.email = new System.Windows.Forms.Label();
             this.email_txtbx = new System.Windows.Forms.TextBox();
             this.id_txtbx = new System.Windows.Forms.TextBox();
-            this.stts_txtbx = new System.Windows.Forms.TextBox();
+            this.addrs_txtbx = new System.Windows.Forms.TextBox();
             this.id = new System.Windows.Forms.Label();
-            this.sttus = new System.Windows.Forms.Label();
+            this.Address = new System.Windows.Forms.Label();
             this.dgvAdmTbl = new System.Windows.Forms.DataGridView();
+            this.contact = new System.Windows.Forms.Label();
+            this.contact_txtbx = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cntry = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmTbl)).BeginInit();
@@ -151,7 +155,7 @@
             // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.Location = new System.Drawing.Point(29, 272);
+            this.name.Location = new System.Drawing.Point(308, 214);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(101, 37);
             this.name.TabIndex = 2;
@@ -161,7 +165,7 @@
             // nm_txtbx
             // 
             this.nm_txtbx.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nm_txtbx.Location = new System.Drawing.Point(136, 272);
+            this.nm_txtbx.Location = new System.Drawing.Point(405, 215);
             this.nm_txtbx.Multiline = true;
             this.nm_txtbx.Name = "nm_txtbx";
             this.nm_txtbx.Size = new System.Drawing.Size(467, 36);
@@ -172,7 +176,7 @@
             // 
             this.email.AutoSize = true;
             this.email.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email.Location = new System.Drawing.Point(642, 272);
+            this.email.Location = new System.Drawing.Point(41, 273);
             this.email.Name = "email";
             this.email.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.email.Size = new System.Drawing.Size(106, 37);
@@ -183,10 +187,10 @@
             // email_txtbx
             // 
             this.email_txtbx.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_txtbx.Location = new System.Drawing.Point(754, 272);
+            this.email_txtbx.Location = new System.Drawing.Point(136, 274);
             this.email_txtbx.Multiline = true;
             this.email_txtbx.Name = "email_txtbx";
-            this.email_txtbx.Size = new System.Drawing.Size(545, 37);
+            this.email_txtbx.Size = new System.Drawing.Size(442, 37);
             this.email_txtbx.TabIndex = 6;
             this.email_txtbx.TextChanged += new System.EventHandler(this.email_txtbx_TextChanged);
             // 
@@ -196,19 +200,19 @@
             this.id_txtbx.Location = new System.Drawing.Point(136, 214);
             this.id_txtbx.Multiline = true;
             this.id_txtbx.Name = "id_txtbx";
-            this.id_txtbx.Size = new System.Drawing.Size(467, 36);
+            this.id_txtbx.Size = new System.Drawing.Size(136, 36);
             this.id_txtbx.TabIndex = 7;
             this.id_txtbx.TextChanged += new System.EventHandler(this.id_txtbx_TextChanged);
             // 
-            // stts_txtbx
+            // addrs_txtbx
             // 
-            this.stts_txtbx.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stts_txtbx.Location = new System.Drawing.Point(754, 214);
-            this.stts_txtbx.Multiline = true;
-            this.stts_txtbx.Name = "stts_txtbx";
-            this.stts_txtbx.Size = new System.Drawing.Size(545, 36);
-            this.stts_txtbx.TabIndex = 8;
-            this.stts_txtbx.TextChanged += new System.EventHandler(this.stts_txtbx_TextChanged);
+            this.addrs_txtbx.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addrs_txtbx.Location = new System.Drawing.Point(1034, 216);
+            this.addrs_txtbx.Multiline = true;
+            this.addrs_txtbx.Name = "addrs_txtbx";
+            this.addrs_txtbx.Size = new System.Drawing.Size(368, 36);
+            this.addrs_txtbx.TabIndex = 8;
+            this.addrs_txtbx.TextChanged += new System.EventHandler(this.stts_txtbx_TextChanged);
             // 
             // id
             // 
@@ -221,16 +225,16 @@
             this.id.Text = "ID      : ";
             this.id.Click += new System.EventHandler(this.id_Click);
             // 
-            // sttus
+            // Address
             // 
-            this.sttus.AutoSize = true;
-            this.sttus.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sttus.Location = new System.Drawing.Point(642, 214);
-            this.sttus.Name = "sttus";
-            this.sttus.Size = new System.Drawing.Size(101, 37);
-            this.sttus.TabIndex = 10;
-            this.sttus.Text = "Status :";
-            this.sttus.Click += new System.EventHandler(this.sttus_Click);
+            this.Address.AutoSize = true;
+            this.Address.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Address.Location = new System.Drawing.Point(911, 215);
+            this.Address.Name = "Address";
+            this.Address.Size = new System.Drawing.Size(131, 37);
+            this.Address.TabIndex = 10;
+            this.Address.Text = "Address : ";
+            this.Address.Click += new System.EventHandler(this.sttus_Click);
             // 
             // dgvAdmTbl
             // 
@@ -244,19 +248,61 @@
             this.dgvAdmTbl.TabIndex = 11;
             this.dgvAdmTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmTbl_CellContentClick);
             // 
+            // contact
+            // 
+            this.contact.AutoSize = true;
+            this.contact.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contact.Location = new System.Drawing.Point(983, 273);
+            this.contact.Name = "contact";
+            this.contact.Size = new System.Drawing.Size(129, 37);
+            this.contact.TabIndex = 19;
+            this.contact.Text = "Contact  :";
+            // 
+            // contact_txtbx
+            // 
+            this.contact_txtbx.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contact_txtbx.Location = new System.Drawing.Point(1102, 275);
+            this.contact_txtbx.Multiline = true;
+            this.contact_txtbx.Name = "contact_txtbx";
+            this.contact_txtbx.Size = new System.Drawing.Size(300, 40);
+            this.contact_txtbx.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(598, 274);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(124, 37);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Country :";
+            // 
+            // cntry
+            // 
+            this.cntry.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cntry.Location = new System.Drawing.Point(711, 275);
+            this.cntry.Multiline = true;
+            this.cntry.Name = "cntry";
+            this.cntry.Size = new System.Drawing.Size(251, 36);
+            this.cntry.TabIndex = 14;
+            // 
             // Admin_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1430, 914);
+            this.Controls.Add(this.contact_txtbx);
+            this.Controls.Add(this.cntry);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.contact);
             this.Controls.Add(this.dgvAdmTbl);
-            this.Controls.Add(this.sttus);
             this.Controls.Add(this.id);
-            this.Controls.Add(this.stts_txtbx);
             this.Controls.Add(this.id_txtbx);
             this.Controls.Add(this.email_txtbx);
             this.Controls.Add(this.email);
+            this.Controls.Add(this.addrs_txtbx);
+            this.Controls.Add(this.Address);
             this.Controls.Add(this.nm_txtbx);
             this.Controls.Add(this.name);
             this.Controls.Add(this.panel2);
@@ -290,9 +336,13 @@
         private System.Windows.Forms.Label email;
         private System.Windows.Forms.TextBox email_txtbx;
         private System.Windows.Forms.TextBox id_txtbx;
-        private System.Windows.Forms.TextBox stts_txtbx;
+        private System.Windows.Forms.TextBox addrs_txtbx;
         private System.Windows.Forms.Label id;
-        private System.Windows.Forms.Label sttus;
+        private System.Windows.Forms.Label Address;
         private System.Windows.Forms.DataGridView dgvAdmTbl;
+        private System.Windows.Forms.TextBox contact_txtbx;
+        private System.Windows.Forms.Label contact;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox cntry;
     }
 }
