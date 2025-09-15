@@ -39,7 +39,7 @@ namespace Study_Abroad_Management
         public void clear()
         {
             id_txtbx.Text = "";
-            stts_txtbx.Text = "";
+            addrs_txtbx.Text = "";
             nm_txtbx.Text = "";
             email_txtbx.Text = "";
         }
@@ -48,7 +48,7 @@ namespace Study_Abroad_Management
             string connectionString = @"//database connection";  //con string 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = "SELECT * FROM //_table_name"; // aikhane table name cng 
+            string query = "SELECT * FROM [dbo].[AdminDetails]"; //  table name cng 
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -61,9 +61,10 @@ namespace Study_Abroad_Management
         private void dgvAdmTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             id_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[0].Value.ToString();
-            stts_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[1].Value.ToString();
-            nm_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[2].Value.ToString();
-            email_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[3].Value.ToString();
+            addrs_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[0].Value.ToString();
+            nm_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[1].Value.ToString();
+            contact_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[5].Value.ToString();
+            email_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
         private void id_Click(object sender, EventArgs e)
         {
@@ -88,6 +89,7 @@ namespace Study_Abroad_Management
         private void showButton_Click_1(object sender, EventArgs e)
         {
             show();
+           // dgvAdmTbl.Visible = false;
         }
 
         private void update_Click(object sender, EventArgs e)
@@ -95,7 +97,7 @@ namespace Study_Abroad_Management
             string connectionString = @" //database ";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = "update ____Table set Name='" + nm_txtbx.Text + "',Status ='" + stts_txtbx.Text + "', Email='" + email_txtbx.Text + "' where AdminID='" + id_txtbx.Text + "'"; //table name cng and column name cng 
+            string query = "update [dbo].[AdminDetails] set Name='" + nm_txtbx.Text + "',Status ='" + addrs_txtbx.Text + "', Email='" + email_txtbx.Text + "', ContactNumber='" + contact_txtbx.Text + "' where AdminID='" + id_txtbx.Text + "'"; //table name cng and column name cng 
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             show();
@@ -111,7 +113,7 @@ namespace Study_Abroad_Management
                 string connectionString = @"//database";
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
-                string query = "delete from //_table_name// where AdminID=" + id_txtbx.Text + ""; //cng tble name and column name 
+                string query = "delete from [dbo].[AdminDetails] where AdminID=" + id_txtbx.Text + ""; //cng tble name and column name 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 show();
@@ -148,5 +150,17 @@ namespace Study_Abroad_Management
         {
 
         }
+
+        private void contact_txtbx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

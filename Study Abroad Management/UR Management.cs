@@ -147,5 +147,15 @@ namespace Study_Abroad_Management
         {
 
         }
+
+        private void contact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contact_txtbx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
