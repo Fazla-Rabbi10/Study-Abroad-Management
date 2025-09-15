@@ -29,7 +29,7 @@ namespace Study_Abroad_Management
                 !string.IsNullOrWhiteSpace(ad_count_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(ad_gender_comboBox.Text) &&
                 !string.IsNullOrWhiteSpace(contact_textBox.Text) &&
-                !string.IsNullOrWhiteSpace(Ad_pass_textBox.Text) &&
+                !string.IsNullOrWhiteSpace(Ad_pass_textBox.Text) 
                 )
             {
                 // 2) Open connection

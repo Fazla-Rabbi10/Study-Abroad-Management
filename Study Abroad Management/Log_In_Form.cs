@@ -27,7 +27,7 @@ namespace Study_Abroad_Management
             }
             if (con.State == ConnectionState.Open)
             {
-                this.Admin_button.Visible = true;
+               
                 this.UR_button.Visible = true;
                 this.Student_button.Visible = true;
             }
@@ -40,32 +40,6 @@ namespace Study_Abroad_Management
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Admin_button_Click(object sender, EventArgs e)
-        {
-            if (con.State != ConnectionState.Open)
-            {
-                con.Open();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                Admin_REG_Form arf = new Admin_REG_Form();
-                arf.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Connection Failed");
-                con.Close();
-            }
-            
-
-
-        }
 
         private void UR_button_Click(object sender, EventArgs e)
         {
@@ -199,11 +173,11 @@ namespace Study_Abroad_Management
                 LG_ID_textBox.Clear();
                 Lg_Password_textBox2.Clear();
                 LG_ID_textBox.Focus();
-                if (this.Admin_button.Visible == true &&
-                   this.UR_button.Visible == true &&
+                if (this.UR_button.Visible == true &&
                    this.Student_button.Visible == true)
+                   
                 {
-                    this.Admin_button.Visible = false;
+                    
                     this.UR_button.Visible = false;
                     this.Student_button.Visible = false;
                 }
