@@ -35,7 +35,7 @@ namespace Study_Abroad_Management
         {
             id_txtbox.Text = "";
             email_txtbox.Text = "";
-            status_txtbox.Text = "";
+            nty_txtbox.Text = "";
             name_txtbox.Text = "";
         }
         public void show()
@@ -59,7 +59,7 @@ namespace Study_Abroad_Management
         {
             id_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[0].Value.ToString();
             email_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[1].Value.ToString();
-            status_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[2].Value.ToString();
+            nty_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[2].Value.ToString();
             name_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
 
@@ -74,7 +74,7 @@ namespace Study_Abroad_Management
             string connectionString = @" //database ";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = "update ____Table set Name='" + email_txtbox.Text + "', Email='" + status_txtbox.Text + "' where AdminID='" + id_txtbox.Text + "'"; //table name cng and column name cng 
+            string query = "update ____Table set Name='" + email_txtbox.Text + "', Email='" + nty_txtbox.Text + "' where AdminID='" + id_txtbox.Text + "'"; //table name cng and column name cng 
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             show();
