@@ -34,7 +34,6 @@
             this.back = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.dgvURmng = new System.Windows.Forms.DataGridView();
             this.btnShow = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,6 +46,9 @@
             this.unm = new System.Windows.Forms.Label();
             this.unm_txtbx = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.eiin = new System.Windows.Forms.Label();
+            this.dgvURmng = new System.Windows.Forms.DataGridView();
+            this.eiin_txtbox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvURmng)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +99,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(1103, 173);
+            this.btnUpdate.Location = new System.Drawing.Point(1102, 156);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(132, 51);
             this.btnUpdate.TabIndex = 5;
@@ -108,7 +110,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(1263, 173);
+            this.btnDelete.Location = new System.Drawing.Point(1263, 156);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(132, 51);
             this.btnDelete.TabIndex = 6;
@@ -116,24 +118,10 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // dgvURmng
-            // 
-            this.dgvURmng.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvURmng.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvURmng.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvURmng.Location = new System.Drawing.Point(24, 371);
-            this.dgvURmng.Name = "dgvURmng";
-            this.dgvURmng.RowHeadersWidth = 82;
-            this.dgvURmng.RowTemplate.Height = 33;
-            this.dgvURmng.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvURmng.Size = new System.Drawing.Size(1371, 514);
-            this.dgvURmng.TabIndex = 7;
-            this.dgvURmng.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvURmng_CellContentClick);
-            // 
             // btnShow
             // 
             this.btnShow.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShow.Location = new System.Drawing.Point(945, 173);
+            this.btnShow.Location = new System.Drawing.Point(946, 156);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(132, 51);
             this.btnShow.TabIndex = 4;
@@ -145,7 +133,7 @@
             // 
             this.ID.AutoSize = true;
             this.ID.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ID.Location = new System.Drawing.Point(67, 241);
+            this.ID.Location = new System.Drawing.Point(35, 247);
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(91, 37);
             this.ID.TabIndex = 8;
@@ -156,7 +144,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(346, 244);
+            this.label5.Location = new System.Drawing.Point(308, 248);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 37);
             this.label5.TabIndex = 10;
@@ -167,7 +155,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(67, 299);
+            this.label6.Location = new System.Drawing.Point(31, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 37);
             this.label6.TabIndex = 11;
@@ -178,7 +166,7 @@
             // 
             this.nty.AutoSize = true;
             this.nty.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nty.Location = new System.Drawing.Point(959, 252);
+            this.nty.Location = new System.Drawing.Point(886, 253);
             this.nty.Name = "nty";
             this.nty.Size = new System.Drawing.Size(161, 37);
             this.nty.TabIndex = 12;
@@ -188,40 +176,40 @@
             // id_txtbox
             // 
             this.id_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_txtbox.Location = new System.Drawing.Point(159, 241);
+            this.id_txtbox.Location = new System.Drawing.Point(132, 245);
             this.id_txtbox.Multiline = true;
             this.id_txtbox.Name = "id_txtbox";
-            this.id_txtbox.Size = new System.Drawing.Size(170, 45);
+            this.id_txtbox.Size = new System.Drawing.Size(156, 45);
             this.id_txtbox.TabIndex = 13;
             this.id_txtbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // email_txtbox
             // 
             this.email_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_txtbox.Location = new System.Drawing.Point(159, 299);
+            this.email_txtbox.Location = new System.Drawing.Point(132, 299);
             this.email_txtbox.Multiline = true;
             this.email_txtbox.Name = "email_txtbox";
-            this.email_txtbox.Size = new System.Drawing.Size(480, 45);
+            this.email_txtbox.Size = new System.Drawing.Size(387, 45);
             this.email_txtbox.TabIndex = 14;
             this.email_txtbox.TextChanged += new System.EventHandler(this.email_txtbox_TextChanged);
             // 
             // nty_txtbox
             // 
             this.nty_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nty_txtbox.Location = new System.Drawing.Point(1121, 241);
+            this.nty_txtbox.Location = new System.Drawing.Point(1053, 250);
             this.nty_txtbox.Multiline = true;
             this.nty_txtbox.Name = "nty_txtbox";
-            this.nty_txtbox.Size = new System.Drawing.Size(274, 45);
+            this.nty_txtbox.Size = new System.Drawing.Size(342, 46);
             this.nty_txtbox.TabIndex = 15;
             this.nty_txtbox.TextChanged += new System.EventHandler(this.status_txtbox_TextChanged);
             // 
             // name_txtbox
             // 
             this.name_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_txtbox.Location = new System.Drawing.Point(439, 244);
+            this.name_txtbox.Location = new System.Drawing.Point(415, 245);
             this.name_txtbox.Multiline = true;
             this.name_txtbox.Name = "name_txtbox";
-            this.name_txtbox.Size = new System.Drawing.Size(480, 45);
+            this.name_txtbox.Size = new System.Drawing.Size(455, 45);
             this.name_txtbox.TabIndex = 16;
             this.name_txtbox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -229,7 +217,7 @@
             // 
             this.unm.AutoSize = true;
             this.unm.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unm.Location = new System.Drawing.Point(681, 307);
+            this.unm.Location = new System.Drawing.Point(525, 302);
             this.unm.Name = "unm";
             this.unm.Size = new System.Drawing.Size(225, 37);
             this.unm.TabIndex = 17;
@@ -239,19 +227,57 @@
             // unm_txtbx
             // 
             this.unm_txtbx.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unm_txtbx.Location = new System.Drawing.Point(912, 307);
+            this.unm_txtbx.Location = new System.Drawing.Point(756, 299);
             this.unm_txtbx.Multiline = true;
             this.unm_txtbx.Name = "unm_txtbx";
-            this.unm_txtbx.Size = new System.Drawing.Size(483, 45);
+            this.unm_txtbx.Size = new System.Drawing.Size(436, 42);
             this.unm_txtbx.TabIndex = 18;
             this.unm_txtbx.TextChanged += new System.EventHandler(this.contact_txtbx_TextChanged);
+            // 
+            // eiin
+            // 
+            this.eiin.AutoSize = true;
+            this.eiin.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eiin.Location = new System.Drawing.Point(1198, 302);
+            this.eiin.Name = "eiin";
+            this.eiin.Size = new System.Drawing.Size(78, 37);
+            this.eiin.TabIndex = 19;
+            this.eiin.Text = "EIIN :";
+            this.eiin.Click += new System.EventHandler(this.eiin_Click);
+            // 
+            // dgvURmng
+            // 
+            this.dgvURmng.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvURmng.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvURmng.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvURmng.Location = new System.Drawing.Point(24, 360);
+            this.dgvURmng.Name = "dgvURmng";
+            this.dgvURmng.RowHeadersWidth = 82;
+            this.dgvURmng.RowTemplate.Height = 33;
+            this.dgvURmng.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvURmng.Size = new System.Drawing.Size(1371, 550);
+            this.dgvURmng.TabIndex = 7;
+            this.dgvURmng.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvURmng_CellContentClick);
+            // 
+            // eiin_txtbox
+            // 
+            this.eiin_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eiin_txtbox.Location = new System.Drawing.Point(1282, 296);
+            this.eiin_txtbox.Multiline = true;
+            this.eiin_txtbox.Name = "eiin_txtbox";
+            this.eiin_txtbox.Size = new System.Drawing.Size(117, 45);
+            this.eiin_txtbox.TabIndex = 20;
+            this.eiin_txtbox.TextChanged += new System.EventHandler(this.eiin_txtbox_TextChanged);
             // 
             // UR_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1429, 914);
+            this.ClientSize = new System.Drawing.Size(1429, 942);
+            this.Controls.Add(this.eiin_txtbox);
+            this.Controls.Add(this.eiin);
             this.Controls.Add(this.unm_txtbx);
             this.Controls.Add(this.unm);
             this.Controls.Add(this.dgvURmng);
@@ -287,7 +313,6 @@
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridView dgvURmng;
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Label label5;
@@ -300,5 +325,8 @@
         private System.Windows.Forms.Label unm;
         private System.Windows.Forms.TextBox unm_txtbx;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label eiin;
+        private System.Windows.Forms.DataGridView dgvURmng;
+        private System.Windows.Forms.TextBox eiin_txtbox;
     }
 }

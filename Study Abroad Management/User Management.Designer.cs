@@ -32,10 +32,8 @@
             this.back = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.entr_id = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.accept = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.delet_txtbox = new System.Windows.Forms.Button();
+            this.updt = new System.Windows.Forms.Button();
             this.age_txtbx = new System.Windows.Forms.TextBox();
             this.age = new System.Windows.Forms.Label();
             this.name_txtbox = new System.Windows.Forms.TextBox();
@@ -49,6 +47,7 @@
             this.gender = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.show = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -94,44 +93,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Admin panel";
             // 
-            // entr_id
+            // delet_txtbox
             // 
-            this.entr_id.AutoSize = true;
-            this.entr_id.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entr_id.Location = new System.Drawing.Point(53, 128);
-            this.entr_id.Name = "entr_id";
-            this.entr_id.Size = new System.Drawing.Size(131, 37);
-            this.entr_id.TabIndex = 1;
-            this.entr_id.Text = "Enter ID : ";
+            this.delet_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delet_txtbox.Location = new System.Drawing.Point(1265, 128);
+            this.delet_txtbox.Name = "delet_txtbox";
+            this.delet_txtbox.Size = new System.Drawing.Size(132, 51);
+            this.delet_txtbox.TabIndex = 3;
+            this.delet_txtbox.Text = "Delete";
+            this.delet_txtbox.UseVisualStyleBackColor = true;
+            this.delet_txtbox.Click += new System.EventHandler(this.delet_txtbox_Click);
             // 
-            // textBox1
+            // updt
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(178, 132);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(281, 37);
-            this.textBox1.TabIndex = 2;
-            // 
-            // accept
-            // 
-            this.accept.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accept.Location = new System.Drawing.Point(1265, 128);
-            this.accept.Name = "accept";
-            this.accept.Size = new System.Drawing.Size(132, 51);
-            this.accept.TabIndex = 3;
-            this.accept.Text = "Delete";
-            this.accept.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1106, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 51);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
+            this.updt.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updt.Location = new System.Drawing.Point(1106, 128);
+            this.updt.Name = "updt";
+            this.updt.Size = new System.Drawing.Size(132, 51);
+            this.updt.TabIndex = 4;
+            this.updt.Text = "Update";
+            this.updt.UseVisualStyleBackColor = true;
+            this.updt.Click += new System.EventHandler(this.updt_Click);
             // 
             // age_txtbx
             // 
@@ -228,6 +210,7 @@
             this.ID.Size = new System.Drawing.Size(91, 37);
             this.ID.TabIndex = 19;
             this.ID.Text = "ID      :";
+            this.ID.Click += new System.EventHandler(this.ID_Click);
             // 
             // gender
             // 
@@ -252,19 +235,33 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 319);
+            this.dataGridView1.Location = new System.Drawing.Point(35, 349);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1362, 567);
+            this.dataGridView1.Size = new System.Drawing.Size(1362, 537);
             this.dataGridView1.TabIndex = 31;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // show
+            // 
+            this.show.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.show.Location = new System.Drawing.Point(952, 128);
+            this.show.Name = "show";
+            this.show.Size = new System.Drawing.Size(132, 51);
+            this.show.TabIndex = 32;
+            this.show.Text = "Show";
+            this.show.UseVisualStyleBackColor = true;
+            this.show.Click += new System.EventHandler(this.show_Click);
             // 
             // User_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1428, 914);
+            this.Controls.Add(this.show);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.gender);
@@ -278,14 +275,13 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ID);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.accept);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.entr_id);
+            this.Controls.Add(this.updt);
+            this.Controls.Add(this.delet_txtbox);
             this.Controls.Add(this.panel1);
             this.Name = "User_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_Management";
+            this.Load += new System.EventHandler(this.User_Management_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -300,10 +296,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button back;
-        private System.Windows.Forms.Label entr_id;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button accept;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button delet_txtbox;
+        private System.Windows.Forms.Button updt;
         private System.Windows.Forms.TextBox age_txtbx;
         private System.Windows.Forms.Label age;
         private System.Windows.Forms.TextBox name_txtbox;
@@ -317,5 +311,6 @@
         private System.Windows.Forms.TextBox gender;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button show;
     }
 }

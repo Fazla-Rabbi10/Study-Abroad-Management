@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Pannel));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.admin_buttoncombo = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.admn_mng = new System.Windows.Forms.Button();
-            this.ur_mng = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.admin_buttoncombo = new System.Windows.Forms.Panel();
             this.usr_mng = new System.Windows.Forms.Button();
+            this.ur_mng = new System.Windows.Forms.Button();
+            this.admn_mng = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.admin_buttoncombo.SuspendLayout();
@@ -51,15 +51,15 @@
             this.panel1.Size = new System.Drawing.Size(1393, 194);
             this.panel1.TabIndex = 0;
             // 
-            // admin_buttoncombo
+            // label2
             // 
-            this.admin_buttoncombo.Controls.Add(this.usr_mng);
-            this.admin_buttoncombo.Controls.Add(this.ur_mng);
-            this.admin_buttoncombo.Controls.Add(this.admn_mng);
-            this.admin_buttoncombo.Location = new System.Drawing.Point(68, 203);
-            this.admin_buttoncombo.Name = "admin_buttoncombo";
-            this.admin_buttoncombo.Size = new System.Drawing.Size(417, 669);
-            this.admin_buttoncombo.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(632, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(205, 45);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Admin Panel";
             // 
             // label1
             // 
@@ -72,26 +72,26 @@
             this.label1.Text = "STUDY ABROAD MANAGEMENT";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // admin_buttoncombo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(632, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 45);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Admin Panel";
+            this.admin_buttoncombo.Controls.Add(this.usr_mng);
+            this.admin_buttoncombo.Controls.Add(this.ur_mng);
+            this.admin_buttoncombo.Controls.Add(this.admn_mng);
+            this.admin_buttoncombo.Location = new System.Drawing.Point(68, 203);
+            this.admin_buttoncombo.Name = "admin_buttoncombo";
+            this.admin_buttoncombo.Size = new System.Drawing.Size(417, 669);
+            this.admin_buttoncombo.TabIndex = 1;
             // 
-            // admn_mng
+            // usr_mng
             // 
-            this.admn_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admn_mng.Location = new System.Drawing.Point(4, 28);
-            this.admn_mng.Name = "admn_mng";
-            this.admn_mng.Size = new System.Drawing.Size(410, 70);
-            this.admn_mng.TabIndex = 0;
-            this.admn_mng.Text = "Admin Management";
-            this.admn_mng.UseVisualStyleBackColor = true;
-            this.admn_mng.Click += new System.EventHandler(this.admn_mng_Click);
+            this.usr_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usr_mng.Location = new System.Drawing.Point(7, 239);
+            this.usr_mng.Name = "usr_mng";
+            this.usr_mng.Size = new System.Drawing.Size(410, 70);
+            this.usr_mng.TabIndex = 2;
+            this.usr_mng.Text = "User Management";
+            this.usr_mng.UseVisualStyleBackColor = true;
+            this.usr_mng.Click += new System.EventHandler(this.usr_mng_Click);
             // 
             // ur_mng
             // 
@@ -104,16 +104,16 @@
             this.ur_mng.UseVisualStyleBackColor = true;
             this.ur_mng.Click += new System.EventHandler(this.ur_mng_Click);
             // 
-            // usr_mng
+            // admn_mng
             // 
-            this.usr_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usr_mng.Location = new System.Drawing.Point(7, 239);
-            this.usr_mng.Name = "usr_mng";
-            this.usr_mng.Size = new System.Drawing.Size(410, 70);
-            this.usr_mng.TabIndex = 2;
-            this.usr_mng.Text = "User Management";
-            this.usr_mng.UseVisualStyleBackColor = true;
-            this.usr_mng.Click += new System.EventHandler(this.usr_mng_Click);
+            this.admn_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admn_mng.Location = new System.Drawing.Point(4, 28);
+            this.admn_mng.Name = "admn_mng";
+            this.admn_mng.Size = new System.Drawing.Size(410, 70);
+            this.admn_mng.TabIndex = 0;
+            this.admn_mng.Text = "Admin Management";
+            this.admn_mng.UseVisualStyleBackColor = true;
+            this.admn_mng.Click += new System.EventHandler(this.admn_mng_Click);
             // 
             // pictureBox1
             // 
@@ -129,6 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1429, 914);
             this.Controls.Add(this.pictureBox1);

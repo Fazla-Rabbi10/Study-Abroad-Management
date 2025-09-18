@@ -42,29 +42,36 @@ namespace Study_Abroad_Management
             addrs_txtbx.Text = "";
             nm_txtbx.Text = "";
             email_txtbx.Text = "";
+            cntry.Text = "";
+            contact_txtbx.Text="";
         }
         public void show()
-        {
-            string connectionString = @"//database connection";  //con string 
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            string query = "SELECT * FROM [dbo].[AdminDetails]"; //  table name cng 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            DataTable dt = ds.Tables[0];
-            dgvAdmTbl.AutoGenerateColumns = true;
-            dgvAdmTbl.DataSource = dt;
-
+        {           
+                 string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
+                 SqlConnection conn = new SqlConnection(connectionString);
+                 conn.Open();
+                 // string query = "SELECT * FROM AdminDetails";
+                 string query = "SELECT ID,Name,Address,Email,Country,Gender,ContactNumber FROM AdminDetails";
+                 SqlCommand cmd = new SqlCommand(query, conn);
+                 SqlDataAdapter da = new SqlDataAdapter(cmd);
+                 DataSet ds = new DataSet();
+                 da.Fill(ds);
+                 DataTable dt = ds.Tables[0];
+                 dgvAdmTbl.AutoGenerateColumns = true;
+                 dgvAdmTbl.DataSource = dt;
+             
+            
         }
         private void dgvAdmTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             id_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[0].Value.ToString();
-            addrs_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[0].Value.ToString();
+
             nm_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[1].Value.ToString();
-            contact_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[5].Value.ToString();
-            email_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[2].Value.ToString();
+            addrs_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[2].Value.ToString();         
+            email_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[3].Value.ToString();
+            cntry.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[4].Value.ToString();
+            contact_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[6].Value.ToString();
+           
         }
         private void id_Click(object sender, EventArgs e)
         {
@@ -88,36 +95,73 @@ namespace Study_Abroad_Management
 
         private void showButton_Click_1(object sender, EventArgs e)
         {
-            show();
-           // dgvAdmTbl.Visible = false;
+            try { 
+                show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            //show();
+            // dgvAdmTbl.Visible = false;
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            string connectionString = @" //database ";
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            string query = "update [dbo].[AdminDetails] set Name='" + nm_txtbx.Text + "',Status ='" + addrs_txtbx.Text + "', Email='" + email_txtbx.Text + "', ContactNumber='" + contact_txtbx.Text + "' where AdminID='" + id_txtbx.Text + "'"; //table name cng and column name cng 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            show();
-            clear();
+           try 
+            { 
+                 string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+                 SqlConnection conn = new SqlConnection(connectionString);
+                 conn.Open();
+
+                 string query = "update AdminDetails set Name='" + nm_txtbx.Text + "',Address ='" + addrs_txtbx.Text + "', Email='" + email_txtbx.Text + "', ContactNumber='" + contact_txtbx.Text + "',Country ='" + cntry.Text + "' where ID='" + id_txtbx.Text + "'"; 
+                 SqlCommand cmd = new SqlCommand(query, conn);
+                 cmd.ExecuteNonQuery();
+
+                //string query2 = "delete from loginTable where ID='" + id_txtbx.Text + "'";
+                //SqlCommand cmd2 = new SqlCommand(query2, conn);
+                //cmd2.ExecuteNonQuery();
+
+                show();
+                clear();
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void delet_Click(object sender, EventArgs e)
         {
-            if (id_txtbx.Text == "")
-                MessageBox.Show("Please select a row first ");
-            else
+            try
             {
-                string connectionString = @"//database";
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                string query = "delete from [dbo].[AdminDetails] where AdminID=" + id_txtbx.Text + ""; //cng tble name and column name 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                show();
-                clear();
+                if (id_txtbx.Text == "")
+                    MessageBox.Show("Please select a row first ");
+                else
+                {
+                    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+                    SqlConnection conn = new SqlConnection(connectionString);
+                    conn.Open();
+
+                    string query = "delete from AdminDetails where ID='" + id_txtbx.Text + "'";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();                  
+
+                    //string query2 = "delete from loginTable where ID='" + id_txtbx.Text + "'";
+                    //SqlCommand cmd2 = new SqlCommand(query2, conn);
+                    //cmd2.ExecuteNonQuery();
+
+                    show();
+                    clear();
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 

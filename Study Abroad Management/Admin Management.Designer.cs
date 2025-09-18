@@ -244,7 +244,8 @@
             this.dgvAdmTbl.Name = "dgvAdmTbl";
             this.dgvAdmTbl.RowHeadersWidth = 82;
             this.dgvAdmTbl.RowTemplate.Height = 33;
-            this.dgvAdmTbl.Size = new System.Drawing.Size(1374, 529);
+            this.dgvAdmTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAdmTbl.Size = new System.Drawing.Size(1365, 526);
             this.dgvAdmTbl.TabIndex = 11;
             this.dgvAdmTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmTbl_CellContentClick);
             // 
@@ -291,7 +292,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1430, 914);
+            this.ClientSize = new System.Drawing.Size(1428, 914);
             this.Controls.Add(this.contact_txtbx);
             this.Controls.Add(this.cntry);
             this.Controls.Add(this.label3);

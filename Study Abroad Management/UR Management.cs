@@ -34,16 +34,21 @@ namespace Study_Abroad_Management
         public void clear()
         {
             id_txtbox.Text = "";
-            email_txtbox.Text = "";
-            nty_txtbox.Text = "";
+
             name_txtbox.Text = "";
+            nty_txtbox.Text="";
+            email_txtbox.Text = "";
+            unm_txtbx.Text = "";
+            eiin_txtbox.Text = "";
+
         }
         public void show()
         {
-            string connectionString = @"//database connection";  //con string 
+            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = "SELECT * FROM //_table_name"; // aikhane table name cng 
+
+            string query = "SELECT ID,Name,Nationality,Gender,Email,UniversityName,EIIN  FROM URDetails"; 
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -58,43 +63,83 @@ namespace Study_Abroad_Management
         private void dgvURmng_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             id_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[0].Value.ToString();
-            email_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[1].Value.ToString();
+            name_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[1].Value.ToString();
             nty_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[2].Value.ToString();
-            name_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[3].Value.ToString();
+            email_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[4].Value.ToString();
+            unm_txtbx.Text = dgvURmng.Rows[e.RowIndex].Cells[5].Value.ToString();
+            eiin_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells[6].Value.ToString();
+
         }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            show();
-            
+            try {
+                show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :"+ex.Message);
+            }
+            //show();         
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string connectionString = @" //database ";
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            string query = "update ____Table set Name='" + email_txtbox.Text + "', Email='" + nty_txtbox.Text + "' where AdminID='" + id_txtbox.Text + "'"; //table name cng and column name cng 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            show();
-            clear();
+            try
+            {
+                string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+
+                string query = "update URDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',UniversityName='"+unm_txtbx+"',EIIN='"+eiin_txtbox.Text+"' where ID='"+id_txtbox.Text+"'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
+                //SqlCommand cmd2 = new SqlCommand(query2, conn);
+                //cmd2.ExecuteNonQuery();
+
+                show();
+                clear();
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (id_txtbox.Text == "")
-                MessageBox.Show("Please select a row first ");
-            else
+            try
+            {              
+                if (id_txtbox.Text == "")
+                    MessageBox.Show("Please select a row first ");
+                else
+                {
+                    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+                    SqlConnection conn = new SqlConnection(connectionString);
+                    conn.Open();
+
+                    string query = "delete from URDetails where ID=" + id_txtbox.Text + ""; 
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+
+                    //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
+                    //SqlCommand cmd2 = new SqlCommand(query2, conn);
+                    //cmd2.ExecuteNonQuery();
+
+                    show();
+                    clear();
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
             {
-                string connectionString = @"//database";
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                string query = "delete from //_table_name// where AdminID=" + id_txtbox.Text + ""; //cng tble name and column name 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                show();
-                clear();
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -154,6 +199,16 @@ namespace Study_Abroad_Management
         }
 
         private void contact_txtbx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eiin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eiin_txtbox_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -188,6 +188,11 @@ namespace Study_Abroad_Management
             }
         }
 
+        private void Admin_REG_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
