@@ -103,30 +103,6 @@
     <Compile Include="UR Management.Designer.cs">
       <DependentUpon>UR Management.cs</DependentUpon>
     </Compile>
-    <Compile Include="UR\AddNewCourseControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UR\AddNewCourseControl.Designer.cs">
-      <DependentUpon>AddNewCourseControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UR\ApplicationsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UR\ApplicationsControl.Designer.cs">
-      <DependentUpon>ApplicationsControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UR\CourseDetailsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UR\CourseDetailsControl.Designer.cs">
-      <DependentUpon>CourseDetailsControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UR\UniversityRepresentative.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UR\UniversityRepresentative.Designer.cs">
-      <DependentUpon>UniversityRepresentative.cs</DependentUpon>
-    </Compile>
     <Compile Include="UR_REG_Formcs.cs">
       <SubType>Form</SubType>
     </Compile>
