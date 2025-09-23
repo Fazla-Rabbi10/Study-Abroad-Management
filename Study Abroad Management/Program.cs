@@ -23,7 +23,7 @@ namespace Study_Abroad_Management
 
             //Application.Run(new Admin_Pannel());
             //Application.Run(new UR_Management());
-            Application.Run(new User_Management());
+            Application.Run(new Study_Abroad_Management.UR.UniversityRepresentative());
         }
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();

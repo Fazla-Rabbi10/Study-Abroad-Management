@@ -33,12 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSideBar = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.logoutbtn = new System.Windows.Forms.Button();
             this.applicationbtn = new System.Windows.Forms.Button();
             this.coursedetailsbtn = new System.Windows.Forms.Button();
             this.addnewcoursebtn = new System.Windows.Forms.Button();
             this.homebtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlTop.SuspendLayout();
             this.pnlSideBar.SuspendLayout();
             this.SuspendLayout();
@@ -101,16 +101,6 @@
             this.pnlSideBar.Size = new System.Drawing.Size(253, 568);
             this.pnlSideBar.TabIndex = 5;
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.graduation_cap_with_globe_digital_art_style_education_day;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(253, 75);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(733, 568);
-            this.panel1.TabIndex = 6;
-            // 
             // logoutbtn
             // 
             this.logoutbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(43)))), ((int)(((byte)(53)))));
@@ -139,6 +129,7 @@
             this.applicationbtn.TabIndex = 3;
             this.applicationbtn.Text = "Application ";
             this.applicationbtn.UseVisualStyleBackColor = false;
+            this.applicationbtn.Click += new System.EventHandler(this.applicationbtn_Click);
             // 
             // coursedetailsbtn
             // 
@@ -153,6 +144,7 @@
             this.coursedetailsbtn.TabIndex = 2;
             this.coursedetailsbtn.Text = "Course Details";
             this.coursedetailsbtn.UseVisualStyleBackColor = false;
+            this.coursedetailsbtn.Click += new System.EventHandler(this.coursedetailsbtn_Click);
             // 
             // addnewcoursebtn
             // 
@@ -167,6 +159,7 @@
             this.addnewcoursebtn.TabIndex = 1;
             this.addnewcoursebtn.Text = "Add New Course";
             this.addnewcoursebtn.UseVisualStyleBackColor = false;
+            this.addnewcoursebtn.Click += new System.EventHandler(this.addnewcoursebtn_Click);
             // 
             // homebtn
             // 
@@ -182,6 +175,17 @@
             this.homebtn.Text = "Home";
             this.homebtn.UseVisualStyleBackColor = false;
             this.homebtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.graduation_cap_with_globe_digital_art_style_education_day;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(253, 75);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(733, 568);
+            this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // UniversityRepresentative
             // 
