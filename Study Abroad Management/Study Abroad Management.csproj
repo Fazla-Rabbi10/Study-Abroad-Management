@@ -85,6 +85,12 @@
     <Compile Include="Student_Application_Status.Designer.cs">
       <DependentUpon>Student_Application_Status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student_Course_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student_Course_Detail.Designer.cs">
+      <DependentUpon>Student_Course_Detail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Studen_REG_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </Compile>
     <EmbeddedResource Include="Student_Application_Status.resx">
       <DependentUpon>Student_Application_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student_Course_Detail.resx">
+      <DependentUpon>Student_Course_Detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Studen_REG_Form.resx">
       <DependentUpon>Studen_REG_Form.cs</DependentUpon>

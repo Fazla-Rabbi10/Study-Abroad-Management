@@ -13,101 +13,40 @@ namespace Study_Abroad_Management
 {
     public partial class User_Student : Form
     {
-        string CourseName;
-        string CourseCode;
-        string UniversityName;
-        string Country;
-        string CourseDuration;
-        string DegreeType;
-        string IELTS;
-        string GRE;
-        string SAT;
-        string TutionFee;
-        string MaxScholarship;
-        string Intake;
-        string ApplicationDeadline;
-        string StudyMode;
-        public string courseName { get { return CourseName; } }
-        public string courseCode { get { return CourseCode; } }
-        public string universityName { get { return UniversityName; } }
-        public string country { get { return Country; } }
-        public string courseDuration { get { return CourseDuration; } }
-        public string degreeType { get { return DegreeType; } }
-        public string ielts { get { return IELTS; } }
-        public string gre { get { return GRE; } }
-        public string sat { get { return SAT; } }
-        public string tutionFee { get { return TutionFee; } }
-        public string maxScholarship { get { return MaxScholarship; } }
-        public string intake { get { return Intake; } }
-        public string applicationDeadline { get { return ApplicationDeadline; } }
-        public string studyMode { get { return StudyMode; } }
+        static string CourseName;
+        static string CourseCode;
+        static string UniversityName;
+        static string Country;
+        static string CourseDuration;
+        static string DegreeType;
+        static string IELTS;
+        static string GRE;
+        static string SAT;
+        static string TutionFee;
+        static string MaxScholarship;
+        static string Intake;
+        static string ApplicationDeadline;
+        static string StudyMode;
+        public static string courseName { get { return CourseName; } }
+        public static string courseCode { get { return CourseCode; } }
+        public static string universityName { get { return UniversityName; } }
+        public static string country { get { return Country; } }
+        public static string courseDuration { get { return CourseDuration; } }
+        public static string degreeType { get { return DegreeType; } }
+        public static string ielts { get { return IELTS; } }
+        public static string gre { get { return GRE; } }
+        public static string sat { get { return SAT; } }
+        public static string tutionFee { get { return TutionFee; } }
+        public static string maxScholarship { get { return MaxScholarship; } }
+        public static string intake { get { return Intake; } }
+        public static string applicationDeadline { get { return ApplicationDeadline; } }
+        public static string studyMode { get { return StudyMode; } }
 
 
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public User_Student()
         {
             InitializeComponent();
-        }
-
-        private void User_Std_backToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (con.State != ConnectionState.Open)
-            {
-                con.Open();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                Log_In_Form logg = new Log_In_Form();
-                logg.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Connection Failed");
-                con.Close();
-            }
-
-        }
-
-        private void User_Std_exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult drr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            if (con.State != ConnectionState.Open)
-            {
-                con.Open();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                if (drr == DialogResult.Yes)
-                {
-                    Application.Exit();
-
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Connection Failed");
-                con.Close();
-            }
-        }
-
-        private void User_StudentclearToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (con.State != ConnectionState.Open)
-            {
-                con.Open();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                user_Studnet_search_textBox.Clear();
-                user_Studnet_search_textBox.Focus();
-            }
-            else
-            {
-                MessageBox.Show("Connection Failed");
-                con.Close();
-            }
         }
 
         private void User_Student_Load(object sender, EventArgs e)
@@ -165,7 +104,7 @@ namespace Study_Abroad_Management
                 string searchequery = "SELECT CourseName, CourseCode, UniversityName, Country," +
                 " CourseDuration, DegreeType, IELTS, GRE, SAT, TutionFee, MaxScholarship, " +
                 "Intake, ApplicationDeadline, StudyMode FROM URDashboard " +
-                "where Country like  '%"+ user_Studnet_search_textBox.Text+"%'";
+                "where Country like  '%" + user_Studnet_search_textBox.Text + "%'";
                 if (con.State != ConnectionState.Open)
                 {
                     con.Open();
@@ -233,7 +172,7 @@ namespace Study_Abroad_Management
                 }
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -244,7 +183,7 @@ namespace Study_Abroad_Management
                     con.Close();
                 }
             }
-            
+
         }
 
         private void student_apply_button_Click(object sender, EventArgs e)
@@ -312,17 +251,23 @@ namespace Study_Abroad_Management
                         cmdApply.Parameters.AddWithValue("@StudyMode", StudyMode);
                         cmdApply.Parameters.AddWithValue("@StudentID", GlobalData.LoggedInUserID);
 
-                        // Execute the query
-                        int resultApply = cmdApply.ExecuteNonQuery();
 
-                        if (resultApply > 0)
+                        DialogResult yr = MessageBox.Show("Are you sure you want to apply for this course? \n Make Sure You have seen the course details.", "Confirm Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (yr == DialogResult.Yes)
                         {
-                            MessageBox.Show("Application Submitted Successfully");
+                            // Execute the query
+                            int resultApply = cmdApply.ExecuteNonQuery();
+                            if (resultApply > 0)
+                            {
+                                MessageBox.Show("Application Submitted Successfully");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Application Submission Failed");
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Application Submission Failed");
-                        }
+
+
                     }
                     catch (Exception ex)
                     {
@@ -365,6 +310,111 @@ namespace Study_Abroad_Management
                 MessageBox.Show("Connection Failed");
                 con.Close();
             }
+        }
+
+        private void LogOutbutton_Click(object sender, EventArgs e)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                Log_In_Form logg = new Log_In_Form();
+                logg.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
+            }
+        }
+
+        private void Exit_button2_Click(object sender, EventArgs e)
+        {
+            DialogResult drr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                if (drr == DialogResult.Yes)
+                {
+                    Application.Exit();
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
+            }
+        }
+
+        private void Clear_button1_Click(object sender, EventArgs e)
+        {
+
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                user_Studnet_search_textBox.Clear();
+                user_Studnet_search_textBox.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
+            }
+        }
+
+        private void Course_Detail_button1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(courseName) &&
+                !string.IsNullOrWhiteSpace(courseCode) &&
+                !string.IsNullOrWhiteSpace(universityName) &&
+                !string.IsNullOrWhiteSpace(country) &&
+                !string.IsNullOrWhiteSpace(courseDuration) &&
+                !string.IsNullOrWhiteSpace(degreeType) &&
+                !string.IsNullOrWhiteSpace(ielts) &&
+                !string.IsNullOrWhiteSpace(gre) &&
+                !string.IsNullOrWhiteSpace(sat) &&
+                !string.IsNullOrWhiteSpace(tutionFee) &&
+                !string.IsNullOrWhiteSpace(maxScholarship) &&
+                !string.IsNullOrWhiteSpace(intake) &&
+                !string.IsNullOrWhiteSpace(applicationDeadline) &&
+                !string.IsNullOrWhiteSpace(studyMode) &&
+                //for safety
+                !string.IsNullOrEmpty(courseName) &&
+                !string.IsNullOrEmpty(courseCode) &&
+                !string.IsNullOrEmpty(universityName) &&
+                !string.IsNullOrEmpty(country) &&
+                !string.IsNullOrEmpty(courseDuration) &&
+                !string.IsNullOrEmpty(degreeType) &&
+                !string.IsNullOrEmpty(ielts) &&
+                !string.IsNullOrEmpty(gre) &&
+                !string.IsNullOrEmpty(sat) &&
+                !string.IsNullOrEmpty(tutionFee) &&
+                !string.IsNullOrEmpty(maxScholarship) &&
+                !string.IsNullOrEmpty(intake) &&
+                !string.IsNullOrEmpty(applicationDeadline) &&
+                !string.IsNullOrEmpty(studyMode))
+            {
+                Student_Course_Detail studentCourseDetail = new Student_Course_Detail();
+                studentCourseDetail.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Please select a course from the list to view details.", "Incomplete Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
         }
     }
 }
