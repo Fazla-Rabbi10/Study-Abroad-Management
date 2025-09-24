@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,8 @@ namespace Study_Abroad_Management
 {
     public partial class User_Management : Form
     {
+       //Rabbi //SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
+        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public User_Management()
         {
             InitializeComponent();
@@ -54,21 +57,32 @@ namespace Study_Abroad_Management
 
         public void _Show()
         {
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
+           // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
+            //SqlConnection conn = new SqlConnection(connectionString);
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            {
+                string query = "SELECT ID,Name,Nationality,Gender,Email,Age  FROM StudentDetails";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //da.Fill(ds);
+                //DataTable dt = ds.Tables[0];
+                //dataGridView1.AutoGenerateColumns = true;
+                //dataGridView1.DataSource = dt;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
 
-            string query = "SELECT ID,Name,Nationality,Gender,Email,Age  FROM StudentDetails";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            DataTable dt = ds.Tables[0];
-            dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = dt;
+            }
+
+            
 
         }
-        public void clear()
+        public void _clear() // change clear()
         {
             id_txtbox.Text = "";
             name_txtbox.Text = "";
@@ -97,35 +111,95 @@ namespace Study_Abroad_Management
         private void delet_txtbox_Click(object sender, EventArgs e)
         {
 
-            try
+            //try
+            //{
+            //if (id_txtbox.Text == "")
+            //    MessageBox.Show("Please select a row first ");
+            //else
+            //{
+            //    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            //    SqlConnection conn = new SqlConnection(connectionString);
+            //    conn.Open();
+
+            //    string query = "delete from StudentDetails where ID=" + id_txtbox.Text + "";
+            //    SqlCommand cmd = new SqlCommand(query, conn);
+            //    cmd.ExecuteNonQuery();
+
+            //    //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
+            //    //SqlCommand cmd2 = new SqlCommand(query2, conn);
+            //    //cmd2.ExecuteNonQuery();
+
+            //    _Show();
+            //    clear();
+
+            //    conn.Close();
+            //}
+
+
+            //catch (Exception ex)
+            //{
+            // MessageBox.Show("Error: " + ex.Message);
+            //}
+            if (!String.IsNullOrWhiteSpace(id_txtbox.Text) && !String.IsNullOrEmpty(id_txtbox.Text))
             {
-                if (id_txtbox.Text == "")
-                    MessageBox.Show("Please select a row first ");
-                else
-                {
-                    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-                    SqlConnection conn = new SqlConnection(connectionString);
-                    conn.Open();
+               
+                
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+                    }
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        SqlTransaction tx = conn.BeginTransaction();
+                        try 
+                        {
+                            string stdDetailquery = "delete from StudentDetails where ID=" + id_txtbox.Text + "";
+                            SqlCommand cmd = new SqlCommand(stdDetailquery, conn, tx);
+                            int deleteresult = cmd.ExecuteNonQuery();
 
-                    string query = "delete from StudentDetails where ID=" + id_txtbox.Text + "";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
+                        if (deleteresult > 0)
+                        {
 
-                    //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
-                    //SqlCommand cmd2 = new SqlCommand(query2, conn);
-                    //cmd2.ExecuteNonQuery();
+                            string loginTablequery = "delete from loginTable where ID=" + id_txtbox.Text + "";
+                            SqlCommand cmd2 = new SqlCommand(loginTablequery, conn, tx);
+                            int resultDelete = cmd2.ExecuteNonQuery();
+                            tx.Commit();
 
-                    _Show();
-                    clear();
+                            if (resultDelete > 0)
+                            {
+                                MessageBox.Show("Deleted Successfully");
+                                _Show();
+                                _clear();
 
-                    conn.Close();
-                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Deletion Failed");
+                            }
+                        }
+                        }
+                        catch (Exception ex)
+                        {
+                            try { tx.Rollback(); } catch { }
+                            MessageBox.Show("Deletion Failed: " + ex.Message);
+                        }
+                        finally
+                        {
+                            if (conn.State == ConnectionState.Open)
+                            {
+                                conn.Close();
+                            }
+                        }
+
+
+                    }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Please select a row first ");
             }
         }
+        
 
         private void ID_Click(object sender, EventArgs e)
         {
@@ -136,34 +210,50 @@ namespace Study_Abroad_Management
         {
             try
             {
-                string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
+                if (conn.State != ConnectionState.Open) //added
+                {
+                    conn.Open();
+                }
+                if (conn.State == ConnectionState.Open) //added
+                {
+                    // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+                    //SqlConnection conn = new SqlConnection(connectionString);
+                    //conn.Open();
+                    string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender + "',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
 
-                string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '"+ gender+"',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
+                    //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
+                    //SqlCommand cmd2 = new SqlCommand(query2, conn);
+                    //cmd2.ExecuteNonQuery();
 
-                //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
-                //SqlCommand cmd2 = new SqlCommand(query2, conn);
-                //cmd2.ExecuteNonQuery();
+                    _Show();
+                    _clear();
 
-                _Show();
-                clear();
+                    //conn.Close();
+                }
 
-                conn.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
             }
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            SqlConnection conn = new SqlConnection(connectionString);
+            //string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            //SqlConnection conn = new SqlConnection(connectionString);
+
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
