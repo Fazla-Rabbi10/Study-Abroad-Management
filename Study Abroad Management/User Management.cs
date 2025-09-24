@@ -208,43 +208,88 @@ namespace Study_Abroad_Management
 
         private void updt_Click(object sender, EventArgs e)
         {
-            try
+            //try
+            //{
+
+            //        // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            //        //SqlConnection conn = new SqlConnection(connectionString);
+            //        //conn.Open();
+            //        string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender + "',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
+            //        SqlCommand cmd = new SqlCommand(query, conn);
+            //        cmd.ExecuteNonQuery();
+
+            //        //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
+            //        //SqlCommand cmd2 = new SqlCommand(query2, conn);
+            //        //cmd2.ExecuteNonQuery();
+
+            //        _Show();
+            //        _clear();
+
+            //        //conn.Close();
+            //    
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.Message);
+            //}
+
+            //}
+            if (!String.IsNullOrWhiteSpace(name_txtbox.Text) && !String.IsNullOrEmpty(nty_txtbox.Text) &&
+                !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(gender.Text)
+                 && !String.IsNullOrWhiteSpace(age_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
             {
-                if (conn.State != ConnectionState.Open) //added
+                if (conn.State != ConnectionState.Open)
                 {
                     conn.Open();
                 }
-                if (conn.State == ConnectionState.Open) //added
-                {
-                    // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-                    //SqlConnection conn = new SqlConnection(connectionString);
-                    //conn.Open();
-                    string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender + "',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
-
-                    //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
-                    //SqlCommand cmd2 = new SqlCommand(query2, conn);
-                    //cmd2.ExecuteNonQuery();
-
-                    _Show();
-                    _clear();
-
-                    //conn.Close();
-                }
-
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
                 if (conn.State == ConnectionState.Open)
                 {
-                    conn.Close();
+                    SqlTransaction tx = conn.BeginTransaction();
+                    try
+                    {
+                        string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender.Text + "',Age='" + age_txtbx.Text + "'  where ID='" + id_txtbox.Text + "'";
+                        SqlCommand cmd = new SqlCommand(query, conn, tx);
+                        int updateresult = cmd.ExecuteNonQuery();
+                        if (updateresult > 0)
+                        {
+                            string updatequery2 = "update loginTable set Name='" + name_txtbox.Text + "' where ID='" + id_txtbox.Text + "'";
+                            SqlCommand cmd2 = new SqlCommand(updatequery2, conn, tx);
+                            int resultUpdate = cmd2.ExecuteNonQuery();
+                            tx.Commit();
+                            if (resultUpdate > 0)
+                            {
+                                MessageBox.Show("Updated Successfully");
+                                _Show();
+                                _clear();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Update Failed");
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        try { tx.Rollback(); } catch { }
+                        MessageBox.Show("Update Failed: " + ex.Message);
+                    }
+                    finally
+                    {
+                        if (conn.State == ConnectionState.Open)
+                        {
+                            conn.Close();
+                        }
+                    }
+
+
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please fill all the fields");
             }
         }
 
