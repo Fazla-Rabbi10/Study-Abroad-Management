@@ -13,6 +13,7 @@ namespace Study_Abroad_Management
 {
     public partial class Admin_Pannel : Form
     {
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public Admin_Pannel()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Study_Abroad_Management
         {
 
         }
-               private void usr_mng_Click(object sender, EventArgs e)
+        private void usr_mng_Click(object sender, EventArgs e)
         {
             User_Management ur = new User_Management();
             ur.Show();
@@ -53,8 +54,8 @@ namespace Study_Abroad_Management
         private void exit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            SqlConnection conn = new SqlConnection(connectionString);
+            //string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
