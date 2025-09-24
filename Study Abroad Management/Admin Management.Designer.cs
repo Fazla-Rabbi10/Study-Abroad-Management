@@ -50,6 +50,7 @@
             this.contact_txtbx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cntry = new System.Windows.Forms.TextBox();
+            this.exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmTbl)).BeginInit();
@@ -57,6 +58,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.back);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -287,6 +289,17 @@
             this.cntry.Size = new System.Drawing.Size(251, 36);
             this.cntry.TabIndex = 14;
             // 
+            // exit
+            // 
+            this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exit.Location = new System.Drawing.Point(1288, 15);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(102, 48);
+            this.exit.TabIndex = 21;
+            this.exit.Text = "Exit";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // Admin_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -345,5 +358,6 @@
         private System.Windows.Forms.Label contact;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox cntry;
+        private System.Windows.Forms.Button exit;
     }
 }

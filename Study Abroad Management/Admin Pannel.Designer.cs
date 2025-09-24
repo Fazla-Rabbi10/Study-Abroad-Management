@@ -37,6 +37,7 @@
             this.ur_mng = new System.Windows.Forms.Button();
             this.admn_mng = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.admin_buttoncombo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -44,6 +45,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 3);
@@ -125,6 +127,17 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // exit
+            // 
+            this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exit.Location = new System.Drawing.Point(1275, 19);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(102, 48);
+            this.exit.TabIndex = 5;
+            this.exit.Text = "Exit";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // Admin_Pannel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -157,5 +170,6 @@
         private System.Windows.Forms.Button ur_mng;
         private System.Windows.Forms.Button admn_mng;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button exit;
     }
 }

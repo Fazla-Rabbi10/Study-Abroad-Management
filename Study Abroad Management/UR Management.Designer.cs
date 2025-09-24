@@ -49,12 +49,14 @@
             this.eiin = new System.Windows.Forms.Label();
             this.dgvURmng = new System.Windows.Forms.DataGridView();
             this.eiin_txtbox = new System.Windows.Forms.TextBox();
+            this.exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvURmng)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.back);
@@ -269,6 +271,17 @@
             this.eiin_txtbox.TabIndex = 20;
             this.eiin_txtbox.TextChanged += new System.EventHandler(this.eiin_txtbox_TextChanged);
             // 
+            // exit
+            // 
+            this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exit.Location = new System.Drawing.Point(1285, 13);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(102, 48);
+            this.exit.TabIndex = 4;
+            this.exit.Text = "Exit";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // UR_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -328,5 +341,6 @@
         private System.Windows.Forms.Label eiin;
         private System.Windows.Forms.DataGridView dgvURmng;
         private System.Windows.Forms.TextBox eiin_txtbox;
+        private System.Windows.Forms.Button exit;
     }
 }

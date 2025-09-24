@@ -48,12 +48,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.show = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.Label();
+            this.search_by_nm = new System.Windows.Forms.TextBox();
+            this.bname = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.back);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -254,6 +259,47 @@
             this.show.UseVisualStyleBackColor = true;
             this.show.Click += new System.EventHandler(this.show_Click);
             // 
+            // exit
+            // 
+            this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exit.Location = new System.Drawing.Point(1282, 9);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(102, 48);
+            this.exit.TabIndex = 5;
+            this.exit.Text = "Exit";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
+            // search
+            // 
+            this.search.AutoSize = true;
+            this.search.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search.Location = new System.Drawing.Point(53, 135);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(108, 37);
+            this.search.TabIndex = 33;
+            this.search.Text = "Search :";
+            // 
+            // search_by_nm
+            // 
+            this.search_by_nm.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_by_nm.Location = new System.Drawing.Point(155, 132);
+            this.search_by_nm.Multiline = true;
+            this.search_by_nm.Name = "search_by_nm";
+            this.search_by_nm.Size = new System.Drawing.Size(470, 45);
+            this.search_by_nm.TabIndex = 34;
+            this.search_by_nm.TextChanged += new System.EventHandler(this.search_by_nm_TextChanged);
+            // 
+            // bname
+            // 
+            this.bname.AutoSize = true;
+            this.bname.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bname.Location = new System.Drawing.Point(614, 135);
+            this.bname.Name = "bname";
+            this.bname.Size = new System.Drawing.Size(135, 37);
+            this.bname.TabIndex = 35;
+            this.bname.Text = "(by name)";
+            // 
             // User_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -261,6 +307,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1428, 914);
+            this.Controls.Add(this.bname);
+            this.Controls.Add(this.search_by_nm);
+            this.Controls.Add(this.search);
             this.Controls.Add(this.show);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
@@ -312,5 +361,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button show;
+        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Label search;
+        private System.Windows.Forms.TextBox search_by_nm;
+        private System.Windows.Forms.Label bname;
     }
 }

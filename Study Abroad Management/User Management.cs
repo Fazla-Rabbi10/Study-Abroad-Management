@@ -144,7 +144,7 @@ namespace Study_Abroad_Management
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
 
-                //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
+                //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
                 //SqlCommand cmd2 = new SqlCommand(query2, conn);
                 //cmd2.ExecuteNonQuery();
 
@@ -157,6 +157,78 @@ namespace Study_Abroad_Management
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
+            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            SqlConnection conn = new SqlConnection(connectionString);
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            {
+                if (dr == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                conn.Close();
+            }
+        }
+
+        private void search_by_nm_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
+                //    SqlConnection conn = new SqlConnection(connectionString);
+                //    conn.Open();
+
+                //    string query = "SELECT *  FROM StudentDetails where Name like '%" + search_by_nm + "%'";
+                //    SqlCommand cmd = new SqlCommand(query, conn);
+                //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //    DataSet ds = new DataSet();
+                //    da.Fill(ds);
+                //    DataTable dt = ds.Tables[0];
+                //    dataGridView1.AutoGenerateColumns = true;
+                //    dataGridView1.DataSource = dt;
+                //    Show();
+
+                //    conn.Close();
+            }
+            /*try
+            {
+                string searchequery = "SELECT* FROM StudentDetails where Name like  '%" + search_by_nm + "%'";
+                string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+                SqlConnection conn = new SqlConnection(connectionString);
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+                SqlDataAdapter sda = new SqlDataAdapter(searchequery, conn);
+                if (conn.State == ConnectionState.Open)
+                {
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Connection Failed");
+                    conn.Close();
+                }*/           
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)
