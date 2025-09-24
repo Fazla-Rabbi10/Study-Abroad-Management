@@ -73,5 +73,12 @@ namespace Study_Abroad_Management
                 conn.Close();
             }
         }
+
+        private void ur_dshbrd_Click(object sender, EventArgs e)
+        {
+            Dashboard d=new Dashboard();
+            d.Show();
+            this.Hide();
+        }
     }
 }
