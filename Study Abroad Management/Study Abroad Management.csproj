@@ -70,6 +70,12 @@
     <Compile Include="Admin_REG_Form.Designer.cs">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="Log_In_Form.cs">
       <SubType>Form</SubType>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_REG_Form.resx">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log_In_Form.resx">
       <DependentUpon>Log_In_Form.cs</DependentUpon>
