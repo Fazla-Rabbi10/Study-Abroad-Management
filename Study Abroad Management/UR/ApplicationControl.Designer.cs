@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.acceptbtn = new System.Windows.Forms.Button();
-            this.rejectbtn = new System.Windows.Forms.Button();
-            this.refreshbtn = new System.Windows.Forms.Button();
             this.appliocationstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,11 +45,15 @@
             this.applicationdeadline = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studymode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refreshbtn = new System.Windows.Forms.Button();
+            this.rejectbtn = new System.Windows.Forms.Button();
+            this.acceptbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.appliocationstatus,
@@ -75,54 +76,10 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1678, 428);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // acceptbtn
-            // 
-            this.acceptbtn.BackColor = System.Drawing.Color.Green;
-            this.acceptbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
-            this.acceptbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.acceptbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acceptbtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.acceptbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.acceptbtn.Location = new System.Drawing.Point(6, 48);
-            this.acceptbtn.Name = "acceptbtn";
-            this.acceptbtn.Size = new System.Drawing.Size(137, 43);
-            this.acceptbtn.TabIndex = 23;
-            this.acceptbtn.Text = "Accept";
-            this.acceptbtn.UseVisualStyleBackColor = false;
-            // 
-            // rejectbtn
-            // 
-            this.rejectbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.rejectbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
-            this.rejectbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.rejectbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rejectbtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.rejectbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rejectbtn.Location = new System.Drawing.Point(160, 48);
-            this.rejectbtn.Name = "rejectbtn";
-            this.rejectbtn.Size = new System.Drawing.Size(137, 43);
-            this.rejectbtn.TabIndex = 24;
-            this.rejectbtn.Text = "Reject";
-            this.rejectbtn.UseVisualStyleBackColor = false;
-            // 
-            // refreshbtn
-            // 
-            this.refreshbtn.BackColor = System.Drawing.Color.Gray;
-            this.refreshbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
-            this.refreshbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.refreshbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshbtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.refreshbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.refreshbtn.Location = new System.Drawing.Point(316, 48);
-            this.refreshbtn.Name = "refreshbtn";
-            this.refreshbtn.Size = new System.Drawing.Size(137, 43);
-            this.refreshbtn.TabIndex = 25;
-            this.refreshbtn.Text = "Refresh";
-            this.refreshbtn.UseVisualStyleBackColor = false;
             // 
             // appliocationstatus
             // 
@@ -235,6 +192,51 @@
             this.studentid.MinimumWidth = 6;
             this.studentid.Name = "studentid";
             this.studentid.Width = 125;
+            // 
+            // refreshbtn
+            // 
+            this.refreshbtn.BackColor = System.Drawing.Color.Gray;
+            this.refreshbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
+            this.refreshbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.refreshbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshbtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.refreshbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.refreshbtn.Location = new System.Drawing.Point(316, 48);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(137, 43);
+            this.refreshbtn.TabIndex = 25;
+            this.refreshbtn.Text = "Refresh";
+            this.refreshbtn.UseVisualStyleBackColor = false;
+            // 
+            // rejectbtn
+            // 
+            this.rejectbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.rejectbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
+            this.rejectbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.rejectbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rejectbtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.rejectbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rejectbtn.Location = new System.Drawing.Point(160, 48);
+            this.rejectbtn.Name = "rejectbtn";
+            this.rejectbtn.Size = new System.Drawing.Size(137, 43);
+            this.rejectbtn.TabIndex = 24;
+            this.rejectbtn.Text = "Reject";
+            this.rejectbtn.UseVisualStyleBackColor = false;
+            // 
+            // acceptbtn
+            // 
+            this.acceptbtn.BackColor = System.Drawing.Color.Green;
+            this.acceptbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
+            this.acceptbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.acceptbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acceptbtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.acceptbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.acceptbtn.Location = new System.Drawing.Point(6, 48);
+            this.acceptbtn.Name = "acceptbtn";
+            this.acceptbtn.Size = new System.Drawing.Size(137, 43);
+            this.acceptbtn.TabIndex = 23;
+            this.acceptbtn.Text = "Accept";
+            this.acceptbtn.UseVisualStyleBackColor = false;
             // 
             // ApplicationControl
             // 

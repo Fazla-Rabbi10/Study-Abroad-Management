@@ -127,6 +127,7 @@
     <Compile Include="UR\CourseDetailsControl.Designer.cs">
       <DependentUpon>CourseDetailsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UR\DataAccess.cs" />
     <Compile Include="UR\UniversityRepresentative.cs">
       <SubType>Form</SubType>
     </Compile>

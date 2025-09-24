@@ -17,53 +17,39 @@ namespace Study_Abroad_Management.UR
             InitializeComponent();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void AddUserControl(UserControl control)
         {
-
+            pnlContainer.Controls.Clear();
+            control.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Add(control);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddnewcourse_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UniversityRepresentative_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addnewcoursebtn_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
             AddNewCourseControl addNewCourseControl = new AddNewCourseControl();
-            addNewCourseControl.Dock = DockStyle.Fill;
-            panel1.Controls.Add(addNewCourseControl);
+            this.AddUserControl(addNewCourseControl);
         }
 
-        private void coursedetailsbtn_Click(object sender, EventArgs e)
+        private void btnCourseDetails_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
             CourseDetailsControl courseDetailsControl = new CourseDetailsControl();
-            courseDetailsControl.Dock = DockStyle.Fill;
-            panel1.Controls.Add(courseDetailsControl);
+            this.AddUserControl(courseDetailsControl);
         }
 
-        private void applicationbtn_Click(object sender, EventArgs e)
+        private void btnApplication_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
             ApplicationControl applicationControl = new ApplicationControl();
-            applicationControl.Dock = DockStyle.Fill;
-            panel1.Controls.Add(applicationControl);
+            this.AddUserControl(applicationControl);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            pnlContainer.Controls.Clear();
         }
     }
 }
