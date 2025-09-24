@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.student_menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.UserStudentbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.User_Std_backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.User_Std_exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.User_StudentclearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Studentlabel = new System.Windows.Forms.Label();
             this.StudentIDlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,51 +39,21 @@
             this.applyINFO_button = new System.Windows.Forms.Button();
             this.for_apply_dataGridView = new System.Windows.Forms.DataGridView();
             this.search_bylabel = new System.Windows.Forms.Label();
-            this.student_menuStrip1.SuspendLayout();
+            this.LogOutbutton = new System.Windows.Forms.Button();
+            this.Exit_button2 = new System.Windows.Forms.Button();
+            this.Clear_button1 = new System.Windows.Forms.Button();
+            this.Course_Detail_button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.for_apply_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // student_menuStrip1
             // 
             this.student_menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.student_menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.UserStudentbackToolStripMenuItem});
             this.student_menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.student_menuStrip1.Name = "student_menuStrip1";
-            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 28);
+            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 30);
             this.student_menuStrip1.TabIndex = 45;
             this.student_menuStrip1.Text = "menuStrip1";
-            // 
-            // UserStudentbackToolStripMenuItem
-            // 
-            this.UserStudentbackToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.User_Std_backToolStripMenuItem,
-            this.User_Std_exitToolStripMenuItem,
-            this.User_StudentclearToolStripMenuItem});
-            this.UserStudentbackToolStripMenuItem.Name = "UserStudentbackToolStripMenuItem";
-            this.UserStudentbackToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.UserStudentbackToolStripMenuItem.Text = "View";
-            // 
-            // User_Std_backToolStripMenuItem
-            // 
-            this.User_Std_backToolStripMenuItem.Name = "User_Std_backToolStripMenuItem";
-            this.User_Std_backToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
-            this.User_Std_backToolStripMenuItem.Text = "Back";
-            this.User_Std_backToolStripMenuItem.Click += new System.EventHandler(this.User_Std_backToolStripMenuItem_Click);
-            // 
-            // User_Std_exitToolStripMenuItem
-            // 
-            this.User_Std_exitToolStripMenuItem.Name = "User_Std_exitToolStripMenuItem";
-            this.User_Std_exitToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
-            this.User_Std_exitToolStripMenuItem.Text = "Exit";
-            this.User_Std_exitToolStripMenuItem.Click += new System.EventHandler(this.User_Std_exitToolStripMenuItem_Click);
-            // 
-            // User_StudentclearToolStripMenuItem
-            // 
-            this.User_StudentclearToolStripMenuItem.Name = "User_StudentclearToolStripMenuItem";
-            this.User_StudentclearToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
-            this.User_StudentclearToolStripMenuItem.Text = "Clear";
-            this.User_StudentclearToolStripMenuItem.Click += new System.EventHandler(this.User_StudentclearToolStripMenuItem_Click);
             // 
             // Studentlabel
             // 
@@ -143,11 +109,11 @@
             this.Student_Show_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Student_Show_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Student_Show_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Student_Show_button.Location = new System.Drawing.Point(36, 244);
+            this.Student_Show_button.Location = new System.Drawing.Point(36, 177);
             this.Student_Show_button.Name = "Student_Show_button";
             this.Student_Show_button.Size = new System.Drawing.Size(229, 66);
             this.Student_Show_button.TabIndex = 53;
-            this.Student_Show_button.Text = "Show Info";
+            this.Student_Show_button.Text = "Show Courses";
             this.Student_Show_button.UseVisualStyleBackColor = true;
             this.Student_Show_button.Click += new System.EventHandler(this.Student_Show_button_Click);
             // 
@@ -156,7 +122,7 @@
             this.student_apply_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.student_apply_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.student_apply_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.student_apply_button.Location = new System.Drawing.Point(36, 373);
+            this.student_apply_button.Location = new System.Drawing.Point(36, 386);
             this.student_apply_button.Name = "student_apply_button";
             this.student_apply_button.Size = new System.Drawing.Size(229, 66);
             this.student_apply_button.TabIndex = 54;
@@ -169,11 +135,11 @@
             this.applyINFO_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.applyINFO_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.applyINFO_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.applyINFO_button.Location = new System.Drawing.Point(36, 505);
+            this.applyINFO_button.Location = new System.Drawing.Point(36, 495);
             this.applyINFO_button.Name = "applyINFO_button";
             this.applyINFO_button.Size = new System.Drawing.Size(229, 66);
             this.applyINFO_button.TabIndex = 55;
-            this.applyINFO_button.Text = "Apply Info";
+            this.applyINFO_button.Text = "Application Info";
             this.applyINFO_button.UseVisualStyleBackColor = true;
             this.applyINFO_button.Click += new System.EventHandler(this.applyINFO_button_Click);
             // 
@@ -198,11 +164,67 @@
             this.search_bylabel.TabIndex = 57;
             this.search_bylabel.Text = "Search By Country";
             // 
+            // LogOutbutton
+            // 
+            this.LogOutbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.LogOutbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LogOutbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOutbutton.Location = new System.Drawing.Point(36, 602);
+            this.LogOutbutton.Name = "LogOutbutton";
+            this.LogOutbutton.Size = new System.Drawing.Size(229, 66);
+            this.LogOutbutton.TabIndex = 58;
+            this.LogOutbutton.Text = "Log Out";
+            this.LogOutbutton.UseVisualStyleBackColor = true;
+            this.LogOutbutton.Click += new System.EventHandler(this.LogOutbutton_Click);
+            // 
+            // Exit_button2
+            // 
+            this.Exit_button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Exit_button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Exit_button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit_button2.Location = new System.Drawing.Point(0, 0);
+            this.Exit_button2.Name = "Exit_button2";
+            this.Exit_button2.Size = new System.Drawing.Size(81, 36);
+            this.Exit_button2.TabIndex = 59;
+            this.Exit_button2.Text = "Exit";
+            this.Exit_button2.UseVisualStyleBackColor = true;
+            this.Exit_button2.Click += new System.EventHandler(this.Exit_button2_Click);
+            // 
+            // Clear_button1
+            // 
+            this.Clear_button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Clear_button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Clear_button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear_button1.Location = new System.Drawing.Point(861, 89);
+            this.Clear_button1.Name = "Clear_button1";
+            this.Clear_button1.Size = new System.Drawing.Size(74, 28);
+            this.Clear_button1.TabIndex = 60;
+            this.Clear_button1.Text = "Clear";
+            this.Clear_button1.UseVisualStyleBackColor = true;
+            this.Clear_button1.Click += new System.EventHandler(this.Clear_button1_Click);
+            // 
+            // Course_Detail_button1
+            // 
+            this.Course_Detail_button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Course_Detail_button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Course_Detail_button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Course_Detail_button1.Location = new System.Drawing.Point(36, 279);
+            this.Course_Detail_button1.Name = "Course_Detail_button1";
+            this.Course_Detail_button1.Size = new System.Drawing.Size(229, 66);
+            this.Course_Detail_button1.TabIndex = 61;
+            this.Course_Detail_button1.Text = "Course Details";
+            this.Course_Detail_button1.UseVisualStyleBackColor = true;
+            this.Course_Detail_button1.Click += new System.EventHandler(this.Course_Detail_button1_Click);
+            // 
             // User_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 726);
+            this.Controls.Add(this.Course_Detail_button1);
+            this.Controls.Add(this.Clear_button1);
+            this.Controls.Add(this.Exit_button2);
+            this.Controls.Add(this.LogOutbutton);
             this.Controls.Add(this.search_bylabel);
             this.Controls.Add(this.for_apply_dataGridView);
             this.Controls.Add(this.applyINFO_button);
@@ -218,8 +240,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_Student";
             this.Load += new System.EventHandler(this.User_Student_Load);
-            this.student_menuStrip1.ResumeLayout(false);
-            this.student_menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.for_apply_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -229,10 +249,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip student_menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem UserStudentbackToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem User_Std_backToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem User_Std_exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem User_StudentclearToolStripMenuItem;
         private System.Windows.Forms.Label Studentlabel;
         private System.Windows.Forms.Label StudentIDlabel;
         private System.Windows.Forms.Label label1;
@@ -243,5 +259,9 @@
         private System.Windows.Forms.Button applyINFO_button;
         private System.Windows.Forms.DataGridView for_apply_dataGridView;
         private System.Windows.Forms.Label search_bylabel;
+        private System.Windows.Forms.Button LogOutbutton;
+        private System.Windows.Forms.Button Exit_button2;
+        private System.Windows.Forms.Button Clear_button1;
+        private System.Windows.Forms.Button Course_Detail_button1;
     }
 }

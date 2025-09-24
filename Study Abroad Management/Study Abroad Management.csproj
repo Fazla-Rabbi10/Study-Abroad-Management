@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,6 +85,12 @@
     <Compile Include="Student_Application_Status.Designer.cs">
       <DependentUpon>Student_Application_Status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student_Course_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student_Course_Detail.Designer.cs">
+      <DependentUpon>Student_Course_Detail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Studen_REG_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,30 @@
     </Compile>
     <Compile Include="UR Management.Designer.cs">
       <DependentUpon>UR Management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UR\AddNewCourseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UR\AddNewCourseControl.Designer.cs">
+      <DependentUpon>AddNewCourseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UR\ApplicationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UR\ApplicationControl.Designer.cs">
+      <DependentUpon>ApplicationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UR\CourseDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UR\CourseDetailsControl.Designer.cs">
+      <DependentUpon>CourseDetailsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UR\UniversityRepresentative.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UR\UniversityRepresentative.Designer.cs">
+      <DependentUpon>UniversityRepresentative.cs</DependentUpon>
     </Compile>
     <Compile Include="UR_REG_Formcs.cs">
       <SubType>Form</SubType>
@@ -135,15 +171,31 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Student_Application_Status.resx">
       <DependentUpon>Student_Application_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student_Course_Detail.resx">
+      <DependentUpon>Student_Course_Detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Studen_REG_Form.resx">
       <DependentUpon>Studen_REG_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UR Management.resx">
       <DependentUpon>UR Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UR\AddNewCourseControl.resx">
+      <DependentUpon>AddNewCourseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UR\ApplicationControl.resx">
+      <DependentUpon>ApplicationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UR\CourseDetailsControl.resx">
+      <DependentUpon>CourseDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UR\UniversityRepresentative.resx">
+      <DependentUpon>UniversityRepresentative.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UR_REG_Formcs.resx">
       <DependentUpon>UR_REG_Formcs.cs</DependentUpon>
@@ -154,6 +206,7 @@
     <EmbeddedResource Include="User_Student.resx">
       <DependentUpon>User_Student.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,6 +219,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Show Property.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout Rounded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graduation-cap-with-globe-digital-art-style-education-day.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
