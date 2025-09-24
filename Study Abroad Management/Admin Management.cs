@@ -205,6 +205,28 @@ namespace Study_Abroad_Management
 
         }
 
-       
+        private void exit_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
+            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            SqlConnection conn = new SqlConnection(connectionString);
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            {
+                if (dr == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                conn.Close();
+            }
+        }
     }
 }

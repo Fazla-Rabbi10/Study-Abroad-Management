@@ -60,5 +60,39 @@ namespace Study_Abroad_Management.UR
             this.PopulateGridView(sql);
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //counter dite hobe
+
+                string courseCode = this.dgvCourseDetails.SelectedCells[1].Value.ToString();
+                
+                var sql = $@"delete URDashboard where CourseCode = '{courseCode}';";
+
+
+                var count = this.Da.ExecuteDMLQuery(sql);
+
+                if (count != 1)
+                {
+                    MessageBox.Show("Course can't delete", "Failled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                MessageBox.Show("Course has been deleted!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.PopulateGridView();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string courseCode = this.dgvCourseDetails.SelectedCells[1].Value.ToString();
+            new FormCourseUpdate(courseCode).Show();
+        }
     }
 }

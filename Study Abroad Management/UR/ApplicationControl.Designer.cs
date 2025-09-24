@@ -196,7 +196,6 @@
             // refreshbtn
             // 
             this.refreshbtn.BackColor = System.Drawing.Color.Gray;
-            this.refreshbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
             this.refreshbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.refreshbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshbtn.ForeColor = System.Drawing.SystemColors.Control;
@@ -211,7 +210,6 @@
             // rejectbtn
             // 
             this.rejectbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.rejectbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
             this.rejectbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.rejectbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rejectbtn.ForeColor = System.Drawing.SystemColors.Control;
@@ -226,7 +224,6 @@
             // acceptbtn
             // 
             this.acceptbtn.BackColor = System.Drawing.Color.Green;
-            this.acceptbtn.BackgroundImage = global::Study_Abroad_Management.Properties.Resources.Search;
             this.acceptbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.acceptbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acceptbtn.ForeColor = System.Drawing.SystemColors.Control;

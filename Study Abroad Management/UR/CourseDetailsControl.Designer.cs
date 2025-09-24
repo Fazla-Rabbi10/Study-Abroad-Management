@@ -32,9 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCourseCode = new System.Windows.Forms.TextBox();
             this.dgvCourseDetails = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.universityname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +47,8 @@
             this.applicationdeadline = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studymode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.urid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.lblFoundIndicator = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseDetails)).BeginInit();
             this.SuspendLayout();
@@ -120,49 +119,6 @@
             this.dgvCourseDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCourseDetails.Size = new System.Drawing.Size(1718, 471);
             this.dgvCourseDetails.TabIndex = 24;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.DarkRed;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(786, 80);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(137, 43);
-            this.btnDelete.TabIndex = 25;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(621, 80);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(137, 43);
-            this.btnUpdate.TabIndex = 23;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(43)))), ((int)(((byte)(53)))));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(455, 80);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(137, 43);
-            this.btnSearch.TabIndex = 22;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // coursename
             // 
@@ -299,6 +255,36 @@
             this.urid.ReadOnly = true;
             this.urid.Width = 125;
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(621, 80);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(137, 43);
+            this.btnUpdate.TabIndex = 23;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(43)))), ((int)(((byte)(53)))));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(455, 80);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(137, 43);
+            this.btnSearch.TabIndex = 22;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // lblFoundIndicator
             // 
             this.lblFoundIndicator.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -317,7 +303,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
             this.Controls.Add(this.lblFoundIndicator);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvCourseDetails);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSearch);
@@ -340,7 +325,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridView dgvCourseDetails;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn coursename;
         private System.Windows.Forms.DataGridViewTextBoxColumn coursecode;
         private System.Windows.Forms.DataGridViewTextBoxColumn universityname;

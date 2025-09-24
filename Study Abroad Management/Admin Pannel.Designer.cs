@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Pannel));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.exit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.admin_buttoncombo = new System.Windows.Forms.Panel();
@@ -37,6 +38,7 @@
             this.ur_mng = new System.Windows.Forms.Button();
             this.admn_mng = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ur_dshbrd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.admin_buttoncombo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -44,12 +46,24 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1393, 194);
             this.panel1.TabIndex = 0;
+            // 
+            // exit
+            // 
+            this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exit.Location = new System.Drawing.Point(1275, 19);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(102, 48);
+            this.exit.TabIndex = 5;
+            this.exit.Text = "Exit";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // label2
             // 
@@ -74,6 +88,7 @@
             // 
             // admin_buttoncombo
             // 
+            this.admin_buttoncombo.Controls.Add(this.ur_dshbrd);
             this.admin_buttoncombo.Controls.Add(this.usr_mng);
             this.admin_buttoncombo.Controls.Add(this.ur_mng);
             this.admin_buttoncombo.Controls.Add(this.admn_mng);
@@ -125,6 +140,17 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // ur_dshbrd
+            // 
+            this.ur_dshbrd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ur_dshbrd.Location = new System.Drawing.Point(7, 341);
+            this.ur_dshbrd.Name = "ur_dshbrd";
+            this.ur_dshbrd.Size = new System.Drawing.Size(410, 70);
+            this.ur_dshbrd.TabIndex = 3;
+            this.ur_dshbrd.Text = "UR Dashboard";
+            this.ur_dshbrd.UseVisualStyleBackColor = true;
+            this.ur_dshbrd.Click += new System.EventHandler(this.ur_dshbrd_Click);
+            // 
             // Admin_Pannel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -157,5 +183,7 @@
         private System.Windows.Forms.Button ur_mng;
         private System.Windows.Forms.Button admn_mng;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button ur_dshbrd;
     }
 }

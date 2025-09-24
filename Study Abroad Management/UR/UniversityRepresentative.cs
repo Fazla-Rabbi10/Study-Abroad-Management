@@ -12,9 +12,34 @@ namespace Study_Abroad_Management.UR
 {
     public partial class UniversityRepresentative : Form
     {
-        public UniversityRepresentative()
+        internal int URID {get; set;}
+        internal DataAccess Da { get; set;}
+
+        public UniversityRepresentative(int urID)
         {
             InitializeComponent();
+            this.URID = urID;
+            this.Da = new DataAccess();
+            this.RetrieveUserName();
+        }
+
+        private void RetrieveUserName()
+        {
+            var sql = $"select Name from URDetails where ID = {this.URID};";
+
+            try
+            {
+                var ds = this.Da.ExecuteQuery(sql);
+
+                if (ds.Tables[0].Rows.Count == 1)
+                {
+                    this.lblUserName.Text = ds.Tables[0].Rows[0][0].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving user Name: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void AddUserControl(UserControl control)
@@ -26,7 +51,7 @@ namespace Study_Abroad_Management.UR
 
         private void btnAddnewcourse_Click(object sender, EventArgs e)
         {
-            AddNewCourseControl addNewCourseControl = new AddNewCourseControl();
+            AddNewCourseControl addNewCourseControl = new AddNewCourseControl(this.URID);
             this.AddUserControl(addNewCourseControl);
         }
 

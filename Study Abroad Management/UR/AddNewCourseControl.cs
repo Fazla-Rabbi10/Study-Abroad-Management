@@ -19,25 +19,38 @@ namespace Study_Abroad_Management.UR
         private string IELTS { get; set; }
         private string GRE { get; set; }
         private string SAT { get; set; }
-        public AddNewCourseControl()
+        private string UniversityName { get; set; }
+        private string Intake {  get; set; }
+
+        public AddNewCourseControl( int urID)
         {
             InitializeComponent();
-            Da = new DataAccess();
-            this.URID = 2; // It has assumed for temporary
-
-            this.IELTS = cbIELTS.Checked ? txtRequiredIELTS.Text : "N/A";
-            this.GRE = cbGRE.Checked ? txtRequiredGRE.Text : "N/A";
-            this.IELTS = cbSAT.Checked ? txtRequiredSAT.Text : "N/A";
-
-
+            this.Da = new DataAccess();
+            this.RetrieveUserInfo();
+            this.URID = urID;
+            this.cmbIntake.SelectedIndex = 0;
+            this.cmbIntakeYear.SelectedIndex = 0;
+            this.cmbDegreeType.SelectedIndex = 0;
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void RetrieveUserInfo()
         {
+            var sql = $"select * from URDetails where ID = {this.URID};";
 
+            try
+            {
+                var ds = this.Da.ExecuteQuery(sql);
+
+                if (ds.Tables[0].Rows.Count == 1)
+                {
+                    this.UniversityName = ds.Tables[0].Rows[0]["UniversityName"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving user info: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-        
 
         private bool IsValidToAdd()
         {
@@ -54,16 +67,22 @@ namespace Study_Abroad_Management.UR
                 txtCourseCode.Focus();
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtUniversity.Text))
-            {
-                MessageBox.Show("University Name cannot be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUniversity.Focus();
-                return false;
-            }
             if (string.IsNullOrWhiteSpace(txtCountry.Text))
             {
                 MessageBox.Show("Country cannot be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCountry.Focus();
+                return false;
+            }
+            if(this.cmbIntake.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select a semester!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.cmbIntake.Focus();
+                return false;
+            }
+            if (this.cmbIntakeYear.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select an Intake Year!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.cmbIntake.Focus();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtCourseDuration.Text))
@@ -78,24 +97,6 @@ namespace Study_Abroad_Management.UR
                 cmbDegreeType.Focus();
                 return false;
             }
-            if (cbIELTS.Checked && string.IsNullOrWhiteSpace(txtRequiredIELTS.Text))
-            {
-                MessageBox.Show("IELTS is required!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRequiredIELTS.Focus();
-                return false;
-            }
-            if (cbGRE.Checked && string.IsNullOrWhiteSpace(txtRequiredGRE.Text))
-            {
-                MessageBox.Show("GRE is required!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRequiredGRE.Focus();
-                return false;
-            }
-            if (cbSAT.Checked && string.IsNullOrWhiteSpace(txtRequiredSAT.Text)) 
-            {
-                MessageBox.Show("SAT required!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRequiredSAT.Focus();
-                return false;
-            }
             if (string.IsNullOrWhiteSpace(txtTutionFee.Text))
             {
                 MessageBox.Show("Tution Fee cannot be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -108,12 +109,7 @@ namespace Study_Abroad_Management.UR
                 txtMaxScholarship.Focus();
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtIntake.Text))
-            {
-                MessageBox.Show("Intake cannot be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtIntake.Focus();
-                return false;
-            }
+            
             if (string.IsNullOrWhiteSpace(dtpDeadline.Text))
             {
                 MessageBox.Show("Application Deadline cannot be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -125,6 +121,38 @@ namespace Study_Abroad_Management.UR
                 MessageBox.Show("URID not Found!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
+            if(this.RequiredTextbox() == false)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        private bool RequiredTextbox()
+        {
+            if (cbGRE.Checked && string.IsNullOrWhiteSpace(txtRequiredGRE.Text))
+            {
+                MessageBox.Show("GRE is required!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRequiredGRE.Focus();
+                return false;
+            }
+
+            if (cbSAT.Checked && string.IsNullOrWhiteSpace(txtRequiredSAT.Text))
+            {
+                MessageBox.Show("SAT is required!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRequiredSAT.Focus();
+                return false;
+            }
+
+            if (cbIELTS.Checked && string.IsNullOrWhiteSpace(txtRequiredIELTS.Text))
+            {
+                MessageBox.Show("IELTS is required!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRequiredIELTS.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -133,7 +161,22 @@ namespace Study_Abroad_Management.UR
         {
             if(!IsValidToAdd())
                 return;
-            
+
+            this.Intake = cmbIntake.Text + " " +  cmbIntakeYear.Text;
+
+            if(!cbGRE.Checked)
+            {
+                this.txtRequiredGRE.Text = "Not required";
+            }
+            if (!cbIELTS.Checked)
+            {
+                this.txtRequiredIELTS.Text = "Not required";
+            }
+            if (!cbSAT.Checked)
+            {
+                this.txtRequiredSAT.Text = "Not required";
+            }
+
             try
             {
                 string sql = @"INSERT INTO URDashboard VALUES
@@ -181,7 +224,7 @@ namespace Study_Abroad_Management.UR
                 {
                     new SqlParameter("@CourseName", this.txtCourseName.Text),
                     new SqlParameter("@CourseCode", this.txtCourseCode.Text),
-                    new SqlParameter("@UniversityName", this.txtUniversity.Text),
+                    new SqlParameter("@UniversityName", this.UniversityName),
                     new SqlParameter("@Country", this.txtCountry.Text),
                     new SqlParameter("@CourseDuration", this.txtCourseDuration.Text),
                     new SqlParameter("@DegreeType", this.cmbDegreeType.Text),
@@ -190,7 +233,7 @@ namespace Study_Abroad_Management.UR
                     new SqlParameter("@SAT", this.txtRequiredSAT.Text),
                     new SqlParameter("@TutionFee", this.txtTutionFee.Text),
                     new SqlParameter("@MaxScholarship", this.txtMaxScholarship.Text),
-                    new SqlParameter("@Intake", this.txtIntake.Text),
+                    new SqlParameter("@Intake", this.Intake),
                     new SqlParameter("@ApplicationDeadline", this.dtpDeadline.Text),
                     new SqlParameter("@StudyMode", studyMode),
                     new SqlParameter("@URID", this.URID)
@@ -211,12 +254,14 @@ namespace Study_Abroad_Management.UR
                 MessageBox.Show($"Database Error: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
+
         private void ClearForm()
         {
             // TextBoxes clear
             txtCourseName.Clear();
             txtCourseCode.Clear();
-            txtUniversity.Clear();
             txtCountry.Clear();
             txtCourseDuration.Clear();
             txtRequiredIELTS.Clear();
@@ -224,10 +269,11 @@ namespace Study_Abroad_Management.UR
             txtRequiredSAT.Clear();
             txtTutionFee.Clear();
             txtMaxScholarship.Clear();
-            txtIntake.Clear();
 
             // ComboBox reset
-            cmbDegreeType.SelectedIndex = -1;
+            cmbIntake.SelectedIndex = 0;
+            cmbIntakeYear.SelectedIndex = 0;
+            cmbDegreeType.SelectedIndex = 0;
 
             // DateTimePicker reset (optional: current date)
             dtpDeadline.Value = DateTime.Now;
@@ -236,6 +282,24 @@ namespace Study_Abroad_Management.UR
             txtCourseName.Focus();
         }
 
+        private void cbSAT_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtRequiredSAT.Enabled = cbSAT.Checked;
+            if(!cbSAT.Checked ) txtRequiredSAT.Clear();
+        }
+
+        private void cbIELTS_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtRequiredIELTS.Enabled = cbIELTS.Checked;
+            if (!cbIELTS.Checked) txtRequiredIELTS.Clear();
+        }
+
+
+        private void cbGRE_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtRequiredGRE.Enabled = this.cbGRE.Checked;
+            if(!this.cbGRE.Checked) this.txtRequiredGRE.Clear();
+        }
     }
 }
 

@@ -70,6 +70,12 @@
     <Compile Include="Admin_REG_Form.Designer.cs">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="Log_In_Form.cs">
       <SubType>Form</SubType>
@@ -128,6 +134,12 @@
       <DependentUpon>CourseDetailsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UR\DataAccess.cs" />
+    <Compile Include="UR\FormCourseUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UR\FormCourseUpdate.Designer.cs">
+      <DependentUpon>FormCourseUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="UR\UniversityRepresentative.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_REG_Form.resx">
       <DependentUpon>Admin_REG_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log_In_Form.resx">
       <DependentUpon>Log_In_Form.cs</DependentUpon>
@@ -194,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UR\CourseDetailsControl.resx">
       <DependentUpon>CourseDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UR\FormCourseUpdate.resx">
+      <DependentUpon>FormCourseUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UR\UniversityRepresentative.resx">
       <DependentUpon>UniversityRepresentative.cs</DependentUpon>

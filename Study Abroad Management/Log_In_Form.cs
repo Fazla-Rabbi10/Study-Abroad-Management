@@ -121,7 +121,7 @@ namespace Study_Abroad_Management
                             else if (dt.Rows[0][2].ToString() == "UR")
                             {
                                 MessageBox.Show("Login Successful as University Representative");
-                                new University_Representative().Show();
+                                new UR.UniversityRepresentative(userID).Show();
                                 this.Hide();
                             }
                             else if (dt.Rows[0][2].ToString() == "student")
