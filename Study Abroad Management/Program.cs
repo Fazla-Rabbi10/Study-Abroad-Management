@@ -22,9 +22,9 @@ namespace Study_Abroad_Management
             Application.SetCompatibleTextRenderingDefault(false);
             //###Just comment or uncomment the line below to run the desired form###
             
-            //Application.Run(new Admin_Pannel());
+            Application.Run(new Admin_Pannel());
             //Application.Run(new UR_Management());
-            Application.Run(new User_Management());
+            //Application.Run(new User_Management());
             //Application.Run(new Log_In_Form());
             
         }

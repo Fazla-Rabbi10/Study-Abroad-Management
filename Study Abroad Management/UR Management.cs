@@ -13,6 +13,7 @@ namespace Study_Abroad_Management
 {
     public partial class UR_Management : Form
     {
+        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public UR_Management()
         {
             InitializeComponent();
@@ -43,20 +44,27 @@ namespace Study_Abroad_Management
 
         }
         public void show()
-        {
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
+        {           
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            { 
+                string query = "SELECT ID,Name,Nationality,Gender,Email,UniversityName,EIIN  FROM URDetails";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvURmng.DataSource = dt;               
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                conn.Close();
 
-            string query = "SELECT ID,Name,Nationality,Gender,Email,UniversityName,EIIN  FROM URDetails"; 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            DataTable dt = ds.Tables[0];
-            dgvURmng.AutoGenerateColumns = true;
-            dgvURmng.DataSource = dt;
-
+            }
         }
 
 
@@ -81,7 +89,7 @@ namespace Study_Abroad_Management
             {
                 MessageBox.Show("Error :"+ex.Message);
             }
-            //show();         
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -216,8 +224,7 @@ namespace Study_Abroad_Management
         private void exit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            SqlConnection conn = new SqlConnection(connectionString);
+            
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();

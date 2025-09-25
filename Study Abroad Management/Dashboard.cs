@@ -11,8 +11,10 @@ using System.Windows.Forms;
 
 namespace Study_Abroad_Management
 {
+
     public partial class Dashboard : Form
     {
+        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public Dashboard()
         {
             InitializeComponent();
@@ -28,8 +30,7 @@ namespace Study_Abroad_Management
         private void exit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            SqlConnection conn = new SqlConnection(connectionString);
+           
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
@@ -50,21 +51,27 @@ namespace Study_Abroad_Management
         }
 
         public void show()
-        {
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            // string query = "SELECT * FROM AdminDetails";
-            string query = "SELECT*  FROM URDashboard";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            DataTable dt = ds.Tables[0];
-            dgvUrDs.AutoGenerateColumns = true;
-            dgvUrDs.DataSource = dt;
+        {          
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            {
 
+                string query = "SELECT*  FROM URDashboard";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
 
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvUrDs.DataSource = dt;             
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                conn.Close();
+            }
         }
 
         private void delet_Click(object sender, EventArgs e)

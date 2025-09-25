@@ -13,15 +13,11 @@ namespace Study_Abroad_Management
 {
     public partial class Admin_Management : Form
     {
+        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public Admin_Management()
         {
             InitializeComponent();
         }
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void back_Click(object sender, EventArgs e)
         {
@@ -46,21 +42,28 @@ namespace Study_Abroad_Management
             contact_txtbx.Text="";
         }
         public void show()
-        {           
-                 string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
-                 SqlConnection conn = new SqlConnection(connectionString);
-                 conn.Open();
-                 // string query = "SELECT * FROM AdminDetails";
-                 string query = "SELECT ID,Name,Address,Email,Country,Gender,ContactNumber FROM AdminDetails";
-                 SqlCommand cmd = new SqlCommand(query, conn);
-                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                 DataSet ds = new DataSet();
-                 da.Fill(ds);
-                 DataTable dt = ds.Tables[0];
-                 dgvAdmTbl.AutoGenerateColumns = true;
-                 dgvAdmTbl.DataSource = dt;
-             
-            
+        {
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            {               
+                string query = "SELECT ID,Name,Address,Email,Country,Gender,ContactNumber FROM AdminDetails";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvAdmTbl.DataSource = dt;
+
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                conn.Close();
+
+            }
         }
         private void dgvAdmTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -82,11 +85,6 @@ namespace Study_Abroad_Management
         {
 
         }
-
-        //private void dgvAdmTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //}
 
         private void stts_txtbx_TextChanged(object sender, EventArgs e)
         {
@@ -208,8 +206,7 @@ namespace Study_Abroad_Management
         private void exit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            SqlConnection conn = new SqlConnection(connectionString);
+           
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
