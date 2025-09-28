@@ -23,7 +23,7 @@ namespace Study_Abroad_Management
         {
      
            
-            CourseNamelabel.Text = CourseNamelabel.Text  + User_Student.courseName.ToString();
+            CourseNamelabel.Text = CourseNamelabel.Text +" " + User_Student.courseName.ToString();
            
             CourseCodelabel.Text = CourseCodelabel.Text + " " + User_Student.courseCode.ToString();
            

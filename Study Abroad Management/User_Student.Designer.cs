@@ -51,7 +51,7 @@
             this.student_menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.student_menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.student_menuStrip1.Name = "student_menuStrip1";
-            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 30);
+            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 24);
             this.student_menuStrip1.TabIndex = 45;
             this.student_menuStrip1.Text = "menuStrip1";
             // 
@@ -79,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(340, 45);
+            this.label1.Location = new System.Drawing.Point(330, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(478, 46);
             this.label1.TabIndex = 50;

@@ -198,7 +198,10 @@ namespace Study_Abroad_Management
 
         private void UR_Management_Load(object sender, EventArgs e)
         {
-
+            string adminName = GlobalData.LoggedInUserName;
+            string adminID = GlobalData.LoggedInUserID.ToString();
+            Adminlabel.Text = "Welcome, " + adminName;
+            AdminIDlabel.Text = "ID: " + adminID;
         }
 
         private void contact_Click(object sender, EventArgs e)

@@ -26,7 +26,7 @@ namespace Study_Abroad_Management
             if (!string.IsNullOrWhiteSpace(ad_name_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(Ad_Address_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(ad_email_textBox.Text) &&
-                !string.IsNullOrWhiteSpace(ad_count_textBox.Text) &&
+                !string.IsNullOrWhiteSpace(ad_count_comboBox.Text) &&
                 !string.IsNullOrWhiteSpace(ad_gender_comboBox.Text) &&
                 !string.IsNullOrWhiteSpace(contact_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(Ad_pass_textBox.Text) 
@@ -49,7 +49,7 @@ namespace Study_Abroad_Management
                         // Explicit columns use korsi jate column-order mismatch na hoy
                         string insertAdmin =
                             "INSERT INTO AdminDetails (Name, Address, Email, Country, Gender, ContactNumber, Password) " +
-                            "VALUES ('" + ad_name_textBox.Text + "','" + Ad_Address_textBox.Text + "','" + ad_email_textBox.Text + "','" + ad_count_textBox.Text + "','" + ad_gender_comboBox.Text + "','" + contact_textBox.Text + "','" + Ad_pass_textBox.Text + "'); " +
+                            "VALUES ('" + ad_name_textBox.Text + "','" + Ad_Address_textBox.Text + "','" + ad_email_textBox.Text + "','" + ad_count_comboBox.Text + "','" + ad_gender_comboBox.Text + "','" + contact_textBox.Text + "','" + Ad_pass_textBox.Text + "'); " +
                             "SELECT CAST(SCOPE_IDENTITY() AS INT);";
                         
                         SqlCommand cmdAdmin = new SqlCommand(insertAdmin, con, tx);
@@ -111,7 +111,12 @@ namespace Study_Abroad_Management
             }
         }
 
-        private void Admin_backToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Admin_REG_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BackbuttonAdminreg_Click(object sender, EventArgs e)
         {
             if (con.State != ConnectionState.Open)
             {
@@ -122,21 +127,18 @@ namespace Study_Abroad_Management
                 Log_In_Form log = new Log_In_Form();
                 log.Show();
                 this.Hide();
-                
+
             }
-            else 
+            else
             {
                 MessageBox.Show("Connection Failed");
-                
+
                 con.Close();
             }
-          
-
         }
 
-        private void Admin_exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitbuttonAdminreg_Click(object sender, EventArgs e)
         {
-            
             DialogResult drr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
             if (con.State != ConnectionState.Open)
             {
@@ -155,29 +157,51 @@ namespace Study_Abroad_Management
                 MessageBox.Show("Connection Failed");
                 con.Close();
             }
-            
         }
 
-        private void AdminclearToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClearButtonAdminReg_Click(object sender, EventArgs e)
         {
             if (con.State != ConnectionState.Open)
             {
                 con.Open();
             }
-            if (con.State == ConnectionState.Open) 
+            if (con.State == ConnectionState.Open)
             {
                 this.ad_name_textBox.Clear();
                 this.Ad_Address_textBox.Clear();
                 this.ad_email_textBox.Clear();
-                this.ad_count_textBox.Clear();
+                this.ad_count_comboBox.Items.Clear();
                 this.ad_gender_comboBox.Items.Clear();
                 this.contact_textBox.Clear();
                 this.Ad_pass_textBox.Clear();
-                
+
                 this.ad_name_textBox.Focus();
-               
+
                 this.ad_gender_comboBox.Items.Add("Male");
                 this.ad_gender_comboBox.Items.Add("Female");
+                
+                this.ad_count_comboBox.Items.Add("United States");
+                this.ad_count_comboBox.Items.Add("India");
+                this.ad_count_comboBox.Items.Add("Canada");
+                this.ad_count_comboBox.Items.Add("Australia");
+                this.ad_count_comboBox.Items.Add("Bangladesh");  
+                this.ad_count_comboBox.Items.Add("United Kingdom");  
+                this.ad_count_comboBox.Items.Add("Japan");
+                this.ad_count_comboBox.Items.Add("Germany");
+                this.ad_count_comboBox.Items.Add("Brazil");
+                this.ad_count_comboBox.Items.Add("France");
+                this.ad_count_comboBox.Items.Add("Italy");
+                this.ad_count_comboBox.Items.Add("Russia");
+                this.ad_count_comboBox.Items.Add("China");
+                this.ad_count_comboBox.Items.Add("Mexico");
+                this.ad_count_comboBox.Items.Add("South Korea");
+                this.ad_count_comboBox.Items.Add("Spain");
+                this.ad_count_comboBox.Items.Add("Saudi Arabia");
+                this.ad_count_comboBox.Items.Add("Argentina");
+                this.ad_count_comboBox.Items.Add("South Africa");
+                this.ad_count_comboBox.Items.Add("Egypt");
+
+
 
 
             }
@@ -186,11 +210,6 @@ namespace Study_Abroad_Management
                 MessageBox.Show("Connection Failed");
                 con.Close();
             }
-        }
-
-        private void Admin_REG_Form_Load(object sender, EventArgs e)
-        {
-
         }
 
 

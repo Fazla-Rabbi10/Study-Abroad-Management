@@ -52,18 +52,22 @@
             this.search = new System.Windows.Forms.Label();
             this.search_by_nm = new System.Windows.Forms.TextBox();
             this.bname = new System.Windows.Forms.Label();
+            this.AdminIDlabel = new System.Windows.Forms.Label();
+            this.Adminlabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.AdminIDlabel);
+            this.panel1.Controls.Add(this.Adminlabel);
             this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.back);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(9, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(935, 72);
             this.panel1.TabIndex = 0;
@@ -72,7 +76,7 @@
             // 
             this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exit.Location = new System.Drawing.Point(855, 6);
-            this.exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exit.Margin = new System.Windows.Forms.Padding(2);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(68, 31);
             this.exit.TabIndex = 5;
@@ -83,7 +87,7 @@
             // back
             // 
             this.back.Location = new System.Drawing.Point(-1, 4);
-            this.back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.back.Margin = new System.Windows.Forms.Padding(2);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(68, 31);
             this.back.TabIndex = 2;
@@ -118,7 +122,7 @@
             // 
             this.delet_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delet_txtbox.Location = new System.Drawing.Point(843, 82);
-            this.delet_txtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.delet_txtbox.Margin = new System.Windows.Forms.Padding(2);
             this.delet_txtbox.Name = "delet_txtbox";
             this.delet_txtbox.Size = new System.Drawing.Size(88, 33);
             this.delet_txtbox.TabIndex = 3;
@@ -130,7 +134,7 @@
             // 
             this.updt.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updt.Location = new System.Drawing.Point(737, 82);
-            this.updt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.updt.Margin = new System.Windows.Forms.Padding(2);
             this.updt.Name = "updt";
             this.updt.Size = new System.Drawing.Size(88, 33);
             this.updt.TabIndex = 4;
@@ -142,7 +146,7 @@
             // 
             this.age_txtbx.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.age_txtbx.Location = new System.Drawing.Point(801, 165);
-            this.age_txtbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.age_txtbx.Margin = new System.Windows.Forms.Padding(2);
             this.age_txtbx.Multiline = true;
             this.age_txtbx.Name = "age_txtbx";
             this.age_txtbx.Size = new System.Drawing.Size(119, 30);
@@ -163,7 +167,7 @@
             // 
             this.name_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name_txtbox.Location = new System.Drawing.Point(283, 128);
-            this.name_txtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.name_txtbox.Margin = new System.Windows.Forms.Padding(2);
             this.name_txtbox.Multiline = true;
             this.name_txtbox.Name = "name_txtbox";
             this.name_txtbox.Size = new System.Drawing.Size(321, 30);
@@ -173,7 +177,7 @@
             // 
             this.nty_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nty_txtbox.Location = new System.Drawing.Point(738, 126);
-            this.nty_txtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nty_txtbox.Margin = new System.Windows.Forms.Padding(2);
             this.nty_txtbox.Multiline = true;
             this.nty_txtbox.Name = "nty_txtbox";
             this.nty_txtbox.Size = new System.Drawing.Size(184, 30);
@@ -183,7 +187,7 @@
             // 
             this.email_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_txtbox.Location = new System.Drawing.Point(97, 163);
-            this.email_txtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.email_txtbox.Margin = new System.Windows.Forms.Padding(2);
             this.email_txtbox.Multiline = true;
             this.email_txtbox.Name = "email_txtbox";
             this.email_txtbox.Size = new System.Drawing.Size(321, 30);
@@ -193,7 +197,7 @@
             // 
             this.id_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.id_txtbox.Location = new System.Drawing.Point(97, 126);
-            this.id_txtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.id_txtbox.Margin = new System.Windows.Forms.Padding(2);
             this.id_txtbox.Multiline = true;
             this.id_txtbox.Name = "id_txtbox";
             this.id_txtbox.ReadOnly = true;
@@ -250,7 +254,7 @@
             // 
             this.gender.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gender.Location = new System.Drawing.Point(538, 165);
-            this.gender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gender.Margin = new System.Windows.Forms.Padding(2);
             this.gender.Multiline = true;
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(183, 30);
@@ -272,7 +276,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(23, 223);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
@@ -284,7 +288,7 @@
             // 
             this.show.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.show.Location = new System.Drawing.Point(635, 82);
-            this.show.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.show.Margin = new System.Windows.Forms.Padding(2);
             this.show.Name = "show";
             this.show.Size = new System.Drawing.Size(88, 33);
             this.show.TabIndex = 32;
@@ -307,7 +311,7 @@
             // 
             this.search_by_nm.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_by_nm.Location = new System.Drawing.Point(103, 84);
-            this.search_by_nm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.search_by_nm.Margin = new System.Windows.Forms.Padding(2);
             this.search_by_nm.Multiline = true;
             this.search_by_nm.Name = "search_by_nm";
             this.search_by_nm.Size = new System.Drawing.Size(315, 30);
@@ -324,6 +328,26 @@
             this.bname.Size = new System.Drawing.Size(86, 23);
             this.bname.TabIndex = 35;
             this.bname.Text = "(by name)";
+            // 
+            // AdminIDlabel
+            // 
+            this.AdminIDlabel.AutoSize = true;
+            this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminIDlabel.Location = new System.Drawing.Point(653, 4);
+            this.AdminIDlabel.Name = "AdminIDlabel";
+            this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
+            this.AdminIDlabel.TabIndex = 52;
+            this.AdminIDlabel.Text = "label2";
+            // 
+            // Adminlabel
+            // 
+            this.Adminlabel.AutoSize = true;
+            this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Adminlabel.Location = new System.Drawing.Point(145, 0);
+            this.Adminlabel.Name = "Adminlabel";
+            this.Adminlabel.Size = new System.Drawing.Size(70, 25);
+            this.Adminlabel.TabIndex = 51;
+            this.Adminlabel.Text = "label1";
             // 
             // User_Management
             // 
@@ -352,7 +376,7 @@
             this.Controls.Add(this.updt);
             this.Controls.Add(this.delet_txtbox);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "User_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_Management";
@@ -391,5 +415,7 @@
         private System.Windows.Forms.Label search;
         private System.Windows.Forms.TextBox search_by_nm;
         private System.Windows.Forms.Label bname;
+        private System.Windows.Forms.Label AdminIDlabel;
+        private System.Windows.Forms.Label Adminlabel;
     }
 }

@@ -52,7 +52,10 @@ namespace Study_Abroad_Management
 
         private void User_Management_Load(object sender, EventArgs e)
         {
-
+            string adminName = GlobalData.LoggedInUserName;
+            string adminID = GlobalData.LoggedInUserID.ToString();
+            Adminlabel.Text = "Welcome, " + adminName;
+            AdminIDlabel.Text = "ID: " + adminID;
         }
 
         public void _Show()

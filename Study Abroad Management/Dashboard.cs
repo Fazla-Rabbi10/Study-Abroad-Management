@@ -117,5 +117,13 @@ namespace Study_Abroad_Management
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            string adminName = GlobalData.LoggedInUserName;
+            string adminID = GlobalData.LoggedInUserID.ToString();
+            Adminlabel.Text = "Welcome, " + adminName;
+            AdminIDlabel.Text = "ID: " + adminID;
+        }
     }
 }

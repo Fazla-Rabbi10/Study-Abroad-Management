@@ -25,11 +25,10 @@ namespace Study_Abroad_Management
             if (!string.IsNullOrWhiteSpace(UR_name_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(UR_university_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(UR_email_textBox.Text) &&
-                !string.IsNullOrWhiteSpace(UR_count_textBox.Text) &&
+                !string.IsNullOrWhiteSpace(UR_count_comboBox.Text) &&
                 !string.IsNullOrWhiteSpace(UR_gender_comboBox.Text) &&
                 !string.IsNullOrWhiteSpace(UR_EIIN_textBox.Text) &&
-                !string.IsNullOrWhiteSpace(UR_pass_textBox.Text) &&
-                !string.IsNullOrWhiteSpace(UR_role_comboBox.Text))
+                !string.IsNullOrWhiteSpace(UR_pass_textBox.Text))
             {
                 // 2) Open connection
                 if (con.State != ConnectionState.Open)
@@ -48,7 +47,7 @@ namespace Study_Abroad_Management
                         // Explicit columns use korsi jate column-order mismatch na hoy
                         string insertUR =
                             "INSERT INTO URDetails (Name, Nationality, Gender, Email, UniversityName, EIIN, Password) " +
-                            "VALUES ('" + UR_name_textBox.Text + "','" + UR_count_textBox.Text + "','" + UR_gender_comboBox.Text + "','" + UR_email_textBox.Text + "','" + UR_university_textBox.Text + "','" + UR_EIIN_textBox.Text + "','" + UR_pass_textBox.Text + "'); " +
+                            "VALUES ('" + UR_name_textBox.Text + "','" + UR_count_comboBox.Text + "','" + UR_gender_comboBox.Text + "','" + UR_email_textBox.Text + "','" + UR_university_textBox.Text + "','" + UR_EIIN_textBox.Text + "','" + UR_pass_textBox.Text + "'); " +
                             "SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                         SqlCommand cmdUR = new SqlCommand(insertUR, con, tx);
@@ -62,7 +61,7 @@ namespace Study_Abroad_Management
                         // Columns: ID, Name, Role, Password, Status(=0)
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
-                            "VALUES (" + newId + ",'" + UR_name_textBox.Text + "','" + UR_role_comboBox.Text + "','" + UR_pass_textBox.Text + "', 0);";
+                            "VALUES (" + newId + ",'" + UR_name_textBox.Text + "','UR','" + UR_pass_textBox.Text + "', 0);";
 
                         SqlCommand cmdLogin = new SqlCommand(insertLogin, con, tx);
                         int resultLogin = cmdLogin.ExecuteNonQuery();
@@ -110,7 +109,7 @@ namespace Study_Abroad_Management
             }
         }
 
-        private void URclearToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClearButtonURReg_Click(object sender, EventArgs e)
         {
             if (con.State != ConnectionState.Open)
             {
@@ -121,17 +120,40 @@ namespace Study_Abroad_Management
                 this.UR_name_textBox.Clear();
                 this.UR_university_textBox.Clear();
                 this.UR_email_textBox.Clear();
-                this.UR_count_textBox.Clear();
+                this.UR_count_comboBox.Items.Clear();
                 this.UR_gender_comboBox.Items.Clear();
                 this.UR_EIIN_textBox.Clear();
                 this.UR_pass_textBox.Clear();
-                this.UR_role_comboBox.Items.Clear();
+               
                 this.UR_name_textBox.Focus();
-                this.UR_role_comboBox.Items.Add("UR");
+                
+                
+                
                 this.UR_gender_comboBox.Items.Add("Male");
                 this.UR_gender_comboBox.Items.Add("Female");
 
 
+                this.UR_count_comboBox.Items.Add("United States");
+                this.UR_count_comboBox.Items.Add("India");
+                this.UR_count_comboBox.Items.Add("Canada");
+                this.UR_count_comboBox.Items.Add("Australia");
+                this.UR_count_comboBox.Items.Add("Bangladesh");
+                this.UR_count_comboBox.Items.Add("United Kingdom");
+                this.UR_count_comboBox.Items.Add("Japan");
+                this.UR_count_comboBox.Items.Add("Germany");
+                this.UR_count_comboBox.Items.Add("Brazil");
+                this.UR_count_comboBox.Items.Add("France");
+                this.UR_count_comboBox.Items.Add("Italy");
+                this.UR_count_comboBox.Items.Add("Russia");
+                this.UR_count_comboBox.Items.Add("China");
+                this.UR_count_comboBox.Items.Add("Mexico");
+                this.UR_count_comboBox.Items.Add("South Korea");
+                this.UR_count_comboBox.Items.Add("Spain");
+                this.UR_count_comboBox.Items.Add("Saudi Arabia");
+                this.UR_count_comboBox.Items.Add("Argentina");
+                this.UR_count_comboBox.Items.Add("South Africa");
+                this.UR_count_comboBox.Items.Add("Egypt");
+
             }
             else
             {
@@ -140,29 +162,9 @@ namespace Study_Abroad_Management
             }
         }
 
-        private void UR_backToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitbuttonURreg_Click(object sender, EventArgs e)
         {
-            if (con.State != ConnectionState.Open)
-            {
-                con.Open();
-            }
-            if (con.State == ConnectionState.Open)
-            {
-                Log_In_Form log = new Log_In_Form();
-                log.Show();
-                this.Hide();
 
-            }
-            else
-            {
-                MessageBox.Show("Connection Failed");
-
-                con.Close();
-            }
-        }
-
-        private void UR_exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             DialogResult drr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
             if (con.State != ConnectionState.Open)
             {
@@ -181,6 +183,27 @@ namespace Study_Abroad_Management
                 MessageBox.Show("Connection Failed");
             }
             con.Close();
+        }
+
+        private void BackbuttonURreg_Click(object sender, EventArgs e)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                Log_In_Form log = new Log_In_Form();
+                log.Show();
+                this.Hide();
+
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+
+                con.Close();
+            }
         }
     }
 }
