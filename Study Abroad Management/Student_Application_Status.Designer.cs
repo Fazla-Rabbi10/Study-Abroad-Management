@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.aspp_StudentIDlabel = new System.Windows.Forms.Label();
             this.app_Student_namelabel = new System.Windows.Forms.Label();
-            this.student_menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Closebutton2 = new System.Windows.Forms.Button();
             this.refreshbutton1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.apply_status_dataGridView)).BeginInit();
@@ -82,15 +81,6 @@
             this.app_Student_namelabel.TabIndex = 58;
             this.app_Student_namelabel.Text = "label1";
             // 
-            // student_menuStrip1
-            // 
-            this.student_menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.student_menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.student_menuStrip1.Name = "student_menuStrip1";
-            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 30);
-            this.student_menuStrip1.TabIndex = 57;
-            this.student_menuStrip1.Text = "menuStrip1";
-            // 
             // Closebutton2
             // 
             this.Closebutton2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -130,7 +120,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.aspp_StudentIDlabel);
             this.Controls.Add(this.app_Student_namelabel);
-            this.Controls.Add(this.student_menuStrip1);
             this.Name = "Student_Application_Status";
             this.Text = "Student_Application_Status";
             this.Load += new System.EventHandler(this.Student_Application_Status_Load);
@@ -146,7 +135,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label aspp_StudentIDlabel;
         private System.Windows.Forms.Label app_Student_namelabel;
-        private System.Windows.Forms.MenuStrip student_menuStrip1;
         private System.Windows.Forms.Button Closebutton2;
         private System.Windows.Forms.Button refreshbutton1;
     }

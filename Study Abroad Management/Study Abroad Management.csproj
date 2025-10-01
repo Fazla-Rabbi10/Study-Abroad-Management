@@ -109,12 +109,6 @@
     <Compile Include="Studen_REG_Form.Designer.cs">
       <DependentUpon>Studen_REG_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="University_Representative.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="University_Representative.Designer.cs">
-      <DependentUpon>University_Representative.cs</DependentUpon>
-    </Compile>
     <Compile Include="UR Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +158,9 @@
     <Compile Include="User_Student.Designer.cs">
       <DependentUpon>User_Student.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Access_Management.resx">
+      <DependentUpon>Access_Management.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin Management.resx">
       <DependentUpon>Admin Management.cs</DependentUpon>
     </EmbeddedResource>

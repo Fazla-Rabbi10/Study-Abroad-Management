@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Study_Abroad_Management.UR;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -113,7 +114,7 @@ namespace Study_Abroad_Management
 
                             if (dt.Rows[0][2].ToString() == "admin")
                             {
-                                MessageBox.Show("Login Successful Admin");
+                                MessageBox.Show("Login Successful as Admin");
                                 Admin_Pannel a = new Admin_Pannel();
                                 a.Show();
                                 this.Hide();
@@ -121,7 +122,7 @@ namespace Study_Abroad_Management
                             else if (dt.Rows[0][2].ToString() == "UR")
                             {
                                 MessageBox.Show("Login Successful as University Representative");
-                                new University_Representative().Show();
+                                new UniversityRepresentative().Show();
                                 this.Hide();
                             }
                             else if (dt.Rows[0][2].ToString() == "student")
