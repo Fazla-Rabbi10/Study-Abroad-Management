@@ -32,7 +32,7 @@ namespace Study_Abroad_Management
             Adminlabel.Text = "Welcome, " + AdminName;
             AdminIDlabel.Text = "ID: " + AdminID;
         }
-        public void LoadDataaaa() 
+        public void LoadDataaaa()
         {
             try
             {
@@ -74,12 +74,12 @@ namespace Study_Abroad_Management
         {
             LoadDataaaa();
         }
-       
+
         private void Admin_Search_TextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                
+
                 string search = "select ID, name, role, status from loginTable where ID like @SearchID";
                 if (con.State != ConnectionState.Open)
                 {
@@ -229,6 +229,7 @@ namespace Study_Abroad_Management
             }
             // tar mane grid table theke choose na korle userid empty ba null er jonoo ekhane ashte hocche na,
             //ager messagebox ta execute hoye jacche.
+            Userid = 0;
             LoadDataaaa();
         }
 
@@ -323,7 +324,7 @@ namespace Study_Abroad_Management
                         {
                             MessageBox.Show("Please select a user from the table.");
                         }
-                        
+
                     }
                     else
                     {
@@ -347,13 +348,33 @@ namespace Study_Abroad_Management
             {
                 MessageBox.Show("Please select a user from the table.");
             }
-           
+            Userid = 0;
             LoadDataaaa();
         }
 
         private void Accessrefreshbutton_Click(object sender, EventArgs e)
         {
             LoadDataaaa();
+            Userid = 0;
+        }
+
+        private void Acc_clear_button_Click(object sender, EventArgs e)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                Admin_Search_TextBox.Clear();
+                Admin_Search_TextBox.Focus();
+                Userid = 0;
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
+            }
         }
     }
 }

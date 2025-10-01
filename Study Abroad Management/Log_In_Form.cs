@@ -211,5 +211,24 @@ namespace Study_Abroad_Management
                 con.Close();
             }
         }
+
+        private void Forget_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                Forget_Password fp = new Forget_Password();
+                fp.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
+            }
+        }
     }
 }

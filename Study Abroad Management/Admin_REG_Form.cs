@@ -124,8 +124,8 @@ namespace Study_Abroad_Management
             }
             if (con.State == ConnectionState.Open)
             {
-                Log_In_Form log = new Log_In_Form();
-                log.Show();
+                Admin_Management am = new Admin_Management();
+                am.Show();
                 this.Hide();
 
             }

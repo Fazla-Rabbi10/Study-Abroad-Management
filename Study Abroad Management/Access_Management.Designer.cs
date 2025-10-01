@@ -41,6 +41,7 @@
             this.Admin_Search_TextBox = new System.Windows.Forms.TextBox();
             this.Seize_button = new System.Windows.Forms.Button();
             this.Accessrefreshbutton = new System.Windows.Forms.Button();
+            this.Acc_clear_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Access_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,12 +50,12 @@
             this.Access_dataGridView.AllowUserToAddRows = false;
             this.Access_dataGridView.AllowUserToDeleteRows = false;
             this.Access_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Access_dataGridView.Location = new System.Drawing.Point(224, 140);
+            this.Access_dataGridView.Location = new System.Drawing.Point(416, 196);
             this.Access_dataGridView.Name = "Access_dataGridView";
             this.Access_dataGridView.ReadOnly = true;
             this.Access_dataGridView.RowHeadersWidth = 51;
             this.Access_dataGridView.RowTemplate.Height = 24;
-            this.Access_dataGridView.Size = new System.Drawing.Size(916, 523);
+            this.Access_dataGridView.Size = new System.Drawing.Size(457, 358);
             this.Access_dataGridView.TabIndex = 0;
             this.Access_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Access_dataGridView_CellClick);
             // 
@@ -154,7 +155,7 @@
             // 
             this.Searchlabel.AutoSize = true;
             this.Searchlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Searchlabel.Location = new System.Drawing.Point(839, 86);
+            this.Searchlabel.Location = new System.Drawing.Point(829, 86);
             this.Searchlabel.Name = "Searchlabel";
             this.Searchlabel.Size = new System.Drawing.Size(133, 20);
             this.Searchlabel.TabIndex = 53;
@@ -162,7 +163,7 @@
             // 
             // Admin_Search_TextBox
             // 
-            this.Admin_Search_TextBox.Location = new System.Drawing.Point(978, 86);
+            this.Admin_Search_TextBox.Location = new System.Drawing.Point(977, 83);
             this.Admin_Search_TextBox.Name = "Admin_Search_TextBox";
             this.Admin_Search_TextBox.Size = new System.Drawing.Size(115, 22);
             this.Admin_Search_TextBox.TabIndex = 54;
@@ -187,7 +188,7 @@
             this.Accessrefreshbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Accessrefreshbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Accessrefreshbutton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Accessrefreshbutton.Location = new System.Drawing.Point(234, 105);
+            this.Accessrefreshbutton.Location = new System.Drawing.Point(416, 152);
             this.Accessrefreshbutton.Name = "Accessrefreshbutton";
             this.Accessrefreshbutton.Size = new System.Drawing.Size(108, 29);
             this.Accessrefreshbutton.TabIndex = 70;
@@ -195,11 +196,25 @@
             this.Accessrefreshbutton.UseVisualStyleBackColor = false;
             this.Accessrefreshbutton.Click += new System.EventHandler(this.Accessrefreshbutton_Click);
             // 
+            // Acc_clear_button
+            // 
+            this.Acc_clear_button.BackColor = System.Drawing.Color.GhostWhite;
+            this.Acc_clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Acc_clear_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Acc_clear_button.Location = new System.Drawing.Point(977, 136);
+            this.Acc_clear_button.Name = "Acc_clear_button";
+            this.Acc_clear_button.Size = new System.Drawing.Size(93, 27);
+            this.Acc_clear_button.TabIndex = 71;
+            this.Acc_clear_button.Text = "Clear";
+            this.Acc_clear_button.UseVisualStyleBackColor = false;
+            this.Acc_clear_button.Click += new System.EventHandler(this.Acc_clear_button_Click);
+            // 
             // Access_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 675);
+            this.Controls.Add(this.Acc_clear_button);
             this.Controls.Add(this.Accessrefreshbutton);
             this.Controls.Add(this.Seize_button);
             this.Controls.Add(this.Admin_Search_TextBox);
@@ -214,6 +229,7 @@
             this.Controls.Add(this.Title);
             this.Controls.Add(this.Access_dataGridView);
             this.Name = "Access_Management";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Access_Management";
             this.Load += new System.EventHandler(this.Access_Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Access_dataGridView)).EndInit();
@@ -237,5 +253,6 @@
         private System.Windows.Forms.TextBox Admin_Search_TextBox;
         private System.Windows.Forms.Button Seize_button;
         private System.Windows.Forms.Button Accessrefreshbutton;
+        private System.Windows.Forms.Button Acc_clear_button;
     }
 }
