@@ -110,5 +110,28 @@ namespace Study_Abroad_Management
         {
 
         }
+
+        private void Ad_logoutbutton_Click(object sender, EventArgs e)
+        {
+            if (conn.State != ConnectionState.Open) 
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            {
+                DialogResult dr = MessageBox.Show("Do you want to logout?", "Confirm Logout", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
+                if (dr == DialogResult.Yes)
+                {
+                    this.Hide();
+                    Log_In_Form l = new Log_In_Form();
+                    l.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                conn.Close();
+            }
+        }
     }
 }

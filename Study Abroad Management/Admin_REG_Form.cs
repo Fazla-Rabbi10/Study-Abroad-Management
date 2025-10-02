@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Study_Abroad_Management
 {
@@ -17,6 +18,20 @@ namespace Study_Abroad_Management
         public Admin_REG_Form()
         {
             InitializeComponent();
+        }
+
+        public static bool IsValidEmail(string email) 
+        {
+            Regex emailregex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
+            return emailregex.IsMatch(email);
+            //took it from youtube
+        }
+
+        public static bool IsValidContactNumber(string contactNumber)
+        {
+            // Regex pattern for validating contact number (11 digits)
+            Regex contactRegex = new Regex(@"^\d{11}$");
+            return contactRegex.IsMatch(contactNumber);
         }
 
         private void admin_submit_button_Click(object sender, EventArgs e)
@@ -32,6 +47,18 @@ namespace Study_Abroad_Management
                 !string.IsNullOrWhiteSpace(Ad_pass_textBox.Text) 
                 )
             {
+                if (!IsValidEmail(ad_email_textBox.Text))
+                {
+                    MessageBox.Show("Please enter a valid email address.\n For Example: abc@gmail.com");
+                    ad_email_textBox.Focus();
+                    return;
+                }
+                if (!IsValidContactNumber(contact_textBox.Text))
+                {
+                    MessageBox.Show("Please enter a valid contact number (11 digits).");
+                    contact_textBox.Focus();
+                    return;
+                }
                 // 2) Open connection
                 if (con.State != ConnectionState.Open) 
                 {
@@ -49,10 +76,19 @@ namespace Study_Abroad_Management
                         // Explicit columns use korsi jate column-order mismatch na hoy
                         string insertAdmin =
                             "INSERT INTO AdminDetails (Name, Address, Email, Country, Gender, ContactNumber, Password) " +
-                            "VALUES ('" + ad_name_textBox.Text + "','" + Ad_Address_textBox.Text + "','" + ad_email_textBox.Text + "','" + ad_count_comboBox.Text + "','" + ad_gender_comboBox.Text + "','" + contact_textBox.Text + "','" + Ad_pass_textBox.Text + "'); " +
+                            "VALUES (@Name, @Address, @Email, @Country, @Gender, @ContactNumber, @Password); " +
                             "SELECT CAST(SCOPE_IDENTITY() AS INT);";
                         
                         SqlCommand cmdAdmin = new SqlCommand(insertAdmin, con, tx);
+
+                        cmdAdmin.Parameters.AddWithValue("@Name", ad_name_textBox.Text);
+                        cmdAdmin.Parameters.AddWithValue("@Address", Ad_Address_textBox.Text);
+                        cmdAdmin.Parameters.AddWithValue("@Email", ad_email_textBox.Text);
+                        cmdAdmin.Parameters.AddWithValue("@Country", ad_count_comboBox.Text);
+                        cmdAdmin.Parameters.AddWithValue("@Gender", ad_gender_comboBox.Text);
+                        cmdAdmin.Parameters.AddWithValue("@ContactNumber", contact_textBox.Text);
+                        cmdAdmin.Parameters.AddWithValue("@Password", Ad_pass_textBox.Text);
+
                         // capture new identity
                         int newId = Convert.ToInt32(cmdAdmin.ExecuteScalar());
 
@@ -63,9 +99,16 @@ namespace Study_Abroad_Management
                         // Columns: ID, Name, Role, Password, Status(=0)
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
-                            "VALUES (" + newId + ",'" + ad_name_textBox.Text + "','admin','" + Ad_pass_textBox.Text + "', 0);";
+                            "VALUES (@ID, @Name, @Role, @Password, @Status);";
 
                         SqlCommand cmdLogin = new SqlCommand(insertLogin, con, tx);
+                        
+                        cmdLogin.Parameters.AddWithValue("@ID", newId);
+                        cmdLogin.Parameters.AddWithValue("@Name", ad_name_textBox.Text);
+                        cmdLogin.Parameters.AddWithValue("@Role", "admin");
+                        cmdLogin.Parameters.AddWithValue("@Password", Ad_pass_textBox.Text);
+                        cmdLogin.Parameters.AddWithValue("@Status", 0);
+                        
                         int resultLogin = cmdLogin.ExecuteNonQuery();
 
                         // 4) Both success → commit
@@ -74,7 +117,7 @@ namespace Study_Abroad_Management
                         if (resultLogin > 0)
                         {
                             MessageBox.Show("Sign Up Successful");
-                            DialogResult drr = MessageBox.Show("This is Your ID For Log In : "+newId.ToString() +"\n Please Remeber Your ID", "Your ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            DialogResult drr = MessageBox.Show("This is Your ID For Log In : "+newId.ToString() +"\n Please Remember Your ID", "Your ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             if (drr == DialogResult.OK)
                             {
                                 Log_In_Form log = new Log_In_Form();

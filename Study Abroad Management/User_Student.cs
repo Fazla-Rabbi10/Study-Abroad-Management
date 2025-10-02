@@ -320,9 +320,13 @@ namespace Study_Abroad_Management
             }
             if (con.State == ConnectionState.Open)
             {
-                Log_In_Form logg = new Log_In_Form();
-                logg.Show();
-                this.Hide();
+                DialogResult = MessageBox.Show("Do you want to log out.", "Log Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (DialogResult == DialogResult.Yes) 
+                {
+                    Log_In_Form logg = new Log_In_Form();
+                    logg.Show();
+                    this.Hide();
+                }
             }
             else
             {

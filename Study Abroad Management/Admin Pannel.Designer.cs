@@ -30,18 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Pannel));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Title = new System.Windows.Forms.Label();
+            this.AdminIDlabel = new System.Windows.Forms.Label();
+            this.Adminlabel = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.admin_buttoncombo = new System.Windows.Forms.Panel();
+            this.AccessButton = new System.Windows.Forms.Button();
             this.ur_dshbrd = new System.Windows.Forms.Button();
             this.usr_mng = new System.Windows.Forms.Button();
             this.ur_mng = new System.Windows.Forms.Button();
             this.admn_mng = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Adminlabel = new System.Windows.Forms.Label();
-            this.AdminIDlabel = new System.Windows.Forms.Label();
-            this.AccessButton = new System.Windows.Forms.Button();
-            this.Title = new System.Windows.Forms.Label();
+            this.Ad_logoutbutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.admin_buttoncombo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,17 +56,47 @@
             this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(8, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(929, 124);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // Title
+            // 
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Location = new System.Drawing.Point(247, 0);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(498, 50);
+            this.Title.TabIndex = 51;
+            this.Title.Text = "Abroad Higher Study Soltuin";
+            // 
+            // AdminIDlabel
+            // 
+            this.AdminIDlabel.AutoSize = true;
+            this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminIDlabel.Location = new System.Drawing.Point(15, 44);
+            this.AdminIDlabel.Name = "AdminIDlabel";
+            this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
+            this.AdminIDlabel.TabIndex = 50;
+            this.AdminIDlabel.Text = "label2";
+            // 
+            // Adminlabel
+            // 
+            this.Adminlabel.AutoSize = true;
+            this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Adminlabel.Location = new System.Drawing.Point(15, 7);
+            this.Adminlabel.Name = "Adminlabel";
+            this.Adminlabel.Size = new System.Drawing.Size(70, 25);
+            this.Adminlabel.TabIndex = 49;
+            this.Adminlabel.Text = "label1";
+            // 
             // exit
             // 
             this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exit.Location = new System.Drawing.Point(850, 12);
-            this.exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exit.Margin = new System.Windows.Forms.Padding(2);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(68, 31);
             this.exit.TabIndex = 5;
@@ -86,95 +117,17 @@
             // 
             // admin_buttoncombo
             // 
+            this.admin_buttoncombo.Controls.Add(this.Ad_logoutbutton);
             this.admin_buttoncombo.Controls.Add(this.AccessButton);
             this.admin_buttoncombo.Controls.Add(this.ur_dshbrd);
             this.admin_buttoncombo.Controls.Add(this.usr_mng);
             this.admin_buttoncombo.Controls.Add(this.ur_mng);
             this.admin_buttoncombo.Controls.Add(this.admn_mng);
             this.admin_buttoncombo.Location = new System.Drawing.Point(45, 130);
-            this.admin_buttoncombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.admin_buttoncombo.Margin = new System.Windows.Forms.Padding(2);
             this.admin_buttoncombo.Name = "admin_buttoncombo";
             this.admin_buttoncombo.Size = new System.Drawing.Size(278, 428);
             this.admin_buttoncombo.TabIndex = 1;
-            // 
-            // ur_dshbrd
-            // 
-            this.ur_dshbrd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ur_dshbrd.Location = new System.Drawing.Point(5, 218);
-            this.ur_dshbrd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ur_dshbrd.Name = "ur_dshbrd";
-            this.ur_dshbrd.Size = new System.Drawing.Size(273, 45);
-            this.ur_dshbrd.TabIndex = 3;
-            this.ur_dshbrd.Text = "UR Dashboard";
-            this.ur_dshbrd.UseVisualStyleBackColor = true;
-            this.ur_dshbrd.Click += new System.EventHandler(this.ur_dshbrd_Click);
-            // 
-            // usr_mng
-            // 
-            this.usr_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usr_mng.Location = new System.Drawing.Point(5, 153);
-            this.usr_mng.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.usr_mng.Name = "usr_mng";
-            this.usr_mng.Size = new System.Drawing.Size(273, 45);
-            this.usr_mng.TabIndex = 2;
-            this.usr_mng.Text = "User Management";
-            this.usr_mng.UseVisualStyleBackColor = true;
-            this.usr_mng.Click += new System.EventHandler(this.usr_mng_Click);
-            // 
-            // ur_mng
-            // 
-            this.ur_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ur_mng.Location = new System.Drawing.Point(5, 88);
-            this.ur_mng.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ur_mng.Name = "ur_mng";
-            this.ur_mng.Size = new System.Drawing.Size(273, 45);
-            this.ur_mng.TabIndex = 1;
-            this.ur_mng.Text = "UR Management";
-            this.ur_mng.UseVisualStyleBackColor = true;
-            this.ur_mng.Click += new System.EventHandler(this.ur_mng_Click);
-            // 
-            // admn_mng
-            // 
-            this.admn_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admn_mng.Location = new System.Drawing.Point(3, 18);
-            this.admn_mng.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.admn_mng.Name = "admn_mng";
-            this.admn_mng.Size = new System.Drawing.Size(273, 45);
-            this.admn_mng.TabIndex = 0;
-            this.admn_mng.Text = "Admin Management";
-            this.admn_mng.UseVisualStyleBackColor = true;
-            this.admn_mng.Click += new System.EventHandler(this.admn_mng_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(424, 158);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(401, 264);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Adminlabel
-            // 
-            this.Adminlabel.AutoSize = true;
-            this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Adminlabel.Location = new System.Drawing.Point(15, 7);
-            this.Adminlabel.Name = "Adminlabel";
-            this.Adminlabel.Size = new System.Drawing.Size(70, 25);
-            this.Adminlabel.TabIndex = 49;
-            this.Adminlabel.Text = "label1";
-            // 
-            // AdminIDlabel
-            // 
-            this.AdminIDlabel.AutoSize = true;
-            this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminIDlabel.Location = new System.Drawing.Point(15, 44);
-            this.AdminIDlabel.Name = "AdminIDlabel";
-            this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
-            this.AdminIDlabel.TabIndex = 50;
-            this.AdminIDlabel.Text = "label2";
             // 
             // AccessButton
             // 
@@ -188,15 +141,76 @@
             this.AccessButton.UseVisualStyleBackColor = true;
             this.AccessButton.Click += new System.EventHandler(this.AccessButton_Click);
             // 
-            // Title
+            // ur_dshbrd
             // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(247, 0);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(498, 50);
-            this.Title.TabIndex = 51;
-            this.Title.Text = "Abroad Higher Study Soltuin";
+            this.ur_dshbrd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ur_dshbrd.Location = new System.Drawing.Point(5, 218);
+            this.ur_dshbrd.Margin = new System.Windows.Forms.Padding(2);
+            this.ur_dshbrd.Name = "ur_dshbrd";
+            this.ur_dshbrd.Size = new System.Drawing.Size(273, 45);
+            this.ur_dshbrd.TabIndex = 3;
+            this.ur_dshbrd.Text = "UR Dashboard";
+            this.ur_dshbrd.UseVisualStyleBackColor = true;
+            this.ur_dshbrd.Click += new System.EventHandler(this.ur_dshbrd_Click);
+            // 
+            // usr_mng
+            // 
+            this.usr_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usr_mng.Location = new System.Drawing.Point(5, 153);
+            this.usr_mng.Margin = new System.Windows.Forms.Padding(2);
+            this.usr_mng.Name = "usr_mng";
+            this.usr_mng.Size = new System.Drawing.Size(273, 45);
+            this.usr_mng.TabIndex = 2;
+            this.usr_mng.Text = "User Management";
+            this.usr_mng.UseVisualStyleBackColor = true;
+            this.usr_mng.Click += new System.EventHandler(this.usr_mng_Click);
+            // 
+            // ur_mng
+            // 
+            this.ur_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ur_mng.Location = new System.Drawing.Point(5, 88);
+            this.ur_mng.Margin = new System.Windows.Forms.Padding(2);
+            this.ur_mng.Name = "ur_mng";
+            this.ur_mng.Size = new System.Drawing.Size(273, 45);
+            this.ur_mng.TabIndex = 1;
+            this.ur_mng.Text = "UR Management";
+            this.ur_mng.UseVisualStyleBackColor = true;
+            this.ur_mng.Click += new System.EventHandler(this.ur_mng_Click);
+            // 
+            // admn_mng
+            // 
+            this.admn_mng.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admn_mng.Location = new System.Drawing.Point(3, 18);
+            this.admn_mng.Margin = new System.Windows.Forms.Padding(2);
+            this.admn_mng.Name = "admn_mng";
+            this.admn_mng.Size = new System.Drawing.Size(273, 45);
+            this.admn_mng.TabIndex = 0;
+            this.admn_mng.Text = "Admin Management";
+            this.admn_mng.UseVisualStyleBackColor = true;
+            this.admn_mng.Click += new System.EventHandler(this.admn_mng_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(424, 158);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(401, 264);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Ad_logoutbutton
+            // 
+            this.Ad_logoutbutton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ad_logoutbutton.Location = new System.Drawing.Point(3, 365);
+            this.Ad_logoutbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.Ad_logoutbutton.Name = "Ad_logoutbutton";
+            this.Ad_logoutbutton.Size = new System.Drawing.Size(273, 45);
+            this.Ad_logoutbutton.TabIndex = 5;
+            this.Ad_logoutbutton.Text = "Log Out";
+            this.Ad_logoutbutton.UseVisualStyleBackColor = true;
+            this.Ad_logoutbutton.Click += new System.EventHandler(this.Ad_logoutbutton_Click);
             // 
             // Admin_Pannel
             // 
@@ -208,7 +222,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.admin_buttoncombo);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin_Pannel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_Pannel";
@@ -236,5 +250,6 @@
         private System.Windows.Forms.Label AdminIDlabel;
         private System.Windows.Forms.Button AccessButton;
         private System.Windows.Forms.Label Title;
+        private System.Windows.Forms.Button Ad_logoutbutton;
     }
 }
