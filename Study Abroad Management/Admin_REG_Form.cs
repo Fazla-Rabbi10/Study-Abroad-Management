@@ -27,12 +27,6 @@ namespace Study_Abroad_Management
             //took it from youtube
         }
 
-        public static bool IsValidContactNumber(string contactNumber)
-        {
-            // Regex pattern for validating contact number (11 digits)
-            Regex contactRegex = new Regex(@"^\d{11}$");
-            return contactRegex.IsMatch(contactNumber);
-        }
 
         private void admin_submit_button_Click(object sender, EventArgs e)
            
