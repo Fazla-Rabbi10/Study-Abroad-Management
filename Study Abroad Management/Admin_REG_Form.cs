@@ -14,7 +14,7 @@ namespace Study_Abroad_Management
 {
     public partial class Admin_REG_Form: Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public Admin_REG_Form()
         {
             InitializeComponent();
@@ -109,7 +109,7 @@ namespace Study_Abroad_Management
                         cmdLogin.Parameters.AddWithValue("@Name", ad_name_textBox.Text);
                         cmdLogin.Parameters.AddWithValue("@Role", "admin");
                         cmdLogin.Parameters.AddWithValue("@Password", Ad_pass_textBox.Text);
-                        cmdLogin.Parameters.AddWithValue("@Status", 0);
+                        cmdLogin.Parameters.AddWithValue("@Status", 1);
                         
                         int resultLogin = cmdLogin.ExecuteNonQuery();
 
