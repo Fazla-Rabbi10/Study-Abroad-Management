@@ -196,6 +196,7 @@
             this.Controls.Add(this.Pass_login_label);
             this.Controls.Add(this.ID_label_login);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "Log_In_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log_In_Form";

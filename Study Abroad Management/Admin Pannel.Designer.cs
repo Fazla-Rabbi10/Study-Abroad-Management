@@ -36,13 +36,13 @@
             this.exit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.admin_buttoncombo = new System.Windows.Forms.Panel();
+            this.Ad_logoutbutton = new System.Windows.Forms.Button();
             this.AccessButton = new System.Windows.Forms.Button();
             this.ur_dshbrd = new System.Windows.Forms.Button();
             this.usr_mng = new System.Windows.Forms.Button();
             this.ur_mng = new System.Windows.Forms.Button();
             this.admn_mng = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Ad_logoutbutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.admin_buttoncombo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -129,6 +129,18 @@
             this.admin_buttoncombo.Size = new System.Drawing.Size(278, 428);
             this.admin_buttoncombo.TabIndex = 1;
             // 
+            // Ad_logoutbutton
+            // 
+            this.Ad_logoutbutton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ad_logoutbutton.Location = new System.Drawing.Point(3, 365);
+            this.Ad_logoutbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.Ad_logoutbutton.Name = "Ad_logoutbutton";
+            this.Ad_logoutbutton.Size = new System.Drawing.Size(273, 45);
+            this.Ad_logoutbutton.TabIndex = 5;
+            this.Ad_logoutbutton.Text = "Log Out";
+            this.Ad_logoutbutton.UseVisualStyleBackColor = true;
+            this.Ad_logoutbutton.Click += new System.EventHandler(this.Ad_logoutbutton_Click);
+            // 
             // AccessButton
             // 
             this.AccessButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -200,18 +212,6 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // Ad_logoutbutton
-            // 
-            this.Ad_logoutbutton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ad_logoutbutton.Location = new System.Drawing.Point(3, 365);
-            this.Ad_logoutbutton.Margin = new System.Windows.Forms.Padding(2);
-            this.Ad_logoutbutton.Name = "Ad_logoutbutton";
-            this.Ad_logoutbutton.Size = new System.Drawing.Size(273, 45);
-            this.Ad_logoutbutton.TabIndex = 5;
-            this.Ad_logoutbutton.Text = "Log Out";
-            this.Ad_logoutbutton.UseVisualStyleBackColor = true;
-            this.Ad_logoutbutton.Click += new System.EventHandler(this.Ad_logoutbutton_Click);
-            // 
             // Admin_Pannel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -223,6 +223,7 @@
             this.Controls.Add(this.admin_buttoncombo);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Admin_Pannel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_Pannel";

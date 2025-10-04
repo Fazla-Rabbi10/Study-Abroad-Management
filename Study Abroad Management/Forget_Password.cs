@@ -78,7 +78,7 @@ namespace Study_Abroad_Management
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: ",ex.Message, MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Error: ",ex.Message + " ID MUST BE NUMBERS", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 finally
                 {

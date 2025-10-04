@@ -304,6 +304,7 @@
             this.Controls.Add(this.Ur_count__reg_label);
             this.Controls.Add(this.UR_reg_name_label);
             this.Controls.Add(this.UR_reg_label);
+            this.MaximizeBox = false;
             this.Name = "UR_REG_Formcs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UR_REG_Formcs";

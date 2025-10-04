@@ -134,6 +134,7 @@
             this.Controls.Add(this.SetPass_label);
             this.Controls.Add(this.IDlabel);
             this.Controls.Add(this.Title);
+            this.MaximizeBox = false;
             this.Name = "Forget_Password";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forget_Password";

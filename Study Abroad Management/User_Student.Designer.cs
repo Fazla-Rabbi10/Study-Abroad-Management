@@ -225,6 +225,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StudentIDlabel);
             this.Controls.Add(this.Studentlabel);
+            this.MaximizeBox = false;
             this.Name = "User_Student";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_Student";

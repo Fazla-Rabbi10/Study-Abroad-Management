@@ -120,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.aspp_StudentIDlabel);
             this.Controls.Add(this.app_Student_namelabel);
+            this.MaximizeBox = false;
             this.Name = "Student_Application_Status";
             this.Text = "Student_Application_Status";
             this.Load += new System.EventHandler(this.Student_Application_Status_Load);

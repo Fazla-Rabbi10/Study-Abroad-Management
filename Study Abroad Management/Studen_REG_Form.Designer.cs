@@ -277,6 +277,7 @@
             this.Controls.Add(this.std_age_reg_label);
             this.Controls.Add(this.std_reg_name_label);
             this.Controls.Add(this.Student_reg_label);
+            this.MaximizeBox = false;
             this.Name = "Studen_REG_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Studen_REG_Form";

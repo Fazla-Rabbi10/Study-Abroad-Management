@@ -304,6 +304,7 @@
             this.Controls.Add(this.Admin_addre_reg_label);
             this.Controls.Add(this.ad_reg_name_label);
             this.Controls.Add(this.Admin_reg_label);
+            this.MaximizeBox = false;
             this.Name = "Admin_REG_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_REG_Form";

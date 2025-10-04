@@ -228,6 +228,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.Access_dataGridView);
+            this.MaximizeBox = false;
             this.Name = "Access_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Access_Management";
