@@ -73,14 +73,14 @@
             this.en_ID_textBox.Location = new System.Drawing.Point(265, 182);
             this.en_ID_textBox.Name = "en_ID_textBox";
             this.en_ID_textBox.Size = new System.Drawing.Size(145, 22);
-            this.en_ID_textBox.TabIndex = 30;
+            this.en_ID_textBox.TabIndex = 0;
             // 
             // new_pass_textBox
             // 
             this.new_pass_textBox.Location = new System.Drawing.Point(265, 249);
             this.new_pass_textBox.Name = "new_pass_textBox";
             this.new_pass_textBox.Size = new System.Drawing.Size(145, 22);
-            this.new_pass_textBox.TabIndex = 31;
+            this.new_pass_textBox.TabIndex = 1;
             // 
             // label1
             // 

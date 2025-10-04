@@ -166,7 +166,7 @@
             this.Admin_Search_TextBox.Location = new System.Drawing.Point(977, 83);
             this.Admin_Search_TextBox.Name = "Admin_Search_TextBox";
             this.Admin_Search_TextBox.Size = new System.Drawing.Size(115, 22);
-            this.Admin_Search_TextBox.TabIndex = 54;
+            this.Admin_Search_TextBox.TabIndex = 0;
             this.Admin_Search_TextBox.TextChanged += new System.EventHandler(this.Admin_Search_TextBox_TextChanged);
             // 
             // Seize_button

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Study_Abroad_Management
 {
@@ -18,6 +19,8 @@ namespace Study_Abroad_Management
         {
             InitializeComponent();
         }
+
+        
 
         private void UR_submit_button_Click(object sender, EventArgs e)
         {
@@ -30,6 +33,38 @@ namespace Study_Abroad_Management
                 !string.IsNullOrWhiteSpace(UR_EIIN_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(UR_pass_textBox.Text))
             {
+                if (!ValidationClass.IsValidEmail(UR_email_textBox.Text)) 
+                {
+                    MessageBox.Show("Please Enter a valid Email \n For Example : abc@gmail.com");
+                    
+                    UR_email_textBox.Focus();
+
+                    return;
+                }
+                
+                if (!ValidationClass.validateEIIN(UR_EIIN_textBox.Text))
+                {
+                    MessageBox.Show("Please Enter a valid EIIN \n EIIN must be numeric and 6 digits");
+                    
+                    UR_EIIN_textBox.Focus();
+                    return;
+                }
+                if (!ValidationClass.validName(UR_name_textBox.Text))
+                {
+                    MessageBox.Show("Please Enter a valid Name \n Name can only contain letters and spaces");
+                   
+                    UR_name_textBox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validUniversity(UR_university_textBox.Text))
+                {
+                    MessageBox.Show("Please Enter a valid University Name \n University Name can only contain letters, spaces and hyphens");
+                    
+                    UR_university_textBox.Focus();
+                    return;
+                }
+
                 // 2) Open connection
                 if (con.State != ConnectionState.Open)
                 {
@@ -47,10 +82,19 @@ namespace Study_Abroad_Management
                         // Explicit columns use korsi jate column-order mismatch na hoy
                         string insertUR =
                             "INSERT INTO URDetails (Name, Nationality, Gender, Email, UniversityName, EIIN, Password) " +
-                            "VALUES ('" + UR_name_textBox.Text + "','" + UR_count_comboBox.Text + "','" + UR_gender_comboBox.Text + "','" + UR_email_textBox.Text + "','" + UR_university_textBox.Text + "','" + UR_EIIN_textBox.Text + "','" + UR_pass_textBox.Text + "'); " +
+                            "VALUES (@Name, @Nationality, @Gender, @Email, @UniversityName, @EIIN, @Password)" +
                             "SELECT CAST(SCOPE_IDENTITY() AS INT);";
-
+                        //('" + UR_name_textBox.Text + "', '" + UR_count_comboBox.Text + "', '" + UR_gender_comboBox.Text + "', '" + UR_email_textBox.Text + "', '" + UR_university_textBox.Text + "', '" + UR_EIIN_textBox.Text + "', '" + UR_pass_textBox.Text + "');
                         SqlCommand cmdUR = new SqlCommand(insertUR, con, tx);
+                        
+                        cmdUR.Parameters.AddWithValue("@Name", UR_name_textBox.Text);
+                        cmdUR.Parameters.AddWithValue("@Nationality", UR_count_comboBox.Text);
+                        cmdUR.Parameters.AddWithValue("@Gender", UR_gender_comboBox.Text);
+                        cmdUR.Parameters.AddWithValue("@Email", UR_email_textBox.Text);
+                        cmdUR.Parameters.AddWithValue("@UniversityName", UR_university_textBox.Text);
+                        cmdUR.Parameters.AddWithValue("@EIIN", int.Parse(UR_EIIN_textBox.Text));
+                        cmdUR.Parameters.AddWithValue("@Password", UR_pass_textBox.Text);
+
                         // capture new identity
                         int newId = Convert.ToInt32(cmdUR.ExecuteScalar());
 
@@ -61,9 +105,14 @@ namespace Study_Abroad_Management
                         // Columns: ID, Name, Role, Password, Status(=0)
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
-                            "VALUES (" + newId + ",'" + UR_name_textBox.Text + "','UR','" + UR_pass_textBox.Text + "', 0);";
-
+                            "VALUES(@ID, @name, @role, @password, @status)";
+                        //(" + newId + ", '" + UR_name_textBox.Text + "', 'UR', '" + UR_pass_textBox.Text + "', 0);
                         SqlCommand cmdLogin = new SqlCommand(insertLogin, con, tx);
+                        cmdLogin.Parameters.AddWithValue("@ID", newId);
+                        cmdLogin.Parameters.AddWithValue("@name", UR_name_textBox.Text);
+                        cmdLogin.Parameters.AddWithValue("@role", "UR");
+                        cmdLogin.Parameters.AddWithValue("@password", UR_pass_textBox.Text);
+                        cmdLogin.Parameters.AddWithValue("@status", 0);
                         int resultLogin = cmdLogin.ExecuteNonQuery();
 
                         // 4) Both success → commit

@@ -164,6 +164,7 @@
     <Compile Include="User_Student.Designer.cs">
       <DependentUpon>User_Student.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidationClass.cs" />
     <EmbeddedResource Include="Access_Management.resx">
       <DependentUpon>Access_Management.cs</DependentUpon>
     </EmbeddedResource>

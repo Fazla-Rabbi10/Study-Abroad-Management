@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Study_Abroad_Management
 {
@@ -29,6 +30,30 @@ namespace Study_Abroad_Management
                 !string.IsNullOrWhiteSpace(std_gender_comboBox.Text) &&
                 !string.IsNullOrWhiteSpace(std_pass_textBox.Text))
             {
+                if (!ValidationClass.IsValidEmail(std_email_textBox.Text)) 
+                {
+                    MessageBox.Show("Please enter a valid email address. \n For example : abc@gmail.com");
+                    
+                    std_email_textBox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validAge(stdage_textBox.Text))
+                {
+                    MessageBox.Show("Please enter a valid age (18-99) and age must be in numbers.");
+                   
+                    stdage_textBox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validName(std_name_textBox.Text))
+                {
+                    MessageBox.Show("Please enter a valid name (only letters and spaces are allowed).");
+                   
+                    std_name_textBox.Focus();
+                    return;
+                }
+
                 // 2) Open connection
                 if (con.State != ConnectionState.Open)
                 {
@@ -45,10 +70,19 @@ namespace Study_Abroad_Management
                         // Explicit columns use korsi jate column-order mismatch na hoy
                         string insertStudent =
                             "INSERT INTO StudentDetails (Name, Nationality, Gender, Email, Age, Password) " +
-                            "VALUES ('" + std_name_textBox.Text + "','" + Std_count_comboBox.Text + "','" + std_gender_comboBox.Text + "','" + std_email_textBox.Text + "','" + stdage_textBox.Text + "','" + std_pass_textBox.Text + "'); " +
+                            "VALUES(@Name, @Nationality, @Gender, @Email, @Age, @Password);" +
                             "SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                        //('" + std_name_textBox.Text + "', '" + Std_count_comboBox.Text + "', '" + std_gender_comboBox.Text + "', '" + std_email_textBox.Text + "', '" + stdage_textBox.Text + "', '" + std_pass_textBox.Text + "');
 
                         SqlCommand cmdStudent = new SqlCommand(insertStudent, con, tx);
+
+                        cmdStudent.Parameters.AddWithValue("@Name", std_name_textBox.Text);
+                        cmdStudent.Parameters.AddWithValue("@Nationality", Std_count_comboBox.Text);
+                        cmdStudent.Parameters.AddWithValue("@Gender", std_gender_comboBox.Text);
+                        cmdStudent.Parameters.AddWithValue("@Email", std_email_textBox.Text);
+                        cmdStudent.Parameters.AddWithValue("@Age", int.Parse(stdage_textBox.Text));
+                        cmdStudent.Parameters.AddWithValue("@Password", std_pass_textBox.Text);
+
                         // capture new identity
                         int newId = Convert.ToInt32(cmdStudent.ExecuteScalar());
 
@@ -59,9 +93,17 @@ namespace Study_Abroad_Management
                         // Columns: ID, Name, Role, Password, Status(=0)
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
-                            "VALUES (" + newId + ",'" + std_name_textBox.Text + "','student','" + std_pass_textBox.Text + "', 0);";
+                            "VALUES(@ID, @name, @role, @password, @status); ";
+                        //(" + newId + ", '" + std_name_textBox.Text + "', 'student', '" + std_pass_textBox.Text + "', 0);
 
                         SqlCommand cmdLogin = new SqlCommand(insertLogin, con, tx);
+                        
+                        cmdLogin.Parameters.AddWithValue("@ID", newId);
+                        cmdLogin.Parameters.AddWithValue("@Name", std_name_textBox.Text);
+                        cmdLogin.Parameters.AddWithValue("@role", "student");
+                        cmdLogin.Parameters.AddWithValue("@password", std_pass_textBox.Text);
+                        cmdLogin.Parameters.AddWithValue("@status", 0);
+                        
                         int resultLogin = cmdLogin.ExecuteNonQuery();
 
                         // 4) Both success → commit
@@ -122,38 +164,40 @@ namespace Study_Abroad_Management
             }
             if (con.State == ConnectionState.Open)
             {
-                this.std_name_textBox.Clear();
-                this.stdage_textBox.Clear();
-                this.std_email_textBox.Clear();
-                this.Std_count_comboBox.Items.Clear();
-                this.std_gender_comboBox.Items.Clear();
-                this.std_pass_textBox.Clear();
+                std_name_textBox.Clear();
+               stdage_textBox.Clear();
+                std_email_textBox.Clear();
+                Std_count_comboBox.Items.Clear();
+                std_gender_comboBox.Items.Clear();
+                std_pass_textBox.Clear();
 
-                this.std_name_textBox.Focus();
+               std_name_textBox.Focus();
 
-                this.std_gender_comboBox.Items.Add("Male");
-                this.std_gender_comboBox.Items.Add("Female");
-
-                this.Std_count_comboBox.Items.Add("United States");
-                this.Std_count_comboBox.Items.Add("India");
-                this.Std_count_comboBox.Items.Add("Canada");
-                this.Std_count_comboBox.Items.Add("Australia");
-                this.Std_count_comboBox.Items.Add("Bangladesh");
-                this.Std_count_comboBox.Items.Add("United Kingdom");
-                this.Std_count_comboBox.Items.Add("Japan");
-                this.Std_count_comboBox.Items.Add("Germany");
-                this.Std_count_comboBox.Items.Add("Brazil");
-                this.Std_count_comboBox.Items.Add("France");
-                this.Std_count_comboBox.Items.Add("Italy");
-                this.Std_count_comboBox.Items.Add("Russia");
-                this.Std_count_comboBox.Items.Add("China");
-                this.Std_count_comboBox.Items.Add("Mexico");
-                this.Std_count_comboBox.Items.Add("South Korea");
-                this.Std_count_comboBox.Items.Add("Spain");
-                this.Std_count_comboBox.Items.Add("Saudi Arabia");
-                this.Std_count_comboBox.Items.Add("Argentina");
-                this.Std_count_comboBox.Items.Add("South Africa");
-                this.Std_count_comboBox.Items.Add("Egypt");
+                std_gender_comboBox.Items.Add("Male");
+                std_gender_comboBox.Items.Add("Female");
+                
+               
+                
+                Std_count_comboBox.Items.Add("United States");
+                Std_count_comboBox.Items.Add("India");
+                Std_count_comboBox.Items.Add("Canada");
+                Std_count_comboBox.Items.Add("Australia");
+                Std_count_comboBox.Items.Add("Bangladesh");
+                Std_count_comboBox.Items.Add("United Kingdom");
+                Std_count_comboBox.Items.Add("Japan");
+                Std_count_comboBox.Items.Add("Germany");
+                Std_count_comboBox.Items.Add("Brazil");
+                Std_count_comboBox.Items.Add("France");
+                Std_count_comboBox.Items.Add("Italy");
+                Std_count_comboBox.Items.Add("Russia");
+                Std_count_comboBox.Items.Add("China");
+                Std_count_comboBox.Items.Add("Mexico");
+                Std_count_comboBox.Items.Add("South Korea");
+                Std_count_comboBox.Items.Add("Spain");
+                Std_count_comboBox.Items.Add("Saudi Arabia");
+                Std_count_comboBox.Items.Add("Argentina");
+                Std_count_comboBox.Items.Add("South Africa");
+                Std_count_comboBox.Items.Add("Egypt");
 
 
 

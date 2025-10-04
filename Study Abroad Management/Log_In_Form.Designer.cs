@@ -129,7 +129,7 @@
             this.LG_ID_textBox.Location = new System.Drawing.Point(500, 181);
             this.LG_ID_textBox.Name = "LG_ID_textBox";
             this.LG_ID_textBox.Size = new System.Drawing.Size(160, 22);
-            this.LG_ID_textBox.TabIndex = 9;
+            this.LG_ID_textBox.TabIndex = 0;
             // 
             // Lg_Password_textBox2
             // 
@@ -137,7 +137,7 @@
             this.Lg_Password_textBox2.Name = "Lg_Password_textBox2";
             this.Lg_Password_textBox2.PasswordChar = '*';
             this.Lg_Password_textBox2.Size = new System.Drawing.Size(160, 22);
-            this.Lg_Password_textBox2.TabIndex = 10;
+            this.Lg_Password_textBox2.TabIndex = 1;
             // 
             // Login_Exit_button
             // 

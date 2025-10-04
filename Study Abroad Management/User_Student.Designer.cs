@@ -91,7 +91,7 @@
             this.user_Studnet_search_textBox.Multiline = true;
             this.user_Studnet_search_textBox.Name = "user_Studnet_search_textBox";
             this.user_Studnet_search_textBox.Size = new System.Drawing.Size(146, 30);
-            this.user_Studnet_search_textBox.TabIndex = 52;
+            this.user_Studnet_search_textBox.TabIndex = 0;
             this.user_Studnet_search_textBox.TextChanged += new System.EventHandler(this.user_Studnet_search_textBox_TextChanged);
             // 
             // Student_Show_button

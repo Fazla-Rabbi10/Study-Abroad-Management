@@ -20,13 +20,7 @@ namespace Study_Abroad_Management
             InitializeComponent();
         }
 
-        public static bool IsValidEmail(string email) 
-        {
-            Regex emailregex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
-            return emailregex.IsMatch(email);
-            //took it from youtube
-        }
-
+       
 
         private void admin_submit_button_Click(object sender, EventArgs e)
            
@@ -41,16 +35,30 @@ namespace Study_Abroad_Management
                 !string.IsNullOrWhiteSpace(Ad_pass_textBox.Text) 
                 )
             {
-                if (!IsValidEmail(ad_email_textBox.Text))
+                if (!ValidationClass.IsValidEmail(ad_email_textBox.Text))
                 {
                     MessageBox.Show("Please enter a valid email address.\n For Example: abc@gmail.com");
                     ad_email_textBox.Focus();
                     return;
                 }
-                if (!IsValidContactNumber(contact_textBox.Text))
+                if (!ValidationClass.IsValidContactNumber(contact_textBox.Text))
                 {
                     MessageBox.Show("Please enter a valid contact number (11 digits).");
                     contact_textBox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validName(ad_name_textBox.Text)) 
+                {
+                    MessageBox.Show("Please enter a valid name (letters and spaces only).");
+                    ad_name_textBox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validAddress(Ad_Address_textBox.Text))
+                {
+                    MessageBox.Show("Please enter a valid address (letters, numbers, spaces, commas, periods, and hyphens only).");
+                    Ad_Address_textBox.Focus();
                     return;
                 }
                 // 2) Open connection

@@ -58,7 +58,7 @@
             this.std_gender_comboBox.Location = new System.Drawing.Point(733, 376);
             this.std_gender_comboBox.Name = "std_gender_comboBox";
             this.std_gender_comboBox.Size = new System.Drawing.Size(121, 24);
-            this.std_gender_comboBox.TabIndex = 43;
+            this.std_gender_comboBox.TabIndex = 6;
             // 
             // student_submit_button
             // 
@@ -66,7 +66,7 @@
             this.student_submit_button.Location = new System.Drawing.Point(378, 554);
             this.student_submit_button.Name = "student_submit_button";
             this.student_submit_button.Size = new System.Drawing.Size(211, 47);
-            this.student_submit_button.TabIndex = 41;
+            this.student_submit_button.TabIndex = 7;
             this.student_submit_button.Text = "Submit";
             this.student_submit_button.UseVisualStyleBackColor = true;
             this.student_submit_button.Click += new System.EventHandler(this.student_submit_button_Click);
@@ -76,14 +76,14 @@
             this.std_pass_textBox.Location = new System.Drawing.Point(378, 376);
             this.std_pass_textBox.Name = "std_pass_textBox";
             this.std_pass_textBox.Size = new System.Drawing.Size(100, 22);
-            this.std_pass_textBox.TabIndex = 40;
+            this.std_pass_textBox.TabIndex = 5;
             // 
             // std_email_textBox
             // 
             this.std_email_textBox.Location = new System.Drawing.Point(733, 230);
             this.std_email_textBox.Name = "std_email_textBox";
             this.std_email_textBox.Size = new System.Drawing.Size(100, 22);
-            this.std_email_textBox.TabIndex = 37;
+            this.std_email_textBox.TabIndex = 1;
             // 
             // std_pass_label
             // 
@@ -126,14 +126,14 @@
             this.stdage_textBox.Location = new System.Drawing.Point(378, 300);
             this.stdage_textBox.Name = "stdage_textBox";
             this.stdage_textBox.Size = new System.Drawing.Size(100, 22);
-            this.stdage_textBox.TabIndex = 31;
+            this.stdage_textBox.TabIndex = 3;
             // 
             // std_name_textBox
             // 
             this.std_name_textBox.Location = new System.Drawing.Point(378, 230);
             this.std_name_textBox.Name = "std_name_textBox";
             this.std_name_textBox.Size = new System.Drawing.Size(100, 22);
-            this.std_name_textBox.TabIndex = 30;
+            this.std_name_textBox.TabIndex = 0;
             // 
             // std_age_reg_label
             // 
@@ -242,7 +242,7 @@
             this.Std_count_comboBox.Location = new System.Drawing.Point(733, 303);
             this.Std_count_comboBox.Name = "Std_count_comboBox";
             this.Std_count_comboBox.Size = new System.Drawing.Size(121, 24);
-            this.Std_count_comboBox.TabIndex = 50;
+            this.Std_count_comboBox.TabIndex = 4;
             // 
             // Title
             // 

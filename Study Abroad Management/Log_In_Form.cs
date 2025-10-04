@@ -90,12 +90,18 @@ namespace Study_Abroad_Management
         {
             try
             {
-                string log_query = "select * from loginTable where ID = '" + LG_ID_textBox.Text + "'and password = '" + Lg_Password_textBox2.Text + "'";
+                string log_query = "select * from loginTable where ID = @ID and password = @password";
                 if (con.State != ConnectionState.Open)
                 {
                     con.Open();
                 }
-                SqlDataAdapter sda = new SqlDataAdapter(log_query, con);
+                SqlCommand cmd = new SqlCommand(log_query, con);
+                
+                cmd.Parameters.AddWithValue("@ID", int.Parse(LG_ID_textBox.Text));
+                cmd.Parameters.AddWithValue("@password", Lg_Password_textBox2.Text);
+                
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
 
                 if (con.State == ConnectionState.Open)
                 {
@@ -151,7 +157,7 @@ namespace Study_Abroad_Management
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Login Failed: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Login Failed: " + ex.Message +"\n ID must be numeric(only numbers no special characters and space) ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
