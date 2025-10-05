@@ -14,7 +14,7 @@ namespace Study_Abroad_Management
 {
     public partial class Studen_REG_Form: Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public Studen_REG_Form()
         {
             InitializeComponent();
@@ -37,6 +37,15 @@ namespace Study_Abroad_Management
                     std_email_textBox.Focus();
                     return;
                 }
+
+                if (std_email_textBox.Text == "abc@gmail.com" || std_email_textBox.Text == "ABC@GMAIL.COM")
+                {
+                    std_email_textBox.Text.ToLower();
+                    MessageBox.Show("Please enter a valid email address. You cannot use abc@gmail.com");
+                    std_email_textBox.Focus();
+                    return;
+                }
+
 
                 if (!ValidationClass.validAge(stdage_textBox.Text))
                 {
@@ -250,6 +259,11 @@ namespace Study_Abroad_Management
                 MessageBox.Show("Connection Failed");
             }
             con.Close();
+        }
+
+        private void std_email_textBox_TextChanged(object sender, EventArgs e)
+        {
+            std_email_textBox.ForeColor = Color.Black;
         }
     }
 }

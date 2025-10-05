@@ -83,24 +83,31 @@
             // 
             // UR_EIIN_textBox
             // 
+            this.UR_EIIN_textBox.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.UR_EIIN_textBox.Location = new System.Drawing.Point(733, 376);
             this.UR_EIIN_textBox.Name = "UR_EIIN_textBox";
             this.UR_EIIN_textBox.Size = new System.Drawing.Size(100, 22);
             this.UR_EIIN_textBox.TabIndex = 6;
+            this.UR_EIIN_textBox.Text = "6 Digits";
+            this.UR_EIIN_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.UR_EIIN_textBox.TextChanged += new System.EventHandler(this.UR_EIIN_textBox_TextChanged);
             // 
             // UR_university_textBox
             // 
             this.UR_university_textBox.Location = new System.Drawing.Point(733, 297);
             this.UR_university_textBox.Name = "UR_university_textBox";
-            this.UR_university_textBox.Size = new System.Drawing.Size(100, 22);
+            this.UR_university_textBox.Size = new System.Drawing.Size(121, 22);
             this.UR_university_textBox.TabIndex = 4;
             // 
             // UR_email_textBox
             // 
+            this.UR_email_textBox.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.UR_email_textBox.Location = new System.Drawing.Point(733, 230);
             this.UR_email_textBox.Name = "UR_email_textBox";
-            this.UR_email_textBox.Size = new System.Drawing.Size(100, 22);
+            this.UR_email_textBox.Size = new System.Drawing.Size(121, 22);
             this.UR_email_textBox.TabIndex = 1;
+            this.UR_email_textBox.Text = "abc@gmail.com";
+            this.UR_email_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // UR_pass_label
             // 
@@ -308,6 +315,7 @@
             this.Name = "UR_REG_Formcs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UR_REG_Formcs";
+            this.Load += new System.EventHandler(this.UR_REG_Formcs_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

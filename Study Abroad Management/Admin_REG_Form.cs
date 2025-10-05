@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
+
 namespace Study_Abroad_Management
 {
     public partial class Admin_REG_Form: Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public Admin_REG_Form()
         {
             InitializeComponent();
@@ -41,6 +42,15 @@ namespace Study_Abroad_Management
                     ad_email_textBox.Focus();
                     return;
                 }
+
+                if (ad_email_textBox.Text == "abc@gmail.com" || ad_email_textBox.Text == "ABC@GMAIL.COM") 
+                {
+                    ad_email_textBox.Text.ToLower();
+                    MessageBox.Show("Please enter a valid email address. You cannot use abc@gmail.com");
+                    ad_email_textBox.Focus();
+                    return;
+                }
+
                 if (!ValidationClass.IsValidContactNumber(contact_textBox.Text))
                 {
                     MessageBox.Show("Please enter a valid contact number (11 digits).");
@@ -257,6 +267,11 @@ namespace Study_Abroad_Management
             }
         }
 
+        private void ad_email_textBox_TextChanged(object sender, EventArgs e)
+        {
 
+            ad_email_textBox.ForeColor = Color.Black;
+            
+        }
     }
 }

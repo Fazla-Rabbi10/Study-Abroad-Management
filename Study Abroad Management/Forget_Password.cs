@@ -13,7 +13,7 @@ namespace Study_Abroad_Management
 {
     public partial class Forget_Password : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public Forget_Password()
         {
             InitializeComponent();
@@ -78,7 +78,7 @@ namespace Study_Abroad_Management
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: ",ex.Message + " ID MUST BE NUMBERS", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Password Update Failed: "+ex.Message+" ID must be numeric only","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 finally
                 {

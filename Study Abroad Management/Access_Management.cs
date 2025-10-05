@@ -19,7 +19,7 @@ namespace Study_Abroad_Management
             get { return userid; }
             set { userid = value; }
         }
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public Access_Management()
         {
             InitializeComponent();

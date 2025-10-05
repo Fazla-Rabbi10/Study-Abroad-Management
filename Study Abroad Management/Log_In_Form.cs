@@ -14,7 +14,7 @@ namespace Study_Abroad_Management
 {
     public partial class Log_In_Form: Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public Log_In_Form()
         {
             InitializeComponent();

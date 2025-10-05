@@ -43,7 +43,7 @@ namespace Study_Abroad_Management
         public static string studyMode { get { return StudyMode; } }
 
 
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public User_Student()
         {
             InitializeComponent();

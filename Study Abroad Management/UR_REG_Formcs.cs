@@ -14,7 +14,7 @@ namespace Study_Abroad_Management
 {
     public partial class UR_REG_Formcs: Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public UR_REG_Formcs()
         {
             InitializeComponent();
@@ -41,7 +41,15 @@ namespace Study_Abroad_Management
 
                     return;
                 }
-                
+
+                if (UR_email_textBox.Text == "abc@gmail.com" || UR_email_textBox.Text == "ABC@GMAIL.COM")
+                {
+                    UR_email_textBox.Text.ToLower();
+                    MessageBox.Show("Please enter a valid email address. You cannot use abc@gmail.com");
+                    UR_email_textBox.Focus();
+                    return;
+                }
+
                 if (!ValidationClass.validateEIIN(UR_EIIN_textBox.Text))
                 {
                     MessageBox.Show("Please Enter a valid EIIN \n EIIN must be numeric and 6 digits");
@@ -253,6 +261,16 @@ namespace Study_Abroad_Management
 
                 con.Close();
             }
+        }
+
+        private void UR_REG_Formcs_Load(object sender, EventArgs e)
+        {
+            UR_email_textBox.ForeColor = Color.Black;
+        }
+
+        private void UR_EIIN_textBox_TextChanged(object sender, EventArgs e)
+        {
+            UR_EIIN_textBox.ForeColor = Color.Black;
         }
     }
 }
