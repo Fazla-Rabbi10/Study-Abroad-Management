@@ -7,9 +7,9 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions; // this is added for validation
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions; // this is added for validation
 
 namespace Study_Abroad_Management
 {
@@ -352,63 +352,113 @@ namespace Study_Abroad_Management
 
         private void search_by_nm_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                string searchText = search_by_nm.Text.Trim();
+                string searchBy = search_option.Text; // ComboBox selection (Name or ID)
+
+                // Check if user selected search type
+                if (string.IsNullOrEmpty(searchBy))
+                {
+                    if (!string.IsNullOrEmpty(searchText))
+                    {
+                        MessageBox.Show("Please select a search operator (Name or ID).", "Search Option Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        search_by_nm.Clear();
+                    }
+                    return;
+                }
+
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                string query = "";
+
+                if (string.IsNullOrEmpty(searchText))
+                {
+                    query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails";
+                }
+                else
+                {
+                    if (searchBy == "ID")
+                    {
+                        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails WHERE CAST(ID AS NVARCHAR) LIKE @searchText";
+                    }
+                    else if (searchBy == "Name")
+                    {
+                        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails WHERE Name LIKE @searchText";
+                    }
+                }
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
             //try
             //{
-            //    //    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
-            //    //    SqlConnection conn = new SqlConnection(connectionString);
-            //    //    conn.Open();
-
-            //    //    string query = "SELECT *  FROM StudentDetails where Name like '%" + search_by_nm + "%'";
-            //    //    SqlCommand cmd = new SqlCommand(query, conn);
-            //    //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //    //    DataSet ds = new DataSet();
-            //    //    da.Fill(ds);
-            //    //    DataTable dt = ds.Tables[0];
-            //    //    dataGridView1.AutoGenerateColumns = true;
-            //    //    dataGridView1.DataSource = dt;
-            //    //    Show();
-
-            //    //    conn.Close();
-            //}
-            ///*try
-            //{
-            //    string searchequery = "SELECT* FROM StudentDetails where Name like  '%" + search_by_nm + "%'";
-            //    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            //    SqlConnection conn = new SqlConnection(connectionString);
             //    if (conn.State != ConnectionState.Open)
             //    {
             //        conn.Open();
             //    }
-            //    SqlDataAdapter sda = new SqlDataAdapter(searchequery, conn);
-            //    if (conn.State == ConnectionState.Open)
+
+            //    string searchText = search_by_nm.Text.Trim();
+
+            //    // If search box is empty, show all data again
+            //    string query;
+            //    if (string.IsNullOrEmpty(searchText))
             //    {
-            //        DataTable dt = new DataTable();
-            //        sda.Fill(dt);
-            //        dataGridView1.DataSource = dt;
+            //        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails";
             //    }
             //    else
             //    {
-            //        MessageBox.Show("Connection Failed");
-            //        conn.Close();
-            //    }*/           
+            //        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails WHERE Name LIKE @searchText";
+            //    }
+
+            //    SqlCommand cmd = new SqlCommand(query, conn);
+            //    cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+
+            //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+            //    dataGridView1.DataSource = dt;
+            //}
             //catch (Exception ex)
             //{
             //    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
-           
+            //finally
+            //{
+            //    if (conn.State == ConnectionState.Open)
+            //    {
+            //        conn.Close();
+            //    }
+            //}
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
-        //private void textBox1_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void entr_id_Click(object sender, EventArgs e)
+     
+        //private void bname_Click(object sender, EventArgs e)
         //{
 
         //}
