@@ -330,6 +330,7 @@
             this.search_option.Name = "search_option";
             this.search_option.Size = new System.Drawing.Size(129, 40);
             this.search_option.TabIndex = 36;
+            this.search_option.SelectedIndexChanged += new System.EventHandler(this.search_option_SelectedIndexChanged);
             // 
             // label4
             // 

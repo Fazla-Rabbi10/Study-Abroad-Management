@@ -125,5 +125,15 @@ namespace Study_Abroad_Management
             Adminlabel.Text = "Welcome, " + adminName;
             AdminIDlabel.Text = "ID: " + adminID;
         }
+
+        private void search_by_nm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void byCntry_Click(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }

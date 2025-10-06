@@ -16,9 +16,9 @@ namespace Study_Abroad_Management
     public partial class User_Management : Form
     {
 
-        // SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         //use this connection it will work
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        //SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         //SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public User_Management()
         {
@@ -245,8 +245,8 @@ namespace Study_Abroad_Management
                 !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(gender.Text)
                  && !String.IsNullOrWhiteSpace(age_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
             {
-                
-                if (!ValidationClass.IsValidEmail(email_txtbox.Text)) 
+
+                if (!ValidationClass.IsValidEmail(email_txtbox.Text))
                 {
                     MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com");
                     email_txtbox.Focus();
@@ -267,7 +267,7 @@ namespace Study_Abroad_Management
                     return;
                 }
 
-                if (!ValidationClass.validName(nty_txtbox.Text)) 
+                if (!ValidationClass.validName(nty_txtbox.Text))
                 {
                     MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
                     nty_txtbox.Focus();
@@ -457,7 +457,12 @@ namespace Study_Abroad_Management
         {
 
         }
-     
+
+        private void search_option_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //private void bname_Click(object sender, EventArgs e)
         //{
 
