@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Access_Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Access_Management.Designer.cs">
+      <DependentUpon>Access_Management.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forget_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forget_Password.Designer.cs">
+      <DependentUpon>Forget_Password.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="Log_In_Form.cs">
@@ -102,12 +114,6 @@
     </Compile>
     <Compile Include="Studen_REG_Form.Designer.cs">
       <DependentUpon>Studen_REG_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="University_Representative.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="University_Representative.Designer.cs">
-      <DependentUpon>University_Representative.cs</DependentUpon>
     </Compile>
     <Compile Include="UR Management.cs">
       <SubType>Form</SubType>
@@ -164,6 +170,10 @@
     <Compile Include="User_Student.Designer.cs">
       <DependentUpon>User_Student.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidationClass.cs" />
+    <EmbeddedResource Include="Access_Management.resx">
+      <DependentUpon>Access_Management.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin Management.resx">
       <DependentUpon>Admin Management.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forget_Password.resx">
+      <DependentUpon>Forget_Password.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log_In_Form.resx">
       <DependentUpon>Log_In_Form.cs</DependentUpon>

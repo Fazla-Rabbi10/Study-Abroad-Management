@@ -231,6 +231,7 @@
             this.Controls.Add(this.CourseCodelabel);
             this.Controls.Add(this.CourseNamelabel);
             this.Controls.Add(this.Close_Button);
+            this.MaximizeBox = false;
             this.Name = "Student_Course_Detail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student_Course_Detail";

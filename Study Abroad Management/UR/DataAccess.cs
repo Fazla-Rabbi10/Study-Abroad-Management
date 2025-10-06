@@ -21,6 +21,7 @@ namespace Study_Abroad_Management.UR
 
         public DataAccess()
         {
+
             this.Sqlcon = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
             Sqlcon.Open();
         }

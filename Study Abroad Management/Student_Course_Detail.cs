@@ -13,7 +13,7 @@ namespace Study_Abroad_Management
 {
     public partial class Student_Course_Detail : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public Student_Course_Detail()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace Study_Abroad_Management
         {
      
            
-            CourseNamelabel.Text = CourseNamelabel.Text  + User_Student.courseName.ToString();
+            CourseNamelabel.Text = CourseNamelabel.Text +" " + User_Student.courseName.ToString();
            
             CourseCodelabel.Text = CourseCodelabel.Text + " " + User_Student.courseCode.ToString();
            

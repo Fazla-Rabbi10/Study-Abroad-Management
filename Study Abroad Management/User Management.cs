@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions; // this is added for validation
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,8 +15,11 @@ namespace Study_Abroad_Management
 {
     public partial class User_Management : Form
     {
-       //Rabbi //SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
-        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+
+        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        //use this connection it will work
+        //SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        //SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public User_Management()
         {
             InitializeComponent();
@@ -52,37 +56,38 @@ namespace Study_Abroad_Management
 
         private void User_Management_Load(object sender, EventArgs e)
         {
-
+            string adminName = GlobalData.LoggedInUserName;
+            string adminID = GlobalData.LoggedInUserID.ToString();
+            Adminlabel.Text = "Welcome, " + adminName;
+            AdminIDlabel.Text = "ID: " + adminID;
         }
 
         public void _Show()
         {
-           // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
-            //SqlConnection conn = new SqlConnection(connectionString);
+
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
             }
             if (conn.State == ConnectionState.Open)
             {
+               
                 string query = "SELECT ID,Name,Nationality,Gender,Email,Age  FROM StudentDetails";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //da.Fill(ds);
-                //DataTable dt = ds.Tables[0];
-                //dataGridView1.AutoGenerateColumns = true;
-                //dataGridView1.DataSource = dt;
+
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
-
+            }
+            else 
+            { 
+                MessageBox.Show("Connection Failed");
+                conn.Close();
             }
 
-            
-
         }
-        public void _clear() // change clear()
+        public void _clear()
         {
             id_txtbox.Text = "";
             name_txtbox.Text = "";
@@ -240,6 +245,35 @@ namespace Study_Abroad_Management
                 !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(gender.Text)
                  && !String.IsNullOrWhiteSpace(age_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
             {
+
+                if (!ValidationClass.IsValidEmail(email_txtbox.Text))
+                {
+                    MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com");
+                    email_txtbox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validAge(age_txtbx.Text))
+                {
+                    MessageBox.Show("Please enter a valid age (18-99).");
+                    age_txtbx.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validName(name_txtbox.Text))
+                {
+                    MessageBox.Show("Please enter a valid name (only letters and spaces are allowed).");
+                    name_txtbox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validName(nty_txtbox.Text))
+                {
+                    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
+                    nty_txtbox.Focus();
+                    return;
+                }
+
                 if (conn.State != ConnectionState.Open)
                 {
                     conn.Open();
@@ -296,9 +330,7 @@ namespace Study_Abroad_Management
         private void exit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            //string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            //SqlConnection conn = new SqlConnection(connectionString);
-
+            
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
@@ -320,58 +352,118 @@ namespace Study_Abroad_Management
 
         private void search_by_nm_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                string searchText = search_by_nm.Text.Trim();
+                string searchBy = search_option.Text; // ComboBox selection (Name or ID)
+
+                // Check if user selected search type
+                if (string.IsNullOrEmpty(searchBy))
+                {
+                    if (!string.IsNullOrEmpty(searchText))
+                    {
+                        MessageBox.Show("Please select a search operator (Name or ID).", "Search Option Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        search_by_nm.Clear();
+                    }
+                    return;
+                }
+
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                string query = "";
+
+                if (string.IsNullOrEmpty(searchText))
+                {
+                    query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails";
+                }
+                else
+                {
+                    if (searchBy == "ID")
+                    {
+                        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails WHERE CAST(ID AS NVARCHAR) LIKE @searchText";
+                    }
+                    else if (searchBy == "Name")
+                    {
+                        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails WHERE Name LIKE @searchText";
+                    }
+                }
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
             //try
             //{
-            //    //    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
-            //    //    SqlConnection conn = new SqlConnection(connectionString);
-            //    //    conn.Open();
-
-            //    //    string query = "SELECT *  FROM StudentDetails where Name like '%" + search_by_nm + "%'";
-            //    //    SqlCommand cmd = new SqlCommand(query, conn);
-            //    //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //    //    DataSet ds = new DataSet();
-            //    //    da.Fill(ds);
-            //    //    DataTable dt = ds.Tables[0];
-            //    //    dataGridView1.AutoGenerateColumns = true;
-            //    //    dataGridView1.DataSource = dt;
-            //    //    Show();
-
-            //    //    conn.Close();
-            //}
-            ///*try
-            //{
-            //    string searchequery = "SELECT* FROM StudentDetails where Name like  '%" + search_by_nm + "%'";
-            //    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            //    SqlConnection conn = new SqlConnection(connectionString);
             //    if (conn.State != ConnectionState.Open)
             //    {
             //        conn.Open();
             //    }
-            //    SqlDataAdapter sda = new SqlDataAdapter(searchequery, conn);
-            //    if (conn.State == ConnectionState.Open)
+
+            //    string searchText = search_by_nm.Text.Trim();
+
+            //    // If search box is empty, show all data again
+            //    string query;
+            //    if (string.IsNullOrEmpty(searchText))
             //    {
-            //        DataTable dt = new DataTable();
-            //        sda.Fill(dt);
-            //        dataGridView1.DataSource = dt;
+            //        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails";
             //    }
             //    else
             //    {
-            //        MessageBox.Show("Connection Failed");
-            //        conn.Close();
-            //    }*/           
+            //        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails WHERE Name LIKE @searchText";
+            //    }
+
+            //    SqlCommand cmd = new SqlCommand(query, conn);
+            //    cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+
+            //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+            //    dataGridView1.DataSource = dt;
+            //}
             //catch (Exception ex)
             //{
             //    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
-           
+            //finally
+            //{
+            //    if (conn.State == ConnectionState.Open)
+            //    {
+            //        conn.Close();
+            //    }
+            //}
+
         }
 
-        //private void textBox1_TextChanged(object sender, EventArgs e)
-        //{
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
-        //}
+        }
 
-        //private void entr_id_Click(object sender, EventArgs e)
+        private void search_option_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void bname_Click(object sender, EventArgs e)
         //{
 
         //}

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.ur_pnl = new System.Windows.Forms.Panel();
+            this.AdminIDlabel = new System.Windows.Forms.Label();
+            this.Adminlabel = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
             this.ur_dshbrd = new System.Windows.Forms.Label();
@@ -37,9 +39,11 @@
             this.showButton = new System.Windows.Forms.Button();
             this.delet = new System.Windows.Forms.Button();
             this.dgvUrDs = new System.Windows.Forms.DataGridView();
-            this.byCntry = new System.Windows.Forms.Label();
             this.search_by_nm = new System.Windows.Forms.TextBox();
             this.search = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.Label();
+            this.id_txtbox = new System.Windows.Forms.TextBox();
             this.ur_pnl.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrDs)).BeginInit();
@@ -47,6 +51,8 @@
             // 
             // ur_pnl
             // 
+            this.ur_pnl.Controls.Add(this.AdminIDlabel);
+            this.ur_pnl.Controls.Add(this.Adminlabel);
             this.ur_pnl.Controls.Add(this.exit);
             this.ur_pnl.Controls.Add(this.back);
             this.ur_pnl.Controls.Add(this.ur_dshbrd);
@@ -56,10 +62,32 @@
             this.ur_pnl.Size = new System.Drawing.Size(1406, 117);
             this.ur_pnl.TabIndex = 1;
             // 
+            // AdminIDlabel
+            // 
+            this.AdminIDlabel.AutoSize = true;
+            this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminIDlabel.Location = new System.Drawing.Point(968, 16);
+            this.AdminIDlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AdminIDlabel.Name = "AdminIDlabel";
+            this.AdminIDlabel.Size = new System.Drawing.Size(108, 37);
+            this.AdminIDlabel.TabIndex = 52;
+            this.AdminIDlabel.Text = "label2";
+            // 
+            // Adminlabel
+            // 
+            this.Adminlabel.AutoSize = true;
+            this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Adminlabel.Location = new System.Drawing.Point(225, 16);
+            this.Adminlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Adminlabel.Name = "Adminlabel";
+            this.Adminlabel.Size = new System.Drawing.Size(106, 37);
+            this.Adminlabel.TabIndex = 51;
+            this.Adminlabel.Text = "label1";
+            // 
             // exit
             // 
             this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exit.Location = new System.Drawing.Point(1288, 15);
+            this.exit.Location = new System.Drawing.Point(1288, 16);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(102, 48);
             this.exit.TabIndex = 21;
@@ -102,7 +130,7 @@
             // 
             this.panel2.Controls.Add(this.showButton);
             this.panel2.Controls.Add(this.delet);
-            this.panel2.Location = new System.Drawing.Point(10, 135);
+            this.panel2.Location = new System.Drawing.Point(10, 134);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1404, 66);
             this.panel2.TabIndex = 22;
@@ -141,34 +169,54 @@
             this.dgvUrDs.Size = new System.Drawing.Size(1404, 602);
             this.dgvUrDs.TabIndex = 23;
             // 
-            // byCntry
-            // 
-            this.byCntry.AutoSize = true;
-            this.byCntry.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.byCntry.Location = new System.Drawing.Point(578, 223);
-            this.byCntry.Name = "byCntry";
-            this.byCntry.Size = new System.Drawing.Size(158, 37);
-            this.byCntry.TabIndex = 38;
-            this.byCntry.Text = "(by country)";
-            // 
             // search_by_nm
             // 
             this.search_by_nm.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_by_nm.Location = new System.Drawing.Point(121, 220);
+            this.search_by_nm.Location = new System.Drawing.Point(122, 220);
             this.search_by_nm.Multiline = true;
             this.search_by_nm.Name = "search_by_nm";
-            this.search_by_nm.Size = new System.Drawing.Size(451, 45);
+            this.search_by_nm.Size = new System.Drawing.Size(415, 45);
             this.search_by_nm.TabIndex = 37;
+            this.search_by_nm.TextChanged += new System.EventHandler(this.search_by_nm_TextChanged);
             // 
             // search
             // 
             this.search.AutoSize = true;
             this.search.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(17, 223);
+            this.search.Location = new System.Drawing.Point(16, 223);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(108, 37);
             this.search.TabIndex = 36;
             this.search.Text = "Search :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(543, 233);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(198, 25);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "( by Course Name )";
+            // 
+            // ID
+            // 
+            this.ID.AutoSize = true;
+            this.ID.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.Location = new System.Drawing.Point(844, 226);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(180, 37);
+            this.ID.TabIndex = 40;
+            this.ID.Text = "Course ID      :";
+            // 
+            // id_txtbox
+            // 
+            this.id_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_txtbox.Location = new System.Drawing.Point(1014, 223);
+            this.id_txtbox.Multiline = true;
+            this.id_txtbox.Name = "id_txtbox";
+            this.id_txtbox.ReadOnly = true;
+            this.id_txtbox.Size = new System.Drawing.Size(170, 45);
+            this.id_txtbox.TabIndex = 41;
             // 
             // Dashboard
             // 
@@ -176,15 +224,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1428, 914);
-            this.Controls.Add(this.byCntry);
+            this.Controls.Add(this.id_txtbox);
+            this.Controls.Add(this.ID);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.search_by_nm);
             this.Controls.Add(this.search);
             this.Controls.Add(this.dgvUrDs);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ur_pnl);
+            this.MaximizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.ur_pnl.ResumeLayout(false);
             this.ur_pnl.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -205,8 +257,12 @@
         private System.Windows.Forms.Button showButton;
         private System.Windows.Forms.Button delet;
         private System.Windows.Forms.DataGridView dgvUrDs;
-        private System.Windows.Forms.Label byCntry;
         private System.Windows.Forms.TextBox search_by_nm;
         private System.Windows.Forms.Label search;
+        private System.Windows.Forms.Label AdminIDlabel;
+        private System.Windows.Forms.Label Adminlabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label ID;
+        private System.Windows.Forms.TextBox id_txtbox;
     }
 }

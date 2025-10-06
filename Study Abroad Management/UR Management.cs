@@ -13,6 +13,7 @@ namespace Study_Abroad_Management
 {
     public partial class UR_Management : Form
     {
+        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public UR_Management()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace Study_Abroad_Management
         }
 
 
-        public void clear()
+        public void _clear()
         {
             id_txtbox.Text = "";
 
@@ -42,21 +43,28 @@ namespace Study_Abroad_Management
             eiin_txtbox.Text = "";
 
         }
-        public void show()
-        {
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";  //con string 
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
+        public void _show()
+        {           
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            if (conn.State == ConnectionState.Open)
+            { 
+                string query = "SELECT ID,Name,Nationality,Gender,Email,UniversityName,EIIN  FROM URDetails";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvURmng.DataSource = dt;               
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                conn.Close();
 
-            string query = "SELECT ID,Name,Nationality,Gender,Email,UniversityName,EIIN  FROM URDetails"; 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            DataTable dt = ds.Tables[0];
-            dgvURmng.AutoGenerateColumns = true;
-            dgvURmng.DataSource = dt;
-
+            }
         }
 
 
@@ -74,73 +82,105 @@ namespace Study_Abroad_Management
         private void btnShow_Click(object sender, EventArgs e)
         {
             try {
-                show();
+                _show();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error :"+ex.Message);
             }
-            //show();         
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
+            if (!String.IsNullOrWhiteSpace(name_txtbox.Text) && !String.IsNullOrEmpty(nty_txtbox.Text) &&
+               !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(unm_txtbx.Text)
+                && !String.IsNullOrWhiteSpace(eiin_txtbox.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
             {
-                string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+                if (conn.State == ConnectionState.Open)
+                {
+                    SqlTransaction tx = conn.BeginTransaction();
+                    try
+                    {
+                        string query = "update URDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',UniversityName  = '" + unm_txtbx.Text + "',EIIN='" + eiin_txtbox.Text + "'  where ID='" + id_txtbox.Text + "'";
+                        SqlCommand cmd = new SqlCommand(query, conn, tx);
+                        int updateresult = cmd.ExecuteNonQuery();
+                        if (updateresult > 0)
+                        {
+                            string updatequery2 = "update loginTable set Name='" + name_txtbox.Text + "' where ID='" + id_txtbox.Text + "'";
+                            SqlCommand cmd2 = new SqlCommand(updatequery2, conn, tx);
+                            int resultUpdate = cmd2.ExecuteNonQuery();
+                            tx.Commit();
+                            if (resultUpdate > 0)
+                            {
+                                MessageBox.Show("Updated Successfully");
+                                _show();
+                                _clear();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Update Failed");
+                            }
+                        }
 
-                string query = "update URDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',UniversityName='"+unm_txtbx+"',EIIN='"+eiin_txtbox.Text+"' where ID='"+id_txtbox.Text+"'";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        try { tx.Rollback(); } catch { }
+                        MessageBox.Show("Update Failed: " + ex.Message);
+                    }
+                    finally
+                    {
+                        if (conn.State == ConnectionState.Open)
+                        {
+                            conn.Close();
+                        }
+                    }
 
-                //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
-                //SqlCommand cmd2 = new SqlCommand(query2, conn);
-                //cmd2.ExecuteNonQuery();
 
-                show();
-                clear();
-
-                conn.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Please fill all the fields");
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
-            {              
-                if (id_txtbox.Text == "")
-                    MessageBox.Show("Please select a row first ");
-                else
-                {
-                    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-                    SqlConnection conn = new SqlConnection(connectionString);
-                    conn.Open();
+            //try
+            //{              
+            //    if (id_txtbox.Text == "")
+            //        MessageBox.Show("Please select a row first ");
+            //    else
+            //    {
+            //        string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            //        SqlConnection conn = new SqlConnection(connectionString);
+            //        conn.Open();
 
-                    string query = "delete from URDetails where ID=" + id_txtbox.Text + ""; 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
+            //        string query = "delete from URDetails where ID=" + id_txtbox.Text + ""; 
+            //        SqlCommand cmd = new SqlCommand(query, conn);
+            //        cmd.ExecuteNonQuery();
 
-                    //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
-                    //SqlCommand cmd2 = new SqlCommand(query2, conn);
-                    //cmd2.ExecuteNonQuery();
+            //        //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
+            //        //SqlCommand cmd2 = new SqlCommand(query2, conn);
+            //        //cmd2.ExecuteNonQuery();
 
-                    show();
-                    clear();
+            //        _show();
+            //        _clear();
 
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            //        conn.Close();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.Message);
+            //}
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -190,7 +230,10 @@ namespace Study_Abroad_Management
 
         private void UR_Management_Load(object sender, EventArgs e)
         {
-
+            string adminName = GlobalData.LoggedInUserName;
+            string adminID = GlobalData.LoggedInUserID.ToString();
+            Adminlabel.Text = "Welcome, " + adminName;
+            AdminIDlabel.Text = "ID: " + adminID;
         }
 
         private void contact_Click(object sender, EventArgs e)
@@ -216,8 +259,7 @@ namespace Study_Abroad_Management
         private void exit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to exit?", "Confirm Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            SqlConnection conn = new SqlConnection(connectionString);
+            
             if (conn.State != ConnectionState.Open)
             {
                 conn.Open();
