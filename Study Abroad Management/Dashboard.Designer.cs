@@ -42,7 +42,8 @@
             this.search_by_nm = new System.Windows.Forms.TextBox();
             this.search = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ID = new System.Windows.Forms.Label();
+            this.id_txtbox = new System.Windows.Forms.TextBox();
             this.ur_pnl.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrDs)).BeginInit();
@@ -174,7 +175,7 @@
             this.search_by_nm.Location = new System.Drawing.Point(122, 220);
             this.search_by_nm.Multiline = true;
             this.search_by_nm.Name = "search_by_nm";
-            this.search_by_nm.Size = new System.Drawing.Size(451, 45);
+            this.search_by_nm.Size = new System.Drawing.Size(415, 45);
             this.search_by_nm.TabIndex = 37;
             this.search_by_nm.TextChanged += new System.EventHandler(this.search_by_nm_TextChanged);
             // 
@@ -191,22 +192,31 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(580, 234);
+            this.label2.Location = new System.Drawing.Point(543, 233);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 25);
+            this.label2.Size = new System.Drawing.Size(198, 25);
             this.label2.TabIndex = 38;
-            this.label2.Text = "( by )";
+            this.label2.Text = "( by Course Name )";
             // 
-            // comboBox1
+            // ID
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Course Name",
-            "University Name"});
-            this.comboBox1.Location = new System.Drawing.Point(647, 230);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 33);
-            this.comboBox1.TabIndex = 39;
+            this.ID.AutoSize = true;
+            this.ID.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.Location = new System.Drawing.Point(844, 226);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(180, 37);
+            this.ID.TabIndex = 40;
+            this.ID.Text = "Course ID      :";
+            // 
+            // id_txtbox
+            // 
+            this.id_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_txtbox.Location = new System.Drawing.Point(1014, 223);
+            this.id_txtbox.Multiline = true;
+            this.id_txtbox.Name = "id_txtbox";
+            this.id_txtbox.ReadOnly = true;
+            this.id_txtbox.Size = new System.Drawing.Size(170, 45);
+            this.id_txtbox.TabIndex = 41;
             // 
             // Dashboard
             // 
@@ -214,7 +224,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1428, 914);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.id_txtbox);
+            this.Controls.Add(this.ID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.search_by_nm);
             this.Controls.Add(this.search);
@@ -251,6 +262,7 @@
         private System.Windows.Forms.Label AdminIDlabel;
         private System.Windows.Forms.Label Adminlabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label ID;
+        private System.Windows.Forms.TextBox id_txtbox;
     }
 }
