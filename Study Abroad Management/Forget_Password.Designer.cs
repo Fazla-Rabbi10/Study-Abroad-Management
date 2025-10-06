@@ -36,13 +36,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Confirm_button = new System.Windows.Forms.Button();
             this.Clear123button = new System.Windows.Forms.Button();
+            this.Back_button1 = new System.Windows.Forms.Button();
+            this.Exit_button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Title
             // 
             this.Title.AutoSize = true;
             this.Title.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(90, 9);
+            this.Title.Location = new System.Drawing.Point(99, 9);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(498, 50);
             this.Title.TabIndex = 27;
@@ -121,11 +123,41 @@
             this.Clear123button.UseVisualStyleBackColor = false;
             this.Clear123button.Click += new System.EventHandler(this.Clear123button_Click);
             // 
+            // Back_button1
+            // 
+            this.Back_button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Back_button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Back_button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Back_button1.ForeColor = System.Drawing.Color.Black;
+            this.Back_button1.Location = new System.Drawing.Point(12, 9);
+            this.Back_button1.Name = "Back_button1";
+            this.Back_button1.Size = new System.Drawing.Size(68, 29);
+            this.Back_button1.TabIndex = 36;
+            this.Back_button1.Text = "Back";
+            this.Back_button1.UseVisualStyleBackColor = false;
+            this.Back_button1.Click += new System.EventHandler(this.Back_button1_Click);
+            // 
+            // Exit_button2
+            // 
+            this.Exit_button2.BackColor = System.Drawing.Color.Crimson;
+            this.Exit_button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Exit_button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit_button2.ForeColor = System.Drawing.Color.White;
+            this.Exit_button2.Location = new System.Drawing.Point(619, 9);
+            this.Exit_button2.Name = "Exit_button2";
+            this.Exit_button2.Size = new System.Drawing.Size(71, 29);
+            this.Exit_button2.TabIndex = 35;
+            this.Exit_button2.Text = "Exit";
+            this.Exit_button2.UseVisualStyleBackColor = false;
+            this.Exit_button2.Click += new System.EventHandler(this.Exit_button2_Click);
+            // 
             // Forget_Password
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 525);
+            this.Controls.Add(this.Back_button1);
+            this.Controls.Add(this.Exit_button2);
             this.Controls.Add(this.Clear123button);
             this.Controls.Add(this.Confirm_button);
             this.Controls.Add(this.label1);
@@ -153,5 +185,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Confirm_button;
         private System.Windows.Forms.Button Clear123button;
+        private System.Windows.Forms.Button Back_button1;
+        private System.Windows.Forms.Button Exit_button2;
     }
 }

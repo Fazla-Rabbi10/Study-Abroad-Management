@@ -163,14 +163,16 @@
             // 
             // admin_submit_button
             // 
+            this.admin_submit_button.BackColor = System.Drawing.Color.CornflowerBlue;
             this.admin_submit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.admin_submit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin_submit_button.ForeColor = System.Drawing.SystemColors.Control;
             this.admin_submit_button.Location = new System.Drawing.Point(480, 524);
             this.admin_submit_button.Name = "admin_submit_button";
             this.admin_submit_button.Size = new System.Drawing.Size(211, 47);
             this.admin_submit_button.TabIndex = 22;
             this.admin_submit_button.Text = "Submit";
-            this.admin_submit_button.UseVisualStyleBackColor = true;
+            this.admin_submit_button.UseVisualStyleBackColor = false;
             this.admin_submit_button.Click += new System.EventHandler(this.admin_submit_button_Click);
             // 
             // ad_gender_comboBox
@@ -197,15 +199,17 @@
             // 
             // ClearButtonAdminReg
             // 
+            this.ClearButtonAdminReg.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClearButtonAdminReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClearButtonAdminReg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ClearButtonAdminReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearButtonAdminReg.ForeColor = System.Drawing.SystemColors.Control;
             this.ClearButtonAdminReg.Location = new System.Drawing.Point(733, 407);
             this.ClearButtonAdminReg.Name = "ClearButtonAdminReg";
             this.ClearButtonAdminReg.Size = new System.Drawing.Size(131, 30);
             this.ClearButtonAdminReg.TabIndex = 29;
             this.ClearButtonAdminReg.Text = "Clear";
-            this.ClearButtonAdminReg.UseVisualStyleBackColor = true;
+            this.ClearButtonAdminReg.UseVisualStyleBackColor = false;
             this.ClearButtonAdminReg.Click += new System.EventHandler(this.ClearButtonAdminReg_Click);
             // 
             // BackbuttonAdminreg
@@ -223,15 +227,17 @@
             // 
             // exitbuttonAdminreg
             // 
+            this.exitbuttonAdminreg.BackColor = System.Drawing.Color.Crimson;
             this.exitbuttonAdminreg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.exitbuttonAdminreg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exitbuttonAdminreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitbuttonAdminreg.ForeColor = System.Drawing.SystemColors.Control;
             this.exitbuttonAdminreg.Location = new System.Drawing.Point(1042, 17);
             this.exitbuttonAdminreg.Name = "exitbuttonAdminreg";
             this.exitbuttonAdminreg.Size = new System.Drawing.Size(85, 38);
             this.exitbuttonAdminreg.TabIndex = 31;
             this.exitbuttonAdminreg.Text = "Exit";
-            this.exitbuttonAdminreg.UseVisualStyleBackColor = true;
+            this.exitbuttonAdminreg.UseVisualStyleBackColor = false;
             this.exitbuttonAdminreg.Click += new System.EventHandler(this.exitbuttonAdminreg_Click);
             // 
             // ad_count_comboBox

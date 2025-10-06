@@ -96,41 +96,47 @@
             // 
             // Student_Show_button
             // 
+            this.Student_Show_button.BackColor = System.Drawing.Color.CornflowerBlue;
             this.Student_Show_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Student_Show_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Student_Show_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Student_Show_button.ForeColor = System.Drawing.SystemColors.Control;
             this.Student_Show_button.Location = new System.Drawing.Point(36, 177);
             this.Student_Show_button.Name = "Student_Show_button";
             this.Student_Show_button.Size = new System.Drawing.Size(229, 66);
             this.Student_Show_button.TabIndex = 53;
             this.Student_Show_button.Text = "Show Courses";
-            this.Student_Show_button.UseVisualStyleBackColor = true;
+            this.Student_Show_button.UseVisualStyleBackColor = false;
             this.Student_Show_button.Click += new System.EventHandler(this.Student_Show_button_Click);
             // 
             // student_apply_button
             // 
+            this.student_apply_button.BackColor = System.Drawing.Color.CornflowerBlue;
             this.student_apply_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.student_apply_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.student_apply_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.student_apply_button.ForeColor = System.Drawing.SystemColors.Control;
             this.student_apply_button.Location = new System.Drawing.Point(36, 386);
             this.student_apply_button.Name = "student_apply_button";
             this.student_apply_button.Size = new System.Drawing.Size(229, 66);
             this.student_apply_button.TabIndex = 54;
             this.student_apply_button.Text = "Apply";
-            this.student_apply_button.UseVisualStyleBackColor = true;
+            this.student_apply_button.UseVisualStyleBackColor = false;
             this.student_apply_button.Click += new System.EventHandler(this.student_apply_button_Click);
             // 
             // applyINFO_button
             // 
+            this.applyINFO_button.BackColor = System.Drawing.Color.CornflowerBlue;
             this.applyINFO_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.applyINFO_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.applyINFO_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.applyINFO_button.ForeColor = System.Drawing.SystemColors.Control;
             this.applyINFO_button.Location = new System.Drawing.Point(36, 495);
             this.applyINFO_button.Name = "applyINFO_button";
             this.applyINFO_button.Size = new System.Drawing.Size(229, 66);
             this.applyINFO_button.TabIndex = 55;
             this.applyINFO_button.Text = "Application Info";
-            this.applyINFO_button.UseVisualStyleBackColor = true;
+            this.applyINFO_button.UseVisualStyleBackColor = false;
             this.applyINFO_button.Click += new System.EventHandler(this.applyINFO_button_Click);
             // 
             // for_apply_dataGridView
@@ -156,28 +162,32 @@
             // 
             // LogOutbutton
             // 
+            this.LogOutbutton.BackColor = System.Drawing.Color.CornflowerBlue;
             this.LogOutbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.LogOutbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LogOutbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOutbutton.ForeColor = System.Drawing.SystemColors.Control;
             this.LogOutbutton.Location = new System.Drawing.Point(36, 602);
             this.LogOutbutton.Name = "LogOutbutton";
             this.LogOutbutton.Size = new System.Drawing.Size(229, 66);
             this.LogOutbutton.TabIndex = 58;
             this.LogOutbutton.Text = "Log Out";
-            this.LogOutbutton.UseVisualStyleBackColor = true;
+            this.LogOutbutton.UseVisualStyleBackColor = false;
             this.LogOutbutton.Click += new System.EventHandler(this.LogOutbutton_Click);
             // 
             // Exit_button2
             // 
+            this.Exit_button2.BackColor = System.Drawing.Color.Crimson;
             this.Exit_button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Exit_button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Exit_button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit_button2.ForeColor = System.Drawing.SystemColors.Control;
             this.Exit_button2.Location = new System.Drawing.Point(0, 0);
             this.Exit_button2.Name = "Exit_button2";
             this.Exit_button2.Size = new System.Drawing.Size(81, 36);
             this.Exit_button2.TabIndex = 59;
             this.Exit_button2.Text = "Exit";
-            this.Exit_button2.UseVisualStyleBackColor = true;
+            this.Exit_button2.UseVisualStyleBackColor = false;
             this.Exit_button2.Click += new System.EventHandler(this.Exit_button2_Click);
             // 
             // Clear_button1
@@ -195,15 +205,17 @@
             // 
             // Course_Detail_button1
             // 
+            this.Course_Detail_button1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.Course_Detail_button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Course_Detail_button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Course_Detail_button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Course_Detail_button1.ForeColor = System.Drawing.SystemColors.Control;
             this.Course_Detail_button1.Location = new System.Drawing.Point(36, 279);
             this.Course_Detail_button1.Name = "Course_Detail_button1";
             this.Course_Detail_button1.Size = new System.Drawing.Size(229, 66);
             this.Course_Detail_button1.TabIndex = 61;
             this.Course_Detail_button1.Text = "Course Details";
-            this.Course_Detail_button1.UseVisualStyleBackColor = true;
+            this.Course_Detail_button1.UseVisualStyleBackColor = false;
             this.Course_Detail_button1.Click += new System.EventHandler(this.Course_Detail_button1_Click);
             // 
             // User_Student

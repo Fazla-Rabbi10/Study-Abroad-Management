@@ -64,14 +64,16 @@
             // 
             // UR_submit_button
             // 
+            this.UR_submit_button.BackColor = System.Drawing.Color.CornflowerBlue;
             this.UR_submit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UR_submit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UR_submit_button.ForeColor = System.Drawing.SystemColors.Control;
             this.UR_submit_button.Location = new System.Drawing.Point(378, 569);
             this.UR_submit_button.Name = "UR_submit_button";
             this.UR_submit_button.Size = new System.Drawing.Size(211, 47);
             this.UR_submit_button.TabIndex = 41;
             this.UR_submit_button.Text = "Submit";
-            this.UR_submit_button.UseVisualStyleBackColor = true;
+            this.UR_submit_button.UseVisualStyleBackColor = false;
             this.UR_submit_button.Click += new System.EventHandler(this.UR_submit_button_Click);
             // 
             // UR_pass_textBox
@@ -108,6 +110,7 @@
             this.UR_email_textBox.TabIndex = 1;
             this.UR_email_textBox.Text = "abc@gmail.com";
             this.UR_email_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.UR_email_textBox.TextChanged += new System.EventHandler(this.UR_email_textBox_TextChanged);
             // 
             // UR_pass_label
             // 
@@ -201,15 +204,17 @@
             // 
             // exitbuttonURreg
             // 
+            this.exitbuttonURreg.BackColor = System.Drawing.Color.Crimson;
             this.exitbuttonURreg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.exitbuttonURreg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exitbuttonURreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitbuttonURreg.ForeColor = System.Drawing.SystemColors.Control;
             this.exitbuttonURreg.Location = new System.Drawing.Point(1037, 26);
             this.exitbuttonURreg.Name = "exitbuttonURreg";
             this.exitbuttonURreg.Size = new System.Drawing.Size(85, 38);
             this.exitbuttonURreg.TabIndex = 46;
             this.exitbuttonURreg.Text = "Exit";
-            this.exitbuttonURreg.UseVisualStyleBackColor = true;
+            this.exitbuttonURreg.UseVisualStyleBackColor = false;
             this.exitbuttonURreg.Click += new System.EventHandler(this.exitbuttonURreg_Click);
             // 
             // BackbuttonURreg
@@ -227,15 +232,17 @@
             // 
             // ClearButtonURReg
             // 
+            this.ClearButtonURReg.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClearButtonURReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClearButtonURReg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ClearButtonURReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearButtonURReg.ForeColor = System.Drawing.SystemColors.Control;
             this.ClearButtonURReg.Location = new System.Drawing.Point(655, 569);
             this.ClearButtonURReg.Name = "ClearButtonURReg";
             this.ClearButtonURReg.Size = new System.Drawing.Size(199, 47);
             this.ClearButtonURReg.TabIndex = 48;
             this.ClearButtonURReg.Text = "Clear";
-            this.ClearButtonURReg.UseVisualStyleBackColor = true;
+            this.ClearButtonURReg.UseVisualStyleBackColor = false;
             this.ClearButtonURReg.Click += new System.EventHandler(this.ClearButtonURReg_Click);
             // 
             // UR_count_comboBox
@@ -315,7 +322,6 @@
             this.Name = "UR_REG_Formcs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UR_REG_Formcs";
-            this.Load += new System.EventHandler(this.UR_REG_Formcs_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

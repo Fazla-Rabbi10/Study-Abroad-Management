@@ -21,7 +21,7 @@ namespace Study_Abroad_Management
 
         private void Clear123button_Click(object sender, EventArgs e)
         {
-          if (con.State != ConnectionState.Open)
+            if (con.State != ConnectionState.Open)
             {
                 con.Open();
             }
@@ -43,9 +43,9 @@ namespace Study_Abroad_Management
             if (!String.IsNullOrWhiteSpace(en_ID_textBox.Text)
                 && !String.IsNullOrWhiteSpace(new_pass_textBox.Text)
                 && !String.IsNullOrEmpty(en_ID_textBox.Text)
-                && !String.IsNullOrEmpty(new_pass_textBox.Text)) 
+                && !String.IsNullOrEmpty(new_pass_textBox.Text))
             {
-                try 
+                try
                 {
                     if (con.State != ConnectionState.Open)
                     {
@@ -78,7 +78,7 @@ namespace Study_Abroad_Management
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Password Update Failed: "+ex.Message+" ID must be numeric only","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Password Update Failed: " + ex.Message + " ID must be numeric only", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -91,6 +91,48 @@ namespace Study_Abroad_Management
             else
             {
                 MessageBox.Show("Please Fill up all the fields");
+            }
+        }
+
+        private void Back_button1_Click(object sender, EventArgs e)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                Log_In_Form lif = new Log_In_Form();
+                lif.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
+            }
+        }
+
+        private void Exit_button2_Click(object sender, EventArgs e)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+
+            if (con.State == ConnectionState.Open)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes) 
+                {
+                    Application.Exit();
+                }
+               
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
             }
         }
     }

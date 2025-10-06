@@ -263,14 +263,14 @@ namespace Study_Abroad_Management
             }
         }
 
-        private void UR_REG_Formcs_Load(object sender, EventArgs e)
-        {
-            UR_email_textBox.ForeColor = Color.Black;
-        }
-
         private void UR_EIIN_textBox_TextChanged(object sender, EventArgs e)
         {
             UR_EIIN_textBox.ForeColor = Color.Black;
+        }
+
+        private void UR_email_textBox_TextChanged(object sender, EventArgs e)
+        {
+            UR_email_textBox.ForeColor = Color.Black;
         }
     }
 }
