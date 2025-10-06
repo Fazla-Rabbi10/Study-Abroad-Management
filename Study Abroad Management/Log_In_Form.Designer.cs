@@ -39,6 +39,7 @@
             this.Lg_Password_textBox2 = new System.Windows.Forms.TextBox();
             this.Login_Exit_button = new System.Windows.Forms.Button();
             this.LogIN_Clear_button = new System.Windows.Forms.Button();
+            this.Forget_link = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -128,14 +129,15 @@
             this.LG_ID_textBox.Location = new System.Drawing.Point(500, 181);
             this.LG_ID_textBox.Name = "LG_ID_textBox";
             this.LG_ID_textBox.Size = new System.Drawing.Size(160, 22);
-            this.LG_ID_textBox.TabIndex = 9;
+            this.LG_ID_textBox.TabIndex = 0;
             // 
             // Lg_Password_textBox2
             // 
             this.Lg_Password_textBox2.Location = new System.Drawing.Point(500, 244);
             this.Lg_Password_textBox2.Name = "Lg_Password_textBox2";
+            this.Lg_Password_textBox2.PasswordChar = '*';
             this.Lg_Password_textBox2.Size = new System.Drawing.Size(160, 22);
-            this.Lg_Password_textBox2.TabIndex = 10;
+            this.Lg_Password_textBox2.TabIndex = 1;
             // 
             // Login_Exit_button
             // 
@@ -162,12 +164,27 @@
             this.LogIN_Clear_button.UseVisualStyleBackColor = false;
             this.LogIN_Clear_button.Click += new System.EventHandler(this.LogIN_Clear_button_Click);
             // 
+            // Forget_link
+            // 
+            this.Forget_link.ActiveLinkColor = System.Drawing.SystemColors.InfoText;
+            this.Forget_link.AutoSize = true;
+            this.Forget_link.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Forget_link.LinkColor = System.Drawing.Color.DarkCyan;
+            this.Forget_link.Location = new System.Drawing.Point(478, 413);
+            this.Forget_link.Name = "Forget_link";
+            this.Forget_link.Size = new System.Drawing.Size(172, 22);
+            this.Forget_link.TabIndex = 13;
+            this.Forget_link.TabStop = true;
+            this.Forget_link.Text = "Forget Password?";
+            this.Forget_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Forget_link_LinkClicked);
+            // 
             // Log_In_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1152, 675);
+            this.Controls.Add(this.Forget_link);
             this.Controls.Add(this.LogIN_Clear_button);
             this.Controls.Add(this.Login_Exit_button);
             this.Controls.Add(this.Lg_Password_textBox2);
@@ -179,6 +196,7 @@
             this.Controls.Add(this.Pass_login_label);
             this.Controls.Add(this.ID_label_login);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "Log_In_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log_In_Form";
@@ -200,5 +218,6 @@
         private System.Windows.Forms.TextBox Lg_Password_textBox2;
         private System.Windows.Forms.Button Login_Exit_button;
         private System.Windows.Forms.Button LogIN_Clear_button;
+        private System.Windows.Forms.LinkLabel Forget_link;
     }
 }

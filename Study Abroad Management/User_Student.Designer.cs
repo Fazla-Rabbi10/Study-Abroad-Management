@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.student_menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Studentlabel = new System.Windows.Forms.Label();
             this.StudentIDlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,15 +44,6 @@
             this.Course_Detail_button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.for_apply_dataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // student_menuStrip1
-            // 
-            this.student_menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.student_menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.student_menuStrip1.Name = "student_menuStrip1";
-            this.student_menuStrip1.Size = new System.Drawing.Size(1152, 24);
-            this.student_menuStrip1.TabIndex = 45;
-            this.student_menuStrip1.Text = "menuStrip1";
             // 
             // Studentlabel
             // 
@@ -101,7 +91,7 @@
             this.user_Studnet_search_textBox.Multiline = true;
             this.user_Studnet_search_textBox.Name = "user_Studnet_search_textBox";
             this.user_Studnet_search_textBox.Size = new System.Drawing.Size(146, 30);
-            this.user_Studnet_search_textBox.TabIndex = 52;
+            this.user_Studnet_search_textBox.TabIndex = 0;
             this.user_Studnet_search_textBox.TextChanged += new System.EventHandler(this.user_Studnet_search_textBox_TextChanged);
             // 
             // Student_Show_button
@@ -235,7 +225,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StudentIDlabel);
             this.Controls.Add(this.Studentlabel);
-            this.Controls.Add(this.student_menuStrip1);
+            this.MaximizeBox = false;
             this.Name = "User_Student";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_Student";
@@ -247,8 +237,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip student_menuStrip1;
         private System.Windows.Forms.Label Studentlabel;
         private System.Windows.Forms.Label StudentIDlabel;
         private System.Windows.Forms.Label label1;

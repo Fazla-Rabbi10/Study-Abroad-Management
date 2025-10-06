@@ -9,13 +9,17 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions; // this is added for validation
 
 namespace Study_Abroad_Management
 {
     public partial class User_Management : Form
     {
-        //SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
-        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
+
+        // SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        //use this connection it will work
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        //SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public User_Management()
         {
             InitializeComponent();
@@ -68,13 +72,13 @@ namespace Study_Abroad_Management
             if (conn.State == ConnectionState.Open)
             {
                
-            string query = "SELECT ID,Name,Nationality,Gender,Email,Age  FROM StudentDetails";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                string query = "SELECT ID,Name,Nationality,Gender,Email,Age  FROM StudentDetails";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
             }
             else 
             { 
@@ -241,6 +245,35 @@ namespace Study_Abroad_Management
                 !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(gender.Text)
                  && !String.IsNullOrWhiteSpace(age_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
             {
+                
+                if (!ValidationClass.IsValidEmail(email_txtbox.Text)) 
+                {
+                    MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com");
+                    email_txtbox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validAge(age_txtbx.Text))
+                {
+                    MessageBox.Show("Please enter a valid age (18-99).");
+                    age_txtbx.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validName(name_txtbox.Text))
+                {
+                    MessageBox.Show("Please enter a valid name (only letters and spaces are allowed).");
+                    name_txtbox.Focus();
+                    return;
+                }
+
+                if (!ValidationClass.validName(nty_txtbox.Text)) 
+                {
+                    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
+                    nty_txtbox.Focus();
+                    return;
+                }
+
                 if (conn.State != ConnectionState.Open)
                 {
                     conn.Open();
@@ -363,6 +396,11 @@ namespace Study_Abroad_Management
             //    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
            
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //private void textBox1_TextChanged(object sender, EventArgs e)

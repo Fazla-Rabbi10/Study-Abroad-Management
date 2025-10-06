@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AdminIDlabel = new System.Windows.Forms.Label();
+            this.Adminlabel = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.contact_txtbx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cntry = new System.Windows.Forms.TextBox();
-            this.AdminIDlabel = new System.Windows.Forms.Label();
-            this.Adminlabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmTbl)).BeginInit();
@@ -67,16 +67,37 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(8, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(937, 65);
             this.panel1.TabIndex = 0;
+            // 
+            // AdminIDlabel
+            // 
+            this.AdminIDlabel.AutoSize = true;
+            this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminIDlabel.Location = new System.Drawing.Point(676, 7);
+            this.AdminIDlabel.Name = "AdminIDlabel";
+            this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
+            this.AdminIDlabel.TabIndex = 52;
+            this.AdminIDlabel.Text = "label2";
+            this.AdminIDlabel.Click += new System.EventHandler(this.AdminIDlabel_Click);
+            // 
+            // Adminlabel
+            // 
+            this.Adminlabel.AutoSize = true;
+            this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Adminlabel.Location = new System.Drawing.Point(140, 7);
+            this.Adminlabel.Name = "Adminlabel";
+            this.Adminlabel.Size = new System.Drawing.Size(70, 25);
+            this.Adminlabel.TabIndex = 51;
+            this.Adminlabel.Text = "label1";
             // 
             // exit
             // 
             this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exit.Location = new System.Drawing.Point(859, 10);
-            this.exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exit.Margin = new System.Windows.Forms.Padding(2);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(68, 31);
             this.exit.TabIndex = 21;
@@ -88,7 +109,7 @@
             // 
             this.back.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.back.Location = new System.Drawing.Point(11, 7);
-            this.back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.back.Margin = new System.Windows.Forms.Padding(2);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(68, 33);
             this.back.TabIndex = 3;
@@ -125,7 +146,7 @@
             this.panel2.Controls.Add(this.update);
             this.panel2.Controls.Add(this.delet);
             this.panel2.Location = new System.Drawing.Point(19, 81);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(936, 42);
             this.panel2.TabIndex = 1;
@@ -134,7 +155,7 @@
             // 
             this.showButton.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showButton.Location = new System.Drawing.Point(627, 3);
-            this.showButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.showButton.Margin = new System.Windows.Forms.Padding(2);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(84, 36);
             this.showButton.TabIndex = 4;
@@ -146,7 +167,7 @@
             // 
             this.AddAdminbutton.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddAdminbutton.Location = new System.Drawing.Point(525, 3);
-            this.AddAdminbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddAdminbutton.Margin = new System.Windows.Forms.Padding(2);
             this.AddAdminbutton.Name = "AddAdminbutton";
             this.AddAdminbutton.Size = new System.Drawing.Size(84, 36);
             this.AddAdminbutton.TabIndex = 3;
@@ -158,7 +179,7 @@
             // 
             this.update.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.Location = new System.Drawing.Point(728, 4);
-            this.update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.update.Margin = new System.Windows.Forms.Padding(2);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(84, 36);
             this.update.TabIndex = 3;
@@ -170,7 +191,7 @@
             // 
             this.delet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delet.Location = new System.Drawing.Point(826, 4);
-            this.delet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.delet.Margin = new System.Windows.Forms.Padding(2);
             this.delet.Name = "delet";
             this.delet.Size = new System.Drawing.Size(84, 36);
             this.delet.TabIndex = 2;
@@ -194,7 +215,7 @@
             // 
             this.nm_txtbx.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nm_txtbx.Location = new System.Drawing.Point(270, 138);
-            this.nm_txtbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nm_txtbx.Margin = new System.Windows.Forms.Padding(2);
             this.nm_txtbx.Multiline = true;
             this.nm_txtbx.Name = "nm_txtbx";
             this.nm_txtbx.Size = new System.Drawing.Size(313, 24);
@@ -218,7 +239,7 @@
             // 
             this.email_txtbx.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_txtbx.Location = new System.Drawing.Point(91, 175);
-            this.email_txtbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.email_txtbx.Margin = new System.Windows.Forms.Padding(2);
             this.email_txtbx.Multiline = true;
             this.email_txtbx.Name = "email_txtbx";
             this.email_txtbx.Size = new System.Drawing.Size(296, 25);
@@ -229,7 +250,7 @@
             // 
             this.id_txtbx.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.id_txtbx.Location = new System.Drawing.Point(91, 137);
-            this.id_txtbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.id_txtbx.Margin = new System.Windows.Forms.Padding(2);
             this.id_txtbx.Multiline = true;
             this.id_txtbx.Name = "id_txtbx";
             this.id_txtbx.Size = new System.Drawing.Size(92, 24);
@@ -240,7 +261,7 @@
             // 
             this.addrs_txtbx.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addrs_txtbx.Location = new System.Drawing.Point(689, 138);
-            this.addrs_txtbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addrs_txtbx.Margin = new System.Windows.Forms.Padding(2);
             this.addrs_txtbx.Multiline = true;
             this.addrs_txtbx.Name = "addrs_txtbx";
             this.addrs_txtbx.Size = new System.Drawing.Size(247, 24);
@@ -276,7 +297,7 @@
             this.dgvAdmTbl.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvAdmTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAdmTbl.Location = new System.Drawing.Point(19, 228);
-            this.dgvAdmTbl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAdmTbl.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAdmTbl.Name = "dgvAdmTbl";
             this.dgvAdmTbl.RowHeadersWidth = 82;
             this.dgvAdmTbl.RowTemplate.Height = 33;
@@ -300,7 +321,7 @@
             // 
             this.contact_txtbx.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contact_txtbx.Location = new System.Drawing.Point(735, 176);
-            this.contact_txtbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.contact_txtbx.Margin = new System.Windows.Forms.Padding(2);
             this.contact_txtbx.Multiline = true;
             this.contact_txtbx.Name = "contact_txtbx";
             this.contact_txtbx.Size = new System.Drawing.Size(201, 27);
@@ -321,32 +342,11 @@
             // 
             this.cntry.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cntry.Location = new System.Drawing.Point(474, 176);
-            this.cntry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cntry.Margin = new System.Windows.Forms.Padding(2);
             this.cntry.Multiline = true;
             this.cntry.Name = "cntry";
             this.cntry.Size = new System.Drawing.Size(169, 24);
             this.cntry.TabIndex = 14;
-            // 
-            // AdminIDlabel
-            // 
-            this.AdminIDlabel.AutoSize = true;
-            this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminIDlabel.Location = new System.Drawing.Point(676, 7);
-            this.AdminIDlabel.Name = "AdminIDlabel";
-            this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
-            this.AdminIDlabel.TabIndex = 52;
-            this.AdminIDlabel.Text = "label2";
-            this.AdminIDlabel.Click += new System.EventHandler(this.AdminIDlabel_Click);
-            // 
-            // Adminlabel
-            // 
-            this.Adminlabel.AutoSize = true;
-            this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Adminlabel.Location = new System.Drawing.Point(140, 7);
-            this.Adminlabel.Name = "Adminlabel";
-            this.Adminlabel.Size = new System.Drawing.Size(70, 25);
-            this.Adminlabel.TabIndex = 51;
-            this.Adminlabel.Text = "label1";
             // 
             // Admin_Management
             // 
@@ -369,7 +369,8 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Admin_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_Management";

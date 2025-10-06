@@ -43,7 +43,7 @@ namespace Study_Abroad_Management
         public static string studyMode { get { return StudyMode; } }
 
 
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public User_Student()
         {
             InitializeComponent();
@@ -320,9 +320,13 @@ namespace Study_Abroad_Management
             }
             if (con.State == ConnectionState.Open)
             {
-                Log_In_Form logg = new Log_In_Form();
-                logg.Show();
-                this.Hide();
+                DialogResult = MessageBox.Show("Do you want to log out.", "Log Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (DialogResult == DialogResult.Yes) 
+                {
+                    Log_In_Form logg = new Log_In_Form();
+                    logg.Show();
+                    this.Hide();
+                }
             }
             else
             {

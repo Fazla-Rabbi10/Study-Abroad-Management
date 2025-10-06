@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Study_Abroad_Management.UR;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace Study_Abroad_Management
 {
     public partial class Log_In_Form: Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-01OR5KU\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
         public Log_In_Form()
         {
             InitializeComponent();
@@ -89,12 +90,18 @@ namespace Study_Abroad_Management
         {
             try
             {
-                string log_query = "select * from loginTable where ID = '" + LG_ID_textBox.Text + "'and password = '" + Lg_Password_textBox2.Text + "'";
+                string log_query = "select * from loginTable where ID = @ID and password = @password";
                 if (con.State != ConnectionState.Open)
                 {
                     con.Open();
                 }
-                SqlDataAdapter sda = new SqlDataAdapter(log_query, con);
+                SqlCommand cmd = new SqlCommand(log_query, con);
+                
+                cmd.Parameters.AddWithValue("@ID", int.Parse(LG_ID_textBox.Text));
+                cmd.Parameters.AddWithValue("@password", Lg_Password_textBox2.Text);
+                
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
 
                 if (con.State == ConnectionState.Open)
                 {
@@ -113,7 +120,7 @@ namespace Study_Abroad_Management
 
                             if (dt.Rows[0][2].ToString() == "admin")
                             {
-                                MessageBox.Show("Login Successful Admin");
+                                MessageBox.Show("Login Successful as Admin");
                                 Admin_Pannel a = new Admin_Pannel();
                                 a.Show();
                                 this.Hide();
@@ -121,7 +128,7 @@ namespace Study_Abroad_Management
                             else if (dt.Rows[0][2].ToString() == "UR")
                             {
                                 MessageBox.Show("Login Successful as University Representative");
-                                new University_Representative().Show();
+                                new UniversityRepresentative().Show();
                                 this.Hide();
                             }
                             else if (dt.Rows[0][2].ToString() == "student")
@@ -150,7 +157,7 @@ namespace Study_Abroad_Management
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Login Failed: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Login Failed: " + ex.Message +"\n ID must be numeric(only numbers no special characters and space) ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -203,6 +210,25 @@ namespace Study_Abroad_Management
                     Application.Exit();
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+                con.Close();
+            }
+        }
+
+        private void Forget_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            if (con.State == ConnectionState.Open)
+            {
+                Forget_Password fp = new Forget_Password();
+                fp.Show();
+                this.Hide();
             }
             else
             {

@@ -83,14 +83,14 @@
             this.ad_name_textBox.Location = new System.Drawing.Point(378, 174);
             this.ad_name_textBox.Name = "ad_name_textBox";
             this.ad_name_textBox.Size = new System.Drawing.Size(100, 22);
-            this.ad_name_textBox.TabIndex = 6;
+            this.ad_name_textBox.TabIndex = 0;
             // 
             // Ad_Address_textBox
             // 
             this.Ad_Address_textBox.Location = new System.Drawing.Point(378, 244);
             this.Ad_Address_textBox.Name = "Ad_Address_textBox";
             this.Ad_Address_textBox.Size = new System.Drawing.Size(100, 22);
-            this.Ad_Address_textBox.TabIndex = 7;
+            this.Ad_Address_textBox.TabIndex = 3;
             // 
             // ad_email_label
             // 
@@ -139,24 +139,27 @@
             // 
             // ad_email_textBox
             // 
+            this.ad_email_textBox.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.ad_email_textBox.Location = new System.Drawing.Point(733, 174);
             this.ad_email_textBox.Name = "ad_email_textBox";
-            this.ad_email_textBox.Size = new System.Drawing.Size(100, 22);
-            this.ad_email_textBox.TabIndex = 14;
+            this.ad_email_textBox.Size = new System.Drawing.Size(121, 22);
+            this.ad_email_textBox.TabIndex = 1;
+            this.ad_email_textBox.Text = "abc@gmail.com";
+            this.ad_email_textBox.TextChanged += new System.EventHandler(this.ad_email_textBox_TextChanged);
             // 
             // contact_textBox
             // 
             this.contact_textBox.Location = new System.Drawing.Point(733, 326);
             this.contact_textBox.Name = "contact_textBox";
             this.contact_textBox.Size = new System.Drawing.Size(170, 22);
-            this.contact_textBox.TabIndex = 17;
+            this.contact_textBox.TabIndex = 6;
             // 
             // Ad_pass_textBox
             // 
             this.Ad_pass_textBox.Location = new System.Drawing.Point(378, 320);
             this.Ad_pass_textBox.Name = "Ad_pass_textBox";
             this.Ad_pass_textBox.Size = new System.Drawing.Size(100, 22);
-            this.Ad_pass_textBox.TabIndex = 18;
+            this.Ad_pass_textBox.TabIndex = 5;
             // 
             // admin_submit_button
             // 
@@ -180,7 +183,7 @@
             this.ad_gender_comboBox.Location = new System.Drawing.Point(378, 407);
             this.ad_gender_comboBox.Name = "ad_gender_comboBox";
             this.ad_gender_comboBox.Size = new System.Drawing.Size(121, 24);
-            this.ad_gender_comboBox.TabIndex = 24;
+            this.ad_gender_comboBox.TabIndex = 7;
             // 
             // Title
             // 
@@ -277,7 +280,7 @@
             this.ad_count_comboBox.Location = new System.Drawing.Point(733, 239);
             this.ad_count_comboBox.Name = "ad_count_comboBox";
             this.ad_count_comboBox.Size = new System.Drawing.Size(121, 24);
-            this.ad_count_comboBox.TabIndex = 32;
+            this.ad_count_comboBox.TabIndex = 4;
             // 
             // Admin_REG_Form
             // 
@@ -304,6 +307,7 @@
             this.Controls.Add(this.Admin_addre_reg_label);
             this.Controls.Add(this.ad_reg_name_label);
             this.Controls.Add(this.Admin_reg_label);
+            this.MaximizeBox = false;
             this.Name = "Admin_REG_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_REG_Form";

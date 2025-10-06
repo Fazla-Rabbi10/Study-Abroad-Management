@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AdminIDlabel = new System.Windows.Forms.Label();
+            this.Adminlabel = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,8 +54,6 @@
             this.search = new System.Windows.Forms.Label();
             this.search_by_nm = new System.Windows.Forms.TextBox();
             this.bname = new System.Windows.Forms.Label();
-            this.AdminIDlabel = new System.Windows.Forms.Label();
-            this.Adminlabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(935, 72);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // AdminIDlabel
+            // 
+            this.AdminIDlabel.AutoSize = true;
+            this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminIDlabel.Location = new System.Drawing.Point(653, 4);
+            this.AdminIDlabel.Name = "AdminIDlabel";
+            this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
+            this.AdminIDlabel.TabIndex = 52;
+            this.AdminIDlabel.Text = "label2";
+            // 
+            // Adminlabel
+            // 
+            this.Adminlabel.AutoSize = true;
+            this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Adminlabel.Location = new System.Drawing.Point(145, 0);
+            this.Adminlabel.Name = "Adminlabel";
+            this.Adminlabel.Size = new System.Drawing.Size(70, 25);
+            this.Adminlabel.TabIndex = 51;
+            this.Adminlabel.Text = "label1";
             // 
             // exit
             // 
@@ -329,26 +350,6 @@
             this.bname.TabIndex = 35;
             this.bname.Text = "(by name)";
             // 
-            // AdminIDlabel
-            // 
-            this.AdminIDlabel.AutoSize = true;
-            this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminIDlabel.Location = new System.Drawing.Point(653, 4);
-            this.AdminIDlabel.Name = "AdminIDlabel";
-            this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
-            this.AdminIDlabel.TabIndex = 52;
-            this.AdminIDlabel.Text = "label2";
-            // 
-            // Adminlabel
-            // 
-            this.Adminlabel.AutoSize = true;
-            this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Adminlabel.Location = new System.Drawing.Point(145, 0);
-            this.Adminlabel.Name = "Adminlabel";
-            this.Adminlabel.Size = new System.Drawing.Size(70, 25);
-            this.Adminlabel.TabIndex = 51;
-            this.Adminlabel.Text = "label1";
-            // 
             // User_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -377,6 +378,7 @@
             this.Controls.Add(this.delet_txtbox);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "User_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_Management";
