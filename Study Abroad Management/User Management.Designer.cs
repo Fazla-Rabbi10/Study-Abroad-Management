@@ -55,6 +55,8 @@
             this.search_by_nm = new System.Windows.Forms.TextBox();
             this.search_option = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.check_apply_button = new System.Windows.Forms.Button();
+            this.Apply_remove_button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -263,6 +265,7 @@
             this.gender.Location = new System.Drawing.Point(807, 258);
             this.gender.Multiline = true;
             this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
             this.gender.Size = new System.Drawing.Size(272, 45);
             this.gender.TabIndex = 29;
             // 
@@ -315,7 +318,7 @@
             this.search_by_nm.Location = new System.Drawing.Point(154, 131);
             this.search_by_nm.Multiline = true;
             this.search_by_nm.Name = "search_by_nm";
-            this.search_by_nm.Size = new System.Drawing.Size(470, 45);
+            this.search_by_nm.Size = new System.Drawing.Size(162, 45);
             this.search_by_nm.TabIndex = 34;
             this.search_by_nm.TextChanged += new System.EventHandler(this.search_by_nm_TextChanged);
             // 
@@ -326,9 +329,9 @@
             this.search_option.Items.AddRange(new object[] {
             "Name",
             "ID"});
-            this.search_option.Location = new System.Drawing.Point(689, 141);
+            this.search_option.Location = new System.Drawing.Point(398, 136);
             this.search_option.Name = "search_option";
-            this.search_option.Size = new System.Drawing.Size(129, 40);
+            this.search_option.Size = new System.Drawing.Size(128, 40);
             this.search_option.TabIndex = 36;
             this.search_option.SelectedIndexChanged += new System.EventHandler(this.search_option_SelectedIndexChanged);
             // 
@@ -336,11 +339,33 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(624, 146);
+            this.label4.Location = new System.Drawing.Point(332, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 30);
             this.label4.TabIndex = 37;
             this.label4.Text = "( by )";
+            // 
+            // check_apply_button
+            // 
+            this.check_apply_button.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_apply_button.Location = new System.Drawing.Point(659, 131);
+            this.check_apply_button.Name = "check_apply_button";
+            this.check_apply_button.Size = new System.Drawing.Size(132, 52);
+            this.check_apply_button.TabIndex = 38;
+            this.check_apply_button.Text = "Check";
+            this.check_apply_button.UseVisualStyleBackColor = true;
+            this.check_apply_button.Click += new System.EventHandler(this.check_apply_button_Click);
+            // 
+            // Apply_remove_button
+            // 
+            this.Apply_remove_button.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Apply_remove_button.Location = new System.Drawing.Point(807, 128);
+            this.Apply_remove_button.Name = "Apply_remove_button";
+            this.Apply_remove_button.Size = new System.Drawing.Size(124, 52);
+            this.Apply_remove_button.TabIndex = 39;
+            this.Apply_remove_button.Text = "Remove ";
+            this.Apply_remove_button.UseVisualStyleBackColor = true;
+            this.Apply_remove_button.Click += new System.EventHandler(this.Apply_remove_button_Click);
             // 
             // User_Management
             // 
@@ -349,6 +374,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1428, 914);
+            this.Controls.Add(this.Apply_remove_button);
+            this.Controls.Add(this.check_apply_button);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.search_option);
             this.Controls.Add(this.search_by_nm);
@@ -412,5 +439,7 @@
         private System.Windows.Forms.Label Adminlabel;
         private System.Windows.Forms.ComboBox search_option;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button check_apply_button;
+        private System.Windows.Forms.Button Apply_remove_button;
     }
 }

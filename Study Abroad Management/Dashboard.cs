@@ -16,7 +16,9 @@ namespace Study_Abroad_Management
     public partial class Dashboard : Form
     {
         SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
-        //SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
+        // Add this field declaration to the Dashboard class, near the top with other controls
+        private TextBox id_txtbox;
+       
         public Dashboard()
         {
             InitializeComponent();
@@ -78,153 +80,124 @@ namespace Study_Abroad_Management
 
         public void _clear()
         {
-            search_by_nm.Text = "";
+           // search_by_nm.Text = "";
              id_txtbox.Text = "";
         }
 
-        private void delet_Click(object sender, EventArgs e)
+        private void dgvUrDs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+            //id_txtbox.Text = dgvUrDs.Rows[e.RowIndex].Cells[1].Value.ToString();
+            // Add this initialization in the Dashboard constructor, after InitializeComponent();
+            id_txtbox = this.Controls.Find("id_txtbox", true).FirstOrDefault() as TextBox;
+            id_txtbox.Text = dgvUrDs.Rows[e.RowIndex].Cells["CourseCode"].Value.ToString();
+        }
 
-            //try
+        private void delet_Click(object sender, EventArgs e)
+        {        
+            try
+            {
+                if (string.IsNullOrWhiteSpace(id_txtbox.Text))
+                {
+                    MessageBox.Show("Please select a row first.");
+                    return;
+                }
+
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+                if (conn.State == ConnectionState.Open)
+                {
+                    string query = "DELETE FROM URDashboard WHERE CourseCode = @CourseCode";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CourseCode", id_txtbox.Text.Trim());
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Row deleted successfully!");
+                            show();
+                            _clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No record found with that Course Code.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+  
+            //if (dgvUrDs.SelectedRows.Count == 0)
             //{
-            //    // 🛑 Step 1: Check if any row is selected
-            //    if (dgvUrDs.SelectedRows.Count == 0)
-            //    {
-            //        MessageBox.Show("Please select a row first!");
-            //        return;
-            //    }
+            //    MessageBox.Show("Please select a row first!");
+            //    return;
+            //}
 
-            //    // 🛑 Step 2: Check if ID box is empty
-            //    if (string.IsNullOrEmpty(id_txtbox.Text))
+            //if (conn.State != ConnectionState.Open)
+            //{
+            //    conn.Open();
+            //}
+            //if (conn.State == ConnectionState.Open)
+            //{
+            //    SqlTransaction tx = conn.BeginTransaction();
+            //    try
             //    {
-            //        MessageBox.Show("Please select a valid record before deleting!");
-            //        return;
-            //    }
+            //        string searchText = search_by_nm.Text.Trim();
+            //        string searchBy = search_option.Text;
+            //        string columnName = "";
 
-            //    // 🛑 Step 3: Open connection if not open
-            //    if (conn.State != ConnectionState.Open)
-            //    {
-            //        conn.Open();
-            //    }
+            //        if (searchBy == "Course Name")
+            //            columnName = "CourseName";
+            //        else if (searchBy == "University Name")
+            //            columnName = "UniversityName";
 
-            //    if (conn.State == ConnectionState.Open)
-            //    {
-            //        SqlTransaction tx = conn.BeginTransaction();
-            //        try
+            //        string stdDetailquery = "delete from StudentDetails where " + columnName + " = @val";
+            //        SqlCommand cmd = new SqlCommand(stdDetailquery, conn, tx);
+            //        cmd.Parameters.AddWithValue("@val", searchText);
+            //        int deleteresult = cmd.ExecuteNonQuery();
+
+            //        if (deleteresult > 0)
             //        {
-            //            // delete from StudentDetails first
-            //            string stdDetailquery = "DELETE FROM StudentDetails WHERE ID = " + id_txtbox.Text + "";
-            //            SqlCommand cmd = new SqlCommand(stdDetailquery, conn, tx);
-            //            int deleteresult = cmd.ExecuteNonQuery();
+            //            string loginTablequery = "delete from loginTable where " + columnName + " = @val";
+            //            SqlCommand cmd2 = new SqlCommand(loginTablequery, conn, tx);
+            //            cmd2.Parameters.AddWithValue("@val", searchText);
+            //            int resultDelete = cmd2.ExecuteNonQuery();
 
-            //            if (deleteresult > 0)
+            //            tx.Commit();
+
+            //            if (resultDelete > 0)
             //            {
-            //                // delete from loginTable too
-            //                string loginTablequery = "DELETE FROM loginTable WHERE ID = " + id_txtbox.Text + "";
-            //                SqlCommand cmd2 = new SqlCommand(loginTablequery, conn, tx);
-            //                int resultDelete = cmd2.ExecuteNonQuery();
-
-            //                tx.Commit();
-
-            //                if (resultDelete > 0)
-            //                {
-            //                    MessageBox.Show("Deleted Successfully");
-            //                    show();  // refresh your grid
-            //                    _clear(); // clear fields
-            //                }
-            //                else
-            //                {
-            //                    MessageBox.Show("Deletion Failed from loginTable");
-            //                }
+            //                MessageBox.Show("Deleted Successfully");
+            //                show();
+            //                _clear();
             //            }
             //            else
             //            {
-            //                MessageBox.Show("No record found with this ID!");
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            try { tx.Rollback(); } catch { }
-            //            MessageBox.Show("Deletion Failed: " + ex.Message);
-            //        }
-            //        finally
-            //        {
-            //            if (conn.State == ConnectionState.Open)
-            //            {
-            //                conn.Close();
+            //                MessageBox.Show("Deletion Failed");
             //            }
             //        }
             //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error: " + ex.Message);
-            //}
-
-            ////if (dgvUrDs.SelectedRows.Count == 0)
-            ////{
-            ////    MessageBox.Show("Please select a row first!");
-            ////    return;
-            ////}
-
-            ////if (conn.State != ConnectionState.Open)
-            ////{
-            ////    conn.Open();
-            ////}
-            ////if (conn.State == ConnectionState.Open)
-            ////{
-            ////    SqlTransaction tx = conn.BeginTransaction();
-            ////    try
-            ////    {
-            ////        string searchText = search_by_nm.Text.Trim();
-            ////        string searchBy = search_option.Text;
-            ////        string columnName = "";
-
-            ////        if (searchBy == "Course Name")
-            ////            columnName = "CourseName";
-            ////        else if (searchBy == "University Name")
-            ////            columnName = "UniversityName";
-
-            ////        string stdDetailquery = "delete from StudentDetails where " + columnName + " = @val";
-            ////        SqlCommand cmd = new SqlCommand(stdDetailquery, conn, tx);
-            ////        cmd.Parameters.AddWithValue("@val", searchText);
-            ////        int deleteresult = cmd.ExecuteNonQuery();
-
-            ////        if (deleteresult > 0)
-            ////        {
-            ////            string loginTablequery = "delete from loginTable where " + columnName + " = @val";
-            ////            SqlCommand cmd2 = new SqlCommand(loginTablequery, conn, tx);
-            ////            cmd2.Parameters.AddWithValue("@val", searchText);
-            ////            int resultDelete = cmd2.ExecuteNonQuery();
-
-            ////            tx.Commit();
-
-            ////            if (resultDelete > 0)
-            ////            {
-            ////                MessageBox.Show("Deleted Successfully");
-            ////                show();
-            ////                _clear();
-            ////            }
-            ////            else
-            ////            {
-            ////                MessageBox.Show("Deletion Failed");
-            ////            }
-            ////        }
-            ////    }
-            ////    catch (Exception ex)
-            ////    {
-            ////        try { tx.Rollback(); } catch { }
-            ////        MessageBox.Show("Deletion Failed: " + ex.Message);
-            ////    }
-            ////    finally
-            ////    {
-            ////        if (conn.State == ConnectionState.Open)
-            ////        {
-            ////            conn.Close();
-            ////        }
-            ////    }
-            ////}        
+            //    catch (Exception ex)
+            //    {
+            //        try { tx.Rollback(); } catch { }
+            //        MessageBox.Show("Deletion Failed: " + ex.Message);
+            //    }
+            //    finally
+            //    {
+            //        if (conn.State == ConnectionState.Open)
+            //        {
+            //            conn.Close();
+            //        }
+            //    }
+            //}        
         }
 
         private void showButton_Click(object sender, EventArgs e)
@@ -350,6 +323,8 @@ namespace Study_Abroad_Management
             //    }
             //}
 
-        }    
+        }
+
+      
     }
 }

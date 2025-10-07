@@ -73,6 +73,14 @@ namespace Study_Abroad_Management
                     return;
                 }
 
+                if (!ValidationClass.validPassword(UR_pass_textBox.Text)) 
+                {
+                    MessageBox.Show("Password must be exactly 6 characters long and can contain only letters, digits, and underscores.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                    UR_pass_textBox.Focus();
+                    return;
+                }
+
                 // 2) Open connection
                 if (con.State != ConnectionState.Open)
                 {
@@ -177,39 +185,22 @@ namespace Study_Abroad_Management
                 this.UR_name_textBox.Clear();
                 this.UR_university_textBox.Clear();
                 this.UR_email_textBox.Clear();
-                this.UR_count_comboBox.Items.Clear();
-                this.UR_gender_comboBox.Items.Clear();
+               
+                this.UR_count_comboBox.Text = "";
+                
+                this.UR_gender_comboBox.Text = "";
+                
                 this.UR_EIIN_textBox.Clear();
                 this.UR_pass_textBox.Clear();
                
                 this.UR_name_textBox.Focus();
                 
-                
-                
-                this.UR_gender_comboBox.Items.Add("Male");
-                this.UR_gender_comboBox.Items.Add("Female");
-
-
-                this.UR_count_comboBox.Items.Add("United States");
-                this.UR_count_comboBox.Items.Add("India");
-                this.UR_count_comboBox.Items.Add("Canada");
-                this.UR_count_comboBox.Items.Add("Australia");
-                this.UR_count_comboBox.Items.Add("Bangladesh");
-                this.UR_count_comboBox.Items.Add("United Kingdom");
-                this.UR_count_comboBox.Items.Add("Japan");
-                this.UR_count_comboBox.Items.Add("Germany");
-                this.UR_count_comboBox.Items.Add("Brazil");
-                this.UR_count_comboBox.Items.Add("France");
-                this.UR_count_comboBox.Items.Add("Italy");
-                this.UR_count_comboBox.Items.Add("Russia");
-                this.UR_count_comboBox.Items.Add("China");
-                this.UR_count_comboBox.Items.Add("Mexico");
-                this.UR_count_comboBox.Items.Add("South Korea");
-                this.UR_count_comboBox.Items.Add("Spain");
-                this.UR_count_comboBox.Items.Add("Saudi Arabia");
-                this.UR_count_comboBox.Items.Add("Argentina");
-                this.UR_count_comboBox.Items.Add("South Africa");
-                this.UR_count_comboBox.Items.Add("Egypt");
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
 
             }
             else
@@ -263,14 +254,132 @@ namespace Study_Abroad_Management
             }
         }
 
-        private void UR_REG_Formcs_Load(object sender, EventArgs e)
-        {
-            UR_email_textBox.ForeColor = Color.Black;
-        }
-
         private void UR_EIIN_textBox_TextChanged(object sender, EventArgs e)
         {
             UR_EIIN_textBox.ForeColor = Color.Black;
+            if (ValidationClass.validateEIIN(UR_EIIN_textBox.Text))
+            {
+                label6.Visible = true;
+                label6.ForeColor = Color.Green;
+                label6.Text = "EIIN must be numeric and 6 digits";
+            }
+            else 
+            {
+                label6.Visible = true;
+                label6.ForeColor = Color.Red;
+                label6.Text = "EIIN must be numeric and 6 digits";
+            }
+        }
+
+        private void UR_email_textBox_TextChanged(object sender, EventArgs e)
+        {
+            UR_email_textBox.ForeColor = Color.Black;
+            if (ValidationClass.IsValidEmail(UR_email_textBox.Text))
+            {
+                label2.Visible = true;
+                label2.ForeColor = Color.Green;
+                label2.Text = "email should be in a valid format(eg: abc@gmail.com)";
+            }
+            else
+            {
+                label2.Visible = true;
+                label2.ForeColor = Color.Red;
+                label2.Text = "email should be in a valid format(eg: abc@gmnail.com)";
+            }
+        }
+
+        private void UR_name_textBox_TextChanged(object sender, EventArgs e)
+        {
+           if (ValidationClass.validName(UR_name_textBox.Text))
+           {
+                label1.Visible = true;
+                label1.ForeColor = Color.Green;
+                label1.Text = "Name can only contain letters and spaces";
+           }
+           else 
+           {
+                label1.Visible = true;
+                label1.ForeColor = Color.Red;
+                label1.Text = "Name can only contain letters and spaces";
+           }
+        }
+
+        private void UR_university_textBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidationClass.validUniversity(UR_university_textBox.Text))
+            {
+                label4.Visible = true;
+                label4.ForeColor = Color.Green;
+                label4.Text = "University Name can only contain letters, spaces and hyphens";
+            }
+            else 
+            {
+                label4.Visible = true;
+                label4.ForeColor = Color.Red;
+                label4.Text = "University Name can only contain letters, spaces and hyphens";
+            }
+        }
+
+        private void UR_pass_textBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidationClass.validPassword(UR_pass_textBox.Text))
+            {
+                label5.Visible = true;
+                label5.ForeColor = Color.Green;
+                label5.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+            }
+            else 
+            {
+                label5.Visible = true;
+                label5.ForeColor = Color.Red;
+                label5.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+            }
+        }
+
+        private void UR_name_textBox_Leave(object sender, EventArgs e)
+        {
+            label1.Visible = false;
+        }
+
+        private void UR_email_textBox_Leave(object sender, EventArgs e)
+        {
+            label2.Visible = false;
+        }
+
+        private void UR_count_comboBox_Leave(object sender, EventArgs e)
+        {
+            label3.Visible = false;
+        }
+
+        private void UR_university_textBox_Leave(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+        }
+
+        private void UR_pass_textBox_Leave(object sender, EventArgs e)
+        {
+            label5.Visible = false;
+        }
+
+        private void UR_EIIN_textBox_Leave(object sender, EventArgs e)
+        {
+            label6.Visible = false;
+        }
+
+        private void UR_count_comboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidationClass.validName(UR_count_comboBox.Text))
+            {
+                label3.Visible = true;
+                label3.ForeColor = Color.Green;
+                label3.Text = "Country name can contain only letters and spaces";
+            }
+            else 
+            {
+                label3.Visible = true;
+                label3.ForeColor = Color.Red;
+                label3.Text = "Country name can contain only letters and spaces";
+            }
         }
     }
 }

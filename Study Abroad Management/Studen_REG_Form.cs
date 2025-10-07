@@ -63,6 +63,14 @@ namespace Study_Abroad_Management
                     return;
                 }
 
+                if (!ValidationClass.validPassword(std_pass_textBox.Text)) 
+                {
+                    MessageBox.Show("Password must be exactly 6 characters long and can contain only letters, digits, and underscores.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    std_pass_textBox.Focus();
+                    return;
+                }
+
                 // 2) Open connection
                 if (con.State != ConnectionState.Open)
                 {
@@ -177,10 +185,11 @@ namespace Study_Abroad_Management
                stdage_textBox.Clear();
                 std_email_textBox.Clear();
                 Std_count_comboBox.Items.Clear();
+                Std_count_comboBox.Text = "";
                 std_gender_comboBox.Items.Clear();
                 std_pass_textBox.Clear();
 
-               std_name_textBox.Focus();
+                std_name_textBox.Focus();
 
                 std_gender_comboBox.Items.Add("Male");
                 std_gender_comboBox.Items.Add("Female");
@@ -207,6 +216,12 @@ namespace Study_Abroad_Management
                 Std_count_comboBox.Items.Add("Argentina");
                 Std_count_comboBox.Items.Add("South Africa");
                 Std_count_comboBox.Items.Add("Egypt");
+
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
 
 
 
@@ -264,6 +279,114 @@ namespace Study_Abroad_Management
         private void std_email_textBox_TextChanged(object sender, EventArgs e)
         {
             std_email_textBox.ForeColor = Color.Black;
+            label2.Visible = true;
+            if (!ValidationClass.IsValidEmail(std_email_textBox.Text))
+            {
+                label2.ForeColor = Color.Red;
+                label2.Text = "Use a valid email format (e.g. abc@gmail.com)";
+
+            }
+            else 
+            {
+                label2.ForeColor = Color.Green;
+                label2.Text = "Use a valid email format (e.g. abc@gmail.com)";
+            }
+        }
+
+        private void std_name_textBox_TextChanged(object sender, EventArgs e)
+        {
+               label1.Visible = true;
+               
+               if (!ValidationClass.validName(std_name_textBox.Text))
+               {
+                    
+                    label1.ForeColor = Color.Red;
+                    label1.Text = "Name can only contain letters and spaces";
+               }
+               else
+               {
+                    
+                    label1.ForeColor = Color.Green;
+                    label1.Text = "Name can only contain letters and spaces";
+               }
+        }
+
+        private void stdage_textBox_TextChanged(object sender, EventArgs e)
+        {
+            label3.Visible = true;
+
+            if (!ValidationClass.validAge(stdage_textBox.Text))
+            {
+               
+                label3.ForeColor = Color.Red;
+                label3.Text = "Age must be a number between 18 and 99";
+            }
+            else
+            {
+               
+                label3.ForeColor = Color.Green;
+                label3.Text = "Age must be a number between 18 and 99";
+            }
+        }
+
+        private void std_pass_textBox_TextChanged(object sender, EventArgs e)
+        {
+            label5.Visible = true;
+            if (!ValidationClass.validPassword(std_pass_textBox.Text))
+            {
+                
+                label5.ForeColor = Color.Red;
+                label5.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+            }
+            else
+            {
+               
+                label5.ForeColor = Color.Green;
+                label5.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+            } 
+        }
+        private void Std_count_comboBox_TextChanged(object sender, EventArgs e)
+        {
+            label4.Visible = true;
+            if (ValidationClass.validName(Std_count_comboBox.Text))
+            {
+               
+                label4.ForeColor = Color.Green;
+                label4.Text = "Country names can only contain letters, spaces";
+            }
+            else 
+            {
+               
+                label4.ForeColor = Color.Red;
+                label4.Text = "Country names can only contain letters, spaces";
+            }
+        }
+
+        private void std_name_textBox_Leave(object sender, EventArgs e)
+        {
+            label1.Visible = false;
+        }
+
+        private void std_email_textBox_Leave(object sender, EventArgs e)
+        {
+            label2.Visible = false;
+        }
+
+        private void stdage_textBox_Leave(object sender, EventArgs e)
+        {
+            label3.Visible = false;
+        }
+
+        
+
+        private void Std_count_comboBox_Leave(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+        }
+
+        private void std_pass_textBox_Leave(object sender, EventArgs e)
+        {
+            label5.Visible = false;
         }
     }
 }

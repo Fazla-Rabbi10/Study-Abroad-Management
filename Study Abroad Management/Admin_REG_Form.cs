@@ -71,6 +71,13 @@ namespace Study_Abroad_Management
                     Ad_Address_textBox.Focus();
                     return;
                 }
+
+                if (!ValidationClass.validPassword(Ad_pass_textBox.Text))
+                {
+                    MessageBox.Show("Password must be exactly 6 characters long and can contain only letters, digits, and underscores.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Ad_pass_textBox.Focus();
+                    return;
+                }
                 // 2) Open connection
                 if (con.State != ConnectionState.Open) 
                 {
@@ -257,6 +264,15 @@ namespace Study_Abroad_Management
                 this.ad_count_comboBox.Items.Add("Egypt");
 
 
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
+                label7.Visible = false;
+
+
+
 
 
             }
@@ -271,7 +287,77 @@ namespace Study_Abroad_Management
         {
 
             ad_email_textBox.ForeColor = Color.Black;
-            
+
+            label4.Visible = true;
+            label4.ForeColor = Color.Red;
+            label4.Text = "email should follow the fromat in text box";
+
+        }
+
+        private void Ad_pass_textBox_Leave(object sender, EventArgs e)
+        {
+            label2.Visible = false;
+        }
+
+        private void Ad_pass_textBox_TextChanged(object sender, EventArgs e)
+        {
+            label2.Visible = true;
+            label2.ForeColor = Color.Red;
+            label2.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+        }
+
+        private void ad_name_textBox_Leave(object sender, EventArgs e)
+        {
+            label1.Visible = false;
+        }
+
+        private void ad_name_textBox_TextChanged(object sender, EventArgs e)
+        {
+            label1.Visible = true;
+            label1.ForeColor = Color.Red;
+            label1.Text = "Name should contain only letters and spaces";
+        }
+
+        private void ad_email_textBox_Leave(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+        }
+
+        private void Ad_Address_textBox_Leave(object sender, EventArgs e)
+        {
+            label3.Visible = false;
+        }
+
+        private void Ad_Address_textBox_TextChanged(object sender, EventArgs e)
+        {
+            label3.Visible= true;
+            label3.ForeColor = Color.Red;
+            label3.Text = "Address can contain letters, numbers, spaces, commas, periods, and hyphens only.";
+        }
+
+        private void ad_count_comboBox_Leave(object sender, EventArgs e)
+        {
+            label5.Visible = false;
+        }
+
+        private void ad_count_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label5.Visible = true;
+            label5.ForeColor = Color.Red;
+            label5.Text = "Country name can contain only letters and spaces";
+        }
+
+        private void contact_textBox_Leave(object sender, EventArgs e)
+        {
+            label7.Visible = false;
+        }
+
+        private void contact_textBox_TextChanged(object sender, EventArgs e)
+        {
+            label7.Visible = true;
+            label7.ForeColor = Color.Red;
+            label7.Text = "Contact number should be 11 digits";
+
         }
     }
 }

@@ -48,6 +48,12 @@
             this.BackbuttonAdminreg = new System.Windows.Forms.Button();
             this.exitbuttonAdminreg = new System.Windows.Forms.Button();
             this.ad_count_comboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Admin_reg_label
@@ -84,6 +90,8 @@
             this.ad_name_textBox.Name = "ad_name_textBox";
             this.ad_name_textBox.Size = new System.Drawing.Size(100, 22);
             this.ad_name_textBox.TabIndex = 0;
+            this.ad_name_textBox.TextChanged += new System.EventHandler(this.ad_name_textBox_TextChanged);
+            this.ad_name_textBox.Leave += new System.EventHandler(this.ad_name_textBox_Leave);
             // 
             // Ad_Address_textBox
             // 
@@ -91,6 +99,8 @@
             this.Ad_Address_textBox.Name = "Ad_Address_textBox";
             this.Ad_Address_textBox.Size = new System.Drawing.Size(100, 22);
             this.Ad_Address_textBox.TabIndex = 3;
+            this.Ad_Address_textBox.TextChanged += new System.EventHandler(this.Ad_Address_textBox_TextChanged);
+            this.Ad_Address_textBox.Leave += new System.EventHandler(this.Ad_Address_textBox_Leave);
             // 
             // ad_email_label
             // 
@@ -146,13 +156,16 @@
             this.ad_email_textBox.TabIndex = 1;
             this.ad_email_textBox.Text = "abc@gmail.com";
             this.ad_email_textBox.TextChanged += new System.EventHandler(this.ad_email_textBox_TextChanged);
+            this.ad_email_textBox.Leave += new System.EventHandler(this.ad_email_textBox_Leave);
             // 
             // contact_textBox
             // 
-            this.contact_textBox.Location = new System.Drawing.Point(733, 326);
+            this.contact_textBox.Location = new System.Drawing.Point(733, 323);
             this.contact_textBox.Name = "contact_textBox";
             this.contact_textBox.Size = new System.Drawing.Size(170, 22);
             this.contact_textBox.TabIndex = 6;
+            this.contact_textBox.TextChanged += new System.EventHandler(this.contact_textBox_TextChanged);
+            this.contact_textBox.Leave += new System.EventHandler(this.contact_textBox_Leave);
             // 
             // Ad_pass_textBox
             // 
@@ -160,17 +173,21 @@
             this.Ad_pass_textBox.Name = "Ad_pass_textBox";
             this.Ad_pass_textBox.Size = new System.Drawing.Size(100, 22);
             this.Ad_pass_textBox.TabIndex = 5;
+            this.Ad_pass_textBox.TextChanged += new System.EventHandler(this.Ad_pass_textBox_TextChanged);
+            this.Ad_pass_textBox.Leave += new System.EventHandler(this.Ad_pass_textBox_Leave);
             // 
             // admin_submit_button
             // 
+            this.admin_submit_button.BackColor = System.Drawing.Color.CornflowerBlue;
             this.admin_submit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.admin_submit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin_submit_button.ForeColor = System.Drawing.SystemColors.Control;
             this.admin_submit_button.Location = new System.Drawing.Point(480, 524);
             this.admin_submit_button.Name = "admin_submit_button";
             this.admin_submit_button.Size = new System.Drawing.Size(211, 47);
             this.admin_submit_button.TabIndex = 22;
             this.admin_submit_button.Text = "Submit";
-            this.admin_submit_button.UseVisualStyleBackColor = true;
+            this.admin_submit_button.UseVisualStyleBackColor = false;
             this.admin_submit_button.Click += new System.EventHandler(this.admin_submit_button_Click);
             // 
             // ad_gender_comboBox
@@ -197,15 +214,17 @@
             // 
             // ClearButtonAdminReg
             // 
+            this.ClearButtonAdminReg.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClearButtonAdminReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClearButtonAdminReg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ClearButtonAdminReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearButtonAdminReg.ForeColor = System.Drawing.SystemColors.Control;
             this.ClearButtonAdminReg.Location = new System.Drawing.Point(733, 407);
             this.ClearButtonAdminReg.Name = "ClearButtonAdminReg";
             this.ClearButtonAdminReg.Size = new System.Drawing.Size(131, 30);
             this.ClearButtonAdminReg.TabIndex = 29;
             this.ClearButtonAdminReg.Text = "Clear";
-            this.ClearButtonAdminReg.UseVisualStyleBackColor = true;
+            this.ClearButtonAdminReg.UseVisualStyleBackColor = false;
             this.ClearButtonAdminReg.Click += new System.EventHandler(this.ClearButtonAdminReg_Click);
             // 
             // BackbuttonAdminreg
@@ -223,15 +242,17 @@
             // 
             // exitbuttonAdminreg
             // 
+            this.exitbuttonAdminreg.BackColor = System.Drawing.Color.Crimson;
             this.exitbuttonAdminreg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.exitbuttonAdminreg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exitbuttonAdminreg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitbuttonAdminreg.ForeColor = System.Drawing.SystemColors.Control;
             this.exitbuttonAdminreg.Location = new System.Drawing.Point(1042, 17);
             this.exitbuttonAdminreg.Name = "exitbuttonAdminreg";
             this.exitbuttonAdminreg.Size = new System.Drawing.Size(85, 38);
             this.exitbuttonAdminreg.TabIndex = 31;
             this.exitbuttonAdminreg.Text = "Exit";
-            this.exitbuttonAdminreg.UseVisualStyleBackColor = true;
+            this.exitbuttonAdminreg.UseVisualStyleBackColor = false;
             this.exitbuttonAdminreg.Click += new System.EventHandler(this.exitbuttonAdminreg_Click);
             // 
             // ad_count_comboBox
@@ -281,12 +302,86 @@
             this.ad_count_comboBox.Name = "ad_count_comboBox";
             this.ad_count_comboBox.Size = new System.Drawing.Size(121, 24);
             this.ad_count_comboBox.TabIndex = 4;
+            this.ad_count_comboBox.SelectedIndexChanged += new System.EventHandler(this.ad_count_comboBox_SelectedIndexChanged);
+            this.ad_count_comboBox.Leave += new System.EventHandler(this.ad_count_comboBox_Leave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 352);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "label2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(105, 208);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "label1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(45, 286);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "label3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(607, 208);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "label4";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(607, 286);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "label5";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(607, 352);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "label7";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label7.Visible = false;
             // 
             // Admin_REG_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 675);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ad_count_comboBox);
             this.Controls.Add(this.exitbuttonAdminreg);
             this.Controls.Add(this.BackbuttonAdminreg);
@@ -339,5 +434,11 @@
         private System.Windows.Forms.Button BackbuttonAdminreg;
         private System.Windows.Forms.Button exitbuttonAdminreg;
         private System.Windows.Forms.ComboBox ad_count_comboBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
     }
 }

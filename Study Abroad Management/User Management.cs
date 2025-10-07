@@ -17,9 +17,7 @@ namespace Study_Abroad_Management
     {
 
         SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
-        //use this connection it will work
-        //SqlConnection conn = new SqlConnection("Data Source=LAPTOP-JCQ2J3KL\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
-        //SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
+       
         public User_Management()
         {
             InitializeComponent();
@@ -145,63 +143,72 @@ namespace Study_Abroad_Management
             //{
             // MessageBox.Show("Error: " + ex.Message);
             //}
-            if (!String.IsNullOrWhiteSpace(id_txtbox.Text) && !String.IsNullOrEmpty(id_txtbox.Text))
-            {
+            DialogResult dr = MessageBox.Show("Before delete this student's information." +
+                "\nMake sure you have deleted this student's application records by using the [check button] and [remove button]." +
+                "\nOtherwise you cannot delete this user from the system there will occur an error.",
+                "Confirm Deletion : Are you sure you want to delete this user?", 
+                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            
+            if (dr == DialogResult.Yes) 
+            { 
+                if (!String.IsNullOrWhiteSpace(id_txtbox.Text) && !String.IsNullOrEmpty(id_txtbox.Text))
+                {
                
                 
-                    if (conn.State != ConnectionState.Open)
-                    {
-                        conn.Open();
-                    }
-                    if (conn.State == ConnectionState.Open)
-                    {
-                        SqlTransaction tx = conn.BeginTransaction();
-                        try 
+                        if (conn.State != ConnectionState.Open)
                         {
-                            string stdDetailquery = "delete from StudentDetails where ID=" + id_txtbox.Text + "";
-                            SqlCommand cmd = new SqlCommand(stdDetailquery, conn, tx);
-                            int deleteresult = cmd.ExecuteNonQuery();
-
-                        if (deleteresult > 0)
+                            conn.Open();
+                        }
+                        if (conn.State == ConnectionState.Open)
                         {
-
-                            string loginTablequery = "delete from loginTable where ID=" + id_txtbox.Text + "";
-                            SqlCommand cmd2 = new SqlCommand(loginTablequery, conn, tx);
-                            int resultDelete = cmd2.ExecuteNonQuery();
-                            tx.Commit();
-
-                            if (resultDelete > 0)
+                            SqlTransaction tx = conn.BeginTransaction();
+                            try 
                             {
-                                MessageBox.Show("Deleted Successfully");
-                                _Show();
-                                _clear();
+                                string stdDetailquery = "delete from StudentDetails where ID=" + id_txtbox.Text + "";
+                                SqlCommand cmd = new SqlCommand(stdDetailquery, conn, tx);
+                                int deleteresult = cmd.ExecuteNonQuery();
 
-                            }
-                            else
+                            if (deleteresult > 0)
                             {
-                                MessageBox.Show("Deletion Failed");
+
+                                string loginTablequery = "delete from loginTable where ID=" + id_txtbox.Text + "";
+                                SqlCommand cmd2 = new SqlCommand(loginTablequery, conn, tx);
+                                int resultDelete = cmd2.ExecuteNonQuery();
+                                tx.Commit();
+
+                                if (resultDelete > 0)
+                                {
+                                    MessageBox.Show("Deleted Successfully");
+                                    _Show();
+                                    _clear();
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Deletion Failed");
+                                }
                             }
-                        }
-                        }
-                        catch (Exception ex)
-                        {
-                            try { tx.Rollback(); } catch { }
-                            MessageBox.Show("Deletion Failed: " + ex.Message);
-                        }
-                        finally
-                        {
-                            if (conn.State == ConnectionState.Open)
+                            }
+                            catch (Exception ex)
                             {
-                                conn.Close();
+                                try { tx.Rollback(); } catch { }
+                                MessageBox.Show("Deletion Failed: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
+                            finally
+                            {
+                                if (conn.State == ConnectionState.Open)
+                                {
+                                    conn.Close();
+                                }
+                            }
+
+
                         }
-
-
-                    }
-            }
-            else
-            {
-                MessageBox.Show("Please select a row first ");
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row first ");
+                }
             }
         }
         
@@ -213,34 +220,6 @@ namespace Study_Abroad_Management
 
         private void updt_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-
-            //        // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            //        //SqlConnection conn = new SqlConnection(connectionString);
-            //        //conn.Open();
-            //        string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender + "',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
-            //        SqlCommand cmd = new SqlCommand(query, conn);
-            //        cmd.ExecuteNonQuery();
-
-            //        //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
-            //        //SqlCommand cmd2 = new SqlCommand(query2, conn);
-            //        //cmd2.ExecuteNonQuery();
-
-            //        _Show();
-            //        _clear();
-
-            //        //conn.Close();
-            //    
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error: " + ex.Message);
-            //}
-
-            //}
             if (!String.IsNullOrWhiteSpace(name_txtbox.Text) && !String.IsNullOrEmpty(nty_txtbox.Text) &&
                 !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(gender.Text)
                  && !String.IsNullOrWhiteSpace(age_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
@@ -248,21 +227,21 @@ namespace Study_Abroad_Management
 
                 if (!ValidationClass.IsValidEmail(email_txtbox.Text))
                 {
-                    MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com");
+                    MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com \n While updating email clear the email text box first.");
                     email_txtbox.Focus();
                     return;
                 }
 
                 if (!ValidationClass.validAge(age_txtbx.Text))
                 {
-                    MessageBox.Show("Please enter a valid age (18-99).");
+                    MessageBox.Show("Please enter a valid age (18-99). \n While updating age clear the age text box first.");
                     age_txtbx.Focus();
                     return;
                 }
 
                 if (!ValidationClass.validName(name_txtbox.Text))
                 {
-                    MessageBox.Show("Please enter a valid name (only letters and spaces are allowed).");
+                    MessageBox.Show("Please enter a valid name (only letters and spaces are allowed). \n While updating name, clear the name text box first.");
                     name_txtbox.Focus();
                     return;
                 }
@@ -325,6 +304,34 @@ namespace Study_Abroad_Management
             {
                 MessageBox.Show("Please fill all the fields");
             }
+            //try
+            //{
+
+            //        // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            //        //SqlConnection conn = new SqlConnection(connectionString);
+            //        //conn.Open();
+            //        string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender + "',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
+            //        SqlCommand cmd = new SqlCommand(query, conn);
+            //        cmd.ExecuteNonQuery();
+
+            //        //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
+            //        //SqlCommand cmd2 = new SqlCommand(query2, conn);
+            //        //cmd2.ExecuteNonQuery();
+
+            //        _Show();
+            //        _clear();
+
+            //        //conn.Close();
+            //    
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.Message);
+            //}
+
+            //}
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -461,6 +468,114 @@ namespace Study_Abroad_Management
         private void search_option_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void check_apply_button_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                if (!String.IsNullOrWhiteSpace(id_txtbox.Text))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+                    }
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        String applyQuery = "select * from ApplicationStatus where StudentID = @ID";
+                        SqlCommand applycmd = new SqlCommand(applyQuery, conn);
+
+                        applycmd.Parameters.AddWithValue("@ID", int.Parse(id_txtbox.Text));
+
+                        SqlDataAdapter sda = new SqlDataAdapter(applycmd);
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        if (dt.Rows.Count > 0)
+                        {
+                            MessageBox.Show("Student Has Applied For Courses.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Student Did not Applied for any Courses.");
+                        }
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Connection Failed");
+                        conn.Close();
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("Please select a student first.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void Apply_remove_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show("Are you sure you want to remove this student's application records? This action cannot be undone.", 
+                    "Confirm Removal", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes) 
+                {
+                    if (!String.IsNullOrWhiteSpace(id_txtbox.Text))
+                    {
+                        if (conn.State != ConnectionState.Open)
+                        {
+                            conn.Open();
+                        }
+                        if (conn.State == ConnectionState.Open)
+                        {
+                            String removeQuery = "delete from ApplicationStatus where StudentID = @ID";
+                            SqlCommand removecmd = new SqlCommand(removeQuery, conn);
+                            removecmd.Parameters.AddWithValue("@ID", int.Parse(id_txtbox.Text));
+                            int result = removecmd.ExecuteNonQuery();
+                            if (result > 0)
+                            {
+                                MessageBox.Show(" Student Application Records Removed Successfully.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No Application Records Found for this Student.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Connection Failed");
+                            conn.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a student first.");
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally 
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
         }
 
         //private void bname_Click(object sender, EventArgs e)
