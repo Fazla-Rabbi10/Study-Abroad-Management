@@ -30,6 +30,7 @@ namespace Study_Abroad_Management
                 en_ID_textBox.Clear();
                 new_pass_textBox.Clear();
                 en_ID_textBox.Focus();
+                label2.Visible = false;
             }
             else
             {
@@ -45,6 +46,13 @@ namespace Study_Abroad_Management
                 && !String.IsNullOrEmpty(en_ID_textBox.Text)
                 && !String.IsNullOrEmpty(new_pass_textBox.Text))
             {
+                if (!ValidationClass.validPassword(new_pass_textBox.Text))
+                {
+                    MessageBox.Show("Password must be exactly 6 characters long and can contain only letters, digits, and underscores.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   
+                    new_pass_textBox.Focus();
+                    return;
+                }
                 try
                 {
                     if (con.State != ConnectionState.Open)
@@ -134,6 +142,27 @@ namespace Study_Abroad_Management
                 MessageBox.Show("Connection Failed");
                 con.Close();
             }
+        }
+
+        private void new_pass_textBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidationClass.validPassword(new_pass_textBox.Text)) 
+            {
+                label2.Visible = true;
+                label2.ForeColor = Color.Green;
+                label2.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+            }
+            else
+            {
+                label2.Visible = true;
+                label2.ForeColor = Color.Red;
+                label2.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+            }
+        }
+
+        private void new_pass_textBox_Leave(object sender, EventArgs e)
+        {
+            label2.Visible = false;
         }
     }
 }

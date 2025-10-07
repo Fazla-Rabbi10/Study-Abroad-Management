@@ -51,5 +51,12 @@ namespace Study_Abroad_Management
             Regex regex = new Regex(@"^[a-zA-Z0-9\s,.-]+$", RegexOptions.IgnoreCase);
             return regex.IsMatch(address);
         }
+
+        public static bool validPassword(String password) 
+        {
+            Regex passregex = new Regex(@"^[\w]{6}$", RegexOptions.IgnoreCase);
+
+            return passregex.IsMatch(password);
+        }
     }
 }

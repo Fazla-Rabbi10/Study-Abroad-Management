@@ -46,6 +46,11 @@
             this.CLEARbutton = new System.Windows.Forms.Button();
             this.Std_count_comboBox = new System.Windows.Forms.ComboBox();
             this.Title = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // std_gender_comboBox
@@ -77,6 +82,8 @@
             this.std_pass_textBox.Name = "std_pass_textBox";
             this.std_pass_textBox.Size = new System.Drawing.Size(100, 22);
             this.std_pass_textBox.TabIndex = 5;
+            this.std_pass_textBox.TextChanged += new System.EventHandler(this.std_pass_textBox_TextChanged);
+            this.std_pass_textBox.Leave += new System.EventHandler(this.std_pass_textBox_Leave);
             // 
             // std_email_textBox
             // 
@@ -88,6 +95,7 @@
             this.std_email_textBox.Text = "abc@gmail.com";
             this.std_email_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.std_email_textBox.TextChanged += new System.EventHandler(this.std_email_textBox_TextChanged);
+            this.std_email_textBox.Leave += new System.EventHandler(this.std_email_textBox_Leave);
             // 
             // std_pass_label
             // 
@@ -131,6 +139,8 @@
             this.stdage_textBox.Name = "stdage_textBox";
             this.stdage_textBox.Size = new System.Drawing.Size(100, 22);
             this.stdage_textBox.TabIndex = 3;
+            this.stdage_textBox.TextChanged += new System.EventHandler(this.stdage_textBox_TextChanged);
+            this.stdage_textBox.Leave += new System.EventHandler(this.stdage_textBox_Leave);
             // 
             // std_name_textBox
             // 
@@ -138,6 +148,8 @@
             this.std_name_textBox.Name = "std_name_textBox";
             this.std_name_textBox.Size = new System.Drawing.Size(100, 22);
             this.std_name_textBox.TabIndex = 0;
+            this.std_name_textBox.TextChanged += new System.EventHandler(this.std_name_textBox_TextChanged);
+            this.std_name_textBox.Leave += new System.EventHandler(this.std_name_textBox_Leave);
             // 
             // std_age_reg_label
             // 
@@ -247,6 +259,8 @@
             this.Std_count_comboBox.Name = "Std_count_comboBox";
             this.Std_count_comboBox.Size = new System.Drawing.Size(121, 24);
             this.Std_count_comboBox.TabIndex = 4;
+            this.Std_count_comboBox.TextChanged += new System.EventHandler(this.Std_count_comboBox_TextChanged);
+            this.Std_count_comboBox.Leave += new System.EventHandler(this.Std_count_comboBox_Leave);
             // 
             // Title
             // 
@@ -258,11 +272,67 @@
             this.Title.TabIndex = 51;
             this.Title.Text = "Abroad Higher Study Soltuin";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(237, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(644, 266);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(237, 345);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(616, 345);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "label4";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(55, 430);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.TabIndex = 56;
+            this.label5.Text = "label5";
+            this.label5.Visible = false;
+            // 
             // Studen_REG_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 726);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.Std_count_comboBox);
             this.Controls.Add(this.CLEARbutton);
@@ -311,5 +381,10 @@
         private System.Windows.Forms.Button CLEARbutton;
         private System.Windows.Forms.ComboBox Std_count_comboBox;
         private System.Windows.Forms.Label Title;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

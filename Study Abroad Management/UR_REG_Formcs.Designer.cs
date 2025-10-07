@@ -48,6 +48,12 @@
             this.BackbuttonURreg = new System.Windows.Forms.Button();
             this.ClearButtonURReg = new System.Windows.Forms.Button();
             this.UR_count_comboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // UR_gender_comboBox
@@ -82,6 +88,8 @@
             this.UR_pass_textBox.Name = "UR_pass_textBox";
             this.UR_pass_textBox.Size = new System.Drawing.Size(100, 22);
             this.UR_pass_textBox.TabIndex = 5;
+            this.UR_pass_textBox.TextChanged += new System.EventHandler(this.UR_pass_textBox_TextChanged);
+            this.UR_pass_textBox.Leave += new System.EventHandler(this.UR_pass_textBox_Leave);
             // 
             // UR_EIIN_textBox
             // 
@@ -93,6 +101,7 @@
             this.UR_EIIN_textBox.Text = "6 Digits";
             this.UR_EIIN_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.UR_EIIN_textBox.TextChanged += new System.EventHandler(this.UR_EIIN_textBox_TextChanged);
+            this.UR_EIIN_textBox.Leave += new System.EventHandler(this.UR_EIIN_textBox_Leave);
             // 
             // UR_university_textBox
             // 
@@ -100,6 +109,8 @@
             this.UR_university_textBox.Name = "UR_university_textBox";
             this.UR_university_textBox.Size = new System.Drawing.Size(121, 22);
             this.UR_university_textBox.TabIndex = 4;
+            this.UR_university_textBox.TextChanged += new System.EventHandler(this.UR_university_textBox_TextChanged);
+            this.UR_university_textBox.Leave += new System.EventHandler(this.UR_university_textBox_Leave);
             // 
             // UR_email_textBox
             // 
@@ -111,47 +122,48 @@
             this.UR_email_textBox.Text = "abc@gmail.com";
             this.UR_email_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.UR_email_textBox.TextChanged += new System.EventHandler(this.UR_email_textBox_TextChanged);
+            this.UR_email_textBox.Leave += new System.EventHandler(this.UR_email_textBox_Leave);
             // 
             // UR_pass_label
             // 
             this.UR_pass_label.AutoSize = true;
-            this.UR_pass_label.Location = new System.Drawing.Point(271, 382);
+            this.UR_pass_label.Location = new System.Drawing.Point(281, 382);
             this.UR_pass_label.Name = "UR_pass_label";
-            this.UR_pass_label.Size = new System.Drawing.Size(67, 16);
+            this.UR_pass_label.Size = new System.Drawing.Size(73, 16);
             this.UR_pass_label.TabIndex = 36;
-            this.UR_pass_label.Text = "Password";
+            this.UR_pass_label.Text = "Password :";
             // 
             // EIIN_label
             // 
             this.EIIN_label.AutoSize = true;
-            this.EIIN_label.Location = new System.Drawing.Point(642, 379);
+            this.EIIN_label.Location = new System.Drawing.Point(652, 382);
             this.EIIN_label.Name = "EIIN_label";
-            this.EIIN_label.Size = new System.Drawing.Size(32, 16);
+            this.EIIN_label.Size = new System.Drawing.Size(38, 16);
             this.EIIN_label.TabIndex = 35;
-            this.EIIN_label.Text = "EIIN";
+            this.EIIN_label.Text = "EIIN :";
             // 
             // UR_gender_label
             // 
             this.UR_gender_label.AutoSize = true;
-            this.UR_gender_label.Location = new System.Drawing.Point(271, 460);
+            this.UR_gender_label.Location = new System.Drawing.Point(287, 460);
             this.UR_gender_label.Name = "UR_gender_label";
-            this.UR_gender_label.Size = new System.Drawing.Size(52, 16);
+            this.UR_gender_label.Size = new System.Drawing.Size(58, 16);
             this.UR_gender_label.TabIndex = 34;
-            this.UR_gender_label.Text = "Gender";
+            this.UR_gender_label.Text = "Gender :";
             // 
             // UR_Uni_name_label
             // 
             this.UR_Uni_name_label.AutoSize = true;
             this.UR_Uni_name_label.Location = new System.Drawing.Point(585, 297);
             this.UR_Uni_name_label.Name = "UR_Uni_name_label";
-            this.UR_Uni_name_label.Size = new System.Drawing.Size(106, 16);
+            this.UR_Uni_name_label.Size = new System.Drawing.Size(112, 16);
             this.UR_Uni_name_label.TabIndex = 33;
-            this.UR_Uni_name_label.Text = "University Name";
+            this.UR_Uni_name_label.Text = "University Name :";
             // 
             // UR_email_label
             // 
             this.UR_email_label.AutoSize = true;
-            this.UR_email_label.Location = new System.Drawing.Point(627, 230);
+            this.UR_email_label.Location = new System.Drawing.Point(644, 233);
             this.UR_email_label.Name = "UR_email_label";
             this.UR_email_label.Size = new System.Drawing.Size(47, 16);
             this.UR_email_label.TabIndex = 32;
@@ -163,24 +175,26 @@
             this.UR_name_textBox.Name = "UR_name_textBox";
             this.UR_name_textBox.Size = new System.Drawing.Size(100, 22);
             this.UR_name_textBox.TabIndex = 0;
+            this.UR_name_textBox.TextChanged += new System.EventHandler(this.UR_name_textBox_TextChanged);
+            this.UR_name_textBox.Leave += new System.EventHandler(this.UR_name_textBox_Leave);
             // 
             // Ur_count__reg_label
             // 
             this.Ur_count__reg_label.AutoSize = true;
-            this.Ur_count__reg_label.Location = new System.Drawing.Point(219, 308);
+            this.Ur_count__reg_label.Location = new System.Drawing.Point(229, 308);
             this.Ur_count__reg_label.Name = "Ur_count__reg_label";
-            this.Ur_count__reg_label.Size = new System.Drawing.Size(119, 16);
+            this.Ur_count__reg_label.Size = new System.Drawing.Size(125, 16);
             this.Ur_count__reg_label.TabIndex = 28;
-            this.Ur_count__reg_label.Text = "Nationality/Country";
+            this.Ur_count__reg_label.Text = "Nationality/Country :";
             // 
             // UR_reg_name_label
             // 
             this.UR_reg_name_label.AutoSize = true;
-            this.UR_reg_name_label.Location = new System.Drawing.Point(285, 233);
+            this.UR_reg_name_label.Location = new System.Drawing.Point(295, 230);
             this.UR_reg_name_label.Name = "UR_reg_name_label";
-            this.UR_reg_name_label.Size = new System.Drawing.Size(44, 16);
+            this.UR_reg_name_label.Size = new System.Drawing.Size(50, 16);
             this.UR_reg_name_label.TabIndex = 27;
-            this.UR_reg_name_label.Text = "Name";
+            this.UR_reg_name_label.Text = "Name :";
             // 
             // UR_reg_label
             // 
@@ -292,12 +306,81 @@
             this.UR_count_comboBox.Name = "UR_count_comboBox";
             this.UR_count_comboBox.Size = new System.Drawing.Size(121, 24);
             this.UR_count_comboBox.TabIndex = 2;
+            this.UR_count_comboBox.TextChanged += new System.EventHandler(this.UR_count_comboBox_TextChanged);
+            this.UR_count_comboBox.Leave += new System.EventHandler(this.UR_count_comboBox_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(219, 265);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(653, 265);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(192, 341);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "label3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(642, 341);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "label4";
+            this.label4.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(73, 425);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.TabIndex = 53;
+            this.label5.Text = "label5";
+            this.label5.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(642, 425);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "label6";
+            this.label6.Visible = false;
             // 
             // UR_REG_Formcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 726);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.UR_count_comboBox);
             this.Controls.Add(this.ClearButtonURReg);
             this.Controls.Add(this.BackbuttonURreg);
@@ -349,5 +432,11 @@
         private System.Windows.Forms.Button BackbuttonURreg;
         private System.Windows.Forms.Button ClearButtonURReg;
         private System.Windows.Forms.ComboBox UR_count_comboBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

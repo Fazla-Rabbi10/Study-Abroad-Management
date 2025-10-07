@@ -38,6 +38,7 @@
             this.Clear123button = new System.Windows.Forms.Button();
             this.Back_button1 = new System.Windows.Forms.Button();
             this.Exit_button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Title
@@ -83,6 +84,8 @@
             this.new_pass_textBox.Name = "new_pass_textBox";
             this.new_pass_textBox.Size = new System.Drawing.Size(145, 22);
             this.new_pass_textBox.TabIndex = 1;
+            this.new_pass_textBox.TextChanged += new System.EventHandler(this.new_pass_textBox_TextChanged);
+            this.new_pass_textBox.Leave += new System.EventHandler(this.new_pass_textBox_Leave);
             // 
             // label1
             // 
@@ -151,11 +154,23 @@
             this.Exit_button2.UseVisualStyleBackColor = false;
             this.Exit_button2.Click += new System.EventHandler(this.Exit_button2_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 290);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "label2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Visible = false;
+            // 
             // Forget_Password
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 525);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Back_button1);
             this.Controls.Add(this.Exit_button2);
             this.Controls.Add(this.Clear123button);
@@ -187,5 +202,6 @@
         private System.Windows.Forms.Button Clear123button;
         private System.Windows.Forms.Button Back_button1;
         private System.Windows.Forms.Button Exit_button2;
+        private System.Windows.Forms.Label label2;
     }
 }
