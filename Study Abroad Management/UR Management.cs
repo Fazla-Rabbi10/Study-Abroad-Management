@@ -94,61 +94,94 @@ namespace Study_Abroad_Management
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(name_txtbox.Text) && !String.IsNullOrEmpty(nty_txtbox.Text) &&
-               !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(unm_txtbx.Text)
-                && !String.IsNullOrWhiteSpace(eiin_txtbox.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
-            {
-                if (conn.State != ConnectionState.Open)
-                {
-                    conn.Open();
-                }
-                if (conn.State == ConnectionState.Open)
-                {
-                    SqlTransaction tx = conn.BeginTransaction();
-                    try
-                    {
-                        string query = "update URDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',UniversityName  = '" + unm_txtbx.Text + "',EIIN='" + eiin_txtbox.Text + "'  where ID='" + id_txtbox.Text + "'";
-                        SqlCommand cmd = new SqlCommand(query, conn, tx);
-                        int updateresult = cmd.ExecuteNonQuery();
-                        if (updateresult > 0)
-                        {
-                            string updatequery2 = "update loginTable set Name='" + name_txtbox.Text + "' where ID='" + id_txtbox.Text + "'";
-                            SqlCommand cmd2 = new SqlCommand(updatequery2, conn, tx);
-                            int resultUpdate = cmd2.ExecuteNonQuery();
-                            tx.Commit();
-                            if (resultUpdate > 0)
-                            {
-                                MessageBox.Show("Updated Successfully");
-                                _show();
-                                _clear();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Update Failed");
-                            }
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        try { tx.Rollback(); } catch { }
-                        MessageBox.Show("Update Failed: " + ex.Message);
-                    }
-                    finally
-                    {
-                        if (conn.State == ConnectionState.Open)
-                        {
-                            conn.Close();
-                        }
-                    }
 
 
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please fill all the fields");
-            }
+            //if (!String.IsNullOrWhiteSpace(name_txtbox.Text) && !String.IsNullOrEmpty(nty_txtbox.Text) &&
+            //   !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(unm_txtbx.Text)
+            //    && !String.IsNullOrWhiteSpace(eiin_txtbox.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
+            //{
+            //    if (!ValidationClass.validName(name_txtbox.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid name (only letters and spaces are allowed). \n While updating name, clear the name text box first.");
+            //        name_txtbox.Focus();
+            //        return;
+            //    }
+            //    if (!ValidationClass.IsValidEmail(email_txtbox.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com \n While updating email clear the email text box first.");
+            //        email_txtbox.Focus();
+            //        return;
+            //    }
+            //    if (!ValidationClass.validAge(eiin_txtbox.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid EIIN . \n While updating EIIN, clear the EIIN text box first.");
+            //        eiin_txtbox.Focus();
+            //        return;
+            //    }
+            //    if (!ValidationClass.validName(nty_txtbox.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
+            //        nty_txtbox.Focus();
+            //        return;
+            //    }
+            //    if (!ValidationClass.validName(unm_txtbx.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid name (only letters and spaces are allowed). \n While updating name, clear the name text box first.");
+            //        unm_txtbx.Focus();
+            //        return;
+            //    }
+
+            //    if (conn.State != ConnectionState.Open)
+            //    {
+            //        conn.Open();
+            //    }
+            //    if (conn.State == ConnectionState.Open)
+            //    {
+            //        SqlTransaction tx = conn.BeginTransaction();
+            //        try
+            //        {
+            //            string query = "update URDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',UniversityName  = '" + unm_txtbx.Text + "',EIIN='" + eiin_txtbox.Text + "'  where ID='" + id_txtbox.Text + "'";
+            //            SqlCommand cmd = new SqlCommand(query, conn, tx);
+            //            int updateresult = cmd.ExecuteNonQuery();
+            //            if (updateresult > 0)
+            //            {
+            //                string updatequery2 = "update loginTable set Name='" + name_txtbox.Text + "' where ID='" + id_txtbox.Text + "'";
+            //                SqlCommand cmd2 = new SqlCommand(updatequery2, conn, tx);
+            //                int resultUpdate = cmd2.ExecuteNonQuery();
+            //                tx.Commit();
+            //                if (resultUpdate > 0)
+            //                {
+            //                    MessageBox.Show("Updated Successfully");
+            //                    _show();
+            //                    _clear();
+            //                }
+            //                else
+            //                {
+            //                    MessageBox.Show("Update Failed");
+            //                }
+            //            }
+
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            try { tx.Rollback(); } catch { }
+            //            MessageBox.Show("Update Failed: " + ex.Message);
+            //        }
+            //        finally
+            //        {
+            //            if (conn.State == ConnectionState.Open)
+            //            {
+            //                conn.Close();
+            //            }
+            //        }
+
+
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please fill all the fields");
+            //}
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

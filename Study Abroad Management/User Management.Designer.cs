@@ -265,6 +265,7 @@
             this.gender.Location = new System.Drawing.Point(807, 258);
             this.gender.Multiline = true;
             this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
             this.gender.Size = new System.Drawing.Size(272, 45);
             this.gender.TabIndex = 29;
             // 
