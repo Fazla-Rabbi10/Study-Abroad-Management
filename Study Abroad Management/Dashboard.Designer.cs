@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TextBox id_txtbox;
             this.ur_pnl = new System.Windows.Forms.Panel();
             this.AdminIDlabel = new System.Windows.Forms.Label();
             this.Adminlabel = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@
             this.search = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
-            this.id_txtbox = new System.Windows.Forms.TextBox();
+            id_txtbox = new System.Windows.Forms.TextBox();
             this.ur_pnl.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrDs)).BeginInit();
@@ -168,6 +169,7 @@
             this.dgvUrDs.RowTemplate.Height = 33;
             this.dgvUrDs.Size = new System.Drawing.Size(1404, 602);
             this.dgvUrDs.TabIndex = 23;
+            this.dgvUrDs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrDs_CellContentClick);
             // 
             // search_by_nm
             // 
@@ -202,21 +204,21 @@
             // 
             this.ID.AutoSize = true;
             this.ID.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ID.Location = new System.Drawing.Point(844, 226);
+            this.ID.Location = new System.Drawing.Point(832, 228);
             this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(180, 37);
+            this.ID.Size = new System.Drawing.Size(189, 37);
             this.ID.TabIndex = 40;
-            this.ID.Text = "Course ID      :";
+            this.ID.Text = "Course Code  :";
             // 
             // id_txtbox
             // 
-            this.id_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_txtbox.Location = new System.Drawing.Point(1014, 223);
-            this.id_txtbox.Multiline = true;
-            this.id_txtbox.Name = "id_txtbox";
-            this.id_txtbox.ReadOnly = true;
-            this.id_txtbox.Size = new System.Drawing.Size(170, 45);
-            this.id_txtbox.TabIndex = 41;
+            id_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            id_txtbox.Location = new System.Drawing.Point(1014, 223);
+            id_txtbox.Multiline = true;
+            id_txtbox.Name = "id_txtbox";
+            id_txtbox.ReadOnly = true;
+            id_txtbox.Size = new System.Drawing.Size(170, 45);
+            id_txtbox.TabIndex = 41;
             // 
             // Dashboard
             // 
@@ -224,7 +226,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1428, 914);
-            this.Controls.Add(this.id_txtbox);
+            this.Controls.Add(id_txtbox);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.search_by_nm);
@@ -263,6 +265,5 @@
         private System.Windows.Forms.Label Adminlabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ID;
-        private System.Windows.Forms.TextBox id_txtbox;
     }
 }

@@ -154,7 +154,7 @@ namespace Study_Abroad_Management
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //try
-            //{              
+            //{
             //    if (id_txtbox.Text == "")
             //        MessageBox.Show("Please select a row first ");
             //    else
@@ -163,7 +163,7 @@ namespace Study_Abroad_Management
             //        SqlConnection conn = new SqlConnection(connectionString);
             //        conn.Open();
 
-            //        string query = "delete from URDetails where ID=" + id_txtbox.Text + ""; 
+            //        string query = "delete from URDetails where ID=" + id_txtbox.Text + "";
             //        SqlCommand cmd = new SqlCommand(query, conn);
             //        cmd.ExecuteNonQuery();
 

@@ -222,34 +222,6 @@ namespace Study_Abroad_Management
 
         private void updt_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-
-            //        // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            //        //SqlConnection conn = new SqlConnection(connectionString);
-            //        //conn.Open();
-            //        string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender + "',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
-            //        SqlCommand cmd = new SqlCommand(query, conn);
-            //        cmd.ExecuteNonQuery();
-
-            //        //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
-            //        //SqlCommand cmd2 = new SqlCommand(query2, conn);
-            //        //cmd2.ExecuteNonQuery();
-
-            //        _Show();
-            //        _clear();
-
-            //        //conn.Close();
-            //    
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error: " + ex.Message);
-            //}
-
-            //}
             if (!String.IsNullOrWhiteSpace(name_txtbox.Text) && !String.IsNullOrEmpty(nty_txtbox.Text) &&
                 !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(gender.Text)
                  && !String.IsNullOrWhiteSpace(age_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
@@ -334,6 +306,34 @@ namespace Study_Abroad_Management
             {
                 MessageBox.Show("Please fill all the fields");
             }
+            //try
+            //{
+
+            //        // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            //        //SqlConnection conn = new SqlConnection(connectionString);
+            //        //conn.Open();
+            //        string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender + "',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
+            //        SqlCommand cmd = new SqlCommand(query, conn);
+            //        cmd.ExecuteNonQuery();
+
+            //        //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
+            //        //SqlCommand cmd2 = new SqlCommand(query2, conn);
+            //        //cmd2.ExecuteNonQuery();
+
+            //        _Show();
+            //        _clear();
+
+            //        //conn.Close();
+            //    
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.Message);
+            //}
+
+            //}
         }
 
         private void exit_Click(object sender, EventArgs e)
