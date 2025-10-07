@@ -13,7 +13,8 @@ namespace Study_Abroad_Management
 {
     public partial class Admin_Management : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
+        SqlConnection conn = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True");
+        //SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;");
         public Admin_Management()
         {
             InitializeComponent();
@@ -32,7 +33,9 @@ namespace Study_Abroad_Management
             arf.Show();
             this.Hide();
         }
-        public void clear()
+        public void 
+            
+           _clear()
         {
             id_txtbx.Text = "";
             addrs_txtbx.Text = "";
@@ -41,7 +44,7 @@ namespace Study_Abroad_Management
             cntry.Text = "";
             contact_txtbx.Text="";
         }
-        public void show()
+        public void _show()
         {
             if (conn.State != ConnectionState.Open)
             {
@@ -97,7 +100,7 @@ namespace Study_Abroad_Management
         private void showButton_Click_1(object sender, EventArgs e)
         {
             try { 
-                show();
+                _show();
             }
             catch (Exception ex)
             {
@@ -109,61 +112,203 @@ namespace Study_Abroad_Management
 
         private void update_Click(object sender, EventArgs e)
         {
-           try 
-            { 
-                 string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-                 SqlConnection conn = new SqlConnection(connectionString);
-                 conn.Open();
+            //if (!String.IsNullOrWhiteSpace(name_txtbox.Text) && !String.IsNullOrEmpty(nty_txtbox.Text) &&
+            //   !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(gender.Text)
+            //    && !String.IsNullOrWhiteSpace(age_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
+            //{
 
-                 string query = "update AdminDetails set Name='" + nm_txtbx.Text + "',Address ='" + addrs_txtbx.Text + "', Email='" + email_txtbx.Text + "', ContactNumber='" + contact_txtbx.Text + "',Country ='" + cntry.Text + "' where ID='" + id_txtbx.Text + "'"; 
-                 SqlCommand cmd = new SqlCommand(query, conn);
-                 cmd.ExecuteNonQuery();
+            //    if (!ValidationClass.IsValidEmail(email_txtbox.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com \n While updating email clear the email text box first.");
+            //        email_txtbox.Focus();
+            //        return;
+            //    }
 
-                //string query2 = "delete from loginTable where ID='" + id_txtbx.Text + "'";
-                //SqlCommand cmd2 = new SqlCommand(query2, conn);
-                //cmd2.ExecuteNonQuery();
+            //    if (!ValidationClass.validAge(age_txtbx.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid age (18-99). \n While updating age clear the age text box first.");
+            //        age_txtbx.Focus();
+            //        return;
+            //    }
 
-                show();
-                clear();
+            //    if (!ValidationClass.validName(name_txtbox.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid name (only letters and spaces are allowed). \n While updating name, clear the name text box first.");
+            //        name_txtbox.Focus();
+            //        return;
+            //    }
 
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            //    if (!ValidationClass.validName(nty_txtbox.Text))
+            //    {
+            //        MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
+            //        nty_txtbox.Focus();
+            //        return;
+            //    }
+
+            //    if (conn.State != ConnectionState.Open)
+            //    {
+            //        conn.Open();
+            //    }
+            //    if (conn.State == ConnectionState.Open)
+            //    {
+            //        SqlTransaction tx = conn.BeginTransaction();
+            //        try
+            //        {
+            //            string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender.Text + "',Age='" + age_txtbx.Text + "'  where ID='" + id_txtbox.Text + "'";
+            //            SqlCommand cmd = new SqlCommand(query, conn, tx);
+            //            int updateresult = cmd.ExecuteNonQuery();
+            //            if (updateresult > 0)
+            //            {
+            //                string updatequery2 = "update loginTable set Name='" + name_txtbox.Text + "' where ID='" + id_txtbox.Text + "'";
+            //                SqlCommand cmd2 = new SqlCommand(updatequery2, conn, tx);
+            //                int resultUpdate = cmd2.ExecuteNonQuery();
+            //                tx.Commit();
+            //                if (resultUpdate > 0)
+            //                {
+            //                    MessageBox.Show("Updated Successfully");
+            //                    _Show();
+            //                    _clear();
+            //                }
+            //                else
+            //                {
+            //                    MessageBox.Show("Update Failed");
+            //                }
+            //            }
+
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            try { tx.Rollback(); } catch { }
+            //            MessageBox.Show("Update Failed: " + ex.Message);
+            //        }
+            //        finally
+            //        {
+            //            if (conn.State == ConnectionState.Open)
+            //            {
+            //                conn.Close();
+            //            }
+            //        }
+
+
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please fill all the fields");
+            //}
+
+            //try 
+            // { 
+            //      string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            //      SqlConnection conn = new SqlConnection(connectionString);
+            //      conn.Open();
+
+            //      string query = "update AdminDetails set Name='" + nm_txtbx.Text + "',Address ='" + addrs_txtbx.Text + "', Email='" + email_txtbx.Text + "', ContactNumber='" + contact_txtbx.Text + "',Country ='" + cntry.Text + "' where ID='" + id_txtbx.Text + "'"; 
+            //      SqlCommand cmd = new SqlCommand(query, conn);
+            //      cmd.ExecuteNonQuery();
+
+            //     //string query2 = "delete from loginTable where ID='" + id_txtbx.Text + "'";
+            //     //SqlCommand cmd2 = new SqlCommand(query2, conn);
+            //     //cmd2.ExecuteNonQuery();
+
+            //     _show();
+            //     _clear();
+
+            //     conn.Close();
+            // }
+            // catch (Exception ex)
+            // {
+            //     MessageBox.Show("Error: " + ex.Message);
+            // }
         }
 
         private void delet_Click(object sender, EventArgs e)
         {
-            try
+            if (!String.IsNullOrWhiteSpace(id_txtbx.Text) && !String.IsNullOrEmpty(id_txtbx.Text))
             {
-                if (id_txtbx.Text == "")
-                    MessageBox.Show("Please select a row first ");
-                else
+                if (conn.State != ConnectionState.Open)
                 {
-                    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-                    SqlConnection conn = new SqlConnection(connectionString);
                     conn.Open();
+                }
+                if (conn.State == ConnectionState.Open)
+                {
+                    SqlTransaction tx = conn.BeginTransaction();
+                    try
+                    {
+                        string admDetailquery = "delete from AdminDetails where ID=" + id_txtbx.Text + "";
+                        SqlCommand cmd = new SqlCommand(admDetailquery, conn, tx);
+                        int deleteresult = cmd.ExecuteNonQuery();
 
-                    string query = "delete from AdminDetails where ID='" + id_txtbx.Text + "'";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();                  
+                        if (deleteresult > 0)
+                        {
 
-                    //string query2 = "delete from loginTable where ID='" + id_txtbx.Text + "'";
-                    //SqlCommand cmd2 = new SqlCommand(query2, conn);
-                    //cmd2.ExecuteNonQuery();
+                            string loginTablequery = "delete from loginTable where ID=" + id_txtbx.Text + "";
+                            SqlCommand cmd2 = new SqlCommand(loginTablequery, conn, tx);
+                            int resultDelete = cmd2.ExecuteNonQuery();
+                            tx.Commit();
 
-                    show();
-                    clear();
+                            if (resultDelete > 0)
+                            {
+                                MessageBox.Show("Deleted Successfully");
+                                _show();
+                                _clear();
 
-                    conn.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Deletion Failed");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        try { tx.Rollback(); } catch { }
+                        MessageBox.Show("Deletion Failed: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        if (conn.State == ConnectionState.Open)
+                        {
+                            conn.Close();
+                        }
+                    }
+
+
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Please select a row first ");
             }
+
+            //try
+            //{
+            //    if (id_txtbx.Text == "")
+            //        MessageBox.Show("Please select a row first ");
+            //    else
+            //    {
+            //        string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
+            //        SqlConnection conn = new SqlConnection(connectionString);
+            //        conn.Open();
+
+            //        string query = "delete from AdminDetails where ID='" + id_txtbx.Text + "'";
+            //        SqlCommand cmd = new SqlCommand(query, conn);
+            //        cmd.ExecuteNonQuery();                  
+
+            //        //string query2 = "delete from loginTable where ID='" + id_txtbx.Text + "'";
+            //        //SqlCommand cmd2 = new SqlCommand(query2, conn);
+            //        //cmd2.ExecuteNonQuery();
+
+            //        show();
+            //        clear();
+
+            //        conn.Close();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.Message);
+            //}
         }
 
         private void email_txtbx_TextChanged(object sender, EventArgs e)
