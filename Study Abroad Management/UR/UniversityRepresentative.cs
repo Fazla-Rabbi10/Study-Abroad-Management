@@ -14,13 +14,15 @@ namespace Study_Abroad_Management.UR
     {
         internal int URID {get; set;}
         internal DataAccess Da { get; set;}
+        internal Log_In_Form LogInRef { get; set;}
 
-        public UniversityRepresentative(int urID)
+        public UniversityRepresentative(int urID, Log_In_Form logInRef)
         {
             InitializeComponent();
             this.URID = urID;
             this.Da = new DataAccess();
             this.RetrieveUserName();
+            this.LogInRef = logInRef;
         }
 
         private void RetrieveUserName()
@@ -69,7 +71,8 @@ namespace Study_Abroad_Management.UR
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-
+            this.LogInRef.Show();
+            this.Close();
         }
 
         private void btnHome_Click(object sender, EventArgs e)

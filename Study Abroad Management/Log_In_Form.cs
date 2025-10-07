@@ -124,19 +124,23 @@ namespace Study_Abroad_Management
                                 Admin_Pannel a = new Admin_Pannel();
                                 a.Show();
                                 this.Hide();
+                                this.Clear();
                             }
                             else if (dt.Rows[0][2].ToString() == "UR")
                             {
                                 MessageBox.Show("Login Successful as University Representative");
-                                new UR.UniversityRepresentative(userID).Show();
-                                new UniversityRepresentative().Show();
+                                new UR.UniversityRepresentative(userID, this).Show();
+                                
+                                //new UniversityRepresentative().Show();
                                 this.Hide();
+                                this.Clear();
                             }
                             else if (dt.Rows[0][2].ToString() == "student")
                             {
                                 MessageBox.Show("Login Successful as Student");
                                 new User_Student().Show();
                                 this.Hide();
+                                this.Clear();
                             }
 
                         }
@@ -168,6 +172,12 @@ namespace Study_Abroad_Management
                 }
             }
             con.Close();
+        }
+
+        private void Clear()
+        {
+            this.LG_ID_textBox.Clear();
+            Lg_Password_textBox2.Clear();
         }
 
         private void LogIN_Clear_button_Click(object sender, EventArgs e)

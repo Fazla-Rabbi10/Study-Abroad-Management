@@ -59,7 +59,7 @@
             // lblUserName
             // 
             this.lblUserName.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblUserName.ForeColor = System.Drawing.Color.DarkOrange;
             this.lblUserName.Location = new System.Drawing.Point(121, 17);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(309, 29);
@@ -80,7 +80,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(455, 12);
+            this.label1.Location = new System.Drawing.Point(421, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(373, 29);
             this.label1.TabIndex = 0;

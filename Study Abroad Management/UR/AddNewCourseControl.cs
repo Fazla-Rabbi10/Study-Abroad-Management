@@ -15,27 +15,30 @@ namespace Study_Abroad_Management.UR
     public partial class AddNewCourseControl : UserControl
     {
         private DataAccess Da { get; set; }
-        private int? URID {  get; set; }
+        private int URID {  get; set; }
         private string IELTS { get; set; }
         private string GRE { get; set; }
         private string SAT { get; set; }
         private string UniversityName { get; set; }
         private string Intake {  get; set; }
 
-        public AddNewCourseControl( int urID)
+        public AddNewCourseControl(int urID)
         {
             InitializeComponent();
             this.Da = new DataAccess();
-            this.RetrieveUserInfo();
             this.URID = urID;
-            this.cmbIntake.SelectedIndex = 0;
+            this.RetrieveUserInfo();
+            this.cmbIntakeSeason.SelectedIndex = 0;
             this.cmbIntakeYear.SelectedIndex = 0;
             this.cmbDegreeType.SelectedIndex = 0;
+            this.cmbCountry.SelectedIndex = 0;
+            this.lblURID.Text = urID.ToString();
+            
         }
 
         private void RetrieveUserInfo()
         {
-            var sql = $"select * from URDetails where ID = {this.URID};";
+            var sql = $"select UniversityName from URDetails where ID = {this.URID};";
 
             try
             {
@@ -43,7 +46,12 @@ namespace Study_Abroad_Management.UR
 
                 if (ds.Tables[0].Rows.Count == 1)
                 {
-                    this.UniversityName = ds.Tables[0].Rows[0]["UniversityName"].ToString();
+                    this.UniversityName = ds.Tables[0].Rows[0][0].ToString();
+                    this.lblUni.Text = UniversityName;
+                }
+                else
+                {
+                    MessageBox.Show("No record found for this ID.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -67,22 +75,28 @@ namespace Study_Abroad_Management.UR
                 txtCourseCode.Focus();
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtCountry.Text))
+            if (this.cmbCountry.SelectedIndex == 0)
             {
-                MessageBox.Show("Country cannot be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCountry.Focus();
+                MessageBox.Show("Please select a country!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.cmbCountry.Focus();
                 return false;
             }
-            if(this.cmbIntake.SelectedIndex == 0)
+            if (this.cmbDegreeType.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select a Degree!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.cmbDegreeType.Focus();
+                return false;
+            }
+            if (this.cmbIntakeSeason.SelectedIndex == 0)
             {
                 MessageBox.Show("Please select a semester!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.cmbIntake.Focus();
+                this.cmbIntakeSeason.Focus();
                 return false;
             }
             if (this.cmbIntakeYear.SelectedIndex == 0)
             {
                 MessageBox.Show("Please select an Intake Year!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.cmbIntake.Focus();
+                this.cmbIntakeSeason.Focus();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtCourseDuration.Text))
@@ -114,11 +128,6 @@ namespace Study_Abroad_Management.UR
             {
                 MessageBox.Show("Application Deadline cannot be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpDeadline.Focus();
-                return false;
-            }
-            if (this.URID == null)
-            {
-                MessageBox.Show("URID not Found!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -162,7 +171,7 @@ namespace Study_Abroad_Management.UR
             if(!IsValidToAdd())
                 return;
 
-            this.Intake = cmbIntake.Text + " " +  cmbIntakeYear.Text;
+            this.Intake = cmbIntakeSeason.Text + " " +  cmbIntakeYear.Text;
 
             if(!cbGRE.Checked)
             {
@@ -225,7 +234,7 @@ namespace Study_Abroad_Management.UR
                     new SqlParameter("@CourseName", this.txtCourseName.Text),
                     new SqlParameter("@CourseCode", this.txtCourseCode.Text),
                     new SqlParameter("@UniversityName", this.UniversityName),
-                    new SqlParameter("@Country", this.txtCountry.Text),
+                    new SqlParameter("@Country", this.cmbCountry.Text),
                     new SqlParameter("@CourseDuration", this.txtCourseDuration.Text),
                     new SqlParameter("@DegreeType", this.cmbDegreeType.Text),
                     new SqlParameter("@IELTS", this.txtRequiredIELTS.Text),
@@ -260,26 +269,31 @@ namespace Study_Abroad_Management.UR
         private void ClearForm()
         {
             // TextBoxes clear
-            txtCourseName.Clear();
-            txtCourseCode.Clear();
-            txtCountry.Clear();
-            txtCourseDuration.Clear();
-            txtRequiredIELTS.Clear();
-            txtRequiredGRE.Clear();
-            txtRequiredSAT.Clear();
-            txtTutionFee.Clear();
-            txtMaxScholarship.Clear();
+            this.txtCourseName.Clear();
+            this.txtCourseCode.Clear();
+            this.txtCourseDuration.Clear();
+            this.txtRequiredIELTS.Clear();
+            this.txtRequiredGRE.Clear();
+            this.txtRequiredSAT.Clear();
+            this.txtTutionFee.Clear();
+            this.txtMaxScholarship.Clear();
 
             // ComboBox reset
-            cmbIntake.SelectedIndex = 0;
-            cmbIntakeYear.SelectedIndex = 0;
-            cmbDegreeType.SelectedIndex = 0;
+            this.cmbCountry.SelectedIndex = 0;
+            this.cmbIntakeSeason.SelectedIndex = 0;
+            this.cmbIntakeYear.SelectedIndex = 0;
+            this.cmbDegreeType.SelectedIndex = 0;
 
             // DateTimePicker reset (optional: current date)
-            dtpDeadline.Value = DateTime.Now;
+            this.dtpDeadline.Value = DateTime.Now;
 
             // Optional: focus first field
-            txtCourseName.Focus();
+            this.txtCourseName.Focus();
+
+            // Checkbox reset
+            this.cbGRE.Checked = false;
+            this.cbIELTS.Checked = false;
+            this.cbIELTS.Checked = false;
         }
 
         private void cbSAT_CheckedChanged(object sender, EventArgs e)
@@ -300,6 +314,57 @@ namespace Study_Abroad_Management.UR
             this.txtRequiredGRE.Enabled = this.cbGRE.Checked;
             if(!this.cbGRE.Checked) this.txtRequiredGRE.Clear();
         }
+
+        private void txtCourseCode_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string input = this.txtCourseCode.Text.Trim();
+
+                if (string.IsNullOrEmpty(input))
+                {
+                    this.lblCourseCodeValidator.Visible = false;
+                    return;
+                }
+
+                var sql = "Select CourseCode from URDashboard;";
+                var data = this.Da.ExecuteQueryTable(sql);
+
+                bool found = false;
+
+                if (data.Rows.Count > 0)
+                {
+                    for (int i = 0; i < data.Rows.Count; i++)
+                    {
+                        string dbCode = data.Rows[i]["CourseCode"].ToString();
+
+                        if (dbCode.Equals(input, StringComparison.OrdinalIgnoreCase))
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+
+                this.lblCourseCodeValidator.Visible = true;
+
+                if (found)
+                {
+                    this.lblCourseCodeValidator.Text = "Course code already exists";
+                    this.lblCourseCodeValidator.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    this.lblCourseCodeValidator.Text = "Valid course code";
+                    this.lblCourseCodeValidator.ForeColor = System.Drawing.Color.Green;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
     }
 }
 

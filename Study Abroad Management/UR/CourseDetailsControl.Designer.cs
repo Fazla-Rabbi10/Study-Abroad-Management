@@ -59,7 +59,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(19, 88);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(162, 33);
+            this.label6.Size = new System.Drawing.Size(188, 33);
             this.label6.TabIndex = 18;
             this.label6.Text = "Enter course code :";
             // 
@@ -78,7 +78,7 @@
             // 
             this.txtCourseCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCourseCode.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCourseCode.Location = new System.Drawing.Point(198, 86);
+            this.txtCourseCode.Location = new System.Drawing.Point(215, 86);
             this.txtCourseCode.Multiline = true;
             this.txtCourseCode.Name = "txtCourseCode";
             this.txtCourseCode.Size = new System.Drawing.Size(233, 35);
@@ -262,7 +262,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(621, 80);
+            this.btnUpdate.Location = new System.Drawing.Point(638, 80);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(137, 43);
             this.btnUpdate.TabIndex = 23;
@@ -277,7 +277,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(455, 80);
+            this.btnSearch.Location = new System.Drawing.Point(472, 80);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(137, 43);
             this.btnSearch.TabIndex = 22;
