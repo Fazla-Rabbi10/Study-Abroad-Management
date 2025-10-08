@@ -45,7 +45,7 @@ namespace Study_Abroad_Management
             id_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             name_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             nty_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            email_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            EmailtextBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["Email"].Value.ToString();
             gender.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             age_txtbx.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
 
@@ -90,7 +90,7 @@ namespace Study_Abroad_Management
             id_txtbox.Text = "";
             name_txtbox.Text = "";
             nty_txtbox.Text="";
-            email_txtbox.Text = "";
+            EmailtextBox1.Clear();
             gender.Text = "";
             age_txtbx.Text="";
 
@@ -114,35 +114,7 @@ namespace Study_Abroad_Management
         private void delet_txtbox_Click(object sender, EventArgs e)
         {
 
-            //try
-            //{
-            //if (id_txtbox.Text == "")
-            //    MessageBox.Show("Please select a row first ");
-            //else
-            //{
-            //    string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            //    SqlConnection conn = new SqlConnection(connectionString);
-            //    conn.Open();
-
-            //    string query = "delete from StudentDetails where ID=" + id_txtbox.Text + "";
-            //    SqlCommand cmd = new SqlCommand(query, conn);
-            //    cmd.ExecuteNonQuery();
-
-            //    //string query2 = "delete from loginTable where ID='" + id_txtbox.Text + "'";
-            //    //SqlCommand cmd2 = new SqlCommand(query2, conn);
-            //    //cmd2.ExecuteNonQuery();
-
-            //    _Show();
-            //    clear();
-
-            //    conn.Close();
-            //}
-
-
-            //catch (Exception ex)
-            //{
-            // MessageBox.Show("Error: " + ex.Message);
-            //}
+            
             DialogResult dr = MessageBox.Show("Before delete this student's information." +
                 "\nMake sure you have deleted this student's application records by using the [check button] and [remove button]." +
                 "\nOtherwise you cannot delete this user from the system there will occur an error.",
@@ -221,16 +193,11 @@ namespace Study_Abroad_Management
         private void updt_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(name_txtbox.Text) && !String.IsNullOrEmpty(nty_txtbox.Text) &&
-                !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(gender.Text)
+                !String.IsNullOrWhiteSpace(EmailtextBox1.Text) && !String.IsNullOrWhiteSpace(gender.Text)
                  && !String.IsNullOrWhiteSpace(age_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
             {
 
-                if (!ValidationClass.IsValidEmail(email_txtbox.Text))
-                {
-                    MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com \n While updating email clear the email text box first.");
-                    email_txtbox.Focus();
-                    return;
-                }
+                
 
                 if (!ValidationClass.validAge(age_txtbx.Text))
                 {
@@ -252,6 +219,13 @@ namespace Study_Abroad_Management
                     nty_txtbox.Focus();
                     return;
                 }
+                if (!ValidationClass.IsValidEmail(EmailtextBox1.Text))
+                {
+                    MessageBox.Show("Enter a valid email format(eg: abc@gmail.com)");
+                    EmailtextBox1.Focus();
+                    return;
+                }
+
 
                 if (conn.State != ConnectionState.Open)
                 {
@@ -262,9 +236,25 @@ namespace Study_Abroad_Management
                     SqlTransaction tx = conn.BeginTransaction();
                     try
                     {
-                        string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender.Text + "',Age='" + age_txtbx.Text + "'  where ID='" + id_txtbox.Text + "'";
-                        SqlCommand cmd = new SqlCommand(query, conn, tx);
+                        string query = @"UPDATE StudentDetails 
+                                         SET Name = @Name, 
+                                             Nationality = @Nationality, 
+                                             Email = @Email, 
+                                             Gender = @Gender, 
+                                             Age = @Age 
+                                         WHERE ID = @ID";
+
+                        SqlCommand cmd = new SqlCommand(query, conn, tx);                      
+                        cmd.Parameters.AddWithValue("@Name", name_txtbox.Text);
+                        cmd.Parameters.AddWithValue("@Nationality", nty_txtbox.Text);
+                        cmd.Parameters.AddWithValue("@Email", EmailtextBox1.Text);
+                        cmd.Parameters.AddWithValue("@Gender", gender.Text);
+                        cmd.Parameters.AddWithValue("@Age", age_txtbx.Text);
+                        cmd.Parameters.AddWithValue("@ID", id_txtbox.Text);
+
                         int updateresult = cmd.ExecuteNonQuery();
+                        
+
                         if (updateresult > 0)
                         {
                             string updatequery2 = "update loginTable set Name='" + name_txtbox.Text + "' where ID='" + id_txtbox.Text + "'";
@@ -304,34 +294,7 @@ namespace Study_Abroad_Management
             {
                 MessageBox.Show("Please fill all the fields");
             }
-            //try
-            //{
-
-            //        // string connectionString = @"Data Source=LAPTOP-JCQ2J3KL\SQLEXPRESS;Initial Catalog=Project(Database);Integrated Security=True;";
-            //        //SqlConnection conn = new SqlConnection(connectionString);
-            //        //conn.Open();
-            //        string query = "update StudentDetails set Name='" + name_txtbox.Text + "',Nationality ='" + nty_txtbox.Text + "', Email='" + email_txtbox.Text + " ',Gender = '" + gender + "',Age='" + age_txtbx + "'  where ID='" + id_txtbox.Text + "'";
-            //        SqlCommand cmd = new SqlCommand(query, conn);
-            //        cmd.ExecuteNonQuery();
-
-            //        //string query2 = "update from loginTable where ID='" + id_txtbox.Text + "'";
-            //        //SqlCommand cmd2 = new SqlCommand(query2, conn);
-            //        //cmd2.ExecuteNonQuery();
-
-            //        _Show();
-            //        _clear();
-
-            //        //conn.Close();
-            //    
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error: " + ex.Message);
-            //}
-
-            //}
+            
         }
 
         private void exit_Click(object sender, EventArgs e)
