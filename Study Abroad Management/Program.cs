@@ -15,17 +15,17 @@ namespace Study_Abroad_Management
         static void Main()
         {
             // Optional: Enable high DPI awareness
-            // if (Environment.OSVersion.Version.Major >= 6)
-            //     SetProcessDPIAware();
+             if (Environment.OSVersion.Version.Major >= 6)
+                 SetProcessDPIAware();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             // ### Just comment or uncomment the line below to run the desired form ###
-            // Application.Run(new Admin_Pannel());
+             Application.Run(new Admin_Pannel());
             // Application.Run(new UR_Management());
             // Application.Run(new User_Management());
-            Application.Run(new Log_In_Form());
+            //Application.Run(new Log_In_Form());
             // Application.Run(new Study_Abroad_Management.UR.UniversityRepresentative());
         }
 

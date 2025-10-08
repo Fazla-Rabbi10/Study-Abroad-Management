@@ -246,7 +246,7 @@ namespace Study_Abroad_Management
                     return;
                 }
 
-                if (!ValidationClass.validName(nty_txtbox.Text))
+                if (!ValidationClass.validName(nty_txtbox.Text))//be changed to validCountry
                 {
                     MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
                     nty_txtbox.Focus();
@@ -417,47 +417,6 @@ namespace Study_Abroad_Management
                     conn.Close();
                 }
             }
-
-            //try
-            //{
-            //    if (conn.State != ConnectionState.Open)
-            //    {
-            //        conn.Open();
-            //    }
-
-            //    string searchText = search_by_nm.Text.Trim();
-
-            //    // If search box is empty, show all data again
-            //    string query;
-            //    if (string.IsNullOrEmpty(searchText))
-            //    {
-            //        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails";
-            //    }
-            //    else
-            //    {
-            //        query = "SELECT ID, Name, Nationality, Gender, Email, Age FROM StudentDetails WHERE Name LIKE @searchText";
-            //    }
-
-            //    SqlCommand cmd = new SqlCommand(query, conn);
-            //    cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
-
-            //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //    DataTable dt = new DataTable();
-            //    da.Fill(dt);
-            //    dataGridView1.DataSource = dt;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //finally
-            //{
-            //    if (conn.State == ConnectionState.Open)
-            //    {
-            //        conn.Close();
-            //    }
-            //}
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
