@@ -52,6 +52,9 @@
             this.eiin = new System.Windows.Forms.Label();
             this.dgvURmng = new System.Windows.Forms.DataGridView();
             this.eiin_txtbox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.unm_txt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvURmng)).BeginInit();
             this.SuspendLayout();
@@ -64,10 +67,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.back);
-            this.panel1.Location = new System.Drawing.Point(8, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(12, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(937, 95);
+            this.panel1.Size = new System.Drawing.Size(1406, 148);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -75,9 +77,10 @@
             // 
             this.AdminIDlabel.AutoSize = true;
             this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminIDlabel.Location = new System.Drawing.Point(641, 8);
+            this.AdminIDlabel.Location = new System.Drawing.Point(962, 12);
+            this.AdminIDlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AdminIDlabel.Name = "AdminIDlabel";
-            this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
+            this.AdminIDlabel.Size = new System.Drawing.Size(108, 37);
             this.AdminIDlabel.TabIndex = 52;
             this.AdminIDlabel.Text = "label2";
             // 
@@ -85,19 +88,19 @@
             // 
             this.Adminlabel.AutoSize = true;
             this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Adminlabel.Location = new System.Drawing.Point(149, 10);
+            this.Adminlabel.Location = new System.Drawing.Point(224, 16);
+            this.Adminlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Adminlabel.Name = "Adminlabel";
-            this.Adminlabel.Size = new System.Drawing.Size(70, 25);
+            this.Adminlabel.Size = new System.Drawing.Size(106, 37);
             this.Adminlabel.TabIndex = 51;
             this.Adminlabel.Text = "label1";
             // 
             // exit
             // 
             this.exit.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exit.Location = new System.Drawing.Point(857, 8);
-            this.exit.Margin = new System.Windows.Forms.Padding(2);
+            this.exit.Location = new System.Drawing.Point(1286, 12);
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(68, 31);
+            this.exit.Size = new System.Drawing.Size(102, 48);
             this.exit.TabIndex = 4;
             this.exit.Text = "Exit";
             this.exit.UseVisualStyleBackColor = true;
@@ -107,10 +110,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(300, 45);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(450, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(323, 23);
+            this.label2.Size = new System.Drawing.Size(505, 37);
             this.label2.TabIndex = 3;
             this.label2.Text = "University Re-presentative Management";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -119,20 +121,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(413, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(620, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 25);
+            this.label1.Size = new System.Drawing.Size(183, 40);
             this.label1.TabIndex = 2;
             this.label1.Text = "Admin Panel";
             // 
             // back
             // 
             this.back.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.back.Location = new System.Drawing.Point(8, 8);
-            this.back.Margin = new System.Windows.Forms.Padding(2);
+            this.back.Location = new System.Drawing.Point(12, 12);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(68, 31);
+            this.back.Size = new System.Drawing.Size(102, 48);
             this.back.TabIndex = 1;
             this.back.Text = "back";
             this.back.UseVisualStyleBackColor = true;
@@ -141,10 +141,9 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(735, 100);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Location = new System.Drawing.Point(1102, 156);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(88, 33);
+            this.btnUpdate.Size = new System.Drawing.Size(132, 52);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -153,10 +152,9 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(842, 100);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDelete.Location = new System.Drawing.Point(1263, 156);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(88, 33);
+            this.btnDelete.Size = new System.Drawing.Size(132, 52);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -165,10 +163,9 @@
             // btnShow
             // 
             this.btnShow.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShow.Location = new System.Drawing.Point(631, 100);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShow.Location = new System.Drawing.Point(946, 156);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(88, 33);
+            this.btnShow.Size = new System.Drawing.Size(132, 52);
             this.btnShow.TabIndex = 4;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -178,10 +175,9 @@
             // 
             this.ID.AutoSize = true;
             this.ID.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ID.Location = new System.Drawing.Point(23, 158);
-            this.ID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ID.Location = new System.Drawing.Point(34, 247);
             this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(61, 23);
+            this.ID.Size = new System.Drawing.Size(91, 37);
             this.ID.TabIndex = 8;
             this.ID.Text = "ID      :";
             this.ID.Click += new System.EventHandler(this.ID_Click);
@@ -190,10 +186,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(205, 159);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(308, 248);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 23);
+            this.label5.Size = new System.Drawing.Size(101, 37);
             this.label5.TabIndex = 10;
             this.label5.Text = "Name :";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -202,10 +197,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 193);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(32, 302);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 23);
+            this.label6.Size = new System.Drawing.Size(95, 37);
             this.label6.TabIndex = 11;
             this.label6.Text = "Email :";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -214,10 +208,9 @@
             // 
             this.nty.AutoSize = true;
             this.nty.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nty.Location = new System.Drawing.Point(591, 162);
-            this.nty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nty.Location = new System.Drawing.Point(886, 253);
             this.nty.Name = "nty";
-            this.nty.Size = new System.Drawing.Size(102, 23);
+            this.nty.Size = new System.Drawing.Size(161, 37);
             this.nty.TabIndex = 12;
             this.nty.Text = "Nationality :";
             this.nty.Click += new System.EventHandler(this.label4_Click);
@@ -225,45 +218,41 @@
             // id_txtbox
             // 
             this.id_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_txtbox.Location = new System.Drawing.Point(88, 157);
-            this.id_txtbox.Margin = new System.Windows.Forms.Padding(2);
+            this.id_txtbox.Location = new System.Drawing.Point(132, 245);
             this.id_txtbox.Multiline = true;
             this.id_txtbox.Name = "id_txtbox";
             this.id_txtbox.ReadOnly = true;
-            this.id_txtbox.Size = new System.Drawing.Size(105, 30);
+            this.id_txtbox.Size = new System.Drawing.Size(156, 45);
             this.id_txtbox.TabIndex = 13;
             this.id_txtbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // email_txtbox
             // 
             this.email_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_txtbox.Location = new System.Drawing.Point(88, 191);
-            this.email_txtbox.Margin = new System.Windows.Forms.Padding(2);
+            this.email_txtbox.Location = new System.Drawing.Point(132, 298);
             this.email_txtbox.Multiline = true;
             this.email_txtbox.Name = "email_txtbox";
-            this.email_txtbox.Size = new System.Drawing.Size(259, 30);
+            this.email_txtbox.Size = new System.Drawing.Size(386, 45);
             this.email_txtbox.TabIndex = 14;
             this.email_txtbox.TextChanged += new System.EventHandler(this.email_txtbox_TextChanged);
             // 
             // nty_txtbox
             // 
             this.nty_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nty_txtbox.Location = new System.Drawing.Point(702, 160);
-            this.nty_txtbox.Margin = new System.Windows.Forms.Padding(2);
+            this.nty_txtbox.Location = new System.Drawing.Point(1053, 250);
             this.nty_txtbox.Multiline = true;
             this.nty_txtbox.Name = "nty_txtbox";
-            this.nty_txtbox.Size = new System.Drawing.Size(229, 31);
+            this.nty_txtbox.Size = new System.Drawing.Size(342, 46);
             this.nty_txtbox.TabIndex = 15;
             this.nty_txtbox.TextChanged += new System.EventHandler(this.status_txtbox_TextChanged);
             // 
             // name_txtbox
             // 
             this.name_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_txtbox.Location = new System.Drawing.Point(277, 157);
-            this.name_txtbox.Margin = new System.Windows.Forms.Padding(2);
+            this.name_txtbox.Location = new System.Drawing.Point(416, 245);
             this.name_txtbox.Multiline = true;
             this.name_txtbox.Name = "name_txtbox";
-            this.name_txtbox.Size = new System.Drawing.Size(305, 30);
+            this.name_txtbox.Size = new System.Drawing.Size(456, 45);
             this.name_txtbox.TabIndex = 16;
             this.name_txtbox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -271,10 +260,9 @@
             // 
             this.unm.AutoSize = true;
             this.unm.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unm.Location = new System.Drawing.Point(350, 193);
-            this.unm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.unm.Location = new System.Drawing.Point(525, 302);
             this.unm.Name = "unm";
-            this.unm.Size = new System.Drawing.Size(144, 23);
+            this.unm.Size = new System.Drawing.Size(225, 37);
             this.unm.TabIndex = 17;
             this.unm.Text = "University Name :";
             this.unm.Click += new System.EventHandler(this.contact_Click);
@@ -282,11 +270,10 @@
             // unm_txtbx
             // 
             this.unm_txtbx.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unm_txtbx.Location = new System.Drawing.Point(504, 191);
-            this.unm_txtbx.Margin = new System.Windows.Forms.Padding(2);
+            this.unm_txtbx.Location = new System.Drawing.Point(756, 298);
             this.unm_txtbx.Multiline = true;
             this.unm_txtbx.Name = "unm_txtbx";
-            this.unm_txtbx.Size = new System.Drawing.Size(292, 28);
+            this.unm_txtbx.Size = new System.Drawing.Size(436, 42);
             this.unm_txtbx.TabIndex = 18;
             this.unm_txtbx.TextChanged += new System.EventHandler(this.contact_txtbx_TextChanged);
             // 
@@ -294,10 +281,9 @@
             // 
             this.eiin.AutoSize = true;
             this.eiin.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eiin.Location = new System.Drawing.Point(799, 193);
-            this.eiin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.eiin.Location = new System.Drawing.Point(1198, 302);
             this.eiin.Name = "eiin";
-            this.eiin.Size = new System.Drawing.Size(51, 23);
+            this.eiin.Size = new System.Drawing.Size(78, 37);
             this.eiin.TabIndex = 19;
             this.eiin.Text = "EIIN :";
             this.eiin.Click += new System.EventHandler(this.eiin_Click);
@@ -307,34 +293,64 @@
             this.dgvURmng.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvURmng.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvURmng.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvURmng.Location = new System.Drawing.Point(16, 230);
-            this.dgvURmng.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvURmng.Location = new System.Drawing.Point(24, 359);
             this.dgvURmng.Name = "dgvURmng";
             this.dgvURmng.RowHeadersWidth = 82;
             this.dgvURmng.RowTemplate.Height = 33;
             this.dgvURmng.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvURmng.Size = new System.Drawing.Size(914, 352);
+            this.dgvURmng.Size = new System.Drawing.Size(1371, 550);
             this.dgvURmng.TabIndex = 7;
             this.dgvURmng.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvURmng_CellContentClick);
             // 
             // eiin_txtbox
             // 
             this.eiin_txtbox.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eiin_txtbox.Location = new System.Drawing.Point(855, 189);
-            this.eiin_txtbox.Margin = new System.Windows.Forms.Padding(2);
+            this.eiin_txtbox.Location = new System.Drawing.Point(1282, 295);
             this.eiin_txtbox.Multiline = true;
             this.eiin_txtbox.Name = "eiin_txtbox";
-            this.eiin_txtbox.Size = new System.Drawing.Size(79, 30);
+            this.eiin_txtbox.Size = new System.Drawing.Size(116, 45);
             this.eiin_txtbox.TabIndex = 20;
             this.eiin_txtbox.TextChanged += new System.EventHandler(this.eiin_txtbox_TextChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(34, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 37);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Search  :";
+            // 
+            // unm_txt
+            // 
+            this.unm_txt.Location = new System.Drawing.Point(155, 184);
+            this.unm_txt.Multiline = true;
+            this.unm_txt.Name = "unm_txt";
+            this.unm_txt.Size = new System.Drawing.Size(381, 42);
+            this.unm_txt.TabIndex = 22;
+            this.unm_txt.TextChanged += new System.EventHandler(this.unm_txt_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(542, 194);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 32);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "( by  name )";
+            // 
             // UR_Management
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(953, 603);
+            this.ClientSize = new System.Drawing.Size(1430, 942);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.unm_txt);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.eiin_txtbox);
             this.Controls.Add(this.eiin);
             this.Controls.Add(this.unm_txtbx);
@@ -352,7 +368,6 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "UR_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -392,5 +407,8 @@
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Label AdminIDlabel;
         private System.Windows.Forms.Label Adminlabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox unm_txt;
+        private System.Windows.Forms.Label label4;
     }
 }
