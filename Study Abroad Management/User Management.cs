@@ -42,12 +42,12 @@ namespace Study_Abroad_Management
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            name_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            nty_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            id_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+            name_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+            nty_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Nationality"].Value.ToString();
             EmailtextBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-            gender.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            age_txtbx.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            gender.Text = dataGridView1.Rows[e.RowIndex].Cells["Gender"].Value.ToString();
+            age_txtbx.Text = dataGridView1.Rows[e.RowIndex].Cells["Age"].Value.ToString();
 
 
         }
@@ -213,12 +213,12 @@ namespace Study_Abroad_Management
                     return;
                 }
 
-                if (!ValidationClass.validName(nty_txtbox.Text))//be changed to validCountry
-                {
-                    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
-                    nty_txtbox.Focus();
-                    return;
-                }
+                //if (!ValidationClass.validName(nty_txtbox.Text))//be changed to validCountry
+                //{
+                //    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
+                //    nty_txtbox.Focus();
+                //    return;
+                //}
                 if (!ValidationClass.IsValidEmail(EmailtextBox1.Text))
                 {
                     MessageBox.Show("Enter a valid email format(eg: abc@gmail.com)");

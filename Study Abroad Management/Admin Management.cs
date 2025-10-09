@@ -70,13 +70,13 @@ namespace Study_Abroad_Management
         }
         private void dgvAdmTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[0].Value.ToString();
+            id_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["ID"].Value.ToString();
 
-            nm_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[1].Value.ToString();
-            addrs_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[2].Value.ToString();         
-            email_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[3].Value.ToString();
-            cntry.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[4].Value.ToString();
-            contact_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells[6].Value.ToString();
+            nm_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+            addrs_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Address"].Value.ToString();         
+            email_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+            cntry.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Country"].Value.ToString();
+            contact_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["ContactNumber"].Value.ToString();
            
         }
         private void id_Click(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace Study_Abroad_Management
 
                 //    if (!ValidationClass.validAddress(addrs_txtbx.Text))
                 //    {
-                //        MessageBox.Show("Please enter a validaddress. \n While updating address,clear the address text box first.");
+                //        MessageBox.Show("Please enter a valid address. \n While updating address,clear the address text box first.");
                 //        addrs_txtbx.Focus();
                 //        return;
                 //    }
@@ -144,6 +144,12 @@ namespace Study_Abroad_Management
                 //        cntry.Focus();
                 //        return;
                 //    }
+                //   if (!ValidationClass.validContactNumber(contact_txtbx.Text))
+                //    {
+                //        MessageBox.Show("Please enter a valid contact number (only digits are allowed and length should be 11). \n While updating contact number, clear the contact number text box first.");
+                //        contact_txtbx.Focus();
+                //        return;
+                //    }
 
                 if (conn.State != ConnectionState.Open)
                 {
@@ -154,8 +160,25 @@ namespace Study_Abroad_Management
                     SqlTransaction tx = conn.BeginTransaction();
                     try
                     {
-                        string query = "update AdminDetails set Name='" + nm_txtbx.Text + "',Address ='" + addrs_txtbx.Text + "', Email='" + email_txtbx.Text + " ',ContactNumber = '" + contact_txtbx.Text + "',Country='" + cntry.Text + "'  where ID='" + id_txtbx.Text + "'";
+                        //string query = "update AdminDetails set Name='" + nm_txtbx.Text + "',Address ='" + addrs_txtbx.Text + "', Email='" + email_txtbx.Text + " ',ContactNumber = '" + contact_txtbx.Text + "',Country='" + cntry.Text + "'  where ID='" + id_txtbx.Text + "'";
+                        //SqlCommand cmd = new SqlCommand(query, conn, tx);
+                        string query = @"UPDATE AdminDetails 
+                                          SET Name = @Name, 
+                                              Address = @Address, 
+                                              Email = @Email, 
+                                              ContactNumber = @ContactNumber, 
+                                              Country = @Country 
+                                              WHERE ID = @ID";
+
                         SqlCommand cmd = new SqlCommand(query, conn, tx);
+
+                        cmd.Parameters.AddWithValue("@Name", nm_txtbx.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Address", addrs_txtbx.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Email", email_txtbx.Text.Trim());
+                        cmd.Parameters.AddWithValue("@ContactNumber", contact_txtbx.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Country", cntry.Text.Trim());
+                        cmd.Parameters.AddWithValue("@ID", id_txtbx.Text.Trim());
+
                         int updateresult = cmd.ExecuteNonQuery();
                         if (updateresult > 0)
                         {
