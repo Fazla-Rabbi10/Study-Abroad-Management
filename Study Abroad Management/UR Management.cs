@@ -71,12 +71,12 @@ namespace Study_Abroad_Management
 
         private void dgvURmng_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["ID"].Value.ToString();
-            name_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["Name"].Value.ToString();
-            nty_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["Nationality"].Value.ToString();
-            email_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-            unm_txtbx.Text = dgvURmng.Rows[e.RowIndex].Cells["UniversityName"].Value.ToString();
-            eiin_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["EIIN"].Value.ToString();
+            id_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["ID"].Value.ToString().Trim();
+            name_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["Name"].Value.ToString().Trim();
+            nty_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["Nationality"].Value.ToString().Trim();
+            email_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["Email"].Value.ToString().Trim();
+            unm_txtbx.Text = dgvURmng.Rows[e.RowIndex].Cells["UniversityName"].Value.ToString().Trim();
+            eiin_txtbox.Text = dgvURmng.Rows[e.RowIndex].Cells["EIIN"].Value.ToString().Trim();
 
         }
 
@@ -101,36 +101,36 @@ namespace Study_Abroad_Management
                !String.IsNullOrWhiteSpace(email_txtbox.Text) && !String.IsNullOrWhiteSpace(unm_txtbx.Text)
                 && !String.IsNullOrWhiteSpace(eiin_txtbox.Text) && !String.IsNullOrWhiteSpace(id_txtbox.Text))
             {
-                //if (!ValidationClass.validName(name_txtbox.Text))
-                //{
-                //    MessageBox.Show("Please enter a valid name (only letters and spaces are allowed). \n While updating name, clear the name text box first.");
-                //    name_txtbox.Focus();
-                //    return;
-                //}
-                //if (!ValidationClass.IsValidEmail(email_txtbox.Text))
-                //{
-                //    MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com \n While updating email clear the email text box first.");
-                //    email_txtbox.Focus();
-                //    return;
-                //}
-                //if (!ValidationClass.validAge(eiin_txtbox.Text))
-                //{
-                //    MessageBox.Show("Please enter a valid EIIN . \n While updating EIIN, clear the EIIN text box first.");
-                //    eiin_txtbox.Focus();
-                //    return;
-                //}
-                //if (!ValidationClass.validName(nty_txtbox.Text))
-                //{
-                //    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
-                //    nty_txtbox.Focus();
-                //    return;
-                //}
-                //if (!ValidationClass.validName(unm_txtbx.Text))
-                //{
-                //    MessageBox.Show("Please enter a valid University name (only letters and spaces are allowed). \n While updating U.name, clear the U.name text box first.");
-                //    unm_txtbx.Focus();
-                //    return;
-                //}
+                if (!ValidationClass.validName(name_txtbox.Text))
+                {
+                    MessageBox.Show("Please enter a valid name (only letters and spaces are allowed). \n While updating name, clear the name text box first.");
+                    name_txtbox.Focus();
+                    return;
+                }
+                if (!ValidationClass.IsValidEmail(email_txtbox.Text))
+                {
+                    MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com \n While updating email clear the email text box first.");
+                    email_txtbox.Focus();
+                    return;
+                }
+                if (!ValidationClass.validateEIIN(eiin_txtbox.Text))
+                {
+                    MessageBox.Show("Please enter a valid EIIN. 6 digits");
+                    eiin_txtbox.Focus();
+                    return;
+                }
+                if (!ValidationClass.validName(nty_txtbox.Text))
+                {
+                    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
+                    nty_txtbox.Focus();
+                    return;
+                }
+                if (!ValidationClass.validUniversity(unm_txtbx.Text))
+                {
+                    MessageBox.Show("Please enter a valid University name (only letters and spaces are allowed). \n While updating U.name, clear the U.name text box first.");
+                    unm_txtbx.Focus();
+                    return;
+                }
 
                 if (conn.State != ConnectionState.Open)
                 {
@@ -157,8 +157,8 @@ namespace Study_Abroad_Management
                         cmd.Parameters.AddWithValue("@Nationality", nty_txtbox.Text.Trim());
                         cmd.Parameters.AddWithValue("@Email", email_txtbox.Text.Trim());
                         cmd.Parameters.AddWithValue("@UniversityName", unm_txtbx.Text.Trim());
-                        cmd.Parameters.AddWithValue("@EIIN", eiin_txtbox.Text.Trim());
-                        cmd.Parameters.AddWithValue("@ID", id_txtbox.Text.Trim());
+                        cmd.Parameters.AddWithValue("@EIIN", int.Parse(eiin_txtbox.Text.Trim()));
+                        cmd.Parameters.AddWithValue("@ID", int.Parse(id_txtbox.Text.Trim()));
 
                         int updateresult = cmd.ExecuteNonQuery();
                         if (updateresult > 0)

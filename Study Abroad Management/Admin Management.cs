@@ -72,11 +72,11 @@ namespace Study_Abroad_Management
         {
             id_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["ID"].Value.ToString();
 
-            nm_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Name"].Value.ToString();
-            addrs_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Address"].Value.ToString();         
-            email_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-            cntry.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Country"].Value.ToString();
-            contact_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["ContactNumber"].Value.ToString();
+            nm_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Name"].Value.ToString().Trim();
+            addrs_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Address"].Value.ToString().Trim();         
+            email_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Email"].Value.ToString().Trim();
+            cntry.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["Country"].Value.ToString().Trim();
+            contact_txtbx.Text = dgvAdmTbl.Rows[e.RowIndex].Cells["ContactNumber"].Value.ToString().Trim();
            
         }
         private void id_Click(object sender, EventArgs e)
@@ -117,39 +117,39 @@ namespace Study_Abroad_Management
                !String.IsNullOrWhiteSpace(contact_txtbx.Text) && !String.IsNullOrWhiteSpace(id_txtbx.Text))
             {
 
-                //    if (!ValidationClass.IsValidEmail(email_txtbx.Text))
-                //    {
-                //        MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com \n While updating email clear the email text box first.");
-                //        email_txtbx.Focus();
-                //        return;
-                //    }
+                if (!ValidationClass.IsValidEmail(email_txtbx.Text))
+                {
+                    MessageBox.Show("Please enter a valid email address. For example : abc@gmail.com \n While updating email clear the email text box first.");
+                    email_txtbx.Focus();
+                    return;
+                }
 
-                //    if (!ValidationClass.validAddress(addrs_txtbx.Text))
-                //    {
-                //        MessageBox.Show("Please enter a valid address. \n While updating address,clear the address text box first.");
-                //        addrs_txtbx.Focus();
-                //        return;
-                //    }
+                if (!ValidationClass.validAddress(addrs_txtbx.Text))
+                {
+                    MessageBox.Show("Please enter a valid address. \n While updating address,clear the address text box first.");
+                    addrs_txtbx.Focus();
+                    return;
+                }
 
-                //    if (!ValidationClass.validName(nm_txtbx.Text))
-                //    {
-                //        MessageBox.Show("Please enter a valid name (only letters and spaces are allowed). \n While updating name, clear the name text box first.");
-                //        nm_txtbx.Focus();
-                //        return;
-                //    }
+                if (!ValidationClass.validName(nm_txtbx.Text))
+                {
+                    MessageBox.Show("Please enter a valid name (only letters and spaces are allowed). \n While updating name, clear the name text box first.");
+                    nm_txtbx.Focus();
+                    return;
+                }
 
-                //    if (!ValidationClass.validName(cntry.Text))// be changed to validCountry
-                //    {
-                //        MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
-                //        cntry.Focus();
-                //        return;
-                //    }
-                //   if (!ValidationClass.validContactNumber(contact_txtbx.Text))
-                //    {
-                //        MessageBox.Show("Please enter a valid contact number (only digits are allowed and length should be 11). \n While updating contact number, clear the contact number text box first.");
-                //        contact_txtbx.Focus();
-                //        return;
-                //    }
+                if (!ValidationClass.validName(cntry.Text))// be changed to validCountry
+                {
+                    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
+                    cntry.Focus();
+                    return;
+                }
+                if (!ValidationClass.IsValidContactNumber(contact_txtbx.Text))
+                {
+                    MessageBox.Show("Please enter a valid contact number (only digits are allowed and length should be 11). \n While updating contact number, clear the contact number text box first.");
+                    contact_txtbx.Focus();
+                    return;
+                }
 
                 if (conn.State != ConnectionState.Open)
                 {
@@ -177,7 +177,7 @@ namespace Study_Abroad_Management
                         cmd.Parameters.AddWithValue("@Email", email_txtbx.Text.Trim());
                         cmd.Parameters.AddWithValue("@ContactNumber", contact_txtbx.Text.Trim());
                         cmd.Parameters.AddWithValue("@Country", cntry.Text.Trim());
-                        cmd.Parameters.AddWithValue("@ID", id_txtbx.Text.Trim());
+                        cmd.Parameters.AddWithValue("@ID", int.Parse(id_txtbx.Text.Trim()));
 
                         int updateresult = cmd.ExecuteNonQuery();
                         if (updateresult > 0)

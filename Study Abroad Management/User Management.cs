@@ -42,12 +42,12 @@ namespace Study_Abroad_Management
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString();
-            name_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
-            nty_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Nationality"].Value.ToString();
-            EmailtextBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-            gender.Text = dataGridView1.Rows[e.RowIndex].Cells["Gender"].Value.ToString();
-            age_txtbx.Text = dataGridView1.Rows[e.RowIndex].Cells["Age"].Value.ToString();
+            id_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString().Trim();
+            name_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString().Trim();
+            nty_txtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Nationality"].Value.ToString().Trim();
+            EmailtextBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["Email"].Value.ToString().Trim();
+            gender.Text = dataGridView1.Rows[e.RowIndex].Cells["Gender"].Value.ToString().Trim();
+            age_txtbx.Text = dataGridView1.Rows[e.RowIndex].Cells["Age"].Value.ToString().Trim();
 
 
         }
@@ -213,12 +213,12 @@ namespace Study_Abroad_Management
                     return;
                 }
 
-                //if (!ValidationClass.validName(nty_txtbox.Text))//be changed to validCountry
-                //{
-                //    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
-                //    nty_txtbox.Focus();
-                //    return;
-                //}
+                if (!ValidationClass.validName(nty_txtbox.Text))//validName made for both country and name validation
+                {
+                    MessageBox.Show("Please enter a valid country name (only letters and spaces are allowed).");
+                    nty_txtbox.Focus();
+                    return;
+                }
                 if (!ValidationClass.IsValidEmail(EmailtextBox1.Text))
                 {
                     MessageBox.Show("Enter a valid email format(eg: abc@gmail.com)");
@@ -249,8 +249,8 @@ namespace Study_Abroad_Management
                         cmd.Parameters.AddWithValue("@Nationality", nty_txtbox.Text);
                         cmd.Parameters.AddWithValue("@Email", EmailtextBox1.Text);
                         cmd.Parameters.AddWithValue("@Gender", gender.Text);
-                        cmd.Parameters.AddWithValue("@Age", age_txtbx.Text);
-                        cmd.Parameters.AddWithValue("@ID", id_txtbox.Text);
+                        cmd.Parameters.AddWithValue("@Age", int.Parse(age_txtbx.Text));
+                        cmd.Parameters.AddWithValue("@ID", int.Parse(id_txtbox.Text));
 
                         int updateresult = cmd.ExecuteNonQuery();
                         
