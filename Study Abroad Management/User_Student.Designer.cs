@@ -42,6 +42,7 @@
             this.Exit_button2 = new System.Windows.Forms.Button();
             this.Clear_button1 = new System.Windows.Forms.Button();
             this.Course_Detail_button1 = new System.Windows.Forms.Button();
+            this.refreshbuttonstudent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.for_apply_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -218,11 +219,26 @@
             this.Course_Detail_button1.UseVisualStyleBackColor = false;
             this.Course_Detail_button1.Click += new System.EventHandler(this.Course_Detail_button1_Click);
             // 
+            // refreshbuttonstudent
+            // 
+            this.refreshbuttonstudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.refreshbuttonstudent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.refreshbuttonstudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshbuttonstudent.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.refreshbuttonstudent.Location = new System.Drawing.Point(320, 86);
+            this.refreshbuttonstudent.Name = "refreshbuttonstudent";
+            this.refreshbuttonstudent.Size = new System.Drawing.Size(108, 29);
+            this.refreshbuttonstudent.TabIndex = 70;
+            this.refreshbuttonstudent.Text = "Refresh";
+            this.refreshbuttonstudent.UseVisualStyleBackColor = false;
+            this.refreshbuttonstudent.Click += new System.EventHandler(this.refreshbuttonstudent_Click);
+            // 
             // User_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 726);
+            this.Controls.Add(this.refreshbuttonstudent);
             this.Controls.Add(this.Course_Detail_button1);
             this.Controls.Add(this.Clear_button1);
             this.Controls.Add(this.Exit_button2);
@@ -263,5 +279,6 @@
         private System.Windows.Forms.Button Exit_button2;
         private System.Windows.Forms.Button Clear_button1;
         private System.Windows.Forms.Button Course_Detail_button1;
+        private System.Windows.Forms.Button refreshbuttonstudent;
     }
 }

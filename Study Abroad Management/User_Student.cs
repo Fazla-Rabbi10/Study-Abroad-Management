@@ -56,8 +56,7 @@ namespace Study_Abroad_Management
             Studentlabel.Text = "Welcome, " + stduentName;
             StudentIDlabel.Text = "ID: " + studnetID;
         }
-
-        private void Student_Show_button_Click(object sender, EventArgs e)
+        void __Show() 
         {
             try
             {
@@ -94,6 +93,33 @@ namespace Study_Abroad_Management
                     con.Close();
                 }
             }
+        }
+
+        internal void cleann() 
+        {
+
+             CourseName = null;
+             CourseCode = null;
+            UniversityName = null;
+             Country = null;
+             CourseDuration = null;
+             DegreeType = null;
+             IELTS = null;
+             GRE = null;
+             SAT = null;
+             TutionFee = null;
+             MaxScholarship = null;
+             Intake = null;
+             ApplicationDeadline = null;
+             StudyMode = null;
+
+        }
+
+
+
+        private void Student_Show_button_Click(object sender, EventArgs e)
+        {
+            __Show();
 
         }
 
@@ -260,10 +286,14 @@ namespace Study_Abroad_Management
                             if (resultApply > 0)
                             {
                                 MessageBox.Show("Application Submitted Successfully");
+                                __Show();
+                                cleann();
                             }
                             else
                             {
                                 MessageBox.Show("Application Submission Failed");
+                                __Show();
+                                cleann();
                             }
                         }
 
@@ -272,6 +302,8 @@ namespace Study_Abroad_Management
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        __Show();
+                        cleann();
                     }
                     finally
                     {
@@ -419,6 +451,11 @@ namespace Study_Abroad_Management
             }
 
 
+        }
+
+        private void refreshbuttonstudent_Click(object sender, EventArgs e)
+        {
+            __Show();
         }
     }
 }

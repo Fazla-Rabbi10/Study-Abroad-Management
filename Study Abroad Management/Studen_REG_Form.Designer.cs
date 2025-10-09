@@ -92,7 +92,6 @@
             this.std_email_textBox.Name = "std_email_textBox";
             this.std_email_textBox.Size = new System.Drawing.Size(121, 22);
             this.std_email_textBox.TabIndex = 1;
-            this.std_email_textBox.Text = "abc@gmail.com";
             this.std_email_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.std_email_textBox.TextChanged += new System.EventHandler(this.std_email_textBox_TextChanged);
             this.std_email_textBox.Leave += new System.EventHandler(this.std_email_textBox_Leave);

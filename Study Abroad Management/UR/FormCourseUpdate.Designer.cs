@@ -98,6 +98,7 @@
             // 
             // panel2
             // 
+            this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.txtCourseCode);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtCourseName);
@@ -786,6 +787,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

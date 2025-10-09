@@ -98,7 +98,6 @@
             this.UR_EIIN_textBox.Name = "UR_EIIN_textBox";
             this.UR_EIIN_textBox.Size = new System.Drawing.Size(100, 22);
             this.UR_EIIN_textBox.TabIndex = 6;
-            this.UR_EIIN_textBox.Text = "6 Digits";
             this.UR_EIIN_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.UR_EIIN_textBox.TextChanged += new System.EventHandler(this.UR_EIIN_textBox_TextChanged);
             this.UR_EIIN_textBox.Leave += new System.EventHandler(this.UR_EIIN_textBox_Leave);
@@ -119,7 +118,6 @@
             this.UR_email_textBox.Name = "UR_email_textBox";
             this.UR_email_textBox.Size = new System.Drawing.Size(121, 22);
             this.UR_email_textBox.TabIndex = 1;
-            this.UR_email_textBox.Text = "abc@gmail.com";
             this.UR_email_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.UR_email_textBox.TextChanged += new System.EventHandler(this.UR_email_textBox_TextChanged);
             this.UR_email_textBox.Leave += new System.EventHandler(this.UR_email_textBox_Leave);

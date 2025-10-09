@@ -154,7 +154,6 @@
             this.ad_email_textBox.Name = "ad_email_textBox";
             this.ad_email_textBox.Size = new System.Drawing.Size(121, 22);
             this.ad_email_textBox.TabIndex = 1;
-            this.ad_email_textBox.Text = "abc@gmail.com";
             this.ad_email_textBox.TextChanged += new System.EventHandler(this.ad_email_textBox_TextChanged);
             this.ad_email_textBox.Leave += new System.EventHandler(this.ad_email_textBox_Leave);
             // 
@@ -302,13 +301,13 @@
             this.ad_count_comboBox.Name = "ad_count_comboBox";
             this.ad_count_comboBox.Size = new System.Drawing.Size(121, 24);
             this.ad_count_comboBox.TabIndex = 4;
-            this.ad_count_comboBox.SelectedIndexChanged += new System.EventHandler(this.ad_count_comboBox_SelectedIndexChanged);
+            this.ad_count_comboBox.TextChanged += new System.EventHandler(this.ad_count_comboBox_TextChanged);
             this.ad_count_comboBox.Leave += new System.EventHandler(this.ad_count_comboBox_Leave);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 352);
+            this.label2.Location = new System.Drawing.Point(70, 352);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 38;
@@ -319,7 +318,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 208);
+            this.label1.Location = new System.Drawing.Point(244, 208);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 39;
@@ -330,7 +329,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 286);
+            this.label3.Location = new System.Drawing.Point(116, 286);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 16);
             this.label3.TabIndex = 40;
