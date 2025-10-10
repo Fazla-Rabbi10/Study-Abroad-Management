@@ -33,6 +33,7 @@
             this.btnReject = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.appliocationstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequestedStudentDetails = new System.Windows.Forms.DataGridViewButtonColumn();
             this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.universityname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +60,7 @@
             this.dgvApplicationStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvApplicationStatus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.appliocationstatus,
+            this.RequestedStudentDetails,
             this.coursename,
             this.coursecode,
             this.universityname,
@@ -137,6 +139,14 @@
             this.appliocationstatus.Name = "appliocationstatus";
             this.appliocationstatus.ReadOnly = true;
             this.appliocationstatus.Width = 125;
+            // 
+            // RequestedStudentDetails
+            // 
+            this.RequestedStudentDetails.HeaderText = "";
+            this.RequestedStudentDetails.MinimumWidth = 6;
+            this.RequestedStudentDetails.Name = "RequestedStudentDetails";
+            this.RequestedStudentDetails.ReadOnly = true;
+            this.RequestedStudentDetails.Width = 125;
             // 
             // coursename
             // 
@@ -294,6 +304,7 @@
         private System.Windows.Forms.Button btnReject;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn appliocationstatus;
+        private System.Windows.Forms.DataGridViewButtonColumn RequestedStudentDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn coursename;
         private System.Windows.Forms.DataGridViewTextBoxColumn coursecode;
         private System.Windows.Forms.DataGridViewTextBoxColumn universityname;

@@ -13,15 +13,22 @@ namespace Study_Abroad_Management.UR
     public partial class CourseDetailsControl : UserControl
     {
         DataAccess Da {  get; set; }
-        public CourseDetailsControl()
+        internal int URID { get; set; }
+        public CourseDetailsControl(int urID)
         {
             InitializeComponent();
+
+            this.URID = urID;
             this.Da = new DataAccess();
             this.PopulateGridView();
         }
 
-        internal void PopulateGridView(string sql = "select * from URDashboard;")
+        internal void PopulateGridView(string sql = "")
         {
+            if (string.IsNullOrEmpty(sql))
+            {
+                sql = $"select * from URDashboard where URID = {this.URID};";
+            }
             try 
             { 
                 dgvCourseDetails.EnableHeadersVisualStyles = false;
@@ -36,7 +43,11 @@ namespace Study_Abroad_Management.UR
                 }
                 else
                 {
-                    this.lblFoundIndicator.Visible  = true;
+                    //this.lblFoundIndicator.Visible  = true;
+
+                    this.dgvCourseDetails.DataSource = null;
+                    this.lblFoundIndicator.Visible = true;
+                    this.lblFoundIndicator.BringToFront();
                 }
             }
             catch (Exception ex)
@@ -49,16 +60,16 @@ namespace Study_Abroad_Management.UR
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM URDashboard WHERE CourseCode = '" + this.txtCourseCode.Text + "'";
-
+            string sql = $"SELECT * FROM URDashboard WHERE URID = {this.URID} AND CourseCode = '{this.txtCourseCode.Text.Trim()}'";
             this.PopulateGridView(sql);
         }
 
         private void txtCourseCode_TextChanged(object sender, EventArgs e)
         {
-            string sql = $"SELECT * FROM URDashboard WHERE CourseCode LIKE '%{this.txtCourseCode.Text}%'";
+            string sql = $"SELECT * FROM URDashboard WHERE URID = {this.URID} AND CourseCode LIKE '{this.txtCourseCode.Text}%'";
             this.PopulateGridView(sql);
         }
+
 
         //private void btnDelete_Click(object sender, EventArgs e)
         //{
@@ -67,7 +78,7 @@ namespace Study_Abroad_Management.UR
         //        //counter dite hobe
 
         //        string courseCode = this.dgvCourseDetails.SelectedCells[1].Value.ToString();
-                
+
         //        var sql = $@"delete URDashboard where CourseCode = '{courseCode}';";
 
 

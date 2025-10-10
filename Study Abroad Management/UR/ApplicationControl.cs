@@ -13,16 +13,28 @@ namespace Study_Abroad_Management.UR
     public partial class ApplicationControl : UserControl
     {
         private DataAccess Da { get; set; }
+        internal int URID { get; set; }
 
-        public ApplicationControl()
+        public ApplicationControl(int uRID)
         {
             InitializeComponent();
+
+            URID = uRID;
             this.Da = new DataAccess();
             this.PopulateGridView();
         }
 
-        internal void PopulateGridView(string sql = "SELECT * FROM ApplicationStatus;")
+        internal void PopulateGridView(string sql = "")
         {
+            if (string.IsNullOrEmpty(sql))
+            {
+                sql = $@"SELECT a.* 
+                         FROM ApplicationStatus a
+                         INNER JOIN URDashboard d
+                         ON a.CourseCode = d.CourseCode
+                         WHERE d.URID = {this.URID};";
+
+            }
             try
             {
                 dgvApplicationStatus.EnableHeadersVisualStyles = false;

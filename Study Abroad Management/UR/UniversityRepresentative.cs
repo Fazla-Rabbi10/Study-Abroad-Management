@@ -59,13 +59,13 @@ namespace Study_Abroad_Management.UR
 
         private void btnCourseDetails_Click(object sender, EventArgs e)
         {
-            CourseDetailsControl courseDetailsControl = new CourseDetailsControl();
+            CourseDetailsControl courseDetailsControl = new CourseDetailsControl(this.URID);
             this.AddUserControl(courseDetailsControl);
         }
 
         private void btnApplication_Click(object sender, EventArgs e)
         {
-            ApplicationControl applicationControl = new ApplicationControl();
+            ApplicationControl applicationControl = new ApplicationControl(this.URID);
             this.AddUserControl(applicationControl);
         }
 
