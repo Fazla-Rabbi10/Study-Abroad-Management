@@ -135,19 +135,19 @@ namespace Study_Abroad_Management
 
                         if (resultLogin > 0)
                         {
-                            MessageBox.Show("Sign Up Successful");
+                            MessageBox.Show("Admin added Successfully");
                             DialogResult drr = MessageBox.Show("This is Your ID For Log In : "+newId.ToString() +"\n Please Remember Your ID", "Your ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             if (drr == DialogResult.OK)
                             {
-                                Log_In_Form log = new Log_In_Form();
-                                log.Show();
+                                Admin_Management adlog = new Admin_Management();
+                                adlog.Show();
                                 this.Hide();
                             }
                             
                         }
                         else
                         {
-                            MessageBox.Show("Sign Up Failed");
+                            MessageBox.Show("Adding admin task Failed");
                         }
                     }
                     catch (Exception ex)
