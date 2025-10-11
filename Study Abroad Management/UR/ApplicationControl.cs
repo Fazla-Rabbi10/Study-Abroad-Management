@@ -76,6 +76,7 @@ namespace Study_Abroad_Management.UR
 
                 var selectedRow = dgvApplicationStatus.SelectedRows[0];
                 var id = selectedRow.Cells[15].Value;
+                var courseCode = selectedRow.Cells[2].Value;
                 var currentStatus = selectedRow.Cells[0].Value.ToString();
 
                 if (currentStatus != "Pending")
@@ -86,7 +87,7 @@ namespace Study_Abroad_Management.UR
 
                 string sql = $@"UPDATE ApplicationStatus
                                 SET ApplicationStatus = '{newStatus}'
-                                WHERE StudentId = {id};";
+                                WHERE StudentId = {id} AND CourseId = {courseCode};";
 
                 int count = Da.ExecuteDMLQuery(sql);
 
