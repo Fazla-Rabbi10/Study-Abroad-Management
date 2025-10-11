@@ -26,7 +26,7 @@ namespace Study_Abroad_Management
         private void admin_submit_button_Click(object sender, EventArgs e)
            
         {
-            // 1) Basic validation (ID check removed)
+            // Basic validation check 
             if (!string.IsNullOrWhiteSpace(ad_name_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(Ad_Address_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(ad_email_textBox.Text) &&
@@ -91,7 +91,7 @@ namespace Study_Abroad_Management
 
                     try
                     {
-                        // === A) INSERT into AdminDetails + capture new ID ===
+                       
                         // Explicit columns use korsi jate column-order mismatch na hoy
                         string insertAdmin =
                             "INSERT INTO AdminDetails (Name, Address, Email, Country, Gender, ContactNumber, Password) " +
@@ -111,11 +111,10 @@ namespace Study_Abroad_Management
                         // capture new identity
                         int newId = Convert.ToInt32(cmdAdmin.ExecuteScalar());
 
-                        // Optional: show captured ID on the form (if you want)
+                        
                         
 
-                        // === B) INSERT into LoginTable using captured ID ===
-                        // Columns: ID, Name, Role, Password, Status(=0)
+                        
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
                             "VALUES (@ID, @Name, @Role, @Password, @Status);";
@@ -133,7 +132,7 @@ namespace Study_Abroad_Management
                         // 4) Both success → commit
                         tx.Commit();
 
-                        if (resultLogin > 0)
+                        if (resultLogin == 1)
                         {
                             MessageBox.Show("Admin added Successfully");
                             DialogResult drr = MessageBox.Show("This is Your ID For Log In : "+newId.ToString() +"\n Please Remember Your ID", "Your ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -241,8 +240,8 @@ namespace Study_Abroad_Management
 
                 this.ad_gender_comboBox.Items.Add("Male");
                 this.ad_gender_comboBox.Items.Add("Female");
-                
-              
+
+
 
 
                 label1.Visible = false;
