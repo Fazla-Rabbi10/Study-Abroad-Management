@@ -103,11 +103,7 @@ namespace Study_Abroad_Management
                         // capture new identity
                         int newId = Convert.ToInt32(cmdStudent.ExecuteScalar());
 
-                        // Optional: show captured ID on the form (if you want)
-
-
-                        // === B) INSERT into LoginTable using captured ID ===
-                        // Columns: ID, Name, Role, Password, Status(=0)
+                        
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
                             "VALUES(@ID, @name, @role, @password, @status); ";
@@ -123,10 +119,10 @@ namespace Study_Abroad_Management
                         
                         int resultLogin = cmdLogin.ExecuteNonQuery();
 
-                        // 4) Both success → commit
+                        //  Both success → commit
                         tx.Commit();
 
-                        if (resultLogin > 0)
+                        if (resultLogin == 1)
                         {
                             MessageBox.Show("Sign Up Successful");
                             DialogResult drr = MessageBox.Show("This is Your ID For Log In : " + newId.ToString() + "\n Please Remeber Your ID", "Your ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -184,7 +180,7 @@ namespace Study_Abroad_Management
                 std_name_textBox.Clear();
                stdage_textBox.Clear();
                 std_email_textBox.Clear();
-                Std_count_comboBox.Items.Clear();
+                
                 Std_count_comboBox.Text = "";
                 std_gender_comboBox.Items.Clear();
                 std_pass_textBox.Clear();
@@ -193,29 +189,29 @@ namespace Study_Abroad_Management
 
                 std_gender_comboBox.Items.Add("Male");
                 std_gender_comboBox.Items.Add("Female");
-                
-               
-                
-                Std_count_comboBox.Items.Add("United States");
-                Std_count_comboBox.Items.Add("India");
-                Std_count_comboBox.Items.Add("Canada");
-                Std_count_comboBox.Items.Add("Australia");
-                Std_count_comboBox.Items.Add("Bangladesh");
-                Std_count_comboBox.Items.Add("United Kingdom");
-                Std_count_comboBox.Items.Add("Japan");
-                Std_count_comboBox.Items.Add("Germany");
-                Std_count_comboBox.Items.Add("Brazil");
-                Std_count_comboBox.Items.Add("France");
-                Std_count_comboBox.Items.Add("Italy");
-                Std_count_comboBox.Items.Add("Russia");
-                Std_count_comboBox.Items.Add("China");
-                Std_count_comboBox.Items.Add("Mexico");
-                Std_count_comboBox.Items.Add("South Korea");
-                Std_count_comboBox.Items.Add("Spain");
-                Std_count_comboBox.Items.Add("Saudi Arabia");
-                Std_count_comboBox.Items.Add("Argentina");
-                Std_count_comboBox.Items.Add("South Africa");
-                Std_count_comboBox.Items.Add("Egypt");
+
+
+
+                //Std_count_comboBox.Items.Add("United States");
+                //Std_count_comboBox.Items.Add("India");
+                //Std_count_comboBox.Items.Add("Canada");
+                //Std_count_comboBox.Items.Add("Australia");
+                //Std_count_comboBox.Items.Add("Bangladesh");
+                //Std_count_comboBox.Items.Add("United Kingdom");
+                //Std_count_comboBox.Items.Add("Japan");
+                //Std_count_comboBox.Items.Add("Germany");
+                //Std_count_comboBox.Items.Add("Brazil");
+                //Std_count_comboBox.Items.Add("France");
+                //Std_count_comboBox.Items.Add("Italy");
+                //Std_count_comboBox.Items.Add("Russia");
+                //Std_count_comboBox.Items.Add("China");
+                //Std_count_comboBox.Items.Add("Mexico");
+                //Std_count_comboBox.Items.Add("South Korea");
+                //Std_count_comboBox.Items.Add("Spain");
+                //Std_count_comboBox.Items.Add("Saudi Arabia");
+                //Std_count_comboBox.Items.Add("Argentina");
+                //Std_count_comboBox.Items.Add("South Africa");
+                //Std_count_comboBox.Items.Add("Egypt");
 
                 label1.Visible = false;
                 label2.Visible = false;

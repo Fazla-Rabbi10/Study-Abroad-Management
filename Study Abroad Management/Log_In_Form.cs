@@ -70,7 +70,7 @@ namespace Study_Abroad_Management
             {
                 con.Open();
             }
-            else if (con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
                 Studen_REG_Form srf = new Studen_REG_Form();
                 srf.Show();
@@ -124,7 +124,7 @@ namespace Study_Abroad_Management
                                 Admin_Pannel a = new Admin_Pannel();
                                 a.Show();
                                 this.Hide();
-                                this.Clear();
+                                this.__Clear();
                             }
                             else if (dt.Rows[0][2].ToString() == "UR")
                             {
@@ -140,7 +140,7 @@ namespace Study_Abroad_Management
                                 MessageBox.Show("Login Successful as Student");
                                 new User_Student().Show();
                                 this.Hide();
-                                this.Clear();
+                                this.__Clear();
                             }
 
                         }
@@ -174,7 +174,7 @@ namespace Study_Abroad_Management
             con.Close();
         }
 
-        private void Clear()
+        private void __Clear()
         {
             this.LG_ID_textBox.Clear();
             Lg_Password_textBox2.Clear();
@@ -188,8 +188,9 @@ namespace Study_Abroad_Management
             }
             if (con.State == ConnectionState.Open)
             {
-                LG_ID_textBox.Clear();
-                Lg_Password_textBox2.Clear();
+                //LG_ID_textBox.Clear();
+                //Lg_Password_textBox2.Clear();
+                __Clear();
                 LG_ID_textBox.Focus();
                 if (this.UR_button.Visible == true &&
                    this.Student_button.Visible == true)

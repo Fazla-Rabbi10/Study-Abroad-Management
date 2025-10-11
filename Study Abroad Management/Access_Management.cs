@@ -154,7 +154,7 @@ namespace Study_Abroad_Management
         private void Admin_access_button_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(Userid.ToString()) &&
-                !String.IsNullOrWhiteSpace(Userid.ToString()))
+                !String.IsNullOrWhiteSpace(Userid.ToString()) && Userid != 0)
             {
                 try
                 {
@@ -203,7 +203,7 @@ namespace Study_Abroad_Management
                             MessageBox.Show("Please select a user from the table.");
                         }
                         //grid table theke kichu select na kore access dile ei line execute hobe,
-                        //bak else er messagebox gula dekhabe na karon rows count 1 hocche na.
+                        //baki else er messagebox gula dekhabe na karon rows count 1 hocche na.
                     }
                     else
                     {
@@ -276,7 +276,7 @@ namespace Study_Abroad_Management
         private void Seize_button_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(Userid.ToString()) &&
-                !String.IsNullOrWhiteSpace(Userid.ToString()))
+                !String.IsNullOrWhiteSpace(Userid.ToString()) && Userid != 0)
             {
                 try
                 {
@@ -369,6 +369,7 @@ namespace Study_Abroad_Management
                 Admin_Search_TextBox.Clear();
                 Admin_Search_TextBox.Focus();
                 Userid = 0;
+
             }
             else
             {

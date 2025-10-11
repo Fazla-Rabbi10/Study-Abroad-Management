@@ -24,7 +24,7 @@ namespace Study_Abroad_Management
 
         private void UR_submit_button_Click(object sender, EventArgs e)
         {
-            // 1) Basic validation (ID check removed)
+            // 1) Basic validation 
             if (!string.IsNullOrWhiteSpace(UR_name_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(UR_university_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(UR_email_textBox.Text) &&
@@ -81,7 +81,7 @@ namespace Study_Abroad_Management
                     return;
                 }
 
-                // 2) Open connection
+                
                 if (con.State != ConnectionState.Open)
                 {
                     con.Open();
@@ -89,12 +89,12 @@ namespace Study_Abroad_Management
 
                 if (con.State == ConnectionState.Open)
                 {
-                    // 3) Begin transaction
+                    //  Begin transaction
                     SqlTransaction tx = con.BeginTransaction();
 
                     try
                     {
-                        // === A) INSERT into AdminDetails + capture new ID ===
+                        
                         // Explicit columns use korsi jate column-order mismatch na hoy
                         string insertUR =
                             "INSERT INTO URDetails (Name, Nationality, Gender, Email, UniversityName, EIIN, Password) " +
@@ -114,11 +114,10 @@ namespace Study_Abroad_Management
                         // capture new identity
                         int newId = Convert.ToInt32(cmdUR.ExecuteScalar());
 
-                        // Optional: show captured ID on the form (if you want)
+                        
 
 
-                        // === B) INSERT into LoginTable using captured ID ===
-                        // Columns: ID, Name, Role, Password, Status(=0)
+                        
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
                             "VALUES(@ID, @name, @role, @password, @status)";
@@ -134,7 +133,7 @@ namespace Study_Abroad_Management
                         // 4) Both success → commit
                         tx.Commit();
 
-                        if (resultLogin > 0)
+                        if (resultLogin == 1)
                         {
                             MessageBox.Show("Sign Up Successful");
                             DialogResult drr = MessageBox.Show("This is Your ID For Log In : " + newId.ToString() + "\n Please Remeber Your ID", "Your ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -188,8 +187,11 @@ namespace Study_Abroad_Management
                
                 this.UR_count_comboBox.Text = "";
                 
-                this.UR_gender_comboBox.Text = "";
+                this.UR_gender_comboBox.Items.Clear();
                 
+                UR_gender_comboBox.Items.Add("Male");
+                UR_gender_comboBox.Items.Add("Female");
+
                 this.UR_EIIN_textBox.Clear();
                 this.UR_pass_textBox.Clear();
                

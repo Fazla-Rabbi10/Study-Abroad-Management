@@ -26,7 +26,7 @@ namespace Study_Abroad_Management
         private void admin_submit_button_Click(object sender, EventArgs e)
            
         {
-            // 1) Basic validation (ID check removed)
+            // Basic validation check 
             if (!string.IsNullOrWhiteSpace(ad_name_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(Ad_Address_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(ad_email_textBox.Text) &&
@@ -91,7 +91,7 @@ namespace Study_Abroad_Management
 
                     try
                     {
-                        // === A) INSERT into AdminDetails + capture new ID ===
+                       
                         // Explicit columns use korsi jate column-order mismatch na hoy
                         string insertAdmin =
                             "INSERT INTO AdminDetails (Name, Address, Email, Country, Gender, ContactNumber, Password) " +
@@ -111,11 +111,10 @@ namespace Study_Abroad_Management
                         // capture new identity
                         int newId = Convert.ToInt32(cmdAdmin.ExecuteScalar());
 
-                        // Optional: show captured ID on the form (if you want)
+                        
                         
 
-                        // === B) INSERT into LoginTable using captured ID ===
-                        // Columns: ID, Name, Role, Password, Status(=0)
+                        
                         string insertLogin =
                             "INSERT INTO loginTable (ID, name, role, password, status) " +
                             "VALUES (@ID, @Name, @Role, @Password, @Status);";
@@ -133,21 +132,21 @@ namespace Study_Abroad_Management
                         // 4) Both success → commit
                         tx.Commit();
 
-                        if (resultLogin > 0)
+                        if (resultLogin == 1)
                         {
-                            MessageBox.Show("Sign Up Successful");
+                            MessageBox.Show("Admin added Successfully");
                             DialogResult drr = MessageBox.Show("This is Your ID For Log In : "+newId.ToString() +"\n Please Remember Your ID", "Your ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             if (drr == DialogResult.OK)
                             {
-                                Log_In_Form log = new Log_In_Form();
-                                log.Show();
+                                Admin_Management adlog = new Admin_Management();
+                                adlog.Show();
                                 this.Hide();
                             }
                             
                         }
                         else
                         {
-                            MessageBox.Show("Sign Up Failed");
+                            MessageBox.Show("Adding admin task Failed");
                         }
                     }
                     catch (Exception ex)
@@ -232,7 +231,7 @@ namespace Study_Abroad_Management
                 this.ad_name_textBox.Clear();
                 this.Ad_Address_textBox.Clear();
                 this.ad_email_textBox.Clear();
-                this.ad_count_comboBox.Items.Clear();
+                this.ad_count_comboBox.Text = "";
                 this.ad_gender_comboBox.Items.Clear();
                 this.contact_textBox.Clear();
                 this.Ad_pass_textBox.Clear();
@@ -241,27 +240,8 @@ namespace Study_Abroad_Management
 
                 this.ad_gender_comboBox.Items.Add("Male");
                 this.ad_gender_comboBox.Items.Add("Female");
-                
-                this.ad_count_comboBox.Items.Add("United States");
-                this.ad_count_comboBox.Items.Add("India");
-                this.ad_count_comboBox.Items.Add("Canada");
-                this.ad_count_comboBox.Items.Add("Australia");
-                this.ad_count_comboBox.Items.Add("Bangladesh");  
-                this.ad_count_comboBox.Items.Add("United Kingdom");  
-                this.ad_count_comboBox.Items.Add("Japan");
-                this.ad_count_comboBox.Items.Add("Germany");
-                this.ad_count_comboBox.Items.Add("Brazil");
-                this.ad_count_comboBox.Items.Add("France");
-                this.ad_count_comboBox.Items.Add("Italy");
-                this.ad_count_comboBox.Items.Add("Russia");
-                this.ad_count_comboBox.Items.Add("China");
-                this.ad_count_comboBox.Items.Add("Mexico");
-                this.ad_count_comboBox.Items.Add("South Korea");
-                this.ad_count_comboBox.Items.Add("Spain");
-                this.ad_count_comboBox.Items.Add("Saudi Arabia");
-                this.ad_count_comboBox.Items.Add("Argentina");
-                this.ad_count_comboBox.Items.Add("South Africa");
-                this.ad_count_comboBox.Items.Add("Egypt");
+
+
 
 
                 label1.Visible = false;
@@ -288,9 +268,18 @@ namespace Study_Abroad_Management
 
             ad_email_textBox.ForeColor = Color.Black;
 
-            label4.Visible = true;
-            label4.ForeColor = Color.Red;
-            label4.Text = "email should follow the fromat in text box";
+            if (!ValidationClass.IsValidEmail(ad_email_textBox.Text))
+            {
+                label4.Visible = true;
+                label4.ForeColor = Color.Red;
+                label4.Text = "email should follow a valid format(eg; abc@gmail.com)";
+            }
+            else 
+            {
+                label4.Visible = true;
+                label4.ForeColor = Color.Green;
+                label4.Text = "email should follow a valid format(eg; abc@gmail.com)";
+            }
 
         }
 
@@ -301,9 +290,18 @@ namespace Study_Abroad_Management
 
         private void Ad_pass_textBox_TextChanged(object sender, EventArgs e)
         {
-            label2.Visible = true;
-            label2.ForeColor = Color.Red;
-            label2.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+           if (!ValidationClass.validPassword(Ad_pass_textBox.Text))
+            {
+                label2.Visible = true;
+                label2.ForeColor = Color.Red;
+                label2.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+            }
+            else
+            {
+                label2.Visible = true;
+                label2.ForeColor = Color.Green;
+                label2.Text = "Password must be exactly 6 characters long and can contain only letters, digits, and underscores.";
+            }
         }
 
         private void ad_name_textBox_Leave(object sender, EventArgs e)
@@ -313,9 +311,18 @@ namespace Study_Abroad_Management
 
         private void ad_name_textBox_TextChanged(object sender, EventArgs e)
         {
-            label1.Visible = true;
-            label1.ForeColor = Color.Red;
-            label1.Text = "Name should contain only letters and spaces";
+            if (!ValidationClass.validName(ad_name_textBox.Text))
+            {
+                label1.Visible = true;
+                label1.ForeColor = Color.Red;
+                label1.Text = "Name can contain only letters and spaces";
+            }
+            else
+            {
+                label1.Visible = true;
+                label1.ForeColor = Color.Green;
+                label1.Text = "Name can contain only letters and spaces";
+            }
         }
 
         private void ad_email_textBox_Leave(object sender, EventArgs e)
@@ -330,21 +337,23 @@ namespace Study_Abroad_Management
 
         private void Ad_Address_textBox_TextChanged(object sender, EventArgs e)
         {
-            label3.Visible= true;
-            label3.ForeColor = Color.Red;
-            label3.Text = "Address can contain letters, numbers, spaces, commas, periods, and hyphens only.";
+            if (!ValidationClass.validAddress(Ad_Address_textBox.Text))
+            {
+                label3.Visible = true;
+                label3.ForeColor = Color.Red;
+                label3.Text = "Address can contain only letters, numbers, spaces, commas, periods, and hyphens";
+            }
+            else
+            {
+                label3.Visible = true;
+                label3.ForeColor = Color.Green;
+                label3.Text = "Address can contain only letters, numbers, spaces, commas, periods, and hyphens";
+            }
         }
 
         private void ad_count_comboBox_Leave(object sender, EventArgs e)
         {
             label5.Visible = false;
-        }
-
-        private void ad_count_comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            label5.Visible = true;
-            label5.ForeColor = Color.Red;
-            label5.Text = "Country name can contain only letters and spaces";
         }
 
         private void contact_textBox_Leave(object sender, EventArgs e)
@@ -354,10 +363,35 @@ namespace Study_Abroad_Management
 
         private void contact_textBox_TextChanged(object sender, EventArgs e)
         {
-            label7.Visible = true;
-            label7.ForeColor = Color.Red;
-            label7.Text = "Contact number should be 11 digits";
+            if (!ValidationClass.IsValidContactNumber(contact_textBox.Text)) 
+            {
+                label7.Visible = true;
+                label7.ForeColor = Color.Red;
+                label7.Text = "Contact number should be 11 digits";
+            }
+            else 
+            {
+                label7.Visible = true;
+                label7.ForeColor = Color.Green;
+                label7.Text = "Contact number should be 11 digits";
+            }
 
+        }
+
+        private void ad_count_comboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!ValidationClass.validName(ad_count_comboBox.Text))
+            {
+                label5.Visible = true;
+                label5.ForeColor = Color.Red;
+                label5.Text = "Country name can contain only letters and spaces";
+            }
+            else 
+            {
+                label5.Visible = true;
+                label5.ForeColor = Color.Green;
+                label5.Text = "Country name can contain only letters and spaces";
+            }
         }
     }
 }

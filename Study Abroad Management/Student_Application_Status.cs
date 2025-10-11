@@ -41,20 +41,20 @@ namespace Study_Abroad_Management
                 
                 
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@StudentID", GlobalData.LoggedInUserID);  // Use the global logged-in user ID
+                    cmd.Parameters.AddWithValue("@StudentID", GlobalData.LoggedInUserID);  
 
-                    // DataAdapter to fill DataTable
+                    
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
 
-                    // Open connection and execute query
+                    
                     
                     sda.Fill(dt);
 
-                    // Display fetched data in DataGridView (you can change this part to show data as needed)
+                    
                     if (dt.Rows.Count > 0)
                     {
-                        apply_status_dataGridView.DataSource = dt;  // Bind data to DataGridView
+                        apply_status_dataGridView.DataSource = dt;  
                     }
                     else
                     {
@@ -132,6 +132,7 @@ namespace Study_Abroad_Management
         {
             User_Student us = new User_Student();
             us.Show();
+            us.__Show();
             this.Hide();
         }
     }
