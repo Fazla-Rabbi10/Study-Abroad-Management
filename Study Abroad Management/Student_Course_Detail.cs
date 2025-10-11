@@ -57,7 +57,8 @@ namespace Study_Abroad_Management
             User_Student student = new User_Student();
             this.Hide();
             student.Show();
-            
+            student.__Show();
+
         }
     }
 }

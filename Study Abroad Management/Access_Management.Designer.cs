@@ -135,7 +135,7 @@
             // 
             this.AdminIDlabel.AutoSize = true;
             this.AdminIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminIDlabel.Location = new System.Drawing.Point(48, 74);
+            this.AdminIDlabel.Location = new System.Drawing.Point(17, 86);
             this.AdminIDlabel.Name = "AdminIDlabel";
             this.AdminIDlabel.Size = new System.Drawing.Size(70, 25);
             this.AdminIDlabel.TabIndex = 52;
@@ -145,7 +145,7 @@
             // 
             this.Adminlabel.AutoSize = true;
             this.Adminlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Adminlabel.Location = new System.Drawing.Point(48, 23);
+            this.Adminlabel.Location = new System.Drawing.Point(17, 49);
             this.Adminlabel.Name = "Adminlabel";
             this.Adminlabel.Size = new System.Drawing.Size(70, 25);
             this.Adminlabel.TabIndex = 51;

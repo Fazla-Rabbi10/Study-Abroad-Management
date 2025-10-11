@@ -56,7 +56,7 @@ namespace Study_Abroad_Management
             Studentlabel.Text = "Welcome, " + stduentName;
             StudentIDlabel.Text = "ID: " + studnetID;
         }
-        void __Show() 
+        internal void __Show() 
         {
             try
             {
@@ -456,6 +456,7 @@ namespace Study_Abroad_Management
         private void refreshbuttonstudent_Click(object sender, EventArgs e)
         {
             __Show();
+            cleann();
         }
     }
 }
