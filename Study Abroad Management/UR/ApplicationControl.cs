@@ -107,5 +107,12 @@ namespace Study_Abroad_Management.UR
         {
             this.PopulateGridView();
         }
+
+        private void btnSee_Click(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(this.dgvApplicationStatus.SelectedRows[0].Cells[16].Value.ToString());
+
+            new FormStudentDetails(id).ShowDialog(); 
+        }
     }
 }
