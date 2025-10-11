@@ -133,7 +133,7 @@ namespace Study_Abroad_Management
                                 
                                 //new UniversityRepresentative().Show();
                                 this.Hide();
-                                //this.Clear();
+                                this.__Clear();
                             }
                             else if (dt.Rows[0][2].ToString() == "student")
                             {

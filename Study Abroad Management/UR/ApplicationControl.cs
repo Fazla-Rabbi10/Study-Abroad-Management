@@ -87,7 +87,7 @@ namespace Study_Abroad_Management.UR
 
                 string sql = $@"UPDATE ApplicationStatus
                                 SET ApplicationStatus = '{newStatus}'
-                                WHERE StudentId = {id} AND CourseId = {courseCode};";
+                                WHERE StudentId = {id} AND CourseCode = '{courseCode}';";
 
                 int count = Da.ExecuteDMLQuery(sql);
 
